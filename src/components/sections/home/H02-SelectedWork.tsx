@@ -886,14 +886,14 @@ export function H02SelectedWork() {
                       backgroundColor: "rgba(255, 255, 255, 0.95)",
                       color: "var(--color-brand-navy)",
                       padding: "0.8rem 1.4rem",
-                      borderRadius: "4px",
+                      borderRadius: "var(--radius-md, 6px)",
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.875rem",
-                      fontWeight: 600,
+                      fontWeight: 500,
                       textDecoration: "none",
                       letterSpacing: "-0.01em",
                       boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3)",
-                      transition: "all 200ms ease",
+                      transition: "background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard)",
                       flexShrink: 0,
                     }}
                     onMouseEnter={(e) => {
@@ -1085,8 +1085,9 @@ export function H02SelectedWork() {
                     color: "var(--color-brand-blue)",
                     fontFamily: "var(--font-inter)",
                     fontSize: "0.875rem",
-                    fontWeight: 600,
+                    fontWeight: 500,
                     textDecoration: "none",
+                    transition: "color var(--duration-fast) var(--ease-standard)",
                   }}
                 >
                   <span>Explore Project</span>

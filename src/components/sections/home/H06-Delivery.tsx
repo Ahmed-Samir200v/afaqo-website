@@ -598,14 +598,14 @@ export function H06Delivery() {
                       width: "38px",
                       height: "38px",
                       borderRadius: "50%",
-                      border: "1px solid rgba(5, 13, 36, 0.15)",
+                      border: "1px solid var(--color-border-light, rgba(5, 13, 36, 0.12))",
                       backgroundColor: "transparent",
-                      color: activeStage === 0 ? "rgba(5, 13, 36, 0.25)" : "#050D24",
+                      color: activeStage === 0 ? "rgba(5, 13, 36, 0.25)" : "var(--color-brand-navy, #050D24)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       cursor: activeStage === 0 ? "not-allowed" : "pointer",
-                      transition: "all 0.25s ease",
+                      transition: "background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard)",
                     }}
                   >
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -628,14 +628,14 @@ export function H06Delivery() {
                       width: "38px",
                       height: "38px",
                       borderRadius: "50%",
-                      border: "1px solid rgba(5, 13, 36, 0.15)",
+                      border: "1px solid var(--color-border-light, rgba(5, 13, 36, 0.12))",
                       backgroundColor: "transparent",
-                      color: activeStage === totalStages - 1 ? "rgba(5, 13, 36, 0.25)" : "#050D24",
+                      color: activeStage === totalStages - 1 ? "rgba(5, 13, 36, 0.25)" : "var(--color-brand-navy, #050D24)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       cursor: activeStage === totalStages - 1 ? "not-allowed" : "pointer",
-                      transition: "all 0.25s ease",
+                      transition: "background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard)",
                     }}
                   >
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -656,7 +656,7 @@ export function H06Delivery() {
                   style={{
                     fontFamily: "var(--font-inter)",
                     fontSize: "0.6875rem",
-                    fontWeight: 600,
+                    fontWeight: 500,
                     color: "var(--color-brand-blue, #0866FF)",
                     letterSpacing: "0.14em",
                     textTransform: "uppercase",
@@ -664,7 +664,7 @@ export function H06Delivery() {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "0.35rem",
-                    transition: "color 0.25s ease",
+                    transition: "color var(--duration-fast) var(--ease-standard), opacity var(--duration-fast) var(--ease-standard)",
                   }}
                 >
                   FROM A SINGLE POINT TO INFINITE HORIZONS ↗

@@ -401,7 +401,7 @@ export function H05Industries() {
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.8125rem",
-                  fontWeight: 600,
+                  fontWeight: 500,
                   color: "var(--color-brand-navy, #050D24)",
                   letterSpacing: "0.14em",
                 }}
@@ -418,14 +418,14 @@ export function H05Industries() {
                     width: "40px",
                     height: "40px",
                     borderRadius: "50%",
-                    border: "1px solid rgba(5, 13, 36, 0.15)",
+                    border: "1px solid var(--color-border-light, rgba(5, 13, 36, 0.12))",
                     backgroundColor: "transparent",
                     color: "var(--color-brand-navy, #050D24)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     cursor: "pointer",
-                    transition: "all 0.25s ease",
+                    transition: "background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard)",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = "rgba(8, 102, 255, 0.08)";
@@ -434,7 +434,7 @@ export function H05Industries() {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = "transparent";
-                    e.currentTarget.style.borderColor = "rgba(5, 13, 36, 0.15)";
+                    e.currentTarget.style.borderColor = "var(--color-border-light, rgba(5, 13, 36, 0.12))";
                     e.currentTarget.style.color = "var(--color-brand-navy, #050D24)";
                   }}
                 >
@@ -457,14 +457,14 @@ export function H05Industries() {
                     width: "40px",
                     height: "40px",
                     borderRadius: "50%",
-                    border: "1px solid rgba(5, 13, 36, 0.15)",
+                    border: "1px solid var(--color-border-light, rgba(5, 13, 36, 0.12))",
                     backgroundColor: "transparent",
                     color: "var(--color-brand-navy, #050D24)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     cursor: "pointer",
-                    transition: "all 0.25s ease",
+                    transition: "background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard)",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = "rgba(8, 102, 255, 0.08)";
@@ -473,7 +473,7 @@ export function H05Industries() {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = "transparent";
-                    e.currentTarget.style.borderColor = "rgba(5, 13, 36, 0.15)";
+                    e.currentTarget.style.borderColor = "var(--color-border-light, rgba(5, 13, 36, 0.12))";
                     e.currentTarget.style.color = "var(--color-brand-navy, #050D24)";
                   }}
                 >

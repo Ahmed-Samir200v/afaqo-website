@@ -16,8 +16,8 @@ if (typeof window !== "undefined") {
 }
 
 // Typographical weights for initial and scrolled headlines (Issue 02)
-const INITIAL_LINE_WEIGHTS = [300, 700, 500, 300]; // Light, Bold, Medium, Light
-const SCROLLED_LINE_WEIGHTS = [500, 700, 400]; // Medium, Bold, Light/Regular
+const INITIAL_LINE_WEIGHTS = [300, 600, 500, 300]; // Light, Bold, Medium, Light
+const SCROLLED_LINE_WEIGHTS = [500, 600, 400]; // Medium, Bold, Light/Regular
 
 export function H01Hero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -450,7 +450,7 @@ export function H01Hero() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          maxWidth: "1400px",
+          maxWidth: "var(--page-max-width, 1440px)",
           paddingBottom: "clamp(1.5rem, 3vh, 3rem)",
           willChange: "transform, filter, opacity",
         }}
@@ -594,7 +594,7 @@ export function H01Hero() {
                 padding: "0.8rem 1.6rem",
                 backgroundColor: "rgba(255, 255, 255, 0.06)",
                 border: "1px solid rgba(255, 255, 255, 0.18)",
-                borderRadius: "4px",
+                borderRadius: "var(--radius-md, 6px)",
                 fontFamily: "var(--font-inter)",
                 fontSize: "0.9375rem",
                 fontWeight: 500,
@@ -602,7 +602,7 @@ export function H01Hero() {
                 letterSpacing: "-0.01em",
                 textDecoration: "none",
                 backdropFilter: "blur(8px)",
-                transition: "all 250ms cubic-bezier(0.2, 0, 0, 1)",
+                transition: "background-color var(--duration-ui) var(--ease-standard), border-color var(--duration-ui) var(--ease-standard), transform var(--duration-ui) var(--ease-standard)",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = "var(--color-brand-blue)";
@@ -624,7 +624,7 @@ export function H01Hero() {
                 style={{
                   color: "var(--color-accent-cyan)",
                   fontSize: "1.05rem",
-                  transition: "transform 250ms ease",
+                  transition: "transform var(--duration-ui) var(--ease-standard)",
                   display: "inline-block",
                 }}
               >

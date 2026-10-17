@@ -42,6 +42,8 @@ function NavLinkItem({
         flexDirection: "column",
         alignItems: "center",
         paddingBlock: "0.35rem",
+        paddingInline: "0.25rem",
+        borderRadius: "var(--radius-sm, 2px)",
         position: "relative",
         textDecoration: "none",
         zIndex: 10,
@@ -56,7 +58,7 @@ function NavLinkItem({
           bottom: "0px",
           width: hovered || isActive ? "14px" : "0px",
           height: "1.5px",
-          backgroundColor: "#00D1FF",
+          backgroundColor: "var(--color-accent-cyan)",
           borderRadius: "1px",
           transition: "width 220ms ease",
         }}
@@ -81,7 +83,7 @@ function NavCTA({ label, href }: { label: string; href: string }) {
         border: hovered ? "1px solid rgba(0, 209, 255, 0.35)" : "1px solid rgba(255, 255, 255, 0.12)",
         color: "#FFFFFF",
         padding: "0.48rem 1.15rem",
-        borderRadius: "10px",
+        borderRadius: "var(--radius-lg, 10px)",
         fontFamily: "var(--font-inter)",
         fontSize: "13.5px",
         fontWeight: 500,
@@ -98,7 +100,7 @@ function NavCTA({ label, href }: { label: string; href: string }) {
       <span
         aria-hidden="true"
         style={{
-          color: "#00D1FF",
+          color: "var(--color-accent-cyan)",
           display: "inline-block",
           transform: hovered ? "translateX(3px)" : "translateX(0px)",
           transition: "transform 220ms ease",

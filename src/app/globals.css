@@ -535,7 +535,7 @@ button {
 .section-index {
   font-family: var(--font-inter);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin: 0 0 1.5rem;
@@ -558,7 +558,7 @@ button {
 .final-body--dark { color: var(--color-text-secondary-on-dark); }
 
 .text-electric { color: var(--color-brand-blue); }
-.text-electric-cyan { color: #00D1FF; }
+.text-electric-cyan { color: var(--color-brand-cyan); }
 
 /* Content visibility guarantees: all text elements default to 100% visible */
 .technology-eyebrow, .technology-headline, .technology-body, .tech-cap-node,
@@ -576,8 +576,8 @@ button {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background-color: #F9F8F4;
-  color: #050D24;
+  background-color: var(--color-canvas-light);
+  color: var(--color-brand-navy);
   padding-block: clamp(6rem, 9vw, 9.5rem) clamp(5rem, 8vw, 7.5rem);
 }
 
@@ -631,9 +631,9 @@ button {
 .technology-eyebrow {
   font-family: var(--font-inter), sans-serif;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.18em;
-  color: #53698C;
+  color: var(--color-text-secondary-on-light);
   text-transform: uppercase;
   margin: 0;
 }
@@ -649,14 +649,14 @@ button {
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: -0.03em;
-  color: #050D24;
+  color: var(--color-brand-navy);
   margin: 0;
 }
 .technology-headline > span {
   display: block;
 }
 .technology-accent {
-  color: #0866FF !important;
+  color: var(--color-brand-blue) !important;
 }
 
 .technology-body-wrapper {
@@ -667,7 +667,7 @@ button {
   font-family: var(--font-inter), sans-serif;
   font-size: var(--font-body-lg, 1.125rem);
   line-height: 1.7;
-  color: #53698C;
+  color: var(--color-text-secondary-on-light);
   margin: 0;
 }
 
@@ -679,7 +679,7 @@ button {
 .technology-rail-baseline {
   width: 100%;
   height: 1px;
-  background: rgba(5, 13, 36, 0.12);
+  background: var(--color-border-light);
   margin-bottom: 2rem;
 }
 .technology-rail-items {
@@ -703,8 +703,8 @@ button {
 .tech-cap-number {
   font-family: var(--font-manrope), sans-serif;
   font-size: 0.9375rem;
-  font-weight: 600;
-  color: #0866FF;
+  font-weight: 500;
+  color: var(--color-brand-blue);
   letter-spacing: 0.06em;
 }
 .tech-cap-code {
@@ -712,7 +712,7 @@ button {
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.12em;
-  color: #53698C;
+  color: var(--color-text-secondary-on-light);
 }
 .tech-cap-title {
   font-family: var(--font-manrope), sans-serif;
@@ -720,14 +720,14 @@ button {
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.015em;
-  color: #050D24;
+  color: var(--color-brand-navy);
   margin: 0 0 0.75rem;
 }
 .tech-cap-body {
   font-family: var(--font-inter), sans-serif;
   font-size: 0.9375rem;
   line-height: 1.65;
-  color: #53698C;
+  color: var(--color-text-secondary-on-light);
   max-width: 36ch;
   margin: 0;
 }
@@ -845,10 +845,10 @@ button {
   width: 100%;
   max-width: 440px;
   transform-origin: left center;
-  transition: border-color 0.35s ease;
+  transition: border-color var(--duration-ui) var(--ease-standard);
 }
 .sx-cta-rail:hover {
-  border-color: #00D1FF;
+  border-color: var(--color-brand-cyan);
 }
 .sx-editorial-link {
   display: flex;
@@ -863,15 +863,15 @@ button {
   letter-spacing: 0.04em;
 }
 .sx-editorial-link__arrow {
-  color: #00D1FF;
+  color: var(--color-brand-cyan);
   font-size: 1.125rem;
-  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+  transition: transform var(--duration-ui) var(--ease-standard);
 }
 .sx-editorial-link:hover .sx-editorial-link__arrow {
-  transform: translate(5px, -5px);
+  transform: translate(3px, -3px);
 }
 .sx-editorial-link:focus-visible {
-  outline: 2px solid #00D1FF;
+  outline: 2px solid var(--color-brand-cyan);
   outline-offset: 4px;
 }
 
