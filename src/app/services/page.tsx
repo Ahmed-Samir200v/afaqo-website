@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { getAllCaseStudies } from "@/content/projects/case-studies";
+import { ServicesScrollReveal } from "@/components/sections/services/ServicesScrollReveal";
 import styles from "@/components/sections/services/Services.module.css";
 
 export const metadata: Metadata = {
@@ -119,164 +120,170 @@ export default function ServicesPage() {
       {/* S00: Route Header (Light surface) */}
       <Header theme="light" />
 
-      {/* S01: Editorial Hero */}
-      <section className={styles.heroSection} aria-labelledby="services-heading">
-        <span className={styles.eyebrow}>02 / SERVICES</span>
-        <h1 id="services-heading" className={styles.heroTitle}>
-          Ideas become <span className={styles.accentWord}>experiences.</span>
-        </h1>
-        <p className={styles.heroIntro}>
-          From strategy and design to immersive production and real-time development,
-          we create digital experiences built around real-world needs.
-        </p>
-      </section>
+      <ServicesScrollReveal>
+        {/* S01: Editorial Hero */}
+        <section className={styles.heroSection} aria-labelledby="services-heading">
+          <span data-reveal-hero-item className={styles.eyebrow}>02 / SERVICES</span>
+          <h1 id="services-heading" data-reveal-hero-item className={styles.heroTitle}>
+            Ideas become <span className={styles.accentWord}>experiences.</span>
+          </h1>
+          <p data-reveal-hero-item className={styles.heroIntro}>
+            From strategy and design to immersive production and real-time development,
+            we create digital experiences built around real-world needs.
+          </p>
+        </section>
 
-      {/* S02 - S05: Four Distinct Capability Chapters */}
-      {chapters.map((chapter) => (
-        <section
-          key={chapter.number}
-          className={styles.chapterSection}
-          aria-labelledby={`chapter-${chapter.number}`}
-        >
-          <div
-            className={
-              chapter.reversed
-                ? styles.chapterContainerReversed
-                : styles.chapterContainer
-            }
+        {/* S02 - S05: Four Distinct Capability Chapters */}
+        {chapters.map((chapter) => (
+          <section
+            key={chapter.number}
+            data-reveal-chapter
+            className={styles.chapterSection}
+            aria-labelledby={`chapter-${chapter.number}`}
           >
-            {/* Text Column */}
-            <div>
-              <div className={styles.chapterMeta}>
-                <span className={styles.chapterNumber}>{chapter.number}</span>
-                <span className={styles.chapterCategory}>{chapter.category}</span>
-              </div>
-              <h2 id={`chapter-${chapter.number}`} className={styles.chapterTitle}>
-                {chapter.title}
-              </h2>
-              <p className={styles.chapterDescription}>{chapter.description}</p>
-              
-              <ul className={styles.deliverablesList}>
-                {chapter.deliverables.map((item, idx) => (
-                  <li key={idx} className={styles.deliverableItem}>
-                    <span className={styles.deliverableBullet}>—</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+            <div
+              className={
+                chapter.reversed
+                  ? styles.chapterContainerReversed
+                  : styles.chapterContainer
+              }
+            >
+              {/* Text Column */}
+              <div>
+                <div data-reveal-chapter-text className={styles.chapterMeta}>
+                  <span className={styles.chapterNumber}>{chapter.number}</span>
+                  <span className={styles.chapterCategory}>{chapter.category}</span>
+                </div>
+                <h2 id={`chapter-${chapter.number}`} data-reveal-chapter-text className={styles.chapterTitle}>
+                  {chapter.title}
+                </h2>
+                <p data-reveal-chapter-text className={styles.chapterDescription}>{chapter.description}</p>
+                
+                <ul data-reveal-chapter-text className={styles.deliverablesList}>
+                  {chapter.deliverables.map((item, idx) => (
+                    <li key={idx} className={styles.deliverableItem}>
+                      <span className={styles.deliverableBullet}>—</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
 
-              <div className={styles.tagRow}>
-                {chapter.tags.map((tag, idx) => (
-                  <span key={idx} className={styles.tag}>
-                    {tag}
-                  </span>
-                ))}
+                <div data-reveal-chapter-text className={styles.tagRow}>
+                  {chapter.tags.map((tag, idx) => (
+                    <span key={idx} className={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Media Column */}
+              <div data-reveal-chapter-media>
+                <div className={styles.mediaFrame}>
+                  <span className={styles.mediaBadge}>{chapter.badge}</span>
+                  <Image
+                    src={chapter.image}
+                    alt={`${chapter.title} - AFAQO capability`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className={styles.mediaImage}
+                  />
+                </div>
               </div>
             </div>
+          </section>
+        ))}
 
-            {/* Media Column */}
-            <div>
-              <div className={styles.mediaFrame}>
-                <span className={styles.mediaBadge}>{chapter.badge}</span>
-                <Image
-                  src={chapter.image}
-                  alt={`${chapter.title} - AFAQO capability`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className={styles.mediaImage}
-                />
-              </div>
+        {/* S06: Deep Navy Technical Band (One Partner. End to End.) */}
+        <section data-reveal-endtoend className={styles.endToEndSection} aria-labelledby="end-to-end-heading">
+          <div className={styles.endToEndContainer}>
+            <span data-reveal-endtoend-header className={styles.endToEndEyebrow}>System Architecture</span>
+            <h2 id="end-to-end-heading" data-reveal-endtoend-header className={styles.endToEndTitle}>
+              One partner. End to end.
+            </h2>
+            <p data-reveal-endtoend-header className={styles.endToEndSubhead}>
+              From the first idea to the final deployed experience, we engineer
+              continuous technical coherence across every project milestone.
+            </p>
+
+            <div data-reveal-stages-grid className={styles.stagesGrid}>
+              {processStages.map((stage) => (
+                <div key={stage.index} data-reveal-stage-card className={styles.stageCard}>
+                  <div className={styles.stageIndex}>{stage.index}</div>
+                  <h3 className={styles.stageName}>{stage.name}</h3>
+                  <p className={styles.stageDesc}>{stage.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
-      ))}
 
-      {/* S06: Deep Navy Technical Band (One Partner. End to End.) */}
-      <section className={styles.endToEndSection} aria-labelledby="end-to-end-heading">
-        <div className={styles.endToEndContainer}>
-          <span className={styles.endToEndEyebrow}>System Architecture</span>
-          <h2 id="end-to-end-heading" className={styles.endToEndTitle}>
-            One partner. End to end.
-          </h2>
-          <p className={styles.endToEndSubhead}>
-            From the first idea to the final deployed experience, we engineer
-            continuous technical coherence across every project milestone.
-          </p>
+        {/* S07: Relevant Work */}
+        <section data-reveal-work className={styles.relevantWorkSection} aria-labelledby="relevant-work-heading">
+          <div data-reveal-work-header className={styles.sectionHeader}>
+            <div>
+              <span className={styles.eyebrow}>03 / PROVEN EXECUTION</span>
+              <h2 id="relevant-work-heading" className={styles.sectionTitle}>
+                Capabilities in practice.
+              </h2>
+            </div>
+            <Link href="/work" className={styles.viewAllLink}>
+              Explore all projects ↗
+            </Link>
+          </div>
 
-          <div className={styles.stagesGrid}>
-            {processStages.map((stage) => (
-              <div key={stage.index} className={styles.stageCard}>
-                <div className={styles.stageIndex}>{stage.index}</div>
-                <h3 className={styles.stageName}>{stage.name}</h3>
-                <p className={styles.stageDesc}>{stage.desc}</p>
-              </div>
+          <div data-reveal-projects-grid className={styles.projectsGrid}>
+            {relevantProjects.map((project) => (
+              <Link
+                key={project.slug}
+                data-reveal-project-card
+                href={`/work/${project.slug}`}
+                className={styles.projectCard}
+              >
+                <div className={styles.projectImageFrame}>
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt || project.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className={styles.mediaImage}
+                  />
+                </div>
+                <div className={styles.projectBody}>
+                  <div className={styles.projectMeta}>
+                    <span>{project.category}</span>
+                    <span>{project.location}</span>
+                  </div>
+                  <h3 className={styles.projectTitle}>{project.title}</h3>
+                  <p className={styles.projectSummary}>{project.summary}</p>
+                  <div className={styles.projectArrow}>
+                    View case study <span>↗</span>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* S07: Relevant Work */}
-      <section className={styles.relevantWorkSection} aria-labelledby="relevant-work-heading">
-        <div className={styles.sectionHeader}>
-          <div>
-            <span className={styles.eyebrow}>03 / PROVEN EXECUTION</span>
-            <h2 id="relevant-work-heading" className={styles.sectionTitle}>
-              Capabilities in practice.
+        {/* S08: Closing CTA */}
+        <section data-reveal-cta className={styles.closingCtaSection} aria-labelledby="cta-heading">
+          <div className={styles.ctaContainer}>
+            <span data-reveal-cta-item className={styles.ctaEyebrow}>Start a Conversation</span>
+            <h2 id="cta-heading" data-reveal-cta-item className={styles.ctaTitle}>
+              Let’s build something worth experiencing.
             </h2>
+            <p data-reveal-cta-item className={styles.ctaSubtitle}>
+              Whether you have a fully scoped technical brief or an early-stage spatial concept,
+              our team is ready to help you define and build it.
+            </p>
+            <div data-reveal-cta-item>
+              <Link href="/contact" className={styles.ctaButton}>
+                Start a Project <span>↗</span>
+              </Link>
+            </div>
           </div>
-          <Link href="/work" className={styles.viewAllLink}>
-            Explore all projects ↗
-          </Link>
-        </div>
-
-        <div className={styles.projectsGrid}>
-          {relevantProjects.map((project) => (
-            <Link
-              key={project.slug}
-              href={`/work/${project.slug}`}
-              className={styles.projectCard}
-            >
-              <div className={styles.projectImageFrame}>
-                <Image
-                  src={project.image}
-                  alt={project.imageAlt || project.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className={styles.mediaImage}
-                />
-              </div>
-              <div className={styles.projectBody}>
-                <div className={styles.projectMeta}>
-                  <span>{project.category}</span>
-                  <span>{project.location}</span>
-                </div>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
-                <p className={styles.projectSummary}>{project.summary}</p>
-                <div className={styles.projectArrow}>
-                  View case study <span>↗</span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* S08: Closing CTA */}
-      <section className={styles.closingCtaSection} aria-labelledby="cta-heading">
-        <div className={styles.ctaContainer}>
-          <span className={styles.ctaEyebrow}>Start a Conversation</span>
-          <h2 id="cta-heading" className={styles.ctaTitle}>
-            Let’s build something worth experiencing.
-          </h2>
-          <p className={styles.ctaSubtitle}>
-            Whether you have a fully scoped technical brief or an early-stage spatial concept,
-            our team is ready to help you define and build it.
-          </p>
-          <Link href="/contact" className={styles.ctaButton}>
-            Start a Project <span>↗</span>
-          </Link>
-        </div>
-      </section>
+        </section>
+      </ServicesScrollReveal>
 
       {/* Global Unified Footer */}
       <Footer />
