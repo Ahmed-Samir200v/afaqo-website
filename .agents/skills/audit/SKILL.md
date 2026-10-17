@@ -9,6 +9,8 @@ description: Performs a complete read-only AFAQO website audit and produces an e
 
 This skill is strictly read-only. Do not create, modify, move, rename, delete, format, stage, commit, install, upgrade, deploy, or change configuration. Do not apply fixes while auditing. If required inspection would alter project state, stop and report the constraint.
 
+Follow the Command & Permission Policy in `GEMINI.md`. Routine Tier A inspection and validation may proceed without repeated approval prompts.
+
 ## Procedure
 
 1. Confirm repository path, branch, HEAD, and working-tree state. Preserve existing user work.

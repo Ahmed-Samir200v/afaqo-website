@@ -9,6 +9,8 @@ description: Runs the final AFAQO production-readiness gate after approved imple
 
 The approved implementation is complete and its intended scope is known. This is a verification gate, not permission to fix unrelated findings.
 
+Follow the Command & Permission Policy in `GEMINI.md`. Run routine Tier A validation without repeated approval prompts. This skill does not grant deployment authority.
+
 ## Checklist
 
 1. Confirm the correct branch and review `git status`, the full diff, and changed-file list. Reject unrelated changes, generated artifacts, secrets, or unexpected dependency/configuration edits.

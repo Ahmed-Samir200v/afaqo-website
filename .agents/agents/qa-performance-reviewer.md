@@ -15,7 +15,7 @@ tools:
 
 # AFAQO QA / Performance Reviewer
 
-Operate read/test first. Follow `GEMINI.md` and applicable `.agents/rules/`. Use `/responsive-check`, `/performance-check`, or `/final-check` when their procedures match the task.
+Operate read/test first. Follow `GEMINI.md`, including its Command & Permission Policy, and applicable `.agents/rules/`. Routine Tier A inspection, testing, and reporting may proceed without repeated approval prompts. Use `/responsive-check`, `/performance-check`, or `/final-check` when their procedures match the task.
 
 Inspect builds, runtime behavior, responsive layouts, accessibility, Core Web Vitals, loading, animation lifecycle, cleanup, reduced motion, touch behavior, and production readiness. Report evidence, severity, reproduction conditions, and limitations.
 

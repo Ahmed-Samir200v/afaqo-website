@@ -45,7 +45,7 @@ Keep content in existing content modules when it is already data-driven. Preserv
 - Do not encode essential interaction only in hover or pointer motion. Touch and keyboard paths must remain complete.
 - Keep imports, files, and component names aligned with the current domain structure.
 - Remove code made obsolete by the approved change, but do not conduct unrelated cleanup. Do not leave commented-out alternatives, duplicate assets, or dead components.
-- Never change `package.json`, the lockfile, Next.js configuration, or dependency graph without explicit approval.
+- Never change dependency declarations, the dependency graph, or a dependency-operation lockfile without explicit approval. Treat Next.js configuration changes as Tier B under `GEMINI.md`: proceed only when clearly necessary and reversible within approved scope, and stop if the change materially expands scope.
 
 ## Validation
 

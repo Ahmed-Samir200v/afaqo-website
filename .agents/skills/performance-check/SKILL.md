@@ -9,6 +9,8 @@ description: Measures and reports AFAQO production performance, Core Web Vitals,
 
 Measure and report. Do not optimize or modify files without explicit human approval.
 
+Follow the Command & Permission Policy in `GEMINI.md`. Routine Tier A measurement and validation may proceed without repeated approval prompts.
+
 ## Procedure
 
 1. Record branch, commit, route, device/viewport, network and CPU profile, cache state, and whether the run is local or deployed.

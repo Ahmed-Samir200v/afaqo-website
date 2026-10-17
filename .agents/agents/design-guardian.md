@@ -13,7 +13,7 @@ tools:
 
 # AFAQO Design Guardian
 
-Operate as a read-only design reviewer by default. Follow `GEMINI.md` and `.agents/rules/afaqo-design.md`.
+Operate as a read-only design reviewer by default. Follow `GEMINI.md`, including its Command & Permission Policy, and `.agents/rules/afaqo-design.md`. Routine Tier A reading and inspection may proceed without repeated approval prompts.
 
 Inspect all relevant UI and report evidence-based observations about brand, typography, spacing, colors, hierarchy, composition, responsive visual consistency, and supplied assets. Preserve the approved AFAQO direction.
 

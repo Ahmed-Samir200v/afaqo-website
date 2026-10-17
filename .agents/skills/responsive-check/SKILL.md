@@ -9,6 +9,8 @@ description: Inspects AFAQO responsive layout, interaction, and motion across re
 
 Inspection only. Do not modify files unless the human explicitly approves responsive implementation scope.
 
+Follow the Command & Permission Policy in `GEMINI.md`. Routine Tier A inspection and validation may proceed without repeated approval prompts.
+
 ## Procedure
 
 1. Identify the route, sections, expected behavior, existing breakpoints, and fluid sizing rules.

@@ -12,11 +12,48 @@ Codex is the Control-System / Rules Architect. It owns `GEMINI.md`, `.agents/`, 
 
 Classify work before editing:
 
-- **Small:** inspect -> implement -> test -> report.
-- **Medium:** inspect -> plan -> implement -> test -> self-review -> report.
-- **Large or risky:** inspect -> plan -> human approval -> implement -> test -> audit -> report.
+- **Small:** inspect -> implement -> validate -> report. Once the human approves the task, do not add an unnecessary approval checkpoint for routine substeps.
+- **Medium:** inspect -> brief internal plan -> implement -> validate -> self-review -> report. Stop for approval only if scope materially changes.
+- **Large or risky:** inspect -> plan -> human approval -> implement -> validate -> audit -> report.
 
-The human's current prompt is the final authority over task intent and scope. A vague request must produce a bounded clarification or proposal, never an uncontrolled site-wide change. Large or risky work requires approval of a concrete plan before implementation. Material dependency, architecture, brand, destructive, deployment, or Git-history changes always require explicit approval.
+The human's current prompt is the final authority over task intent and scope. A vague request must produce a bounded clarification or proposal, never an uncontrolled site-wide change. Large or risky work requires approval of a concrete plan before implementation. Apply the command and permission tiers below to all work.
+
+## Command & Permission Policy
+
+Human approval applies to the task scope, not to every routine substep. Once the human approves a bounded task, proceed with necessary Tier A operations without repeatedly requesting confirmation, while remaining inside that scope.
+
+### Tier A — Routine / auto-proceed
+
+When the Antigravity sandbox allows it, proceed without additional human approval for routine, reversible, project-scoped operations required by an already approved task:
+
+- Read and inspect project files, list and search directories, inspect source and configuration, and check existing dependency declarations.
+- Run safe Git inspection such as `git status`, `git diff`, `git diff --stat`, `git log`, `git show`, `git branch --show-current`, `git rev-parse`, and `git ls-files`.
+- Run existing project-local build, lint, typecheck, test, and validation commands.
+- For a human-approved implementation task, make normal reversible edits within the approved scope, including relevant `src/`, CSS, components, responsive styles, and GSAP or motion code, and create a component required by that task.
+
+Do not ask for separate approval for each routine command or file when the task itself is already approved.
+
+### Tier B — Conditional / pause if scope expands
+
+Proceed only when the action is clearly necessary for the approved task and remains reversible. Stop and ask if it materially expands scope. Examples include creating several components, moving files, renaming shared components, changing shared design tokens or site-wide global styles, substantial architecture changes, broad refactoring, changing shared motion infrastructure, or changing Next.js configuration. A small approved task must never silently become site-wide work.
+
+### Tier C — Human approval required
+
+Always require explicit human approval before:
+
+- **Dependencies:** installing, uninstalling, or updating packages; changing dependency declarations; or causing dependency-operation lockfile changes.
+- **Destructive files:** deleting significant project files, bulk deletion, destructive overwrite, or cleanup that removes untracked files.
+- **Git mutation or history:** commit, push, pull that may integrate remote changes, merge, rebase, reset, clean, revert, branch deletion, tag creation or deletion, destructive checkout or restore, and force operations.
+- **Deployment or external actions:** deployment, publishing, uploading, external writes, production changes, remote database mutation, or cloud-resource mutation.
+- **Secrets or environment:** modifying credentials, secrets, secret-bearing environment variables, authentication, permissions, or security configuration.
+- **System or outside workspace:** commands outside the AFAQO project workspace, system-level changes, global package installation, or global configuration changes.
+- **Risky or irreversible operations:** any destructive, difficult-to-reverse, or uncertain action.
+
+### Tier D — Never auto-bypass
+
+Never bypass Antigravity permission protections, disable sandbox protections, use permission-bypass modes, expose credentials, weaken security controls to avoid an approval prompt, blindly approve terminal commands, automate approval-dialog clicks, or execute an unclear destructive command. If uncertain whether an action is Tier A or higher, choose the safer tier.
+
+For example, approval to “Fix the Home navigation responsive behavior” permits inspecting and editing relevant navigation files, running `git diff`, building, and performing responsive validation. It does not permit unrelated refactors, library installation, unrelated deletion, commit, push, or deployment.
 
 ## Operating rules
 
