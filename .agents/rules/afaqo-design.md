@@ -1,3 +1,8 @@
+---
+trigger: always_on
+description: "Permanent AFAQO brand, visual-system, typography, palette, and asset-protection rules."
+---
+
 # AFAQO Design Rules
 
 ## Brand foundation
@@ -8,7 +13,7 @@
 - Location statement: **CAIRO — WORKING GLOBALLY.**
 - Visual direction: creative corporate, editorial, immersive, technically precise, premium, and generous with negative space.
 
-The current implementation expresses the positioning as `CREATIVE TECHNOLOGY / IMMERSIVE EXPERIENCES`. Its hero body says that AFAQO transforms ideas, spaces, and complex challenges into immersive digital experiences. Preserve this live wording unless copy changes are explicitly approved; the core statement above is a strategic direction, not permission to replace current copy.
+The current implementation expresses the positioning as `CREATIVE TECHNOLOGY / IMMERSIVE EXPERIENCES`. Its hero body says that AFAQO transforms ideas, spaces, and complex challenges into immersive digital experiences. Preserve this live wording unless copy changes are explicitly approved; the core statement above is strategic direction, not permission to replace current copy.
 
 ## Verified implementation values
 
@@ -29,10 +34,10 @@ The global token layer also defines dark and light surfaces, text and border col
 
 ## Composition and visual behavior
 
-- Preserve the alternating deep-navy and Soft-Ivory editorial rhythm.
+- Preserve the alternating Deep Navy and Soft Ivory editorial rhythm.
 - Favor clear hierarchy, large display typography, disciplined grids, precise alignment, and purposeful negative space.
 - Electric Blue is the primary accent. Electric Cyan is a restrained secondary signal.
-- Preserve the established fluid sizing approach with `clamp()` and the existing responsive thresholds unless a change is approved and tested.
+- Preserve the established fluid sizing approach with `clamp()` and existing responsive thresholds unless a change is approved and tested.
 - Keep interaction and motion premium, controlled, and subordinate to content.
 - Do not add decoration that competes with brand assets, content hierarchy, or immersive media.
 - New UI must work in the existing light and dark contexts and retain visible focus treatment.

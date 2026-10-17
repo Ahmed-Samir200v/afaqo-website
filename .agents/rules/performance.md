@@ -1,3 +1,8 @@
+---
+trigger: model_decision
+description: "Apply for performance, Core Web Vitals, images, fonts, client JavaScript, loading, Spline, WebGL/canvas, or production-readiness work."
+---
+
 # Performance Rules
 
 ## Performance priorities
@@ -30,7 +35,7 @@ Protect Core Web Vitals: LCP, INP, and CLS. Treat mobile hardware and constraine
 
 - Scope and clean up all GSAP/ScrollTrigger work. Prefer transform and opacity.
 - Pause or reduce work offscreen, on hidden pages, with reduced motion, and on constrained/touch devices when appropriate.
-- Lazy-load Spline scenes and preserve fixed-size, visually compatible fallbacks. Avoid making a remote 3D scene a prerequisite for primary content or navigation.
+- Lazy-load Spline scenes and preserve fixed-size, visually compatible fallbacks. Do not make a remote 3D scene a prerequisite for primary content or navigation.
 - Three.js is not part of the current AFAQO stack. It is an optional future technology requiring explicit justification and approval, including bundle-impact analysis and a fallback plan.
 - The current `MoltenMetal` effect is custom WebGL/canvas code. Preserve context cleanup, observer cleanup, DPR caps, resize discipline, and graceful failure.
 - Limit texture resolution, draw calls, shader complexity, DPR, and simultaneous animated canvases. Test thermal and battery behavior on mobile-class hardware.
@@ -45,4 +50,4 @@ Protect Core Web Vitals: LCP, INP, and CLS. Treat mobile hardware and constraine
 
 ## Verification
 
-For approved performance work, compare production builds and browser measurements before and after. Record tested route, viewport, device/profile, cache state, metrics, bundle changes, and any limitations. Performance claims require evidence.
+For approved performance work, compare production builds and browser measurements before and after. Record tested route, viewport, device/profile, cache state, metrics, bundle changes, and limitations. Performance claims require evidence.

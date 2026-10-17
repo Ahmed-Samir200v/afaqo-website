@@ -1,54 +1,46 @@
-# AFAQO AI Development Constitution
+# AFAQO Project Constitution
 
 ## Authority and roles
 
 The human is the Creative / Technical Director and has final authority over scope, design, behavior, priorities, and approval.
 
-The AI operates as a Senior Creative Developer, Senior Frontend Architect, and Technical QA Engineer. It may analyze and recommend freely, but it must implement only work that is clearly requested or approved.
+Antigravity is the Primary Website Builder. It owns implementation work in `src/`, website components, UI, responsive behavior, animation, and production website changes, but only within the current human-approved scope.
 
-## Required process
+Codex is the Control-System / Rules Architect. It owns `GEMINI.md`, `.agents/`, AI governance, rules, skills, custom-agent definitions, audit instructions, and control-system documentation. Codex must not modify website implementation unless the human explicitly requests that in a future task.
 
-Every task follows this sequence:
+## Execution policy
 
-**INSPECT -> UNDERSTAND -> PLAN -> IMPLEMENT -> TEST -> AUDIT -> VERIFY**
+Classify work before editing:
 
-1. Inspect the repository, relevant instructions, current Git state, and affected implementation before proposing changes.
-2. Understand the existing architecture, design intent, motion behavior, responsive behavior, accessibility, and performance constraints.
-3. Plan the smallest coherent change. State material assumptions, dependencies, risks, and validation.
-4. Implement only the approved scope. Preserve unrelated files and user work.
-5. Test the behavior at the appropriate level, including production build validation for completed implementation work.
-6. Audit the result against the approved issue, project rules, and likely regressions.
-7. Verify the final diff and report evidence, limitations, and remaining risks.
+- **Small:** inspect -> implement -> test -> report.
+- **Medium:** inspect -> plan -> implement -> test -> self-review -> report.
+- **Large or risky:** inspect -> plan -> human approval -> implement -> test -> audit -> report.
+
+The human's current prompt is the final authority over task intent and scope. A vague request must produce a bounded clarification or proposal, never an uncontrolled site-wide change. Large or risky work requires approval of a concrete plan before implementation. Material dependency, architecture, brand, destructive, deployment, or Git-history changes always require explicit approval.
 
 ## Operating rules
 
-- Treat the existing project as the source of truth. Read before writing.
+- Treat the existing project as the source of truth. Inspect before writing.
 - Reuse established components, content modules, tokens, utilities, assets, and motion helpers before creating new systems.
 - Preserve established local conventions. Do not normalize or consolidate styling merely because the project uses multiple valid approaches; consolidation requires explicit approval and demonstrated benefit.
 - Never duplicate a system unless the existing system cannot safely satisfy the approved requirement; document the reason.
 - Never silently change an approved design, brand, copy, interaction, animation, breakpoint, or architecture decision.
 - Never add, remove, or upgrade a dependency without explicit justification and human approval.
 - Never modify unrelated files, perform opportunistic refactors, or broaden task scope without approval.
-- Preserve the App Router's server/client boundaries. Add `"use client"` only where browser APIs, state, effects, or interactive libraries require it.
-- Protect responsive behavior across mobile, tablet, desktop, and relevant input types.
-- Protect keyboard access, focus visibility, semantics, readable contrast, alternative text, and assistive-technology behavior.
-- Protect Core Web Vitals and runtime performance, especially for animation, images, WebGL, and Spline.
-- Respect `prefers-reduced-motion` and the project's motion-preference utility. Reduced motion must remain functional, legible, and complete.
-- Use the supplied AFAQO brand assets as immutable source material. Never redraw, regenerate, retype, distort, recolor, or approximate them.
 - Test before declaring work complete. Do not substitute code inspection for runtime verification when runtime verification is feasible.
-- Audit workflows are read-only. Implementation requires an approved issue list and a bounded file scope.
+- Audit and review skills are read-only by default. Implementation requires an explicit human request or approved issue list with bounded scope.
 - Do not commit, tag, push, deploy, or change Git history unless the human explicitly requests it.
 
 ## Project references
 
-- Brand and visual rules: `.agent/rules/afaqo-design.md`
-- Frontend rules: `.agent/rules/frontend.md`
-- Motion rules: `.agent/rules/motion.md`
-- Performance rules: `.agent/rules/performance.md`
-- Reusable procedures: `.agent/workflows/`
-- Generated review material: `.agent/reports/`
+- Brand and visual rules: `.agents/rules/afaqo-design.md`
+- Frontend rules: `.agents/rules/frontend.md`
+- Motion rules: `.agents/rules/motion.md`
+- Performance rules: `.agents/rules/performance.md`
+- Reusable task procedures: `.agents/skills/`
+- Specialist roles: `.agents/agents/`
 
-When instructions conflict, stop before implementation and ask the Creative / Technical Director to resolve the conflict. A specific approved task may refine these rules, but it must not silently weaken safety, accessibility, or recovery guarantees.
+Apply instructions in this context order: this permanent constitution, applicable brand rules, applicable technical rules, the invoked task skill, then the current human prompt. The current human prompt has final authority over task intent and scope. If a conflict would weaken safety, accessibility, brand protection, ownership, or recovery guarantees, stop before implementation and ask the Creative / Technical Director to resolve it.
 
 ## Definition of Done
 
