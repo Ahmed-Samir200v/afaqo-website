@@ -1,14 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
-import { homeContent } from "@/content/global/home";
+import { navigationContent } from "@/content/global/navigation";
+import { BackToTopButton } from "./BackToTopButton";
+import { CurrentYear } from "./CurrentYear";
 
 /**
- * AFAQO Corporate Editorial Footer — Soft Ivory, refined architectural presence.
- * Integrates directly with the Closing section as one continuous brand conclusion.
+ * AFAQO Unified Global Corporate Editorial Footer — Soft Ivory, refined architectural presence.
+ * Satisfies docs/design/FOOTER_REQUIREMENTS.md across all routes.
  */
 export function Footer() {
-  const { finalCTA } = homeContent;
-
   return (
     <footer className="site-footer" aria-label="AFAQO Corporate Footer">
       <div className="page-container site-footer__container">
@@ -31,10 +31,10 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Clean Editorial Navigation */}
+          {/* Clean Editorial Navigation (All 7 required routes) */}
           <nav aria-label="Footer Navigation" className="site-footer__nav">
             <ul role="list" className="site-footer__nav-list">
-              {finalCTA.footerLinks.map((link) => (
+              {navigationContent.footerNavigation.map((link) => (
                 <li key={link.label} className="site-footer__nav-item">
                   <Link href={link.href} className="site-footer__nav-link">
                     {link.label}
@@ -48,19 +48,23 @@ export function Footer() {
           <div className="site-footer__location-badge">
             <span className="site-footer__presence-dot" aria-hidden="true" />
             <span className="site-footer__location-text">
-              {finalCTA.footerMetadata.location}
+              {navigationContent.metaUtility}
             </span>
           </div>
         </div>
 
-        {/* Bottom Refined Legal & Spec Micro-Row */}
+        {/* Bottom Refined Legal & Spec Micro-Row with Back to Top */}
         <div className="site-footer__bottom">
-          <span className="site-footer__legal-text">
-            © 2026 {finalCTA.footerMetadata.brand}. ALL RIGHTS RESERVED.
-          </span>
-          <span className="site-footer__legal-text site-footer__legal-text--dim">
-            CREATIVE TECHNOLOGY STUDIO — SPATIAL &amp; INTERACTIVE SYSTEMS
-          </span>
+          <div className="site-footer__legal-group">
+            <span className="site-footer__legal-text">
+              © <CurrentYear /> AFAQO. ALL RIGHTS RESERVED.
+            </span>
+            <span className="site-footer__legal-text site-footer__legal-text--dim">
+              CREATIVE TECHNOLOGY STUDIO — SPATIAL &amp; INTERACTIVE SYSTEMS
+            </span>
+          </div>
+
+          <BackToTopButton />
         </div>
       </div>
     </footer>

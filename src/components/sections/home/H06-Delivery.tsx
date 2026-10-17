@@ -174,7 +174,7 @@ export function H06Delivery() {
 
       // ======================================================================
       // DESKTOP PINNED HORIZONTAL JOURNEY (>= 1024px)
-      // Short ScrollTrigger: roughly 140vh additional scroll. No trap, no snapping.
+      // Capped fluid scroll (~750-1050px). Eliminates scroll fatigue, preserves 6-stage journey.
       // ======================================================================
       mm.add("(min-width: 1024px)", () => {
         if (shouldReduceMotion) return;
@@ -190,11 +190,13 @@ export function H06Delivery() {
         });
 
         const progressProxy = { val: 0 };
+        // Capped viewport calculation avoids uncapped height multipliers
+        const pinDistance = Math.min(Math.max(window.innerHeight * 0.95, 750), 1050);
 
         ScrollTrigger.create({
           trigger: pinWrapperRef.current,
           start: "top top",
-          end: "+=140%", // short fluid scroll (~140vh)
+          end: `+=${pinDistance}`,
           pin: true,
           scrub: 0.5,
           anticipatePin: 1,
@@ -260,6 +262,8 @@ export function H06Delivery() {
       }}
       aria-label="04 / How We Work — End-to-End Experience Delivery"
     >
+      {/* Anchor target for #about navigation link */}
+      <div id="about" style={{ position: "absolute", top: "-80px", left: 0 }} aria-hidden="true" />
       <div
         ref={pinWrapperRef}
         style={{
@@ -268,14 +272,7 @@ export function H06Delivery() {
           boxSizing: "border-box",
         }}
       >
-        <div
-          style={{
-            maxWidth: "1440px",
-            margin: "0 auto",
-            paddingInline: "clamp(1.5rem, 5vw, 5rem)",
-            boxSizing: "border-box",
-          }}
-        >
+        <div className="page-container">
           {/* Section Header */}
           <div
             ref={headerRef}

@@ -75,7 +75,7 @@ export function H04Services() {
       style={{
         backgroundColor: "var(--color-canvas-light, #F9F8F4)",
         color: "var(--color-brand-navy, #050D24)",
-        paddingBlock: "clamp(5rem, 8vw, 8.5rem)",
+        paddingBlock: "clamp(4.5rem, 6.5vw, 6.5rem)",
         borderTop: "1px solid var(--color-border-light, rgba(5, 13, 36, 0.08))",
         position: "relative",
         overflow: "hidden",

@@ -14,8 +14,6 @@ if (typeof window !== "undefined") {
 export function H05Industries() {
   // Start with 02 Oil & Gas (index 1) active per approved visual source of truth
   const [activeIndex, setActiveIndex] = useState<number>(1);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [stageParallax, setStageParallax] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -49,23 +47,6 @@ export function H05Industries() {
 
   const handleSelect = useCallback((idx: number) => {
     setActiveIndex(idx);
-  }, []);
-
-  // Subtle environmental pointer parallax on desktop only (max X ±5px, Y ±3px)
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      if (shouldReduceMotion) return;
-      const rect = e.currentTarget.getBoundingClientRect();
-      const nx = (e.clientX - rect.left) / rect.width - 0.5;
-      const ny = (e.clientY - rect.top) / rect.height - 0.5;
-      setStageParallax({ x: nx * 5, y: ny * 3 });
-    },
-    [shouldReduceMotion]
-  );
-
-  const handleMouseLeave = useCallback(() => {
-    setStageParallax({ x: 0, y: 0 });
-    setIsHovered(false);
   }, []);
 
   // Keyboard accessibility
@@ -243,10 +224,10 @@ export function H05Industries() {
         paddingBlock: "clamp(4.5rem, 6.5vw, 6.5rem)",
         position: "relative",
         overflow: "hidden",
-        borderTop: "1px solid var(--color-border-light, rgba(5, 13, 36, 0.08))",
       }}
       aria-label="Industries — Spatial Industry Explorer"
     >
+
       {/* ================================================================== */}
       {/* 09 — SEAMLESS LIGHT ARCHITECTURAL FLOOR (Controlled CSS Gradients)  */}
       {/* No giant gray shadow, no floor image, no dark cloud                 */}
@@ -302,13 +283,10 @@ export function H05Industries() {
       </div>
 
       <div
+        className="page-container"
         style={{
           position: "relative",
           zIndex: 1,
-          maxWidth: "1440px",
-          margin: "0 auto",
-          paddingInline: "clamp(1.5rem, 5vw, 5rem)",
-          boxSizing: "border-box",
         }}
       >
         {/* ================================================================== */}
@@ -499,9 +477,6 @@ export function H05Industries() {
           ref={stageRef}
           tabIndex={0}
           onKeyDown={handleKeyDown}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={handleMouseLeave}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           onMouseDown={handleMouseDown}
@@ -519,15 +494,13 @@ export function H05Industries() {
           aria-label="Spatial industry carousel stage"
           role="region"
         >
-          {/* Parallax wrapper with subtle pointer reaction */}
+          {/* Architectural 3D Carousel Stage */}
           <div
             style={{
               position: "relative",
               width: "100%",
               height: "100%",
               transformStyle: "preserve-3d",
-              transform: `translate3d(${stageParallax.x}px, ${stageParallax.y}px, 0)`,
-              transition: isHovered ? "transform 0.2s ease-out" : "transform 0.7s ease-out",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

@@ -1,0 +1,464 @@
+/* About Page Modular Styles */
+
+.aboutPage {
+  background-color: var(--bg-ivory, #F9F8F4);
+  color: var(--text-navy, #050D24);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* A01: Manifesto Hero */
+.heroSection {
+  padding: clamp(7.5rem, 13vw, 11rem) clamp(1.25rem, 5vw, 4rem) clamp(4rem, 7vw, 6rem);
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--electric-blue, #0866FF);
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: clamp(2.5rem, 6.5vw, 5rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--text-navy, #050D24);
+  max-width: 1060px;
+  margin-bottom: 2rem;
+}
+
+.accentWord {
+  color: var(--electric-blue, #0866FF);
+  font-weight: 500;
+}
+
+.heroIntro {
+  font-family: var(--font-inter, sans-serif);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.6;
+  color: var(--text-muted, #606676);
+  max-width: 800px;
+}
+
+/* A02: Who We Are */
+.whoWeAreSection {
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4rem);
+  border-top: 1px solid rgba(5, 13, 36, 0.08);
+}
+
+.whoContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: flex-start;
+}
+
+.sectionLabel {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text-navy, #050D24);
+  line-height: 1.2;
+}
+
+.whoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bodyLarge {
+  font-family: var(--font-inter, sans-serif);
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  line-height: 1.75;
+  color: var(--text-navy, #050D24);
+}
+
+.bodyRegular {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted, #606676);
+}
+
+/* A03: Philosophy — Dot Flow */
+.philosophySection {
+  background-color: #FFFFFF;
+  border-top: 1px solid rgba(5, 13, 36, 0.08);
+  border-bottom: 1px solid rgba(5, 13, 36, 0.08);
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.25rem, 5vw, 4rem);
+}
+
+.philosophyContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 7vw, 6rem);
+  align-items: center;
+}
+
+.brandSymbolFrame {
+  background: #F9F8F4;
+  border: 1px solid rgba(5, 13, 36, 0.08);
+  border-radius: 1.25rem;
+  padding: clamp(2rem, 5vw, 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandImage {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+}
+
+.philosophyText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.philosophyTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text-navy, #050D24);
+  line-height: 1.2;
+}
+
+/* A04: Creative × Technology (Navy Contrast Band) */
+.disciplinesBand {
+  background-color: var(--bg-navy, #050D24);
+  color: #FFFFFF;
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.25rem, 5vw, 4rem);
+}
+
+.disciplinesContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.bandEyebrow {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--electric-cyan, #00D1FF);
+  margin-bottom: 1rem;
+}
+
+.bandTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin-bottom: 3.5rem;
+  max-width: 800px;
+}
+
+.dualGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.dualCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.dualHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.dualTag {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--electric-cyan, #00D1FF);
+  text-transform: uppercase;
+}
+
+.dualTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.dualDesc {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+}
+
+.dualList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.dualItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.dualBullet {
+  color: var(--electric-cyan, #00D1FF);
+  font-weight: 700;
+}
+
+/* A05: How We Collaborate */
+.collabSection {
+  padding: clamp(5rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.principleCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(5, 13, 36, 0.08);
+  border-radius: 0.75rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.principleCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(8, 102, 255, 0.25);
+  box-shadow: 0 12px 24px rgba(5, 13, 36, 0.06);
+}
+
+.principleNumber {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--electric-blue, #0866FF);
+  margin-bottom: 1rem;
+}
+
+.principleTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-navy, #050D24);
+  margin-bottom: 0.75rem;
+}
+
+.principleDesc {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-muted, #606676);
+  margin: 0;
+}
+
+/* A07: Cairo — Working Globally */
+.locationSection {
+  border-top: 1px solid rgba(5, 13, 36, 0.08);
+  padding: clamp(4.5rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+  background: #FFFFFF;
+}
+
+.locationContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.locationHeadline {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--text-navy, #050D24);
+  line-height: 1.15;
+}
+
+.locationBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* A08: SIMULXR Callout Card */
+.simulxrCard {
+  background: #F0F4FA;
+  border: 1px solid rgba(8, 102, 255, 0.15);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.simulxrTag {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--electric-blue, #0866FF);
+}
+
+.simulxrTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-navy, #050D24);
+  margin: 0;
+}
+
+.simulxrDesc {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted, #606676);
+  margin: 0;
+}
+
+.simulxrLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--electric-blue, #0866FF);
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.simulxrLink:hover {
+  gap: 0.65rem;
+}
+
+/* A09: Closing CTA */
+.closingCtaSection {
+  background-color: #FFFFFF;
+  border-top: 1px solid rgba(5, 13, 36, 0.08);
+  padding: clamp(5rem, 9vw, 7.5rem) clamp(1.25rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.ctaContainer {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text-navy, #050D24);
+  margin-bottom: 1.25rem;
+}
+
+.ctaSubtitle {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 1.1rem;
+  color: var(--text-muted, #606676);
+  line-height: 1.6;
+  margin-bottom: 2.25rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--electric-blue, #0866FF);
+  color: #FFFFFF;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.9rem 2rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 48px;
+}
+
+.ctaButton:hover {
+  background-color: #0654D4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(8, 102, 255, 0.25);
+}
+
+/* Responsive Reflow */
+@media (max-width: 1024px) {
+  .whoContainer,
+  .philosophyContainer,
+  .locationContainer {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .dualGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .principlesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .principlesGrid {
+    grid-template-columns: 1fr;
+  }
+}

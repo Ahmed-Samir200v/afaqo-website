@@ -145,6 +145,7 @@ export function MidPageCTA() {
         alignItems: "center",
       }}
     >
+
       {/* Background Cinematic Image Layer */}
       <div
         ref={imageContainerRef}

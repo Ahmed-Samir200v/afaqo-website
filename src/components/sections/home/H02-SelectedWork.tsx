@@ -122,13 +122,13 @@ export function H02SelectedWork() {
         const validMeta = metadataRefs.current.filter(Boolean);
         const count = projectsContent.projects.length;
 
-        // Set initial state for floating canvas
+        // Set initial state for architectural floating canvas (stable, no pitch tilt)
         if (floatingCanvasRef.current) {
           gsap.set(floatingCanvasRef.current, {
-            scale: 0.965,
-            rotateX: 2.2,
-            y: 12,
-            borderRadius: "14px",
+            scale: 0.98,
+            rotateX: 0,
+            y: 0,
+            borderRadius: "8px",
             boxShadow: "0 28px 76px -20px rgba(5, 13, 36, 0.16), 0 10px 24px -10px rgba(5, 13, 36, 0.07)",
             transformPerspective: 1400,
             transformOrigin: "center top",
@@ -161,8 +161,9 @@ export function H02SelectedWork() {
           gsap.set(progressBarRef.current, { scaleX: 1 / count });
         }
 
-        // Pinned Storytelling Timeline with Container Scroll Expansion
-        const scrollDistance = Math.max(window.innerHeight * 2.2, 1700);
+        // Pinned Storytelling Timeline with Capped Viewport Scroll Track
+        // Normalized track prevents desktop scroll fatigue while keeping 3-project storytelling intact
+        const scrollDistance = Math.min(Math.max(window.innerHeight * 1.35, 1100), 1450);
 
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -195,7 +196,7 @@ export function H02SelectedWork() {
 
         // ------------------------------------------------------------------
         // STAGE A: CONTAINER SCROLL EXPANSION (0.00 -> 0.22)
-        // Expands floating canvas toward viewport edges, resolves perspective, squares corners
+        // Expands floating canvas toward viewport edges, squares corners
         // ------------------------------------------------------------------
         if (floatingCanvasRef.current) {
           tl.to(
@@ -206,7 +207,7 @@ export function H02SelectedWork() {
               y: 0,
               borderRadius: "4px",
               boxShadow: "0 38px 90px -25px rgba(5, 13, 36, 0.22), 0 12px 32px -12px rgba(5, 13, 36, 0.10)",
-              duration: 0.30,
+              duration: 0.25,
               ease: "power2.out",
             },
             0
@@ -323,17 +324,16 @@ export function H02SelectedWork() {
         tl.to({}, { duration: 0.35 });
 
         // ------------------------------------------------------------------
-        // STAGE D: SOFT BLUR TRANSITION TO H03 - Issue 08
-        // Outgoing H02 canvas softens with a gentle blur and lifts cleanly into H03
+        // STAGE D: CLEAN EDITORIAL RELEASE TO NEXT SECTION
+        // Outgoing H02 canvas lifts gently with subtle release, zero blur
         // ------------------------------------------------------------------
         if (floatingCanvasRef.current) {
           tl.to(
             floatingCanvasRef.current,
             {
-              filter: "blur(3.5px)",
-              opacity: 0.90,
-              y: -14,
-              ease: "power2.inOut",
+              opacity: 0.94,
+              y: -12,
+              ease: "power1.out",
               duration: 0.22,
             },
             ">"
@@ -396,12 +396,12 @@ export function H02SelectedWork() {
         color: "var(--color-text-on-light)",
         paddingTop: "clamp(4.5rem, 6.5vw, 6.5rem)",
         paddingBottom: "clamp(5rem, 8vw, 8.5rem)",
-        borderTop: "1px solid rgba(5, 13, 36, 0.08)",
         position: "relative",
         overflow: "hidden",
       }}
       aria-label="AFAQO Selected Work Showcase"
     >
+
       {/* ====================================================================
           SUBTLE ARCHITECTURAL BACKGROUND GRID (Deep Navy 3.5% Opacity)
           ==================================================================== */}
@@ -424,7 +424,6 @@ export function H02SelectedWork() {
         style={{
           position: "relative",
           zIndex: 1,
-          maxWidth: "1540px",
         }}
       >
         {/* ====================================================================

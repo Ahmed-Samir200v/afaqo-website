@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
-import { navigationContent } from "@/content/global/navigation";
+import { navigationContent, isRouteActive } from "@/content/global/navigation";
 import { getMotionPreference } from "@/lib/motion-preference";
 
 interface MobileMenuProps {
@@ -13,7 +13,7 @@ interface MobileMenuProps {
   activeHref?: string;
 }
 
-export function MobileMenu({ isOpen, onClose, activeHref = "#work" }: MobileMenuProps) {
+export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
   const [shouldRender, setShouldRender] = useState(isOpen);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -321,7 +321,7 @@ export function MobileMenu({ isOpen, onClose, activeHref = "#work" }: MobileMenu
             }}
           >
             {navigationContent.primaryNavigation.map((item, index) => {
-              const isActive = activeHref === item.href;
+              const isActive = activeHref ? isRouteActive(activeHref, item.href) : false;
               return (
                 <li key={item.label} style={{ lineHeight: 1.05 }}>
                   <Link

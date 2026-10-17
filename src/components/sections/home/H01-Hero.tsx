@@ -23,7 +23,6 @@ export function H01Hero() {
   const containerRef = useRef<HTMLElement>(null);
   const contentWrapperRef = useRef<HTMLDivElement>(null);
   const bgScrollRef = useRef<HTMLDivElement>(null);
-  const bgParallaxRef = useRef<HTMLDivElement>(null);
   const bgImageRef = useRef<HTMLImageElement>(null);
   const moltenWrapperRef = useRef<HTMLDivElement>(null);
   const headline1LineRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -122,14 +121,16 @@ export function H01Hero() {
       }
 
       // ====================================================================
-      // 2. PINNED SCROLL CHOREOGRAPHY (Issue 01, 03, 08)
-      // Phase A: Initial Message Hold (0.00 -> 0.15)
-      // Phase B: Cinematic 3D Transformation (0.15 -> 0.60)
-      // Phase C: Final Message Hold (0.60 -> 0.88)
-      // Phase D: Soft Outgoing Blur into H02 (0.88 -> 1.00)
+      // 2. RESPONSIVE PINNED SCROLL CHOREOGRAPHY
+      // Desktop (>= 1024px): Capped fluid scroll (~650-880px pin distance)
+      // Mobile / Tablet (< 1024px): Unpinned clean flow, no scroll trap
       // ====================================================================
-      if (containerRef.current) {
-        const scrollDistance = Math.max(window.innerHeight * 1.3, 1100);
+      const mm = gsap.matchMedia();
+
+      mm.add("(min-width: 1024px)", () => {
+        if (!containerRef.current) return;
+        // Capped viewport-based calculation to eliminate desktop scroll fatigue
+        const scrollDistance = Math.min(Math.max(window.innerHeight * 0.85, 650), 880);
 
         const scrollTl = gsap.timeline({
           scrollTrigger: {
@@ -218,17 +219,16 @@ export function H01Hero() {
         scrollTl.to({}, { duration: 0.28 });
 
         // ------------------------------------------------------------------
-        // PHASE D: SOFT BLUR TRANSITION TO H02 (0.88 -> 1.00) - Issue 08
-        // Outgoing visual layer blurs smoothly and lifts gently as H02 enters
+        // PHASE D: CLEAN EDITORIAL RELEASE TO H02 (0.88 -> 1.00)
+        // Outgoing visual layer releases gently with subtle lift, zero blur
         // ------------------------------------------------------------------
         if (contentWrapperRef.current && bgScrollRef.current) {
           scrollTl.to(
             [contentWrapperRef.current, bgScrollRef.current],
             {
-              filter: "blur(3.5px)",
-              opacity: 0.88,
-              y: -16,
-              ease: "power2.inOut",
+              opacity: 0.94,
+              y: -12,
+              ease: "power1.out",
               duration: 0.12,
             },
             0.88
@@ -236,52 +236,24 @@ export function H01Hero() {
         }
 
         if (metadataRef.current) {
-          scrollTl.to(metadataRef.current, { opacity: 0.4, y: -10, ease: "none", duration: 0.12 }, 0.88);
+          scrollTl.to(metadataRef.current, { opacity: 0.72, y: -8, ease: "none", duration: 0.12 }, 0.88);
         }
-      }
+      });
+
+      // Mobile & Tablet Collapse (< 1024px): No pinning, Headline 1 remains prominent
+      mm.add("(max-width: 1023px)", () => {
+        if (validLines2.length > 0) {
+          gsap.set(validLines2, { opacity: 0, display: "none" });
+        }
+      });
     }, containerRef);
 
     return () => ctx.revert();
   }, [shouldReduceMotion]);
 
-  // Pointer Parallax (Desktop mouse movement on background: ±8px X, ±5px Y)
-  const handlePointerMove = (e: React.PointerEvent<HTMLElement>) => {
-    if (e.pointerType === "touch" || shouldReduceMotion) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const normX = (e.clientX - rect.left) / rect.width - 0.5;
-    const normY = (e.clientY - rect.top) / rect.height - 0.5;
-
-    if (bgParallaxRef.current) {
-      gsap.to(bgParallaxRef.current, {
-        x: normX * 16,
-        y: normY * 10,
-        scale: 1.008,
-        duration: 0.6,
-        ease: "power2.out",
-        overwrite: "auto",
-      });
-    }
-  };
-
-  const handlePointerLeave = () => {
-    if (shouldReduceMotion) return;
-    if (bgParallaxRef.current) {
-      gsap.to(bgParallaxRef.current, {
-        x: 0,
-        y: 0,
-        scale: 1,
-        duration: 0.7,
-        ease: "power2.out",
-        overwrite: "auto",
-      });
-    }
-  };
-
   return (
     <section
       ref={containerRef}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
       style={{
         backgroundColor: "var(--color-canvas-dark)",
         color: "var(--color-text-on-dark)",
@@ -296,43 +268,33 @@ export function H01Hero() {
       aria-label="AFAQO Hero Presentation"
     >
       {/* ====================================================================
-          Z0: APPROVED HERO BACKGROUND IMAGE WITH PARALLAX WRAPPER
+          Z0: APPROVED HERO BACKGROUND IMAGE (Stable Architectural Layer)
           ==================================================================== */}
       <div
         ref={bgScrollRef}
         aria-hidden="true"
         style={{
           position: "absolute",
-          inset: -20,
+          inset: 0,
           zIndex: 0,
           overflow: "hidden",
           pointerEvents: "none",
           willChange: "transform, filter, opacity",
         }}
       >
-        <div
-          ref={bgParallaxRef}
+        <Image
+          ref={bgImageRef}
+          src="/images/hero/afaqo-hero-desktop.jpg"
+          alt="AFAQO Cinematic Spatial Architecture"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
           style={{
-            position: "relative",
-            width: "100%",
-            height: "100%",
-            willChange: "transform",
+            opacity: 0,
+            filter: "brightness(0.98) contrast(1.05)",
           }}
-        >
-          <Image
-            ref={bgImageRef}
-            src="/images/hero/afaqo-hero-desktop.jpg"
-            alt="AFAQO Cinematic Spatial Architecture"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-            style={{
-              opacity: 0,
-              filter: "brightness(0.98) contrast(1.05)",
-            }}
-          />
-        </div>
+        />
       </div>
 
       {/* ====================================================================

@@ -73,6 +73,7 @@ export function H09SimulXR() {
       className="sx-section"
       aria-labelledby="simulxr-heading"
     >
+
       <div className="page-container sx-container">
         {/* Editorial Content Column (Left ~40% width) */}
         <div className="sx-editorial-col">
