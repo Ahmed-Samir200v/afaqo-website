@@ -174,7 +174,7 @@ export function H06Delivery() {
 
       // ======================================================================
       // DESKTOP PINNED HORIZONTAL JOURNEY (>= 1024px)
-      // Short ScrollTrigger: roughly 140vh additional scroll. No trap, no snapping.
+      // Capped fluid scroll (~750-1050px). Eliminates scroll fatigue, preserves 6-stage journey.
       // ======================================================================
       mm.add("(min-width: 1024px)", () => {
         if (shouldReduceMotion) return;
@@ -190,11 +190,13 @@ export function H06Delivery() {
         });
 
         const progressProxy = { val: 0 };
+        // Capped viewport calculation avoids uncapped height multipliers
+        const pinDistance = Math.min(Math.max(window.innerHeight * 0.95, 750), 1050);
 
         ScrollTrigger.create({
           trigger: pinWrapperRef.current,
           start: "top top",
-          end: "+=140%", // short fluid scroll (~140vh)
+          end: `+=${pinDistance}`,
           pin: true,
           scrub: 0.5,
           anticipatePin: 1,
@@ -260,6 +262,8 @@ export function H06Delivery() {
       }}
       aria-label="04 / How We Work — End-to-End Experience Delivery"
     >
+      {/* Anchor target for #about navigation link */}
+      <div id="about" style={{ position: "absolute", top: "-80px", left: 0 }} aria-hidden="true" />
       <div
         ref={pinWrapperRef}
         style={{
@@ -268,14 +272,7 @@ export function H06Delivery() {
           boxSizing: "border-box",
         }}
       >
-        <div
-          style={{
-            maxWidth: "1440px",
-            margin: "0 auto",
-            paddingInline: "clamp(1.5rem, 5vw, 5rem)",
-            boxSizing: "border-box",
-          }}
-        >
+        <div className="page-container">
           {/* Section Header */}
           <div
             ref={headerRef}
@@ -598,14 +595,14 @@ export function H06Delivery() {
                       width: "38px",
                       height: "38px",
                       borderRadius: "50%",
-                      border: "1px solid rgba(5, 13, 36, 0.15)",
+                      border: "1px solid var(--color-border-light, rgba(5, 13, 36, 0.12))",
                       backgroundColor: "transparent",
-                      color: activeStage === 0 ? "rgba(5, 13, 36, 0.25)" : "#050D24",
+                      color: activeStage === 0 ? "rgba(5, 13, 36, 0.25)" : "var(--color-brand-navy, #050D24)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       cursor: activeStage === 0 ? "not-allowed" : "pointer",
-                      transition: "all 0.25s ease",
+                      transition: "background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard)",
                     }}
                   >
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -628,14 +625,14 @@ export function H06Delivery() {
                       width: "38px",
                       height: "38px",
                       borderRadius: "50%",
-                      border: "1px solid rgba(5, 13, 36, 0.15)",
+                      border: "1px solid var(--color-border-light, rgba(5, 13, 36, 0.12))",
                       backgroundColor: "transparent",
-                      color: activeStage === totalStages - 1 ? "rgba(5, 13, 36, 0.25)" : "#050D24",
+                      color: activeStage === totalStages - 1 ? "rgba(5, 13, 36, 0.25)" : "var(--color-brand-navy, #050D24)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       cursor: activeStage === totalStages - 1 ? "not-allowed" : "pointer",
-                      transition: "all 0.25s ease",
+                      transition: "background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard)",
                     }}
                   >
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -656,7 +653,7 @@ export function H06Delivery() {
                   style={{
                     fontFamily: "var(--font-inter)",
                     fontSize: "0.6875rem",
-                    fontWeight: 600,
+                    fontWeight: 500,
                     color: "var(--color-brand-blue, #0866FF)",
                     letterSpacing: "0.14em",
                     textTransform: "uppercase",
@@ -664,7 +661,7 @@ export function H06Delivery() {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "0.35rem",
-                    transition: "color 0.25s ease",
+                    transition: "color var(--duration-fast) var(--ease-standard), opacity var(--duration-fast) var(--ease-standard)",
                   }}
                 >
                   FROM A SINGLE POINT TO INFINITE HORIZONS ↗

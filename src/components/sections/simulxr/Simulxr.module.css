@@ -1,0 +1,480 @@
+/* SIMULXR Page Modular Styles */
+
+.simulxrPage {
+  background-color: var(--bg-navy, #050D24);
+  color: #FFFFFF;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* X01: Industrial Hero */
+.heroSection {
+  padding: clamp(7.5rem, 12vw, 10.5rem) clamp(1.25rem, 5vw, 4rem) clamp(4rem, 7vw, 6rem);
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--electric-cyan, #00D1FF);
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: clamp(2.5rem, 6.5vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  max-width: 1000px;
+  margin-bottom: 1.5rem;
+}
+
+.accentWord {
+  color: var(--electric-cyan, #00D1FF);
+  font-weight: 500;
+}
+
+.heroIntro {
+  font-family: var(--font-inter, sans-serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 780px;
+  margin-bottom: 2.5rem;
+}
+
+.heroButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--electric-blue, #0866FF);
+  color: #FFFFFF;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.85rem 1.85rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  min-height: 48px;
+}
+
+.primaryBtn:hover {
+  background-color: #0654D4;
+  transform: translateY(-2px);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.85rem 1.85rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  min-height: 48px;
+}
+
+.secondaryBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* X02: Why Simulation Matters */
+.whySection {
+  background-color: #0A132C;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(4.5rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+}
+
+.whyContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: flex-start;
+}
+
+.whyTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.whyContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bodyLarge {
+  font-family: var(--font-inter, sans-serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.7;
+  color: #FFFFFF;
+}
+
+.bodyRegular {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* X03 - X06: Capabilities & Industrial Modules */
+.featureSection {
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.25rem, 5vw, 4rem);
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 5.5rem);
+  align-items: center;
+  margin-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.featureGridReversed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 5.5rem);
+  align-items: center;
+  margin-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.featureMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.featureNumber {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--electric-cyan, #00D1FF);
+}
+
+.featureCategory {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.featureTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+.featureDesc {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 2rem;
+}
+
+.featureSpecs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.featureSpecItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.specBullet {
+  color: var(--electric-cyan, #00D1FF);
+  font-weight: 700;
+}
+
+.mediaFrame {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #0A1435;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+  aspect-ratio: 16 / 10;
+}
+
+.mediaImage {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.mediaFrame:hover .mediaImage {
+  transform: scale(1.03);
+}
+
+.mediaBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(5, 13, 36, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  color: var(--electric-cyan, #00D1FF);
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* X07: Production Workflow */
+.workflowSection {
+  background-color: #07102C;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.25rem, 5vw, 4rem);
+}
+
+.workflowContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.workflowTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.workflowSubtitle {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 640px;
+  line-height: 1.6;
+  margin-bottom: 3.5rem;
+}
+
+.stagesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.stageCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.stageStep {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--electric-cyan, #00D1FF);
+  margin-bottom: 0.75rem;
+}
+
+.stageName {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+}
+
+.stageDesc {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* X09: Hardware Deployment Targets */
+.hardwareSection {
+  padding: clamp(5rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.hardwareGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.hardwareCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hardwareType {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--electric-cyan, #00D1FF);
+  margin-bottom: 0.75rem;
+}
+
+.hardwareTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+}
+
+.hardwareDesc {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+.hardwareSpecs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hardwareSpecRow {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.8rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.35rem;
+}
+
+.hardwareSpecKey {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hardwareSpecVal {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+/* X10: CTA */
+.ctaSection {
+  background-color: #0A1435;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(5rem, 8vw, 7.5rem) clamp(1.25rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.ctaContainer {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-manrope, sans-serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #FFFFFF;
+  margin-bottom: 1.25rem;
+}
+
+.ctaSubtitle {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 2.25rem;
+}
+
+/* Responsive Reflow */
+@media (max-width: 1024px) {
+  .whyContainer,
+  .featureGrid,
+  .featureGridReversed {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .featureGridReversed > div:first-child {
+    order: 2;
+  }
+  .featureGridReversed > div:last-child {
+    order: 1;
+  }
+
+  .stagesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hardwareGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .stagesGrid {
+    grid-template-columns: 1fr;
+  }
+}

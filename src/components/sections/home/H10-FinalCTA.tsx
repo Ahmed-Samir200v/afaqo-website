@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import type { Application } from "@splinetool/runtime";
 import styles from "./H10-FinalCTA.module.css";
 
@@ -133,7 +134,7 @@ export function H10FinalCTA() {
             Let&apos;s start the conversation.
           </p>
 
-          <a
+          <Link
             className={styles.cta}
             href="#contact"
             aria-label="Start a project with AFAQO"
@@ -142,7 +143,7 @@ export function H10FinalCTA() {
             <span aria-hidden="true" className={styles.ctaArrow}>
               ↗
             </span>
-          </a>
+          </Link>
         </div>
 
         <div className={styles.robotArea}>

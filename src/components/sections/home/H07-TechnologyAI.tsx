@@ -12,8 +12,8 @@ export function H07TechnologyAI() {
       id="technology-ai"
       className="technology-section"
       style={{
-        backgroundColor: "#F9F8F4",
-        color: "#050D24",
+        backgroundColor: "var(--color-canvas-light, #F9F8F4)",
+        color: "var(--color-brand-navy, #050D24)",
         position: "relative",
         isolation: "isolate",
         overflow: "hidden",

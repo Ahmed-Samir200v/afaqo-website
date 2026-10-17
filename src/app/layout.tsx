@@ -23,9 +23,19 @@ const ibmPlexArabic = IBM_Plex_Sans_Arabic({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
 export const metadata: Metadata = {
+  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: "AFAQO — Immersive Digital Transformation",
   description: "Next-generation digital transformation and immersive solutions.",
+  openGraph: {
+    title: "AFAQO — Creative Technology Company",
+    description: "We turn complex ideas into immersive experiences.",
+    siteName: "AFAQO",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { navigationContent, type NavItem } from "@/content/global/navigation";
+import { usePathname } from "next/navigation";
+import { navigationContent, isRouteActive, type NavItem } from "@/content/global/navigation";
 import { MobileMenu } from "./MobileMenu";
 import { NavGlassReflection } from "./NavGlassReflection";
 
@@ -19,12 +20,17 @@ function NavLinkItem({
   item,
   isActive,
   textColor,
+  isDark = true,
 }: {
   item: NavItem;
   isActive: boolean;
   textColor: string;
+  isDark?: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
+  const activeColor = isDark ? "#FFFFFF" : "var(--color-brand-blue, #0866FF)";
+  const indicatorColor = isDark ? "var(--color-accent-cyan, #00D1FF)" : "var(--color-brand-blue, #0866FF)";
+  const glowColor = isDark ? "0 0 8px rgba(0, 209, 255, 0.55)" : "0 0 8px rgba(8, 102, 255, 0.40)";
 
   return (
     <Link
@@ -35,13 +41,15 @@ function NavLinkItem({
         fontFamily: "var(--font-inter)",
         fontSize: "13.5px",
         fontWeight: 500,
-        color: hovered || isActive ? "#FFFFFF" : textColor,
+        color: hovered || isActive ? activeColor : textColor,
         transform: hovered ? "translateY(-1px)" : "translateY(0px)",
         transition: "color 220ms ease, transform 220ms ease",
         display: "inline-flex",
         flexDirection: "column",
         alignItems: "center",
         paddingBlock: "0.35rem",
+        paddingInline: "0.25rem",
+        borderRadius: "var(--radius-sm, 2px)",
         position: "relative",
         textDecoration: "none",
         zIndex: 10,
@@ -54,18 +62,19 @@ function NavLinkItem({
         style={{
           position: "absolute",
           bottom: "0px",
-          width: hovered || isActive ? "14px" : "0px",
-          height: "1.5px",
-          backgroundColor: "#00D1FF",
+          width: hovered || isActive ? "16px" : "0px",
+          height: "2px",
+          backgroundColor: indicatorColor,
           borderRadius: "1px",
-          transition: "width 220ms ease",
+          boxShadow: hovered || isActive ? glowColor : "none",
+          transition: "width 240ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 240ms ease",
         }}
       />
     </Link>
   );
 }
 
-function NavCTA({ label, href }: { label: string; href: string }) {
+function NavCTA({ label, href, isDark = true }: { label: string; href: string; isDark?: boolean }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -77,11 +86,21 @@ function NavCTA({ label, href }: { label: string; href: string }) {
         display: "inline-flex",
         alignItems: "center",
         gap: "0.45rem",
-        backgroundColor: hovered ? "rgba(8, 102, 255, 0.24)" : "rgba(255, 255, 255, 0.09)",
-        border: hovered ? "1px solid rgba(0, 209, 255, 0.35)" : "1px solid rgba(255, 255, 255, 0.12)",
+        backgroundColor: isDark
+          ? hovered
+            ? "rgba(8, 102, 255, 0.28)"
+            : "rgba(255, 255, 255, 0.08)"
+          : hovered
+          ? "#0052cc"
+          : "var(--color-brand-blue, #0866FF)",
+        border: isDark
+          ? hovered
+            ? "1px solid rgba(0, 209, 255, 0.40)"
+            : "1px solid rgba(255, 255, 255, 0.13)"
+          : "1px solid transparent",
         color: "#FFFFFF",
         padding: "0.48rem 1.15rem",
-        borderRadius: "10px",
+        borderRadius: "var(--radius-lg, 10px)",
         fontFamily: "var(--font-inter)",
         fontSize: "13.5px",
         fontWeight: 500,
@@ -91,14 +110,18 @@ function NavCTA({ label, href }: { label: string; href: string }) {
         zIndex: 10,
         transition:
           "background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease",
-        boxShadow: hovered ? "0 4px 16px rgba(8, 102, 255, 0.2)" : "none",
+        boxShadow: hovered
+          ? "0 4px 18px -2px rgba(8, 102, 255, 0.32)"
+          : isDark
+          ? "none"
+          : "0 2px 10px rgba(8, 102, 255, 0.20)",
       }}
     >
       <span>{label}</span>
       <span
         aria-hidden="true"
         style={{
-          color: "#00D1FF",
+          color: isDark ? "var(--color-accent-cyan)" : "#FFFFFF",
           display: "inline-block",
           transform: hovered ? "translateX(3px)" : "translateX(0px)",
           transition: "transform 220ms ease",
@@ -114,10 +137,12 @@ function NavCTA({ label, href }: { label: string; href: string }) {
 export function Header({
   theme = "dark",
   isScrolled: externalIsScrolled,
-  activeHref = "#work",
+  activeHref,
   className = "",
   style,
 }: HeaderProps) {
+  const pathname = usePathname();
+  const currentActive = activeHref !== undefined ? activeHref : pathname;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [menuHovered, setMenuHovered] = useState(false);
   const [headerHovered, setHeaderHovered] = useState(false);
@@ -154,21 +179,31 @@ export function Header({
           width: "calc(100% - clamp(24px, 4vw, 48px))",
           maxWidth: "1400px",
           height: isScrolled ? "64px" : "clamp(64px, 6.5vw, 70px)",
-          backgroundColor: isScrolled
-            ? "rgba(5, 13, 36, 0.58)"
-            : "rgba(5, 13, 36, 0.34)",
+          backgroundColor: isDark
+            ? isScrolled
+              ? "rgba(5, 13, 36, 0.58)"
+              : "rgba(5, 13, 36, 0.34)"
+            : headerHovered
+            ? "rgba(255, 255, 255, 0.92)"
+            : isScrolled
+            ? "rgba(255, 255, 255, 0.88)"
+            : "rgba(249, 248, 244, 0.82)",
           backdropFilter: "blur(24px) saturate(155%)",
           WebkitBackdropFilter: "blur(24px) saturate(155%)",
-          border: headerHovered
-            ? "1px solid rgba(255, 255, 255, 0.20)"
-            : isScrolled
-            ? "1px solid rgba(255, 255, 255, 0.16)"
-            : "1px solid rgba(255, 255, 255, 0.13)",
-          boxShadow: headerHovered
-            ? "inset 0 1px 0 rgba(255,255,255,0.14), inset 0 -1px 0 rgba(255,255,255,0.03), 0 24px 70px rgba(0,0,0,0.36)"
-            : isScrolled
-            ? "inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(255,255,255,0.03), 0 22px 65px rgba(0,0,0,0.30)"
-            : "inset 0 1px 0 rgba(255,255,255,0.10), inset 0 -1px 0 rgba(255,255,255,0.025), 0 18px 60px rgba(0,0,0,0.16)",
+          border: isDark
+            ? headerHovered
+              ? "1px solid rgba(255, 255, 255, 0.20)"
+              : isScrolled
+              ? "1px solid rgba(255, 255, 255, 0.16)"
+              : "1px solid rgba(255, 255, 255, 0.13)"
+            : "1px solid rgba(5, 13, 36, 0.08)",
+          boxShadow: isDark
+            ? headerHovered
+              ? "inset 0 1px 0 rgba(255,255,255,0.14), inset 0 -1px 0 rgba(255,255,255,0.03), 0 24px 70px rgba(0,0,0,0.36)"
+              : isScrolled
+              ? "inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(255,255,255,0.03), 0 22px 65px rgba(0,0,0,0.30)"
+              : "inset 0 1px 0 rgba(255,255,255,0.10), inset 0 -1px 0 rgba(255,255,255,0.025), 0 18px 60px rgba(0,0,0,0.16)"
+            : "0 10px 30px rgba(5, 13, 36, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6)",
           borderRadius: "14px",
           display: "flex",
           alignItems: "center",
@@ -246,8 +281,9 @@ export function Header({
               <li key={item.label}>
                 <NavLinkItem
                   item={item}
-                  isActive={activeHref === item.href}
+                  isActive={isRouteActive(currentActive, item.href)}
                   textColor={textColor}
+                  isDark={isDark}
                 />
               </li>
             ))}
@@ -297,6 +333,7 @@ export function Header({
           <NavCTA
             label={navigationContent.primaryCTA.label}
             href={navigationContent.primaryCTA.href}
+            isDark={isDark}
           />
         </div>
 
@@ -322,7 +359,7 @@ export function Header({
             background: "none",
             border: "none",
             cursor: "pointer",
-            color: "#FFFFFF",
+            color: isDark ? "#FFFFFF" : "var(--color-text-on-light, #050D24)",
             position: "relative",
             zIndex: 10,
           }}
@@ -356,7 +393,7 @@ export function Header({
       <MobileMenu
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
-        activeHref={activeHref}
+        activeHref={currentActive}
       />
     </>
   );

@@ -75,21 +75,14 @@ export function H04Services() {
       style={{
         backgroundColor: "var(--color-canvas-light, #F9F8F4)",
         color: "var(--color-brand-navy, #050D24)",
-        paddingBlock: "clamp(5rem, 8vw, 8.5rem)",
+        paddingBlock: "clamp(4.5rem, 6.5vw, 6.5rem)",
         borderTop: "1px solid var(--color-border-light, rgba(5, 13, 36, 0.08))",
         position: "relative",
         overflow: "hidden",
       }}
       aria-label="Services — What We Create"
     >
-      <div
-        style={{
-          maxWidth: "1440px",
-          margin: "0 auto",
-          paddingInline: "clamp(1.5rem, 5vw, 5rem)",
-          boxSizing: "border-box",
-        }}
-      >
+      <div className="page-container">
         {/* ================================================================== */}
         {/* SECTION HEADER: Eyebrow, Headline, Intro, Supporting Copy          */}
         {/* ================================================================== */}
@@ -100,7 +93,7 @@ export function H04Services() {
             style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.75rem",
-              fontWeight: 600,
+              fontWeight: 500,
               color: "var(--color-brand-blue, #0866FF)",
               letterSpacing: "0.16em",
               textTransform: "uppercase",
@@ -361,12 +354,12 @@ export function H04Services() {
                           gap: "0.35rem",
                           fontFamily: "var(--font-inter)",
                           fontSize: "0.875rem",
-                          fontWeight: 600,
+                          fontWeight: 500,
                           color: "var(--color-brand-navy, #050D24)",
                           textDecoration: "none",
                           paddingBottom: "2px",
                           borderBottom: "1.5px solid var(--color-brand-blue, #0866FF)",
-                          transition: "color 0.2s ease, border-color 0.2s ease",
+                          transition: "color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard)",
                         }}
                       >
                         <span>Explore Service</span>

@@ -110,10 +110,10 @@ export function MidPageCTA() {
     if (shouldReduceMotion) return;
 
     if (labelRef.current) {
-      gsap.to(labelRef.current, { x: 2, duration: 0.4, ease: "power3.out" });
+      gsap.to(labelRef.current, { x: 2, duration: 0.3, ease: "power2.out" });
     }
     if (arrowRef.current) {
-      gsap.to(arrowRef.current, { x: 4, y: -4, duration: 0.4, ease: "power3.out" });
+      gsap.to(arrowRef.current, { x: 3, y: -3, duration: 0.3, ease: "power2.out" });
     }
   };
 
@@ -122,10 +122,10 @@ export function MidPageCTA() {
     if (shouldReduceMotion) return;
 
     if (labelRef.current) {
-      gsap.to(labelRef.current, { x: 0, duration: 0.4, ease: "power3.out" });
+      gsap.to(labelRef.current, { x: 0, duration: 0.3, ease: "power2.out" });
     }
     if (arrowRef.current) {
-      gsap.to(arrowRef.current, { x: 0, y: 0, duration: 0.4, ease: "power3.out" });
+      gsap.to(arrowRef.current, { x: 0, y: 0, duration: 0.3, ease: "power2.out" });
     }
   };
 
@@ -145,6 +145,7 @@ export function MidPageCTA() {
         alignItems: "center",
       }}
     >
+
       {/* Background Cinematic Image Layer */}
       <div
         ref={imageContainerRef}
@@ -215,11 +216,6 @@ export function MidPageCTA() {
         style={{
           position: "relative",
           zIndex: 2,
-          width: "100%",
-          maxWidth: "1440px",
-          margin: "0 auto",
-          paddingInline: "clamp(1.5rem, 5vw, 5rem)",
-          boxSizing: "border-box",
         }}
       >
         <div
@@ -237,8 +233,8 @@ export function MidPageCTA() {
             style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.75rem",
-              fontWeight: 600,
-              color: "#00D1FF",
+              fontWeight: 500,
+              color: "var(--color-brand-cyan, #00D1FF)",
               letterSpacing: "0.16em",
               textTransform: "uppercase",
               marginBottom: "clamp(1rem, 1.8vh, 1.4rem)",
@@ -305,8 +301,8 @@ export function MidPageCTA() {
                 gap: "0.6rem",
                 height: "58px",
                 paddingInline: "clamp(28px, 2.2vw, 34px)",
-                borderRadius: "8px",
-                backgroundColor: isHovered ? "#0055EE" : "var(--color-brand-blue, #0866FF)",
+                borderRadius: "var(--radius-lg, 10px)",
+                backgroundColor: isHovered ? "#0759E0" : "var(--color-brand-blue, #0866FF)",
                 color: "#FFFFFF",
                 fontFamily: "var(--font-inter)",
                 fontSize: "0.9375rem",
@@ -317,7 +313,7 @@ export function MidPageCTA() {
                   ? "0 10px 28px rgba(8, 102, 255, 0.42)"
                   : "0 6px 18px rgba(8, 102, 255, 0.28)",
                 transform: isHovered ? "translateY(-1px) scale(1.02)" : "translateY(0) scale(1.0)",
-                transition: "background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease",
+                transition: "background-color var(--duration-ui) var(--ease-standard), box-shadow var(--duration-ui) var(--ease-standard), transform var(--duration-ui) var(--ease-standard)",
               }}
             >
               <span ref={labelRef} style={{ display: "inline-block" }}>

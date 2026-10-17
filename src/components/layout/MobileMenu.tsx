@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
-import { navigationContent } from "@/content/global/navigation";
+import { navigationContent, isRouteActive } from "@/content/global/navigation";
 import { getMotionPreference } from "@/lib/motion-preference";
 
 interface MobileMenuProps {
@@ -13,7 +13,7 @@ interface MobileMenuProps {
   activeHref?: string;
 }
 
-export function MobileMenu({ isOpen, onClose, activeHref = "#work" }: MobileMenuProps) {
+export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
   const [shouldRender, setShouldRender] = useState(isOpen);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -321,7 +321,7 @@ export function MobileMenu({ isOpen, onClose, activeHref = "#work" }: MobileMenu
             }}
           >
             {navigationContent.primaryNavigation.map((item, index) => {
-              const isActive = activeHref === item.href;
+              const isActive = activeHref ? isRouteActive(activeHref, item.href) : false;
               return (
                 <li key={item.label} style={{ lineHeight: 1.05 }}>
                   <Link
@@ -425,9 +425,9 @@ export function MobileMenu({ isOpen, onClose, activeHref = "#work" }: MobileMenu
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "0.6rem",
-                  fontFamily: "var(--font-manrope)",
-                  fontSize: "1.0625rem",
-                  fontWeight: 400,
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.9375rem",
+                  fontWeight: 500,
                   color: "var(--color-text-on-dark)",
                   letterSpacing: "-0.01em",
                   borderBottom: "1.5px solid var(--color-accent)",
@@ -436,18 +436,25 @@ export function MobileMenu({ isOpen, onClose, activeHref = "#work" }: MobileMenu
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = "var(--color-accent-cyan)";
+                  const arrow = e.currentTarget.querySelector(".menu-cta-arrow") as HTMLElement;
+                  if (arrow) arrow.style.transform = "translate(3px, -3px)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = "var(--color-accent)";
+                  const arrow = e.currentTarget.querySelector(".menu-cta-arrow") as HTMLElement;
+                  if (arrow) arrow.style.transform = "translate(0px, 0px)";
                 }}
               >
                 <span>{navigationContent.primaryCTA.label}</span>
                 <span
+                  className="menu-cta-arrow"
                   aria-hidden="true"
                   style={{
-                    color: "var(--color-accent)",
-                    fontSize: "1.1rem",
+                    color: "var(--color-accent-cyan)",
+                    fontSize: "1rem",
                     lineHeight: 1,
+                    display: "inline-block",
+                    transition: "transform var(--duration-fast) var(--ease-standard)",
                   }}
                 >
                   ↗
