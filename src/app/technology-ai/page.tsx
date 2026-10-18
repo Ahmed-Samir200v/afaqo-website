@@ -134,8 +134,8 @@ const aiTracks = [
 export default function TechnologyAiPage() {
   return (
     <div className={styles.techPage}>
-      {/* S00: Route Header (Dark surface) */}
-      <Header theme="dark" />
+      {/* S00: Route Header (Unified Home Navigation) */}
+      <Header />
 
       {/* T01: Hero */}
       <section className={styles.heroSection} aria-labelledby="tech-heading">

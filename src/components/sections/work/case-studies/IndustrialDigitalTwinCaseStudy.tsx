@@ -450,7 +450,7 @@ export function IndustrialDigitalTwinCaseStudy() {
   return (
     <div className={styles.pageContainer}>
       {/* Official AFAQO Navigation Header */}
-      <Header theme="dark" />
+      <Header />
 
       <main className={styles.mainContent}>
         {/* ==================================================================

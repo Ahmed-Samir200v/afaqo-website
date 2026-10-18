@@ -64,7 +64,19 @@ export function Footer() {
             </span>
           </div>
 
-          <BackToTopButton />
+          <div className="site-footer__actions">
+            <a
+              id="footer-download-company-profile"
+              href="/company-profile/AFAQO-company-profile.pdf"
+              download
+              className="site-footer__back-to-top site-footer__download"
+              aria-label="Download AFAQO Company Profile (PDF)"
+            >
+              Company Profile
+              <span className="site-footer__download-arrow" aria-hidden="true">↓</span>
+            </a>
+            <BackToTopButton />
+          </div>
         </div>
       </div>
     </footer>

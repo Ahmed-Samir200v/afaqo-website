@@ -117,8 +117,8 @@ export default function ServicesPage() {
 
   return (
     <div className={styles.servicesPage}>
-      {/* S00: Route Header (Light surface) */}
-      <Header theme="light" />
+      {/* S00: Route Header (Unified Home Navigation) */}
+      <Header />
 
       <ServicesScrollReveal>
         {/* S01: Editorial Hero */}

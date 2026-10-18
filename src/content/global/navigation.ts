@@ -5,7 +5,6 @@ export const APP_ROUTES = {
   industries: "/industries",
   technologyAI: "/technology-ai",
   about: "/about",
-  companyProfile: "/company-profile",
   simulxr: "/simulxr",
   contact: "/contact",
 } as const;
@@ -40,7 +39,6 @@ export const navigationContent: NavigationContent = {
     { label: "Industries", href: APP_ROUTES.industries },
     { label: "Technology & AI", href: APP_ROUTES.technologyAI },
     { label: "About", href: APP_ROUTES.about },
-    { label: "Company Profile", href: APP_ROUTES.companyProfile },
   ],
   utilityNavigation: [
     { label: "SIMULXR", href: APP_ROUTES.simulxr },
@@ -51,7 +49,6 @@ export const navigationContent: NavigationContent = {
     { label: "Industries", href: APP_ROUTES.industries },
     { label: "Technology & AI", href: APP_ROUTES.technologyAI },
     { label: "About", href: APP_ROUTES.about },
-    { label: "Company Profile", href: APP_ROUTES.companyProfile },
     { label: "SIMULXR", href: APP_ROUTES.simulxr },
     { label: "Contact", href: APP_ROUTES.contact },
   ],

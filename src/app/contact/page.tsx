@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className={styles.contactPage}>
-      {/* S00: Route Header (Light surface) */}
-      <Header theme="light" />
+      {/* S00: Route Header (Unified Home Navigation) */}
+      <Header />
 
       {/* Main Split Grid */}
       <div className={styles.contactContainer}>

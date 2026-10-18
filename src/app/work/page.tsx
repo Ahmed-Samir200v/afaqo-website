@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <div className={styles.workPage}>
-      {/* Light Theme Glass Header for Ivory Page Surface */}
-      <Header theme="light" />
+      {/* Unified Global Floating Glass Header */}
+      <Header />
 
       {/* Main Page Content */}
       <main>

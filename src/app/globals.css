@@ -1200,6 +1200,30 @@ button {
   transform: translateY(-2px);
 }
 
+.site-footer__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.site-footer__download {
+  text-decoration: none;
+  border-color: var(--color-brand-blue);
+  color: var(--color-brand-blue);
+}
+.site-footer__download-arrow {
+  display: inline-block;
+  font-size: 0.875rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+.site-footer__download:hover .site-footer__download-arrow {
+  transform: translateY(2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-footer__download-arrow { transition: none; }
+}
+
 @media (min-width: 1024px) {
   .site-footer__main {
     grid-template-columns: auto 1fr auto;

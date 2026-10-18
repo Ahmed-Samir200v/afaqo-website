@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div style={{ position: "relative", minHeight: "100vh", backgroundColor: "var(--color-canvas-dark)" }}>
       {/* Global Production Floating Glass Header */}
-      <Header theme="dark" activeHref="#work" />
+      <Header />
 
       {/* Main Page Landmark Containing Homepage Sections */}
       <main>

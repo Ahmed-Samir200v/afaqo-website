@@ -62,8 +62,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
   return (
     <div className={styles.pageContainer}>
-      {/* Light Theme Glass Navigation */}
-      <Header theme="light" />
+      {/* Unified Global Floating Glass Header */}
+      <Header />
 
       <main>
         {/* P01 — Project Hero */}

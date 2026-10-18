@@ -53,8 +53,8 @@ const technicalCapabilities = [
 export default function AboutPage() {
   return (
     <div className={styles.aboutPage}>
-      {/* S00: Route Header (Light surface) */}
-      <Header theme="light" />
+      {/* S00: Route Header (Unified Home Navigation) */}
+      <Header />
 
       {/* A01: Manifesto Hero */}
       <section className={styles.heroSection} aria-labelledby="about-heading">

@@ -172,8 +172,8 @@ const framework = [
 export default function IndustriesPage() {
   return (
     <div className={styles.industriesPage}>
-      {/* S00: Route Header (Light surface) */}
-      <Header theme="light" />
+      {/* S00: Route Header (Unified Home Navigation) */}
+      <Header />
 
       {/* I01: Hero & Industry Index */}
       <section className={styles.heroSection} aria-labelledby="industries-heading">

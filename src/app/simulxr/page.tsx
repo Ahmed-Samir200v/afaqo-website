@@ -118,8 +118,8 @@ const hardwareTargets = [
 export default function SimulxrPage() {
   return (
     <div className={styles.simulxrPage}>
-      {/* S00: Route Header (Dark surface) */}
-      <Header theme="dark" />
+      {/* S00: Route Header (Unified Home Navigation) */}
+      <Header />
 
       {/* X01: Industrial Hero */}
       <section className={styles.heroSection} aria-labelledby="simulxr-heading">
