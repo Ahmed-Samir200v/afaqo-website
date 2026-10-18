@@ -1,0 +1,1293 @@
+/* ==========================================================================
+   AFAQO Company Profile — Cinematic Experience Styles
+   Theme: Deep Navy (#050D24), Electric Blue (#0866FF), Electric Cyan (#00D1FF),
+          Soft Ivory (#F9F8F4), Supporting White (#FFFFFF).
+   ========================================================================== */
+
+.pageWrapper {
+  background-color: #050d24;
+  color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Global Layout Utilities & Containers
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+.fullBleedContainer {
+  width: 100%;
+  max-width: 1600px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2.5rem);
+}
+
+/* Typography Helpers */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #00d1ff;
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #00d1ff;
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.7);
+}
+
+.sourceBadge {
+  display: inline-flex;
+  align-items: center;
+  font-family: monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.h1Title {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: clamp(2.5rem, 5.5vw, 5.25rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.h2Title {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+.leadText {
+  font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 68ch;
+}
+
+.bodyText {
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* --------------------------------------------------------------------------
+   Interactive Buttons & Download Links
+   -------------------------------------------------------------------------- */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: #0866ff;
+  color: #ffffff;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.85rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px -4px rgba(8, 102, 255, 0.45);
+  transition: background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+  min-height: 44px;
+}
+
+.btnPrimary:hover {
+  background: #0052cc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 26px -2px rgba(8, 102, 255, 0.6);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.85rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  transition: background-color 220ms ease, border-color 220ms ease, transform 220ms ease;
+  min-height: 44px;
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 209, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.btnDownload {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, rgba(8, 102, 255, 0.15) 0%, rgba(0, 209, 255, 0.08) 100%);
+  border: 1px solid rgba(0, 209, 255, 0.35);
+  color: #ffffff;
+  padding: 0.85rem 1.65rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 240ms ease;
+  min-height: 44px;
+}
+
+.btnDownload:hover {
+  background: linear-gradient(135deg, rgba(8, 102, 255, 0.3) 0%, rgba(0, 209, 255, 0.2) 100%);
+  border-color: #00d1ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(0, 209, 255, 0.25);
+}
+
+.downloadIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #00d1ff;
+}
+
+.downloadSizeBadge {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #00d1ff;
+  background: rgba(0, 209, 255, 0.12);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Sticky Chapter Navigation Bar
+   -------------------------------------------------------------------------- */
+.chapterNavWrapper {
+  position: fixed;
+  bottom: clamp(16px, 2.5vw, 28px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  width: calc(100% - clamp(24px, 4vw, 48px));
+  max-width: 1040px;
+  pointer-events: none;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.chapterNavPill {
+  pointer-events: auto;
+  background: rgba(5, 13, 36, 0.75);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 100px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chapterNavPill::-webkit-scrollbar {
+  display: none;
+}
+
+.navItemsList {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItemBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.75rem;
+  border-radius: 100px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 180ms ease;
+}
+
+.navItemBtn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.navItemBtnActive {
+  color: #ffffff;
+  background: rgba(8, 102, 255, 0.25);
+  border-color: rgba(0, 209, 255, 0.4);
+}
+
+.navNum {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #00d1ff;
+}
+
+.navPdfAction {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #00d1ff;
+  text-decoration: none;
+  padding: 0.35rem 0.8rem;
+  border-radius: 100px;
+  background: rgba(0, 209, 255, 0.08);
+  border: 1px solid rgba(0, 209, 255, 0.25);
+  transition: all 200ms ease;
+}
+
+.navPdfAction:hover {
+  background: rgba(0, 209, 255, 0.18);
+  border-color: #00d1ff;
+}
+
+/* --------------------------------------------------------------------------
+   CP01: Horizon / Arrival (Hero)
+   -------------------------------------------------------------------------- */
+.heroSection {
+  min-height: clamp(640px, 100svh, 940px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: clamp(100px, 12vw, 150px);
+  padding-bottom: clamp(60px, 8vw, 100px);
+  background: #050d24;
+  overflow: hidden;
+}
+
+.heroBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 70% center;
+  opacity: 0.85;
+}
+
+.heroGradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(5, 13, 36, 0.4) 0%, rgba(5, 13, 36, 0.95) 85%),
+              linear-gradient(180deg, rgba(5, 13, 36, 0.3) 0%, rgba(5, 13, 36, 0.8) 70%, #050d24 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.25rem;
+  align-items: center;
+}
+
+.heroTaxonomy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.taxItem {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.08em;
+}
+
+.taxDot {
+  color: #00d1ff;
+  opacity: 0.6;
+}
+
+/* --------------------------------------------------------------------------
+   CP02: Identity & Purpose (Source Pages 3-5)
+   -------------------------------------------------------------------------- */
+.identitySection {
+  padding-block: clamp(80px, 10vw, 140px);
+  position: relative;
+  background: #050d24;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.identityGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+}
+
+.editorialSplit {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .editorialSplit {
+    grid-template-columns: 7fr 5fr;
+  }
+  .editorialSplitReverse {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+.editorialFrame {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  aspect-ratio: 16 / 9;
+}
+
+.editorialFrame img {
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorialFrame:hover img {
+  transform: scale(1.02);
+}
+
+.disciplinesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .disciplinesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.disciplineCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 1.25rem;
+  border-radius: 8px;
+  transition: all 200ms ease;
+}
+
+.disciplineCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(0, 209, 255, 0.3);
+}
+
+.disciplineTag {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: #00d1ff;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.disciplineTitle {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+
+.disciplineDesc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.visionMissionBox {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .visionMissionBox {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.vmCard {
+  padding: 1.75rem;
+  background: linear-gradient(135deg, rgba(8, 102, 255, 0.08) 0%, rgba(5, 13, 36, 0.6) 100%);
+  border: 1px solid rgba(8, 102, 255, 0.25);
+  border-radius: 10px;
+}
+
+.vmLabel {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #00d1ff;
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.vmText {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* --------------------------------------------------------------------------
+   CP03: Capability System (Source Pages 6-8)
+   -------------------------------------------------------------------------- */
+.capabilitySection {
+  padding-block: clamp(80px, 10vw, 140px);
+  position: relative;
+  background: #050d24;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.industryTabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  scrollbar-width: none;
+}
+
+.industryTabs::-webkit-scrollbar {
+  display: none;
+}
+
+.industryTabBtn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: rgba(255, 255, 255, 0.65);
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 180ms ease;
+}
+
+.industryTabBtn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.industryTabBtnActive {
+  background: #0866ff;
+  color: #ffffff;
+  border-color: #0866ff;
+  box-shadow: 0 4px 16px -2px rgba(8, 102, 255, 0.5);
+}
+
+.industryShowcase {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+@media (min-width: 1024px) {
+  .industryShowcase {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.capabilitiesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .capabilitiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .capabilitiesGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.capCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.capCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 209, 255, 0.35);
+}
+
+.capNum {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #00d1ff;
+}
+
+.capTitle {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.capTagline {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
+
+.capServicesList {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 0.75rem;
+}
+
+.capServiceItem {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.capServiceItem::before {
+  content: "—";
+  color: #0866ff;
+  font-weight: bold;
+}
+
+/* Delivery Track */
+.deliveryTrack {
+  margin-top: 4.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.deliveryList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .deliveryList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .deliveryList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .deliveryList {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+.deliveryStepCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.deliveryStepNum {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #00d1ff;
+}
+
+.deliveryStepPhase {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.deliveryStepDetail {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* --------------------------------------------------------------------------
+   CP04: Brand Roles & Transition (Source Pages 9-10)
+   -------------------------------------------------------------------------- */
+.brandRolesSection {
+  padding-block: clamp(80px, 10vw, 140px);
+  position: relative;
+  background: #050d24;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.rolesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .rolesGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.roleCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.roleBrand {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.roleDeliverables {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.roleDeliverableItem {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.roleDeliverableItem::before {
+  content: "✔";
+  color: #00d1ff;
+  font-size: 0.75rem;
+}
+
+.clarificationBox {
+  margin-top: 3.5rem;
+  padding: 1.5rem 1.75rem;
+  background: rgba(8, 102, 255, 0.06);
+  border: 1px solid rgba(8, 102, 255, 0.25);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.clarificationLabel {
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: #00d1ff;
+  letter-spacing: 0.1em;
+}
+
+.clarificationText {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.transitionMontage {
+  margin-top: 4.5rem;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  aspect-ratio: 21 / 9;
+}
+
+.transitionMontage img {
+  object-fit: cover;
+}
+
+.transitionOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(5, 13, 36, 0.95) 0%, rgba(5, 13, 36, 0.3) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* --------------------------------------------------------------------------
+   CP05: Case Study — Digital Reality (Source Pages 11-14)
+   -------------------------------------------------------------------------- */
+.digitalRealitySection {
+  padding-block: clamp(80px, 10vw, 140px);
+  position: relative;
+  background: #050d24;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stagesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .stagesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stagesGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stageCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stageStep {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #00d1ff;
+}
+
+.stageTitle {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.stageDesc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.trainingOutcomesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 640px) {
+  .trainingOutcomesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .trainingOutcomesGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.outcomeCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.outcomeNum {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #0866ff;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.outcomeLabel {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+
+.outcomeDetail {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dccCompareContainer {
+  margin-top: 4.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: clamp(1.5rem, 3.5vw, 2.75rem);
+}
+
+.dccCompareGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .dccCompareGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.dccCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.dccCardTitle {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #00d1ff;
+  margin-bottom: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   CP06: Firefighting Robot Case Study (Source Pages 15-20)
+   -------------------------------------------------------------------------- */
+.robotSection {
+  padding-block: clamp(80px, 10vw, 140px);
+  position: relative;
+  background: #050d24;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.provenanceBanner {
+  background: rgba(255, 170, 0, 0.08);
+  border: 1px solid rgba(255, 170, 0, 0.3);
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2.5rem;
+}
+
+.provenanceBadgeText {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #ffaa00;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.provenanceNoticeText {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.orthoSelector {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-block: 1.5rem;
+}
+
+.orthoBtn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.orthoBtnActive {
+  background: #0866ff;
+  border-color: #0866ff;
+  color: #ffffff;
+}
+
+.robotStepsList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .robotStepsList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .robotStepsList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.teamRolesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .teamRolesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .teamRolesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.teamRoleCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.roleTitle {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #00d1ff;
+  margin-bottom: 0.35rem;
+}
+
+.roleContribution {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* --------------------------------------------------------------------------
+   CP07: Systems in Development & Delivery (Source Pages 21-28)
+   -------------------------------------------------------------------------- */
+.systemsSection {
+  padding-block: clamp(80px, 10vw, 140px);
+  position: relative;
+  background: #050d24;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.statusPillDevelopment {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 209, 255, 0.1);
+  border: 1px solid rgba(0, 209, 255, 0.35);
+  color: #00d1ff;
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+}
+
+.challengesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .challengesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.challengeCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.challengeNum {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #00d1ff;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.processSequenceGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .processSequenceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .processSequenceGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .processSequenceGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.processSequenceCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.hardDivider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 209, 255, 0.4), transparent);
+  margin-block: clamp(60px, 8vw, 100px);
+}
+
+.destinationsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .destinationsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.destinationCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.deliverySpecsTable {
+  margin-top: 3.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.specRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 0.35rem;
+}
+
+@media (min-width: 768px) {
+  .specRow {
+    grid-template-columns: 1.5fr 2fr 1.5fr;
+    align-items: center;
+  }
+}
+
+.specRow:last-child {
+  border-bottom: none;
+}
+
+.specLabel {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.specValue {
+  font-size: 0.95rem;
+  color: #00d1ff;
+  font-family: monospace;
+}
+
+.specNote {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   CP08: Closing Horizon (Source Page 29)
+   -------------------------------------------------------------------------- */
+.closingSection {
+  padding-block: clamp(100px, 14vw, 180px);
+  position: relative;
+  background: #050d24;
+  overflow: hidden;
+  text-align: center;
+}
+
+.closingBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.closingBackdrop img {
+  object-fit: cover;
+  opacity: 0.45;
+}
+
+.closingGradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(5, 13, 36, 0.75) 0%, rgba(5, 13, 36, 0.96) 80%);
+}
+
+.closingContent {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.closingActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Overrides
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .btnPrimary,
+  .btnSecondary,
+  .btnDownload,
+  .navItemBtn,
+  .editorialFrame img,
+  .capCard {
+    transition: none !important;
+    transform: none !important;
+  }
+}

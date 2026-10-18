@@ -9,6 +9,7 @@ import {
   getAllCaseStudySlugs,
 } from "@/content/projects/case-studies";
 import styles from "@/components/sections/work/CaseStudy.module.css";
+import { IndustrialDigitalTwinCaseStudy } from "@/components/sections/work/case-studies/IndustrialDigitalTwinCaseStudy";
 
 interface PageProps {
   params: Promise<{
@@ -31,6 +32,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  if (slug === "industrial-training-experience") {
+    return {
+      title: "Industrial Digital Twin & Interactive Training | AFAQO",
+      description:
+        "A visual production journey connecting process references, detailed equipment and an explorable industrial environment.",
+    };
+  }
+
   return {
     title: `${project.title} — Case Study | AFAQO`,
     description: project.summary,
@@ -43,6 +52,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
   if (!project) {
     notFound();
+  }
+
+  if (slug === "industrial-training-experience") {
+    return <IndustrialDigitalTwinCaseStudy />;
   }
 
   const nextProject = getCaseStudy(project.nextSlug);
