@@ -52,6 +52,7 @@ function NavLinkItem({
         borderRadius: "var(--radius-sm, 2px)",
         position: "relative",
         textDecoration: "none",
+        whiteSpace: "nowrap",
         zIndex: 10,
       }}
     >
@@ -208,7 +209,7 @@ export function Header({
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          paddingInline: "clamp(1.15rem, 2.5vw, 2.25rem)",
+          paddingInline: "clamp(1rem, 2vw, 2.25rem)",
           zIndex: 50,
           transition:
             "background-color 300ms ease, height 300ms ease, box-shadow 300ms ease, border-color 300ms ease, transform 250ms ease",
@@ -255,7 +256,7 @@ export function Header({
             priority
             style={{
               width: "auto",
-              height: "clamp(30px, 3.2vw, 36px)",
+              height: "clamp(28px, 2.8vw, 36px)",
               display: "block",
             }}
           />
@@ -272,7 +273,7 @@ export function Header({
               listStyle: "none",
               display: "flex",
               alignItems: "center",
-              gap: "clamp(1.5rem, 2.2vw, 2.25rem)",
+              gap: "clamp(0.75rem, 1.4vw, 2rem)",
               padding: 0,
               margin: 0,
             }}
@@ -296,7 +297,7 @@ export function Header({
           style={{
             display: "none",
             alignItems: "center",
-            gap: "clamp(1.25rem, 2vw, 1.75rem)",
+            gap: "clamp(0.75rem, 1.3vw, 1.75rem)",
             position: "relative",
             zIndex: 10,
           }}
