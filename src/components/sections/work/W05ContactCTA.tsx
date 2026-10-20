@@ -14,21 +14,20 @@ export function W05ContactCTA() {
             </div>
 
             <h2 id="work-cta-heading" className={styles.ctaHeading}>
-              Let’s make your
+              Have a project that needs
               <br />
-              next idea <span className={styles.headingAccent}>real.</span>
+              more than a <span className={styles.headingAccent}>static image?</span>
             </h2>
           </div>
 
           {/* Right Column: Copy & Action */}
           <div className={styles.ctaActionColumn}>
             <p className={styles.ctaDescription}>
-              We’d love to hear about your project and explore how we can create
-              immersive experiences and digital solutions together.
+              Let&apos;s explore how interactive 3D or immersive technology could help communicate your idea.
             </p>
 
             <Link href="/contact" className={styles.ctaButton}>
-              <span>Start a Project</span>
+              <span>Discuss Your Challenge</span>
               <span aria-hidden="true">↗</span>
             </Link>
           </div>

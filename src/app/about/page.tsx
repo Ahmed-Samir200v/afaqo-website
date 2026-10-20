@@ -6,31 +6,31 @@ import { Footer } from "@/components/layout/Footer";
 import styles from "@/components/sections/about/About.module.css";
 
 export const metadata: Metadata = {
-  title: "About — Creative Technology Company | AFAQO",
+  title: "About AFAQO | Creative Technology & Immersive Experiences",
   description:
-    "AFAQO brings creative thinking and technology together to transform complex ideas into purposeful digital experiences. Cairo — Working Globally.",
+    "AFAQO is a creative technology company based in Cairo, working globally. We turn complex ideas into immersive experiences across XR, interactive 3D and simulation.",
 };
 
 const collaborationPrinciples = [
   {
     number: "01",
-    title: "Listen & Understand",
-    desc: "We start by deeply analyzing your operational realities, user workflows, and technical constraints before proposing solutions.",
+    title: "Purpose before platform",
+    desc: "We choose tools, engines and delivery formats to fit the user, the environment and the task—never to showcase hardware for its own sake.",
   },
   {
     number: "02",
-    title: "Align & Architect",
-    desc: "We map out clear spatial ergonomics, system architecture, and production milestones with complete transparency.",
+    title: "Clarity over complexity",
+    desc: "An immersive experience should make complicated systems easier to understand, not add another layer of confusion.",
   },
   {
     number: "03",
-    title: "Prototype & Validate",
-    desc: "We rapidly build functional interactive prototypes on target hardware, verifying assumptions early in real runtime conditions.",
+    title: "Detail with discipline",
+    desc: "From scale accuracy and physically based materials to stable frame rates, craft and performance must reinforce each other.",
   },
   {
     number: "04",
-    title: "Deliver & Support",
-    desc: "We engineer production-grade deployments, maintain zero-jitter framerates, and support continuous lifecycle operation.",
+    title: "Collaboration across disciplines",
+    desc: "We work directly with domain experts—engineers, educators, curators and operators—to ensure every experience reflects operational truth.",
   },
 ];
 
@@ -63,8 +63,9 @@ export default function AboutPage() {
           From a single point to <span className={styles.accentWord}>infinite horizons.</span>
         </h1>
         <p className={styles.heroIntro}>
-          AFAQO brings creative thinking and technology together to transform complex
-          ideas into purposeful, high-fidelity digital experiences.
+          AFAQO is a creative technology company. We turn complex ideas, systems and
+          environments into immersive digital experiences that people can explore,
+          understand and act on.
         </p>
       </section>
 
@@ -76,19 +77,13 @@ export default function AboutPage() {
           </h2>
           <div className={styles.whoContent}>
             <p className={styles.bodyLarge}>
-              We are a Creative Technology company operating at the intersection of
-              spatial computing, real-time engineering, and experiential design.
+              We work at the intersection of spatial computing, real-time 3D, interactive media and simulation.
             </p>
             <p className={styles.bodyRegular}>
-              Rather than treating technology as a novelty, we believe every digital
-              environment, simulation, and interactive system must serve a clear purpose:
-              accelerating understanding, enabling safe training, or preserving heritage
-              with emotional resonance.
+              Our focus is not on technology as a display piece, but on what an interactive experience makes possible: making a mechanical process visible before fabrication, allowing a team to rehearse high-risk procedures safely, or turning cultural heritage into an explorable environment.
             </p>
             <p className={styles.bodyRegular}>
-              Our multidisciplinary team unifies creative directors, 3D artists, real-time
-              developers, and systems engineers under a shared commitment to craft,
-              precision, and technical rigor.
+              We collaborate with industrial operators, cultural institutions, educational organizations and forward-thinking enterprises across the Middle East, North Africa and internationally.
             </p>
           </div>
         </div>
@@ -180,9 +175,9 @@ export default function AboutPage() {
 
       {/* A05: How We Collaborate */}
       <section className={styles.collabSection} aria-labelledby="collab-heading">
-        <span className={styles.eyebrow}>Work Ethic</span>
+        <span className={styles.eyebrow}>HOW WE WORK</span>
         <h2 id="collab-heading" className={styles.sectionLabel}>
-          How we collaborate.
+          Four principles that guide our work.
         </h2>
         <div className={styles.principlesGrid}>
           {collaborationPrinciples.map((principle) => (
@@ -206,9 +201,10 @@ export default function AboutPage() {
           </div>
           <div className={styles.locationBody}>
             <p className={styles.bodyRegular}>
-              Headquartered in Cairo, we operate as a globally integrated creative technology
-              partner. Our workflows connect international engineering standards with rich
-              cultural perspectives across Europe, the Middle East, and beyond.
+              Based in Cairo, Egypt, AFAQO delivers projects across the Gulf region, North
+              Africa and internationally. We combine regional proximity with international
+              production standards, collaborating closely with teams in Oman, Saudi Arabia,
+              the UAE and beyond.
             </p>
 
             {/* A08: SIMULXR Specialized Initiative Card */}
@@ -216,11 +212,11 @@ export default function AboutPage() {
               <span className={styles.simulxrTag}>Specialized Initiative</span>
               <h3 className={styles.simulxrTitle}>SIMULXR by AFAQO</h3>
               <p className={styles.simulxrDesc}>
-                Our dedicated educational and industrial simulation platform, transforming
-                STEM education and procedural training into interactive virtual reality.
+                Our dedicated platform and initiative for industrial simulation, procedural
+                safety training and explorable technical systems.
               </p>
               <Link href="/simulxr" className={styles.simulxrLink}>
-                Learn more about SIMULXR ↗
+                Explore SIMULXR →
               </Link>
             </div>
           </div>
@@ -231,14 +227,14 @@ export default function AboutPage() {
       <section className={styles.closingCtaSection} aria-labelledby="cta-heading">
         <div className={styles.ctaContainer}>
           <h2 id="cta-heading" className={styles.ctaTitle}>
-            Let’s build something meaningful.
+            Let&apos;s understand your challenge.
           </h2>
           <p className={styles.ctaSubtitle}>
-            Whether you are exploring spatial computing for the first time or scaling an
-            existing interactive system, we are ready to partner with you.
+            Tell us what your team needs to explain, train, visualize or build. We will help
+            identify the right approach.
           </p>
           <Link href="/contact" className={styles.ctaButton}>
-            Start a Project <span>↗</span>
+            Start a Project <span>→</span>
           </Link>
         </div>
       </section>

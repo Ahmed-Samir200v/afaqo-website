@@ -16,7 +16,7 @@ const initialForm: FormData = {
   name: "",
   email: "",
   company: "",
-  serviceType: "Immersive Experiences (AR/VR/MR)",
+  serviceType: "Extended Reality (AR/VR/MR)",
   message: "",
   timeline: "1–3 Months",
 };
@@ -118,12 +118,12 @@ export function ContactForm() {
             value={formData.serviceType}
             onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
           >
-            <option value="Immersive Experiences (AR/VR/MR)">Immersive Experiences (AR/VR/MR)</option>
-            <option value="Interactive Digital Solutions & Twins">Interactive Digital Solutions & Twins</option>
-            <option value="3D Content & Visualization">3D Content & Visualization</option>
-            <option value="SIMULXR Industrial Simulation">SIMULXR Industrial Simulation</option>
-            <option value="Experience Design & Architecture">Experience Design & Architecture</option>
-            <option value="General Technical Inquiry">General Technical Inquiry</option>
+            <option value="Extended Reality (AR/VR/MR)">Extended Reality (AR/VR/MR)</option>
+            <option value="Interactive 3D Solutions">Interactive 3D Solutions</option>
+            <option value="Digital Environments & Replicas">Digital Environments & Replicas</option>
+            <option value="SIMULXR Industrial Simulation & Training">SIMULXR Industrial Simulation & Training</option>
+            <option value="3D Content Production & Optimization">3D Content Production & Optimization</option>
+            <option value="General Inquiry / Technical Consultation">General Inquiry / Technical Consultation</option>
           </select>
         </div>
       </div>

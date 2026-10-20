@@ -240,17 +240,17 @@ export function MidPageCTA() {
               marginBottom: "clamp(1rem, 1.8vh, 1.4rem)",
             }}
           >
-            AFAQO / LET&apos;S COLLABORATE
+            AFAQO / LET&apos;S BUILD SOMETHING USEFUL
           </div>
 
-          {/* Headline with 'project' highlighted in Electric Blue */}
+          {/* Headline with 'complex idea?' highlighted in Electric Blue */}
           <h2
             className="cta-anim-item"
             style={{
               fontFamily: "var(--font-manrope)",
-              fontSize: "clamp(42px, 5.2vw, 88px)",
+              fontSize: "clamp(38px, 4.8vw, 76px)",
               fontWeight: 300,
-              lineHeight: 1.05,
+              lineHeight: 1.08,
               letterSpacing: "-0.035em",
               color: "#FFFFFF",
               margin: 0,
@@ -264,10 +264,10 @@ export function MidPageCTA() {
                 fontWeight: 400,
               }}
             >
-              project
+              complex idea?
             </span>
             <br />
-            in mind?
+            Let&apos;s make it understandable.
           </h2>
 
           {/* Supporting Copy */}
@@ -284,14 +284,14 @@ export function MidPageCTA() {
               maxWidth: "46ch",
             }}
           >
-            Let&apos;s turn your vision into an immersive experience.
+            Tell us what you need people to see, learn or experience. We&apos;ll explore the most relevant approach together.
           </p>
 
           {/* Prominent Solid CTA Button (56-62px height, 28-34px padding, 8px radius) */}
           <div className="cta-anim-item">
             <Link
               ref={buttonRef}
-              href="#contact"
+              href="/contact"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               aria-label="Start a Project — Connect with AFAQO"

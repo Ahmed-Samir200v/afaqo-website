@@ -6,9 +6,9 @@ import { Footer } from "@/components/layout/Footer";
 import styles from "@/components/sections/industries/Industries.module.css";
 
 export const metadata: Metadata = {
-  title: "Industries — Immersive Solutions Across Sectors | AFAQO",
+  title: "Industries We Serve | Industrial XR & Immersive Experiences | AFAQO",
   description:
-    "Explore how AFAQO applies immersive technology, digital twins, and real-time 3D simulation across Industry & Manufacturing, Oil & Gas, Education, and Culture & Heritage.",
+    "See how AFAQO applies immersive technology and interactive 3D across industry, energy, education, culture, architecture and enterprise.",
 };
 
 const sectors = [
@@ -18,21 +18,21 @@ const sectors = [
     category: "Manufacturing & Robotics",
     title: "Industry & Manufacturing",
     challenge:
-      "Modern industrial facilities and automated manufacturing lines generate complex telemetry that is difficult to visualize, monitor, and train staff on safely.",
+      "Modern industrial facilities and automated manufacturing equipment bring together complex procedures and equipment relationships that are difficult to explain through conventional documentation alone.",
     solution:
-      "We build interactive digital twins and real-time 3D product simulations that turn complex telemetry into spatial intelligence, enabling intuitive remote operations and zero-downtime training.",
+      "We build interactive 3D product simulations and digital environments that make equipment form, mechanical hierarchy, and operational workflows accessible for inspection and orientation.",
     applications: [
       {
-        title: "Digital Twins & Telemetry",
-        desc: "Live spatial models mirroring real physical machinery and automation lines.",
+        title: "Digital Environments & Explorers",
+        desc: "Interactive 3D models mirroring equipment form and spatial layouts.",
       },
       {
-        title: "Virtual Commissioning",
-        desc: "Interactive validation of robotics workflows before factory floor deployment.",
+        title: "Virtual Exploration",
+        desc: "Interactive inspection of robotics workflows and subsystem mechanics.",
       },
       {
         title: "Maintenance Simulation",
-        desc: "Guided step-by-step diagnostic procedures in interactive 3D.",
+        desc: "Guided step-by-step diagnostic and inspection procedures in interactive 3D.",
       },
       {
         title: "Interactive Product Explorers",
@@ -42,7 +42,7 @@ const sectors = [
     caseStudyHref: "/work/taf35-robot-simulation",
     caseStudyTitle: "TAF35 Robot Simulation",
     image: "/images/industries/manufacturing.webp",
-    badge: "Industrial Automation",
+    badge: "Industrial Equipment",
     reversed: false,
   },
   {
@@ -51,25 +51,25 @@ const sectors = [
     category: "Energy & Infrastructure",
     title: "Oil & Gas",
     challenge:
-      "Field personnel operate in hazardous environments with critical safety protocols, where on-site mistakes carry extreme operational risk and downtime costs.",
+      "Field personnel operate around specialized equipment and spatial constraints where physical access for familiarization and practice is limited or hazardous.",
     solution:
-      "We deliver high-fidelity VR simulations and spatial training systems that replicate complex plants, valves, and emergency procedures without operational interruption or safety risks.",
+      "We deliver high-fidelity VR experiences and spatial training simulations that replicate plants, valves, and procedural sequences in a controlled, risk-free digital setting.",
     applications: [
       {
-        title: "High-Risk VR Training",
-        desc: "Immersive field procedure simulations for safety and emergency response.",
+        title: "Scenario-Based Training",
+        desc: "Immersive field procedure simulations for safety and orientation.",
       },
       {
-        title: "Hazardous Scenario Testing",
-        desc: "Simulated emergency drills and protocol validation in controlled VR environments.",
+        title: "Procedure Walkthroughs",
+        desc: "Simulated scenario drills and protocol familiarization in controlled VR environments.",
       },
       {
         title: "Facility Visualization",
-        desc: "Geospatial and structural plant visual models for planning and familiarization.",
+        desc: "Navigable 3D models for plant layout familiarization and planning.",
       },
       {
-        title: "Procedural Assessment",
-        desc: "Scored technician evaluation with telemetry analytics tracking accuracy.",
+        title: "Procedural Learning Flows",
+        desc: "Guided operational sequences tracking step accuracy and safety compliance.",
       },
     ],
     caseStudyHref: "/work/industrial-training-experience",
@@ -84,13 +84,13 @@ const sectors = [
     category: "Learning & Research",
     title: "Education & Academic Labs",
     challenge:
-      "Traditional classrooms struggle to convey abstract STEM concepts and cannot always provide safe or affordable physical access to advanced laboratory equipment.",
+      "Complex STEM subjects and specialized laboratory equipment can be challenging to convey effectively through passive visual media alone.",
     solution:
-      "Through SIMULXR and spatial computing, we create virtual laboratories and interactive curricula where students conduct real scientific experiments and explore complex phenomena safely.",
+      "Through SIMULXR and interactive 3D, we create virtual laboratories and interactive curricula where learners explore systems, interact with equipment, and discover concepts safely.",
     applications: [
       {
         title: "Virtual Science Laboratories",
-        desc: "Interactive chemistry, physics, and biology lab stations in WebGL and VR.",
+        desc: "Interactive science lab environments in WebGL and VR.",
       },
       {
         title: "Experiential Curriculum",
@@ -98,11 +98,11 @@ const sectors = [
       },
       {
         title: "Simulated Instrumentation",
-        desc: "Hands-on experience with high-cost scientific machinery without capital barriers.",
+        desc: "Hands-on experience with equipment concepts without physical risk.",
       },
       {
-        title: "Standardized Evaluation",
-        desc: "Interactive quiz modules and experimental verification pipelines.",
+        title: "Interactive Verification",
+        desc: "Interactive exploration modules reinforcing practical understanding.",
       },
     ],
     caseStudyHref: "/simulxr",
@@ -117,31 +117,31 @@ const sectors = [
     category: "Culture, Tourism & Exhibits",
     title: "Culture & Heritage",
     challenge:
-      "Historical landmarks, archaeological sites, and cultural institutions need to preserve delicate artifacts while making cultural narratives globally accessible.",
+      "Cultural landmarks, architectural sites, and museum institutions seek to make spatial environments and cultural narratives accessible beyond physical access constraints.",
     solution:
-      "We construct millimeter-precise 3D reconstructions, cinematic environments, and interactive spatial visitor exhibits that transport audiences through history with atmospheric realism.",
+      "We construct detailed 3D environmental reconstructions and interactive spatial visitor experiences that convey architectural scale and atmospheric realism.",
     applications: [
       {
-        title: "Photorealistic Site Reconstructions",
-        desc: "Archival-grade digital preservation of historical monuments and landscapes.",
+        title: "Site Visual Reconstructions",
+        desc: "Archival-grade digital representations of historical sites and landscapes.",
       },
       {
         title: "Interactive Visitor Experiences",
-        desc: "Multi-sensory museum installations and interactive spatial narratives.",
+        desc: "Engaging museum and exhibition visual environments.",
       },
       {
-        title: "Virtual Tourism Journeys",
+        title: "Virtual Exploration Journeys",
         desc: "Remote interactive exploration for global audiences and educational initiatives.",
       },
       {
-        title: "Cultural Digital Archiving",
-        desc: "Optimized 3D geometry and photogrammetric assets ready for exhibition.",
+        title: "Cultural Digital Assets",
+        desc: "Optimized 3D geometry and environments prepared for spatial presentation.",
       },
     ],
     caseStudyHref: "/work/remal-park",
     caseStudyTitle: "Remal Park Experience",
     image: "/images/industries/culture-heritage.webp",
-    badge: "Cultural Preservation",
+    badge: "Cultural Visualization",
     reversed: true,
   },
 ];
@@ -182,8 +182,9 @@ export default function IndustriesPage() {
           Technology shaped around real-world challenges.
         </h1>
         <p className={styles.heroIntro}>
-          Every sector has its own needs. We connect design, immersive technology,
-          and interactive production to the challenges that matter.
+          Different sectors face different questions. We apply experience design,
+          interactive 3D and immersive technology where they can make complex information
+          easier to explore and communicate.
         </p>
 
         {/* Anchor Jump Navigation */}
@@ -291,16 +292,16 @@ export default function IndustriesPage() {
       {/* I08: Closing CTA */}
       <section className={styles.closingCtaSection} aria-labelledby="cta-heading">
         <div className={styles.ctaContainer}>
-          <span className={styles.ctaEyebrow}>Sector Collaboration</span>
+          <span className={styles.ctaEyebrow}>Start a Conversation</span>
           <h2 id="cta-heading" className={styles.ctaTitle}>
-            Discuss your industry challenge.
+            Different sectors. A shared need for clarity.
           </h2>
           <p className={styles.ctaSubtitle}>
-            Let’s explore how spatial simulation, real-time digital twins, or immersive
-            training can solve your organization’s unique operational requirements.
+            If your challenge is difficult to explain, visualize or experience,
+            we can help define an appropriate interactive approach.
           </p>
           <Link href="/contact" className={styles.ctaButton}>
-            Start a Conversation <span>↗</span>
+            Discuss Your Challenge <span>↗</span>
           </Link>
         </div>
       </section>

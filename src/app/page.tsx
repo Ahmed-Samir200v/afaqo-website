@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { H01Hero } from "@/components/sections/home/H01-Hero";
@@ -9,6 +10,12 @@ import { H06Delivery } from "@/components/sections/home/H06-Delivery";
 import { H07TechnologyAI } from "@/components/sections/home/H07-TechnologyAI";
 import { H09SimulXR } from "@/components/sections/home/H09-SimulXR";
 import { H10FinalCTA } from "@/components/sections/home/H10-FinalCTA";
+
+export const metadata: Metadata = {
+  title: "AFAQO | XR, Interactive 3D & Immersive Technology",
+  description:
+    "AFAQO combines experience design, interactive 3D and real-time technology to create immersive digital solutions for industry, learning and enterprise.",
+};
 
 export default function Home() {
   return (

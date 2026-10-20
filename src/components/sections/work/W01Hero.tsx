@@ -318,8 +318,8 @@ export function W01Hero() {
 
             {/* Description: 18px, line-height 1.65, max-width 510px */}
             <p ref={introRef} className={styles.heroIntro}>
-              A selection of immersive experiences, interactive environments, and digital
-              projects brought to life through design, 3D production, and technology.
+              Explore selected work across interactive environments, industrial visualization and
+              immersive experiences—each shaped by a specific technical or user challenge.
             </p>
 
             {/* CTA Button — Final element in the left column */}

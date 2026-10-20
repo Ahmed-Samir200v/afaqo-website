@@ -18,9 +18,9 @@ export interface Project {
 export const projectsContent = {
   eyebrow: "01 / SELECTED WORK",
   headline: "Ideas made tangible.",
-  body: "A selection of immersive environments, interactive applications, and real-time experiences developed for real-world use.",
+  body: "A selection of projects and experiences spanning industrial visualization, interactive simulation and immersive environments.",
   cta: {
-    label: "Explore All Work",
+    label: "View All Work",
     href: "/work",
   },
   projects: [

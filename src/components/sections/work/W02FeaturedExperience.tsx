@@ -140,7 +140,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
     location: "CAIRO, EGYPT",
     caption: "High-precision VR facility replication and operational training simulation.",
     description:
-      "An immersive training experience that recreates complex industrial environments with high realism, enabling safe, effective, and repeatable operational learning.",
+      "An interactive environment designed to support exploration of industrial systems and training scenarios.",
     tags: ["Simulation", "VR Training", "Real-Time 3D"],
     image: "/images/projects/industrial-training/industrial-training.png",
     imageAlt: "Industrial Training Experience VR Procedure Simulation",
@@ -158,7 +158,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
     location: "RIYADH, SAUDI ARABIA",
     caption: "Heritage-scale landscape reconstruction and authentic daylight simulation.",
     description:
-      "High-fidelity 3D environments and visual content for an immersive cultural visitor experience, synthesizing authentic desert topography with cutting-edge real-time fidelity.",
+      "An architectural environment prepared for immersive and desktop-based exploration.",
     tags: ["Interactive 3D", "Visualization", "Cultural Heritage"],
     image: "/images/projects/remal-park/remal-park.jpg",
     imageAlt: "Remal Park Cultural Visitor Experience 3D Visualization",
@@ -176,7 +176,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
     location: "MUSCAT, OMAN",
     caption: "Kinematic digital twin explorer and real-time physical telemetry visualization.",
     description:
-      "An interactive application for exploring complex robotic systems in real time, featuring physically grounded kinematic movement, component breakdowns, and live simulation controls.",
+      "A focused simulation and visualization experience centered on robot equipment and interaction.",
     tags: ["Simulation", "Robotics", "Technical Explorer"],
     image: "/images/projects/taf35-robot/taf35-robot.png",
     imageAlt: "TAF35 Robot Interactive Application and Technical Explorer",

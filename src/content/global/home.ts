@@ -107,7 +107,7 @@ export const homeContent = {
     },
     secondaryCTA: {
       label: "Start a Project",
-      href: "#contact",
+      href: "/contact",
     },
     metadata: {
       location: "CAIRO — WORKING GLOBALLY",
@@ -117,8 +117,8 @@ export const homeContent = {
 
   whatWeDo: {
     eyebrow: "02 / WHAT WE DO",
-    headline: "More than visualization.\nExperiences built to work.",
-    body: "Every experience begins with a single point — an idea, a challenge, or an opportunity. AFAQO connects strategy, creative direction, experience design, 3D production, and technology to turn that starting point into purposeful digital solutions.",
+    headline: "Different capabilities.\nOne connected experience.",
+    body: "From understanding a challenge to designing, producing and implementing an interactive experience, we connect creative thinking with technical delivery.",
     stages: [
       {
         number: "01",
@@ -212,7 +212,7 @@ export const homeContent = {
     body: "SIMULXR is AFAQO’s specialized industrial simulation and immersive training initiative, focused on helping teams understand equipment, processes, and operational systems through interactive digital environments.",
     cta: {
       label: "Explore SIMULXR",
-      href: "#simulxr",
+      href: "/simulxr",
     },
   } as SimulXRContent,
 
@@ -222,22 +222,22 @@ export const homeContent = {
     body: "Have a project, partnership, or idea worth exploring? Let’s start the conversation.",
     primaryCTA: {
       label: "Start a Project",
-      href: "#contact",
+      href: "/contact",
     },
     secondaryCTA: {
-      label: "Partnership Inquiry",
-      href: "#contact",
+      label: "Discuss Your Challenge",
+      href: "/contact",
     },
     footerMetadata: {
       brand: "AFAQO",
       location: "CAIRO — WORKING GLOBALLY",
     },
     footerLinks: [
-      { label: "Work", href: "#work" },
-      { label: "Services", href: "#services" },
-      { label: "Industries", href: "#industries" },
-      { label: "Technology & AI", href: "#technology-ai" },
-      { label: "SIMULXR", href: "#simulxr" },
+      { label: "Work", href: "/work" },
+      { label: "Services", href: "/services" },
+      { label: "Industries", href: "/industries" },
+      { label: "Technology & AI", href: "/technology-ai" },
+      { label: "SIMULXR", href: "/simulxr" },
     ],
   } as FinalCTAContent,
 };

@@ -8,23 +8,23 @@ import { ServicesScrollReveal } from "@/components/sections/services/ServicesScr
 import styles from "@/components/sections/services/Services.module.css";
 
 export const metadata: Metadata = {
-  title: "Services — Creative Technology & Immersive Capabilities | AFAQO",
+  title: "Immersive Technology Services | XR, 3D & Simulation | AFAQO",
   description:
-    "Explore AFAQO's end-to-end capabilities across Immersive Experiences (AR/VR/MR), Interactive Digital Solutions, 3D Content & Visualization, and Experience Design & Development.",
+    "Explore AFAQO's XR development, interactive 3D, digital environment visualization, real-time development and immersive training capabilities.",
 };
 
 const chapters = [
   {
     number: "01",
     category: "Spatial Computing",
-    title: "Immersive Experiences",
+    title: "Extended Reality (XR)",
     description:
-      "We design and build augmented, virtual, and mixed reality experiences that connect people with new ways to learn, explore, and interact. Every environment is engineered for presence, fluid spatial interaction, and meaningful human engagement.",
+      "We design VR, AR and mixed-reality experiences that help people interact with spaces, products and information in direct, purposeful ways. The experience starts with the user's task—not the headset.",
     deliverables: [
-      "Augmented Reality (AR) spatial applications for mobile & vision headsets",
-      "Virtual Reality (VR) simulations for high-stakes operational training",
+      "Virtual Reality (VR) environments for exploration and guided training",
+      "Augmented Reality (AR) spatial applications for mobile and wearable devices",
       "Mixed Reality (MR) spatial interfaces and experiential installations",
-      "Multi-user collaborative virtual spaces and exhibition environments",
+      "Cross-platform spatial interactions designed for target hardware",
     ],
     tags: ["AR", "VR", "MR", "Spatial Experiences", "Interactive Physics"],
     image: "/images/hero/afaqo-hero-desktop.jpg",
@@ -34,16 +34,16 @@ const chapters = [
   {
     number: "02",
     category: "Real-Time Systems",
-    title: "Interactive Digital Solutions",
+    title: "Interactive 3D & Digital Environments",
     description:
-      "We transform complex industrial equipment, physical facilities, and enterprise systems into interactive digital twins and real-time operational applications. By grounding spatial models in functional telemetry, we make complex data immediately understandable.",
+      "We create detailed 3D representations of facilities, equipment, and complex systems for visualization, orientation, and interactive exploration. Depending on project scope, these may form part of a broader digital-twin initiative when the necessary data and systems are available. (A visualization model is a digital replica, distinct from a live operational digital twin.)",
     deliverables: [
-      "Real-time Digital Twins for industrial infrastructure and robotics",
-      "Interactive 3D configurators and product visualization engines",
-      "Simulation platforms for predictive maintenance and training",
-      "Custom WebGL and native runtime interactive dashboards",
+      "Interactive 3D facility and equipment visual explorers",
+      "Navigable digital replicas for spatial understanding and stakeholder communication",
+      "Interactive component inspection and exploded mechanical assemblies",
+      "Custom WebGL and native runtime interactive applications",
     ],
-    tags: ["Digital Twins", "Real-Time Systems", "Robotics", "Simulations"],
+    tags: ["Digital Environments", "Interactive 3D", "Robotics", "Simulation"],
     image: "/images/projects/taf35-robot/taf35-robot.png",
     badge: "Interactive Systems",
     reversed: true,
@@ -51,35 +51,35 @@ const chapters = [
   {
     number: "03",
     category: "High-Fidelity CG",
-    title: "3D Content & Visualization",
+    title: "Real-Time 3D Production",
     description:
-      "We produce photorealistic 3D environments, digital assets, and cinematic visual content that articulate visionary concepts with technical fidelity and atmospheric depth. From architectural masterplans to intricate mechanics, we bring precision to every millimeter.",
+      "Our 3D production workflow balances visual fidelity, scene organization, and runtime performance together—from modeling and materials to real-time optimization and engine integration.",
     deliverables: [
-      "Photorealistic environmental and architectural visualization",
-      "Hero-grade hard-surface and organic 3D asset modeling",
-      "Atmospheric daylight, lighting, and material simulation",
-      "Cinematic real-time and offline animation sequences",
+      "Architectural and industrial 3D environment modeling",
+      "Physically-based (PBR) materials, shaders, and authentic lighting",
+      "Optimization for strict polygon, draw-call, and texture budgets",
+      "High-resolution cinematic visual sequences and media assets",
     ],
-    tags: ["3D Environments", "Visualization", "Materials", "Cinematics"],
+    tags: ["3D Environments", "Materials & Lighting", "Optimization", "Cinematics"],
     image: "/images/projects/remal-park/remal-park.jpg",
     badge: "Visual Production",
     reversed: false,
   },
   {
     number: "04",
-    category: "End-to-End Delivery",
-    title: "Experience Design & Development",
+    category: "Simulation & Training",
+    title: "Simulation & Immersive Training",
     description:
-      "We translate high-level business vision into intuitive, friction-free interactive products. Our methodology unifies creative direction, spatial UX ergonomics, rapid interactive prototyping, and hardened full-stack software engineering.",
+      "We develop simulated experiences that let users explore environments, interact with equipment, and follow scenario-driven learning flows. The design is shaped around the learning objective, system constraints, and intended platform.",
     deliverables: [
-      "Strategic technical discovery and experience roadmapping",
-      "Spatial UX/UI design systems, wireframes, and ergonomics",
-      "Cross-platform real-time interactive development (Unreal / Unity / Web)",
-      "Quality assurance, deployment architecture, and lifecycle support",
+      "Scenario-based training sequences for equipment familiarization",
+      "Interactive operational walkthroughs and process exploration",
+      "Guided learning flows with contextual instructional overlays",
+      "Hardware deployment across VR headsets, enterprise workstations, and web",
     ],
-    tags: ["Creative Direction", "Spatial UX", "Full-Stack Dev", "QA"],
+    tags: ["Simulation", "Scenario Training", "Process Exploration", "Ergonomics"],
     image: "/images/projects/industrial-training/industrial-training.png",
-    badge: "Architecture & UX",
+    badge: "Training & Simulation",
     reversed: true,
   },
 ];
@@ -123,13 +123,13 @@ export default function ServicesPage() {
       <ServicesScrollReveal>
         {/* S01: Editorial Hero */}
         <section className={styles.heroSection} aria-labelledby="services-heading">
-          <span data-reveal-hero-item className={styles.eyebrow}>02 / SERVICES</span>
+          <span data-reveal-hero-item className={styles.eyebrow}>OUR CAPABILITIES</span>
           <h1 id="services-heading" data-reveal-hero-item className={styles.heroTitle}>
             Ideas become <span className={styles.accentWord}>experiences.</span>
           </h1>
           <p data-reveal-hero-item className={styles.heroIntro}>
-            From strategy and design to immersive production and real-time development,
-            we create digital experiences built around real-world needs.
+            From strategy and design to 3D production and real-time development,
+            we create interactive digital experiences built around practical needs.
           </p>
         </section>
 

@@ -68,9 +68,9 @@ export function H07TechnologyAI() {
           </div>
 
           <h2 id="technology-ai-heading" className="technology-headline">
-            <span>The technology</span>
-            <span>behind the</span>
-            <span className="technology-accent">experience.</span>
+            <span>{technologyContent.headlineLead}</span>
+            <span>{technologyContent.headlineSub}</span>
+            <span className="technology-accent">{technologyContent.headlineHighlight}</span>
           </h2>
 
           <div className="technology-body-wrapper">

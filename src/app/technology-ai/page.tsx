@@ -5,35 +5,35 @@ import { Footer } from "@/components/layout/Footer";
 import styles from "@/components/sections/technology/Technology.module.css";
 
 export const metadata: Metadata = {
-  title: "Technology & AI — The Engine Behind the Experience | AFAQO",
+  title: "Technology & Real-Time Development | AFAQO",
   description:
-    "Explore AFAQO's technical architecture across real-time game engines, spatial computing runtimes, optimized 3D pipelines, and disciplined AI integration.",
+    "How AFAQO approaches real-time engines, spatial computing, 3D asset pipelines and selective AI integration to build dependable interactive experiences.",
 };
 
 const architecturePillars = [
   {
     code: "SYS.01 // REALTIME",
     title: "Real-Time Engines",
-    desc: "Deterministic physics, real-time lighting, and custom runtime logic engineered for stable frame rates and reactive interactivity.",
+    desc: "Unreal Engine, Unity, WebGL and WebXR configured for deterministic interaction, stable frame rates and responsive controls across desktop, mobile and headsets.",
     tech: ["Unreal Engine", "Unity", "WebGL / Three.js", "C# / C++"],
   },
   {
     code: "SYS.02 // SPATIAL",
     title: "Spatial Computing",
-    desc: "Headset telemetry, 6DOF controller tracking, hand interaction, and spatial audio tailored for true immersion and ergonomic comfort.",
+    desc: "Headset tracking, 6DOF controller input, hand interaction and spatial audio engineered for comfort, clarity and repeatable procedural training.",
     tech: ["OpenXR", "Meta XR SDK", "VisionOS", "WebXR"],
   },
   {
     code: "SYS.03 // PIPELINE",
     title: "3D Asset Pipeline",
-    desc: "High-precision modeling, photogrammetry, PBR material calibration, and rigorous draw-call optimization for smooth edge delivery.",
+    desc: "High-precision modeling, technical optimization and PBR material authoring built to deliver visual depth within realistic polygon and memory budgets.",
     tech: ["Blender", "Substance 3D", "ZBrush", "Houdini"],
   },
   {
     code: "SYS.04 // ADAPTIVE",
-    title: "Intelligent Interaction",
-    desc: "Targeted AI workflows that accelerate production velocity and provide context-aware feedback without unverified generative hype.",
-    tech: ["MCP Tooling", "Context Agents", "Adaptive Guides", "NLP"],
+    title: "Selective AI Integration",
+    desc: "Targeted AI workflows that improve production velocity and enable contextual assistance—without unverified autonomous claims.",
+    tech: ["Pipeline Automation", "Contextual Guidance", "NLP Interfaces"],
   },
 ];
 
@@ -109,24 +109,24 @@ const spatialMatrix = [
 const aiTracks = [
   {
     tag: "TRACK A: INTERNAL VELOCITY",
-    title: "AI-Assisted Production Workflows",
-    desc: "How we utilize modern AI models, agent frameworks, and Model Context Protocol (MCP) tooling inside our production pipeline to amplify craft and eliminate repetitive friction.",
+    title: "Internal Production Velocity",
+    desc: "How we use machine intelligence within our own design, asset preparation and testing pipelines to accelerate delivery and reduce repetitive manual tasks.",
     items: [
-      "Rapid architectural blockout scripting and modular layout generation",
-      "Automated texture seam healing and synthetic dataset preparation",
-      "Automated cross-device test suites and accessibility audit runners",
-      "Dynamic multi-platform build verification and asset validation checks",
+      "Accelerating repetitive asset preparation, UV unwrapping and format conversions",
+      "Automating test scripts and layout variations across target resolutions",
+      "Rapid prototyping of interface concepts and spatial wireframes",
+      "Continuous integration checks for asset budgets and runtime performance",
     ],
   },
   {
     tag: "TRACK B: USER EXPERIENCE",
-    title: "AI Inside Delivered Experiences",
-    desc: "Disciplined, intentional implementation of machine intelligence directly within interactive user applications where it provides tangible, verifiable utility.",
+    title: "Delivered Experience Capabilities",
+    desc: "Capabilities integrated into client applications only where they provide clear, verifiable utility and fit the operational environment.",
     items: [
-      "Natural-language interactive guides and context-aware virtual assistants",
-      "Adaptive training scenarios that evaluate user performance in real time",
-      "Automated multilingual narration and real-time translation layers",
-      "Procedural environment variations based on student comprehension pace",
+      "Contextual virtual assistants and natural-language interaction where relevant",
+      "Adaptive scenario pacing based on user progression during training",
+      "Automated multilingual text and audio narration layers",
+      "Dynamic scenario variables within structured, pre-authored boundaries",
     ],
   },
 ];
@@ -139,13 +139,12 @@ export default function TechnologyAiPage() {
 
       {/* T01: Hero */}
       <section className={styles.heroSection} aria-labelledby="tech-heading">
-        <span className={styles.eyebrow}>05 / TECHNOLOGY & AI</span>
+        <span className={styles.eyebrow}>05 / TECHNOLOGY & ARCHITECTURE</span>
         <h1 id="tech-heading" className={styles.heroTitle}>
-          The technology behind the <span className={styles.accentWord}>experience.</span>
+          The right technology serves the <span className={styles.accentWord}>experience.</span>
         </h1>
         <p className={styles.heroIntro}>
-          Real-time development, spatial computing, optimized 3D production, and
-          intelligent interaction — connected through a purposeful, battle-tested workflow.
+          We select platforms, runtimes and pipelines based on what the experience must achieve—not the newest release cycle. Every technical choice balances fidelity, stability and practical delivery.
         </p>
       </section>
 
@@ -230,13 +229,12 @@ export default function TechnologyAiPage() {
       {/* T06: AI in Practice: Two Tracks */}
       <section className={styles.aiSection} aria-labelledby="ai-heading">
         <div className={styles.aiContainer}>
-          <span className={styles.eyebrow}>07 / DISCIPLINED INTELLIGENCE</span>
+          <span className={styles.eyebrow}>07 / ARTIFICIAL INTELLIGENCE</span>
           <h2 id="ai-heading" className={styles.sectionTitle}>
-            AI integration: Purpose over hype.
+            Where AI helps—and where it does not.
           </h2>
           <p className={styles.sectionSubtitle}>
-            We strictly differentiate between developer-velocity tools used during production
-            and proven AI capabilities embedded inside deployed client applications.
+            We distinguish between tools that accelerate internal production and capabilities delivered inside client applications.
           </p>
 
           <div className={styles.aiTracksGrid}>
@@ -263,14 +261,13 @@ export default function TechnologyAiPage() {
       <section className={styles.ctaSection} aria-labelledby="cta-heading">
         <div className={styles.ctaContainer}>
           <h2 id="cta-heading" className={styles.ctaTitle}>
-            Let’s explore what’s possible.
+            Have a technical constraint? Let&apos;s work through it.
           </h2>
           <p className={styles.ctaSubtitle}>
-            Whether evaluating spatial headsets, establishing digital twin telemetry, or
-            optimizing 3D pipelines, let’s discuss the right architecture for your project.
+            Whether you are evaluating platform fit, real-time feasibility or production scope, we can help assess the requirements.
           </p>
           <Link href="/contact" className={styles.ctaButton}>
-            Start a Conversation <span>↗</span>
+            Discuss Your Challenge <span>→</span>
           </Link>
         </div>
       </section>

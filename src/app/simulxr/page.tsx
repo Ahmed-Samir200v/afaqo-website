@@ -6,37 +6,37 @@ import { Footer } from "@/components/layout/Footer";
 import styles from "@/components/sections/simulxr/Simulxr.module.css";
 
 export const metadata: Metadata = {
-  title: "SIMULXR — Industrial Simulation & Immersive Training | AFAQO",
+  title: "SIMULXR | Industrial Simulation & Immersive Training | AFAQO",
   description:
-    "SIMULXR is AFAQO's specialized industrial simulation and immersive training initiative, helping teams explore equipment, understand processes, and master operational systems.",
+    "SIMULXR is an AFAQO initiative focused on industrial simulation, procedural training and explorable technical systems for complex operations.",
 };
 
 const modules = [
   {
     number: "01",
     category: "Operational Topology",
-    title: "Digital Facility & System Architecture",
-    desc: "We construct spatial digital twins of complex industrial plants, substations, and production lines. Every pipe, valve, and sensor is mapped with geometric accuracy and functional relationships.",
+    title: "Explorable Process Environments",
+    desc: "3D environments of plants, processing units and mechanical bays built for spatial orientation and process flow understanding. Technicians can trace piping, identify isolation valves and understand spatial relationships without plant downtime.",
     specs: [
-      "Millimeter-accurate 3D facility reconstruction from engineering blueprints",
-      "Interactive piping and instrumentation diagram (P&ID) spatial mapping",
-      "Real-time sensor telemetry visualization directly within 3D space",
-      "Multi-user site walkthroughs and operational planning sessions",
+      "Scale-accurate 3D facility reconstruction from engineering references and site data",
+      "Interactive process flow visualization and piping walkthroughs",
+      "Contextual equipment callouts and operating parameters",
+      "Multi-user site walkthroughs for team orientation and planning",
     ],
     image: "/images/projects/industrial-training/industrial-training.png",
-    badge: "Facility Digital Twin",
+    badge: "Facility Digital Replica",
     reversed: false,
   },
   {
     number: "02",
     category: "Component Inspection",
-    title: "Equipment Understanding & Cutaway Exploration",
-    desc: "Complex robotic assemblies and high-pressure equipment can be inspected from any angle, exploded into discrete components, or observed with simulated fluid or electrical flow.",
+    title: "Equipment Inspection & Cutaway Views",
+    desc: "Interactive 3D models of complex equipment and assemblies that can be inspected externally, exploded into individual components and viewed in cross-section to reveal internal mechanics.",
     specs: [
-      "Exploded engineering views illustrating internal assemblies",
-      "Animated mechanical workflows with accurate kinematic constraints",
-      "Step-by-step assembly and disassembly guidance modules",
-      "Integrated technical documentation and safety callouts",
+      "Exploded assembly views showing sub-components and spatial relationships",
+      "Kinematic mechanical sequences demonstrating operating cycles",
+      "Component identification with functional descriptions and specifications",
+      "Integrated technical callouts and inspection checkpoints",
     ],
     image: "/images/projects/taf35-robot/taf35-robot.png",
     badge: "Interactive Mechanics",
@@ -44,14 +44,14 @@ const modules = [
   },
   {
     number: "03",
-    category: "Procedural Mastery",
-    title: "High-Consequence VR Procedural Training",
-    desc: "Technicians execute rigorous standard operating procedures in simulated VR environments. Mistakes trigger realistic diagnostic feedback without safety hazards or facility downtime.",
+    category: "Procedural Training",
+    title: "Procedural Training Modules",
+    desc: "Step-by-step VR and interactive 3D training scenarios for standard operating procedures, safety sequences and equipment startup protocols.",
     specs: [
-      "Natural 6DOF hand interaction for valve operation and tool handling",
-      "Strict procedural verification: lockout/tagout (LOTO) protocols",
-      "Simulated abnormal conditions and emergency shutdown sequences",
-      "Scored technician competency reports and telemetry tracking",
+      "Step-by-step procedural guidance with real-time feedback",
+      "Procedural verification for lockout/tagout (LOTO) and safety checks",
+      "Scenario variations covering standard, abnormal and emergency states",
+      "Objective completion tracking to support training assessment",
     ],
     image: "/images/industries/oil-gas.webp",
     badge: "Zero-Hazard Training",
@@ -123,17 +123,16 @@ export default function SimulxrPage() {
 
       {/* X01: Industrial Hero */}
       <section className={styles.heroSection} aria-labelledby="simulxr-heading">
-        <span className={styles.eyebrow}>SPECIALIZED INITIATIVE // SIMULXR</span>
+        <span className={styles.eyebrow}>A SPECIALIZED AFAQO INITIATIVE</span>
         <h1 id="simulxr-heading" className={styles.heroTitle}>
-          Industrial systems. <span className={styles.accentWord}>Immersive understanding.</span>
+          SIMULXR. Industrial systems <span className={styles.accentWord}>made explorable.</span>
         </h1>
         <p className={styles.heroIntro}>
-          SIMULXR is AFAQO’s specialized industrial simulation and immersive training initiative,
-          helping teams explore equipment, understand processes, and engage with operational systems.
+          An initiative by AFAQO focused on interactive simulation, procedural training and spatial understanding for technical, industrial and operational environments.
         </p>
         <div className={styles.heroButtons}>
           <Link href="/contact" className={styles.primaryBtn}>
-            Discuss an Industrial Project <span>↗</span>
+            Discuss an Industrial Use Case <span>→</span>
           </Link>
           <a href="#capabilities" className={styles.secondaryBtn}>
             Explore Capabilities ↓
@@ -145,17 +144,25 @@ export default function SimulxrPage() {
       <section className={styles.whySection} aria-labelledby="why-heading">
         <div className={styles.whyContainer}>
           <h2 id="why-heading" className={styles.whyTitle}>
-            Why industrial simulation matters.
+            Why simulation matters.
           </h2>
           <div className={styles.whyContent}>
             <p className={styles.bodyLarge}>
-              Modern industrial infrastructure is increasingly complex, automated, and hazardous.
-              Training field personnel on live facilities carries high operational risks and costly downtime.
+              Complex facilities, heavy machinery and high-voltage systems are difficult to explain through static drawings and risky to practice on directly. Field training often requires shutting down active lines, taking mentors away from operations or putting personnel near hazards before they understand the basics.
             </p>
             <p className={styles.bodyRegular}>
-              SIMULXR closes the gap between abstract engineering manuals and hands-on muscle memory.
-              By giving technicians an interactive, millimeter-accurate digital replica of their workplace,
-              they master critical procedures before stepping foot on site.
+              SIMULXR develops interactive 3D and VR simulations that let operators, engineers and technicians explore equipment internally, walk through step-by-step procedures and make mistakes safely—building muscle memory and procedural confidence before stepping into the field.
+            </p>
+            <p style={{
+              fontSize: "0.8125rem",
+              lineHeight: 1.5,
+              color: "var(--color-text-secondary, rgba(5, 13, 36, 0.65))",
+              borderLeft: "2px solid var(--color-brand-blue, #0866FF)",
+              paddingLeft: "1rem",
+              marginTop: "1.5rem",
+              fontStyle: "italic",
+            }}>
+              Note: Illustrative process visualization and procedural training environments are engineered for operational understanding and safety familiarity; they do not replace formal engineering calculation, certified hardware validation, or regulatory compliance testing.
             </p>
           </div>
         </div>
@@ -263,14 +270,13 @@ export default function SimulxrPage() {
       <section className={styles.ctaSection} aria-labelledby="cta-heading">
         <div className={styles.ctaContainer}>
           <h2 id="cta-heading" className={styles.ctaTitle}>
-            Discuss an industrial simulation project.
+            What should your team be able to explore or practice?
           </h2>
           <p className={styles.ctaSubtitle}>
-            Let’s explore how SIMULXR can digitize your facilities, accelerate technician
-            onboarding, and eliminate procedural training risk.
+            Whether you need to explain an industrial system to stakeholders or build a procedural training module for operators, let&apos;s discuss your requirements.
           </p>
           <Link href="/contact" className={styles.primaryBtn}>
-            Start a Conversation <span>↗</span>
+            Start a Conversation <span>→</span>
           </Link>
         </div>
       </section>

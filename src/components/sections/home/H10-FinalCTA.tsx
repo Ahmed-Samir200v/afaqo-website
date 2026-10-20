@@ -136,7 +136,7 @@ export function H10FinalCTA() {
 
           <Link
             className={styles.cta}
-            href="#contact"
+            href="/contact"
             aria-label="Start a project with AFAQO"
           >
             <span>START A PROJECT</span>

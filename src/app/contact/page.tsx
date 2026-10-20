@@ -5,9 +5,9 @@ import { ContactForm } from "@/components/sections/contact/ContactForm";
 import styles from "@/components/sections/contact/Contact.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact — Start a Conversation | AFAQO",
+  title: "Start a Project | Contact AFAQO",
   description:
-    "Have a project, partnership, or idea worth exploring? Get in touch with AFAQO. Cairo — Working Globally.",
+    "Discuss an XR, interactive 3D, simulation or digital environment project with AFAQO. Based in Cairo, working globally.",
 };
 
 export default function ContactPage() {
@@ -20,13 +20,12 @@ export default function ContactPage() {
       <div className={styles.contactContainer}>
         {/* Left Column: Editorial Statement & Info */}
         <div className={styles.editorialCol}>
-          <span className={styles.eyebrow}>04 / CONTACT</span>
+          <span className={styles.eyebrow}>START A CONVERSATION</span>
           <h1 className={styles.heroTitle}>
-            Let’s build something <span className={styles.accentWord}>worth experiencing.</span>
+            Let&apos;s make the complex <span className={styles.accentWord}>easier to experience.</span>
           </h1>
           <p className={styles.heroIntro}>
-            Tell us what you’re building. Have a project, partnership, or idea worth exploring?
-            Let’s start the conversation.
+            Tell us what your organization needs to explain, train, simulate or build. We will help determine the right approach, platform and scope.
           </p>
 
           <div className={styles.contactInfoCard}>
@@ -38,14 +37,14 @@ export default function ContactPage() {
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Operations</span>
               <span className={styles.infoValue}>
-                Headquartered in Cairo, serving clients and project partners worldwide.
+                Based in Cairo, Egypt. Working across Oman, Saudi Arabia, the UAE and internationally.
               </span>
             </div>
 
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Focus Domains</span>
               <span className={styles.infoValue}>
-                Immersive Computing, Digital Twins, 3D Visualization, SIMULXR
+                Extended Reality (XR), Interactive 3D, Digital Environments, Simulation & Training (SIMULXR), 3D Content Production
               </span>
             </div>
           </div>
@@ -53,7 +52,7 @@ export default function ContactPage() {
           <div className={styles.commitmentBox}>
             <span className={styles.commitmentDot} />
             <span>
-              Enterprise project consultations and technical evaluations are coordinated directly with our engineering leadership.
+              Every inquiry is reviewed directly by our technical and creative leadership. We respond within two business days.
             </span>
           </div>
         </div>

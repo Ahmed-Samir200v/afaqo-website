@@ -9,9 +9,9 @@ import { W05ContactCTA } from "@/components/sections/work/W05ContactCTA";
 import styles from "@/components/sections/work/Work.module.css";
 
 export const metadata: Metadata = {
-  title: "Work — Ideas Made Tangible | AFAQO",
+  title: "Our Work | XR, Simulation & Interactive 3D Projects | AFAQO",
   description:
-    "A selection of immersive experiences, interactive environments, and digital projects brought to life through design, 3D production, and technology.",
+    "Explore selected immersive technology projects, including industrial visualization, VR environments and interactive simulations developed by the AFAQO team.",
 };
 
 export default function WorkPage() {

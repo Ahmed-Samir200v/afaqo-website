@@ -218,7 +218,7 @@ export const caseStudies: Record<string, CaseStudy> = {
   "industrial-training-experience": {
     slug: "industrial-training-experience",
     title: "INDUSTRIAL DIGITAL TWIN & INTERACTIVE TRAINING",
-    location: "CAIRO — WORKING GLOBALLY",
+    location: "EGYPT",
     category: "REAL-TIME 3D / INTERACTIVE SIMULATION",
     theme: "Spatial Industrial Simulation",
     summary:
