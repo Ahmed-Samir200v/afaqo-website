@@ -25,47 +25,70 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
       if (shouldReduceMotion) return;
 
       // 1. Hero Reveal (immediate entrance on mount)
+      const heroBg = root.querySelector("[data-reveal-hero-bg]");
+      if (heroBg) {
+        gsap.fromTo(
+          heroBg,
+          { opacity: 0.8 },
+          {
+            opacity: 1,
+            duration: 1.0,
+            ease: "power2.out",
+            clearProps: "opacity",
+          }
+        );
+      }
+
       const heroItems = root.querySelectorAll("[data-reveal-hero-item]");
       if (heroItems.length) {
         gsap.fromTo(
           heroItems,
-          { opacity: 0, y: 35 },
+          { opacity: 0, y: 24 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.9,
+            duration: 0.85,
             ease: "power3.out",
-            stagger: 0.12,
-            delay: 0.1,
+            stagger: 0.1,
+            delay: 0.15,
             clearProps: "transform",
           }
         );
       }
 
-      // 2. Chapters (01 - 04)
-      const chapters = root.querySelectorAll("[data-reveal-chapter]");
-      chapters.forEach((chapter) => {
-        const textElements = chapter.querySelectorAll("[data-reveal-chapter-text]");
-        const mediaElement = chapter.querySelector("[data-reveal-chapter-media]");
+      // 2. Service Sections (01 - 04)
+      const serviceSections = root.querySelectorAll(
+        "[data-reveal-service-section], [data-reveal-chapter]"
+      );
+      serviceSections.forEach((section) => {
+        const introTextElements = section.querySelectorAll(
+          "[data-reveal-service-intro-text] > *, [data-reveal-chapter-text]"
+        );
+        const mediaElement = section.querySelector(
+          "[data-reveal-service-media], [data-reveal-chapter-media]"
+        );
+        const capabilityCards = section.querySelectorAll(
+          "[data-reveal-capability-card]"
+        );
 
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: chapter,
+            trigger: section,
             start: "top 82%",
             once: true,
           },
         });
 
-        if (textElements.length) {
+        if (introTextElements.length) {
           tl.fromTo(
-            textElements,
-            { opacity: 0, y: 40 },
+            introTextElements,
+            { opacity: 0, y: 18 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.85,
-              ease: "power3.out",
-              stagger: 0.08,
+              duration: 0.65,
+              ease: "power2.out",
+              stagger: 0.07,
               clearProps: "transform",
             },
             0
@@ -75,62 +98,83 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
         if (mediaElement) {
           tl.fromTo(
             mediaElement,
-            { opacity: 0, y: 50, scale: 0.97 },
+            { opacity: 0, y: 20, scale: 0.98 },
             {
               opacity: 1,
               y: 0,
               scale: 1,
-              duration: 1.0,
-              ease: "power3.out",
+              duration: 0.7,
+              ease: "power2.out",
               clearProps: "transform",
             },
             0.1
           );
         }
-      });
 
-      // 3. Technical Band (One partner. End to end.)
-      const endToEndSection = root.querySelector("[data-reveal-endtoend]");
-      if (endToEndSection) {
-        const headerItems = endToEndSection.querySelectorAll("[data-reveal-endtoend-header]");
-        if (headerItems.length) {
-          gsap.fromTo(
-            headerItems,
-            { opacity: 0, y: 35 },
+        if (capabilityCards.length) {
+          tl.fromTo(
+            capabilityCards,
+            { opacity: 0, y: 20 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.8,
-              ease: "power3.out",
-              stagger: 0.1,
+              duration: 0.65,
+              ease: "power2.out",
+              stagger: 0.07,
               clearProps: "transform",
-              scrollTrigger: {
-                trigger: endToEndSection,
-                start: "top 82%",
-                once: true,
-              },
-            }
+            },
+            0.2
+          );
+        }
+      });
+
+      // 3. Technical Band (System Architecture: One partner. End to end.)
+      const endToEndSection = root.querySelector("[data-reveal-endtoend]");
+      if (endToEndSection) {
+        const headerElements = endToEndSection.querySelectorAll(
+          "[data-reveal-endtoend-header] > *"
+        );
+        const stageCards = endToEndSection.querySelectorAll(
+          "[data-reveal-stage-card]"
+        );
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: endToEndSection,
+            start: "top 82%",
+            once: true,
+          },
+        });
+
+        if (headerElements.length) {
+          tl.fromTo(
+            headerElements,
+            { opacity: 0, y: 16 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.7,
+              ease: "power2.out",
+              stagger: 0.08,
+              clearProps: "transform",
+            },
+            0
           );
         }
 
-        const stageCards = endToEndSection.querySelectorAll("[data-reveal-stage-card]");
         if (stageCards.length) {
-          gsap.fromTo(
+          tl.fromTo(
             stageCards,
-            { opacity: 0, y: 45 },
+            { opacity: 0, y: 18 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.85,
-              ease: "power3.out",
-              stagger: 0.12,
+              duration: 0.75,
+              ease: "power2.out",
+              stagger: 0.08,
               clearProps: "transform",
-              scrollTrigger: {
-                trigger: endToEndSection.querySelector("[data-reveal-stages-grid]") || endToEndSection,
-                start: "top 82%",
-                once: true,
-              },
-            }
+            },
+            0.15
           );
         }
       }

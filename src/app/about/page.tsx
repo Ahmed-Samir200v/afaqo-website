@@ -58,15 +58,17 @@ export default function AboutPage() {
 
       {/* A01: Manifesto Hero */}
       <section className={styles.heroSection} aria-labelledby="about-heading">
-        <span className={styles.eyebrow}>01 / ABOUT AFAQO</span>
-        <h1 id="about-heading" className={styles.heroTitle}>
-          From a single point to <span className={styles.accentWord}>infinite horizons.</span>
-        </h1>
-        <p className={styles.heroIntro}>
-          AFAQO is a creative technology company. We turn complex ideas, systems and
-          environments into immersive digital experiences that people can explore,
-          understand and act on.
-        </p>
+        <div className={styles.heroContainer}>
+          <span className={styles.eyebrow}>01 / ABOUT AFAQO</span>
+          <h1 id="about-heading" className={styles.heroTitle}>
+            From a single point to <span className={styles.accentWord}>infinite horizons.</span>
+          </h1>
+          <p className={styles.heroIntro}>
+            AFAQO is a creative technology company. We turn complex ideas, systems and
+            environments into immersive digital experiences that people can explore,
+            understand and act on.
+          </p>
+        </div>
       </section>
 
       {/* A02: Who We Are */}

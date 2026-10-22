@@ -10,9 +10,22 @@
 
 /* A01: Manifesto Hero */
 .heroSection {
-  padding: clamp(7.5rem, 13vw, 11rem) clamp(1.25rem, 5vw, 4rem) clamp(4rem, 7vw, 6rem);
-  max-width: 1360px;
+  position: relative;
+  width: 100%;
+  min-height: var(--hero-inner-height-desktop, clamp(520px, 68vh, 680px));
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.heroContainer {
+  width: 100%;
+  max-width: var(--hero-inner-max-width, 1360px);
   margin: 0 auto;
+  padding: var(--hero-inner-nav-safe-top, clamp(110px, 12vh, 130px)) var(--hero-inner-gutter, clamp(32px, 5vw, 80px)) var(--hero-inner-bottom-padding, clamp(48px, 6vh, 72px));
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .eyebrow {
@@ -20,36 +33,38 @@
   align-items: center;
   gap: 0.5rem;
   font-family: var(--font-inter, sans-serif);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-size: var(--hero-inner-eyebrow-size, 12px);
+  font-weight: var(--hero-inner-eyebrow-weight, 700);
+  letter-spacing: var(--hero-inner-eyebrow-spacing, 0.10em);
+  line-height: var(--hero-inner-eyebrow-line-height, 1.4);
   text-transform: uppercase;
   color: var(--electric-blue, #0866FF);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--hero-inner-gap-eyebrow-h1, 24px);
 }
 
 .heroTitle {
   font-family: var(--font-manrope, sans-serif);
-  font-size: clamp(2.5rem, 6.5vw, 5rem);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
+  font-size: var(--hero-inner-h1-size, clamp(48px, 4.5vw, 68px));
+  font-weight: var(--hero-inner-h1-weight, 600);
+  line-height: var(--hero-inner-h1-line-height, 1.07);
+  letter-spacing: var(--hero-inner-h1-spacing, -0.04em);
   color: var(--text-navy, #050D24);
-  max-width: 1060px;
-  margin-bottom: 2rem;
+  max-width: var(--hero-inner-h1-max-width, 720px);
+  margin: 0 0 var(--hero-inner-gap-h1-desc, 22px) 0;
 }
 
 .accentWord {
   color: var(--electric-blue, #0866FF);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .heroIntro {
   font-family: var(--font-inter, sans-serif);
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
-  line-height: 1.6;
+  font-size: var(--hero-inner-desc-size, 17.5px);
+  line-height: var(--hero-inner-desc-line-height, 1.6);
   color: var(--text-muted, #606676);
-  max-width: 800px;
+  max-width: var(--hero-inner-desc-max-width, 580px);
+  margin: 0;
 }
 
 /* A02: Who We Are */
@@ -462,3 +477,43 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Hero Responsive Standards */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .heroSection {
+    min-height: 520px;
+  }
+  .heroContainer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .heroSection {
+    min-height: 500px;
+  }
+  .heroContainer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .heroSection {
+    min-height: auto;
+  }
+  .heroContainer {
+    padding-top: 112px;
+    padding-bottom: 56px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .heroTitle {
+    font-size: clamp(34px, 8vw, 44px);
+  }
+  .heroIntro {
+    font-size: 15.5px;
+  }
+}
+

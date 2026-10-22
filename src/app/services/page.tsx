@@ -5,6 +5,31 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { getAllCaseStudies } from "@/content/projects/case-studies";
 import { ServicesScrollReveal } from "@/components/sections/services/ServicesScrollReveal";
+import { ServiceSection, ServiceSectionProps } from "@/components/sections/services/ServiceSection";
+import {
+  IconVRHeadset,
+  IconMobileAR,
+  IconMixedReality,
+  IconCrossPlatform,
+  Icon3DExplorers,
+  IconDigitalReplicas,
+  IconComponentInspection,
+  IconWebGLApps,
+  Icon3DEnvironments,
+  IconMaterialsLighting,
+  IconOptimization,
+  IconCinematics,
+  IconScenarioTraining,
+  IconWalkthroughs,
+  IconGuidedLearning,
+  IconMultiPlatform,
+  IconStageDiscovery,
+  IconStageArchitecture,
+  IconStageProduction,
+  IconStageEngineering,
+  IconStageValidation,
+  IconArrowRight,
+} from "@/components/sections/services/ServiceIcons";
 import styles from "@/components/sections/services/Services.module.css";
 
 export const metadata: Metadata = {
@@ -13,23 +38,39 @@ export const metadata: Metadata = {
     "Explore AFAQO's XR development, interactive 3D, digital environment visualization, real-time development and immersive training capabilities.",
 };
 
-const chapters = [
+const servicesData: ServiceSectionProps[] = [
   {
     number: "01",
     category: "Spatial Computing",
     title: "Extended Reality (XR)",
     description:
       "We design VR, AR and mixed-reality experiences that help people interact with spaces, products and information in direct, purposeful ways. The experience starts with the user's task—not the headset.",
-    deliverables: [
-      "Virtual Reality (VR) environments for exploration and guided training",
-      "Augmented Reality (AR) spatial applications for mobile and wearable devices",
-      "Mixed Reality (MR) spatial interfaces and experiential installations",
-      "Cross-platform spatial interactions designed for target hardware",
-    ],
     tags: ["AR", "VR", "MR", "Spatial Experiences", "Interactive Physics"],
     image: "/images/hero/afaqo-hero-desktop.jpg",
+    imageAlt: "Extended Reality (XR) immersive spatial computing - AFAQO",
     badge: "Spatial / XR",
-    reversed: false,
+    cards: [
+      {
+        number: "01",
+        icon: <IconVRHeadset />,
+        title: "Virtual Reality (VR) environments for exploration and guided training",
+      },
+      {
+        number: "02",
+        icon: <IconMobileAR />,
+        title: "Augmented Reality (AR) spatial applications for mobile and wearable devices",
+      },
+      {
+        number: "03",
+        icon: <IconMixedReality />,
+        title: "Mixed Reality (MR) spatial interfaces and experiential installations",
+      },
+      {
+        number: "04",
+        icon: <IconCrossPlatform />,
+        title: "Cross-platform spatial interactions designed for target hardware",
+      },
+    ],
   },
   {
     number: "02",
@@ -37,78 +78,148 @@ const chapters = [
     title: "Interactive 3D & Digital Environments",
     description:
       "We create detailed 3D representations of facilities, equipment, and complex systems for visualization, orientation, and interactive exploration. Depending on project scope, these may form part of a broader digital-twin initiative when the necessary data and systems are available. (A visualization model is a digital replica, distinct from a live operational digital twin.)",
-    deliverables: [
-      "Interactive 3D facility and equipment visual explorers",
-      "Navigable digital replicas for spatial understanding and stakeholder communication",
-      "Interactive component inspection and exploded mechanical assemblies",
-      "Custom WebGL and native runtime interactive applications",
-    ],
     tags: ["Digital Environments", "Interactive 3D", "Robotics", "Simulation"],
     image: "/images/projects/taf35-robot/taf35-robot.png",
+    imageAlt: "Interactive 3D and digital environments - AFAQO",
     badge: "Interactive Systems",
-    reversed: true,
+    cards: [
+      {
+        number: "01",
+        icon: <Icon3DExplorers />,
+        title: "Interactive 3D facility and equipment visual explorers",
+      },
+      {
+        number: "02",
+        icon: <IconDigitalReplicas />,
+        title: "Navigable digital replicas for spatial understanding and stakeholder communication",
+      },
+      {
+        number: "03",
+        icon: <IconComponentInspection />,
+        title: "Interactive component inspection and exploded mechanical assemblies",
+      },
+      {
+        number: "04",
+        icon: <IconWebGLApps />,
+        title: "Custom WebGL and native runtime interactive applications",
+      },
+    ],
   },
   {
     number: "03",
     category: "High-Fidelity CG",
     title: "Real-Time 3D Production",
+    titleAccent: "Production",
     description:
       "Our 3D production workflow balances visual fidelity, scene organization, and runtime performance together—from modeling and materials to real-time optimization and engine integration.",
-    deliverables: [
-      "Architectural and industrial 3D environment modeling",
-      "Physically-based (PBR) materials, shaders, and authentic lighting",
-      "Optimization for strict polygon, draw-call, and texture budgets",
-      "High-resolution cinematic visual sequences and media assets",
-    ],
     tags: ["3D Environments", "Materials & Lighting", "Optimization", "Cinematics"],
     image: "/images/projects/remal-park/remal-park.jpg",
+    imageAlt: "Real-time 3D production and high-fidelity CG - AFAQO",
     badge: "Visual Production",
-    reversed: false,
+    cards: [
+      {
+        number: "01",
+        icon: <Icon3DEnvironments />,
+        title: "3D Environments",
+        description: "Architectural and industrial 3D environment modeling.",
+      },
+      {
+        number: "02",
+        icon: <IconMaterialsLighting />,
+        title: "Materials & Lighting",
+        description: "Physically-based (PBR) materials, shaders, and authentic lighting.",
+      },
+      {
+        number: "03",
+        icon: <IconOptimization />,
+        title: "Optimization",
+        description: "Optimization for strict polygon, draw-call, and texture budgets.",
+      },
+      {
+        number: "04",
+        icon: <IconCinematics />,
+        title: "Cinematics",
+        description: "High-resolution cinematic visual sequences and media assets.",
+      },
+    ],
   },
   {
     number: "04",
     category: "Simulation & Training",
     title: "Simulation & Immersive Training",
+    titleAccent: "Immersive Training",
     description:
       "We develop simulated experiences that let users explore environments, interact with equipment, and follow scenario-driven learning flows. The design is shaped around the learning objective, system constraints, and intended platform.",
-    deliverables: [
-      "Scenario-based training sequences for equipment familiarization",
-      "Interactive operational walkthroughs and process exploration",
-      "Guided learning flows with contextual instructional overlays",
-      "Hardware deployment across VR headsets, enterprise workstations, and web",
-    ],
     tags: ["Simulation", "Scenario Training", "Process Exploration", "Ergonomics"],
     image: "/images/projects/industrial-training/industrial-training.png",
+    imageAlt: "Simulation and immersive training systems - AFAQO",
     badge: "Training & Simulation",
-    reversed: true,
+    cards: [
+      {
+        number: "01",
+        icon: <IconScenarioTraining />,
+        title: "Scenario-Based Training",
+        description: "Scenario-based training sequences for equipment familiarization.",
+      },
+      {
+        number: "02",
+        icon: <IconWalkthroughs />,
+        title: "Interactive Walkthroughs",
+        description: "Interactive operational walkthroughs and process exploration.",
+      },
+      {
+        number: "03",
+        icon: <IconGuidedLearning />,
+        title: "Guided Learning Flows",
+        description: "Guided learning flows with contextual instructional overlays.",
+      },
+      {
+        number: "04",
+        icon: <IconMultiPlatform />,
+        title: "Multi-Platform Deployment",
+        description: "Hardware deployment across VR headsets, enterprise workstations, and web.",
+      },
+    ],
   },
 ];
 
-const processStages = [
+interface ProcessStage {
+  index: string;
+  name: string;
+  desc: string;
+  icon: React.ReactNode;
+}
+
+const processStages: ProcessStage[] = [
   {
     index: "01",
     name: "Discovery & Strategy",
     desc: "Aligning creative direction, technical feasibility, and measurable business objectives.",
+    icon: <IconStageDiscovery />,
   },
   {
     index: "02",
     name: "Experience Architecture",
     desc: "Designing interaction paradigms, spatial ergonomics, and technical system specifications.",
+    icon: <IconStageArchitecture />,
   },
   {
     index: "03",
     name: "3D & Spatial Asset Production",
     desc: "Sculpting, modeling, texturing, and optimizing assets for target runtime performance.",
+    icon: <IconStageProduction />,
   },
   {
     index: "04",
     name: "Real-Time Engineering",
     desc: "Developing game-engine logic, UI systems, hardware integration, and telemetry pipelines.",
+    icon: <IconStageEngineering />,
   },
   {
     index: "05",
     name: "Validation & Deployment",
     desc: "Rigorous testing on target hardware, on-site commissioning, and lifecycle maintenance.",
+    icon: <IconStageValidation />,
   },
 ];
 
@@ -121,97 +232,98 @@ export default function ServicesPage() {
       <Header />
 
       <ServicesScrollReveal>
-        {/* S01: Editorial Hero */}
-        <section className={styles.heroSection} aria-labelledby="services-heading">
-          <span data-reveal-hero-item className={styles.eyebrow}>OUR CAPABILITIES</span>
-          <h1 id="services-heading" data-reveal-hero-item className={styles.heroTitle}>
-            Ideas become <span className={styles.accentWord}>experiences.</span>
-          </h1>
-          <p data-reveal-hero-item className={styles.heroIntro}>
-            From strategy and design to 3D production and real-time development,
-            we create interactive digital experiences built around practical needs.
-          </p>
+        {/* S01: Full-Width Cinematic Background Hero */}
+        <section
+          className={styles.heroSection}
+          aria-labelledby="services-heading"
+        >
+          {/* Edge-to-edge background image container */}
+          <div data-reveal-hero-bg className={styles.heroMediaWrapper}>
+            <Image
+              src="/images/services/afaqo-services-hero.webp"
+              alt="AFAQO immersive technology, spatial computing and industrial digital twins"
+              fill
+              priority
+              sizes="100vw"
+              className={styles.heroBackgroundImage}
+            />
+            {/* Restrained white legibility gradient overlay */}
+            <div className={styles.heroGradientOverlay} aria-hidden="true" />
+          </div>
+
+          {/* Left Text Container aligned with global container grid */}
+          <div className={styles.heroContentContainer}>
+            <div className={styles.heroTextWrapper}>
+              <span data-reveal-hero-item className={styles.eyebrow}>
+                OUR CAPABILITIES
+              </span>
+              <h1
+                id="services-heading"
+                data-reveal-hero-item
+                className={styles.heroTitle}
+              >
+                Ideas become{" "}
+                <span className={styles.accentWord}>experiences.</span>
+              </h1>
+              <p data-reveal-hero-item className={styles.heroIntro}>
+                From strategy and design to 3D production and real-time
+                development, we create interactive digital experiences built
+                around practical needs.
+              </p>
+            </div>
+          </div>
         </section>
 
-        {/* S02 - S05: Four Distinct Capability Chapters */}
-        {chapters.map((chapter) => (
-          <section
-            key={chapter.number}
-            data-reveal-chapter
-            className={styles.chapterSection}
-            aria-labelledby={`chapter-${chapter.number}`}
-          >
-            <div
-              className={
-                chapter.reversed
-                  ? styles.chapterContainerReversed
-                  : styles.chapterContainer
-              }
-            >
-              {/* Text Column */}
-              <div>
-                <div data-reveal-chapter-text className={styles.chapterMeta}>
-                  <span className={styles.chapterNumber}>{chapter.number}</span>
-                  <span className={styles.chapterCategory}>{chapter.category}</span>
-                </div>
-                <h2 id={`chapter-${chapter.number}`} data-reveal-chapter-text className={styles.chapterTitle}>
-                  {chapter.title}
-                </h2>
-                <p data-reveal-chapter-text className={styles.chapterDescription}>{chapter.description}</p>
-                
-                <ul data-reveal-chapter-text className={styles.deliverablesList}>
-                  {chapter.deliverables.map((item, idx) => (
-                    <li key={idx} className={styles.deliverableItem}>
-                      <span className={styles.deliverableBullet}>—</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div data-reveal-chapter-text className={styles.tagRow}>
-                  {chapter.tags.map((tag, idx) => (
-                    <span key={idx} className={styles.tag}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Media Column */}
-              <div data-reveal-chapter-media>
-                <div className={styles.mediaFrame}>
-                  <span className={styles.mediaBadge}>{chapter.badge}</span>
-                  <Image
-                    src={chapter.image}
-                    alt={`${chapter.title} - AFAQO capability`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className={styles.mediaImage}
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
+        {/* S02 - S05: Four Unified Service Sections */}
+        {servicesData.map((service) => (
+          <ServiceSection
+            key={service.number}
+            number={service.number}
+            category={service.category}
+            title={service.title}
+            titleAccent={service.titleAccent}
+            description={service.description}
+            tags={service.tags}
+            image={service.image}
+            imageAlt={service.imageAlt}
+            badge={service.badge}
+            cards={service.cards}
+          />
         ))}
 
-        {/* S06: Deep Navy Technical Band (One Partner. End to End.) */}
+        {/* S06: Deep Navy Technical Band (System Architecture: One partner. End to end.) */}
         <section data-reveal-endtoend className={styles.endToEndSection} aria-labelledby="end-to-end-heading">
           <div className={styles.endToEndContainer}>
-            <span data-reveal-endtoend-header className={styles.endToEndEyebrow}>System Architecture</span>
-            <h2 id="end-to-end-heading" data-reveal-endtoend-header className={styles.endToEndTitle}>
-              One partner. End to end.
-            </h2>
-            <p data-reveal-endtoend-header className={styles.endToEndSubhead}>
-              From the first idea to the final deployed experience, we engineer
-              continuous technical coherence across every project milestone.
-            </p>
+            <div data-reveal-endtoend-header className={styles.endToEndHeader}>
+              <div className={styles.endToEndEyebrowRow}>
+                <span className={styles.accentLine} aria-hidden="true" />
+                <span className={styles.endToEndEyebrow}>System Architecture</span>
+              </div>
+              <h2 id="end-to-end-heading" className={styles.endToEndTitle}>
+                One partner. End to end.
+              </h2>
+              <p className={styles.endToEndSubhead}>
+                From the first idea to the final deployed experience, we engineer
+                continuous technical coherence across every project milestone.
+              </p>
+            </div>
 
             <div data-reveal-stages-grid className={styles.stagesGrid}>
               {processStages.map((stage) => (
                 <div key={stage.index} data-reveal-stage-card className={styles.stageCard}>
                   <div className={styles.stageIndex}>{stage.index}</div>
+                  <div className={styles.stageIconContainer} aria-hidden="true">
+                    {stage.icon}
+                  </div>
                   <h3 className={styles.stageName}>{stage.name}</h3>
                   <p className={styles.stageDesc}>{stage.desc}</p>
+                  <div className={styles.stageSpacer} aria-hidden="true" />
+                  <div className={styles.stageFooter}>
+                    <div className={styles.stageDividerLine} aria-hidden="true" />
+                    <div className={styles.stageArrowCircle} aria-hidden="true">
+                      <IconArrowRight size={20} />
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

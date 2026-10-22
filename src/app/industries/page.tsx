@@ -177,29 +177,31 @@ export default function IndustriesPage() {
 
       {/* I01: Hero & Industry Index */}
       <section className={styles.heroSection} aria-labelledby="industries-heading">
-        <span className={styles.eyebrow}>03 / INDUSTRIES</span>
-        <h1 id="industries-heading" className={styles.heroTitle}>
-          Technology shaped around real-world challenges.
-        </h1>
-        <p className={styles.heroIntro}>
-          Different sectors face different questions. We apply experience design,
-          interactive 3D and immersive technology where they can make complex information
-          easier to explore and communicate.
-        </p>
+        <div className={styles.heroContainer}>
+          <span className={styles.eyebrow}>03 / INDUSTRIES</span>
+          <h1 id="industries-heading" className={styles.heroTitle}>
+            Technology shaped around real-world challenges.
+          </h1>
+          <p className={styles.heroIntro}>
+            Different sectors face different questions. We apply experience design,
+            interactive 3D and immersive technology where they can make complex information
+            easier to explore and communicate.
+          </p>
 
-        {/* Anchor Jump Navigation */}
-        <nav aria-label="Industries Jump Navigation">
-          <ul className={styles.industryNavPills}>
-            {sectors.map((s) => (
-              <li key={s.id}>
-                <a href={`#${s.id}`} className={styles.navPill}>
-                  <span className={styles.navPillNum}>{s.number}</span>
-                  <span>{s.title}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          {/* Anchor Jump Navigation */}
+          <nav aria-label="Industries Jump Navigation">
+            <ul className={styles.industryNavPills}>
+              {sectors.map((s) => (
+                <li key={s.id}>
+                  <a href={`#${s.id}`} className={styles.navPill}>
+                    <span className={styles.navPillNum}>{s.number}</span>
+                    <span>{s.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </section>
 
       {/* I02 - I05: Sector Chapters */}

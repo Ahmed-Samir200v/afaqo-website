@@ -139,13 +139,15 @@ export default function TechnologyAiPage() {
 
       {/* T01: Hero */}
       <section className={styles.heroSection} aria-labelledby="tech-heading">
-        <span className={styles.eyebrow}>05 / TECHNOLOGY & ARCHITECTURE</span>
-        <h1 id="tech-heading" className={styles.heroTitle}>
-          The right technology serves the <span className={styles.accentWord}>experience.</span>
-        </h1>
-        <p className={styles.heroIntro}>
-          We select platforms, runtimes and pipelines based on what the experience must achieve—not the newest release cycle. Every technical choice balances fidelity, stability and practical delivery.
-        </p>
+        <div className={styles.heroContainer}>
+          <span className={styles.eyebrow}>05 / TECHNOLOGY & ARCHITECTURE</span>
+          <h1 id="tech-heading" className={styles.heroTitle}>
+            The right technology serves the <span className={styles.accentWord}>experience.</span>
+          </h1>
+          <p className={styles.heroIntro}>
+            We select platforms, runtimes and pipelines based on what the experience must achieve—not the newest release cycle. Every technical choice balances fidelity, stability and practical delivery.
+          </p>
+        </div>
       </section>
 
       {/* T02: Architecture Pillars */}

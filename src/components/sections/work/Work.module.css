@@ -18,27 +18,28 @@
 .heroSection {
   position: relative;
   width: 100%;
-  padding-top: 168px;
-  padding-bottom: clamp(60px, 6vw, 90px);
+  min-height: var(--hero-inner-height-desktop, clamp(520px, 68vh, 680px));
+  display: flex;
+  align-items: center;
   overflow-x: clip;
+  box-sizing: border-box;
 }
 
 .heroContainer {
-  max-width: 1440px;
+  width: 100%;
+  max-width: var(--hero-inner-max-width, 1360px);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 64px;
-  padding-right: 64px;
-  min-height: 720px;
+  padding: var(--hero-inner-nav-safe-top, clamp(110px, 12vh, 130px)) var(--hero-inner-gutter, clamp(32px, 5vw, 80px)) var(--hero-inner-bottom-padding, clamp(48px, 6vh, 72px));
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
 }
 
 .heroGrid {
   display: grid;
-  grid-template-columns: minmax(500px, 530px) 780px;
-  gap: 32px;
+  grid-template-columns: minmax(460px, 500px) minmax(580px, 740px);
+  gap: clamp(24px, 3vw, 48px);
   align-items: center;
   position: relative;
   width: 100%;
@@ -48,21 +49,22 @@
 .heroMainColumn {
   position: relative;
   width: 100%;
-  max-width: 530px;
+  max-width: 500px;
 }
 
-/* Eyebrow: 01 / WORK: top aligned, 12px, letter spacing 2px */
+/* Eyebrow: 01 / WORK: 12px, 700, 0.10em */
 .eyebrow {
   display: flex;
   align-items: center;
   gap: 14px;
   font-family: var(--font-inter), sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  font-size: var(--hero-inner-eyebrow-size, 12px);
+  font-weight: var(--hero-inner-eyebrow-weight, 700);
+  letter-spacing: var(--hero-inner-eyebrow-spacing, 0.10em);
+  line-height: var(--hero-inner-eyebrow-line-height, 1.4);
   text-transform: uppercase;
   color: var(--color-text-secondary-on-light, #5A6275);
-  margin-bottom: 42px;
+  margin-bottom: var(--hero-inner-gap-eyebrow-h1, 24px);
 }
 
 .eyebrowLine {
@@ -73,16 +75,16 @@
   transform-origin: left center;
 }
 
-/* Headline: Ideas made tangible.
-   clamp(64px, 6vw, 88px), line height 1.05, 2 lines */
+/* Headline: Ideas made tangible. */
 .heroHeading {
   font-family: var(--font-manrope), sans-serif;
-  font-size: clamp(64px, 6vw, 88px);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  font-size: var(--hero-inner-h1-size, clamp(48px, 4.5vw, 68px));
+  font-weight: var(--hero-inner-h1-weight, 600);
+  line-height: var(--hero-inner-h1-line-height, 1.07);
+  letter-spacing: var(--hero-inner-h1-spacing, -0.04em);
   color: var(--color-text-on-light, #050D24);
-  margin: 0 0 42px 0;
+  margin: 0 0 var(--hero-inner-gap-h1-desc, 22px) 0;
+  max-width: var(--hero-inner-h1-max-width, 720px);
 }
 
 .lineMask {
@@ -100,14 +102,14 @@
   color: var(--color-brand-blue, #0866FF);
 }
 
-/* Description: 18px, line height 1.65, max-width 510px */
+/* Description: 17.5px, line height 1.6, max-width 510px */
 .heroIntro {
   font-family: var(--font-inter), sans-serif;
-  font-size: 18px;
-  line-height: 1.65;
+  font-size: var(--hero-inner-desc-size, 17.5px);
+  line-height: var(--hero-inner-desc-line-height, 1.6);
   color: var(--color-text-secondary-on-light, #4A5268);
   max-width: 510px;
-  margin: 0 0 44px 0;
+  margin: 0 0 var(--hero-inner-gap-desc-cta, 30px) 0;
   will-change: transform, opacity;
 }
 
@@ -131,7 +133,7 @@
   background: none;
   border: none;
   padding: 0;
-  min-height: 44px;
+  min-height: var(--hero-inner-cta-height, 48px);
   transition: color 0.22s ease;
   will-change: transform, opacity;
 }
@@ -158,11 +160,12 @@
   letter-spacing: 0.14em;
 }
 
-/* 3. Industrial Visual Region (780 x 620px) */
+/* 3. Industrial Visual Region */
 .visualRegion {
   position: relative;
-  width: 780px;
-  height: 620px;
+  width: 100%;
+  max-width: 760px;
+  height: 540px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -184,10 +187,10 @@
 .facilityImage {
   width: 100%;
   height: auto;
-  max-height: 600px;
+  max-height: 520px;
   object-fit: contain;
   display: block;
-  transform: scale(1.38);
+  transform: scale(1.32);
   transform-origin: 62% 52%;
   mix-blend-mode: multiply;
   border: none !important;
@@ -221,22 +224,23 @@
   will-change: transform, opacity;
 }
 
-/* Card positions relative to 780x620 visual region (at least 24px clearance from equipment) */
+/* Card positions relative to visual region */
 .card1Pos {
   left: 0px;
-  top: 65px;
+  top: 45px;
 }
 
 .card2Pos {
   left: auto;
   right: 0px;
-  top: 20px;
+  top: 15px;
 }
 
 .card3Pos {
   left: auto;
   right: 0px;
-  top: 515px;
+  top: auto;
+  bottom: 20px;
 }
 
 .cardFloatingInner {
@@ -306,132 +310,116 @@
    7. RESPONSIVE SPECIFICATIONS
    ========================================================================== */
 
-/* 1920px desktop */
-@media (min-width: 1601px) {
+/* LARGE DESKTOP >= 1600px */
+@media (min-width: 1600px) {
+  .heroSection {
+    min-height: clamp(620px, 68vh, 680px);
+  }
+
   .heroContainer {
-    max-width: 1600px;
+    max-width: 1360px;
   }
 
   .heroGrid {
-    grid-template-columns: minmax(500px, 530px) 900px;
-    gap: 48px;
+    grid-template-columns: minmax(480px, 520px) minmax(640px, 760px);
+    gap: 40px;
+  }
+
+  .heroHeading {
+    font-size: 68px;
   }
 
   .visualRegion {
-    width: 900px;
-    height: 680px;
+    width: 100%;
+    max-width: 760px;
+    height: 560px;
   }
 
   .facilityImage {
-    transform: scale(1.42);
+    transform: scale(1.35);
     transform-origin: 62% 52%;
   }
 
   .card1Pos {
     left: 0px;
-    top: 85px;
+    top: 55px;
   }
 
   .card2Pos {
-    left: auto;
     right: 0px;
-    top: 35px;
+    top: 20px;
   }
 
   .card3Pos {
-    left: auto;
     right: 0px;
-    top: 560px;
+    bottom: 25px;
   }
 }
 
-/* 1024px tablet / laptop */
-@media (min-width: 769px) and (max-width: 1200px) {
+/* SMALL DESKTOP 1024px – 1199px */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .heroSection {
+    min-height: 520px;
+  }
+
   .heroContainer {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   .heroGrid {
-    grid-template-columns: 4fr 6fr;
-    gap: 24px;
+    grid-template-columns: minmax(420px, 460px) 1fr;
+    gap: 28px;
   }
 
   .heroHeading {
-    font-size: 58px;
+    font-size: clamp(46px, 4.2vw, 54px);
   }
 
   .visualRegion {
     width: 100%;
-    height: 520px;
-    overflow: visible;
-  }
-
-  .facilityImageWrapper {
-    width: 100%;
+    height: 480px;
   }
 
   .facilityImage {
-    transform: scale(1.26);
+    transform: scale(1.22);
     transform-origin: 60% 50%;
   }
 
   .cardFloatingInner {
-    width: auto;
-    min-width: 220px;
-    max-width: 275px;
-    min-height: 74px;
+    min-width: 210px;
+    max-width: 260px;
     padding: 12px 16px;
-    gap: 10px;
-  }
-
-  .cardIconBox {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-  }
-
-  .cardTitle {
-    font-family: var(--font-inter), sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.25;
-    white-space: normal;
-  }
-
-  .cardSubtitle {
-    font-size: 11px;
-    white-space: nowrap;
   }
 
   .card1Pos {
     left: 0px;
-    top: 50px;
+    top: 35px;
   }
 
   .card2Pos {
-    left: auto;
-    right: 8px;
-    top: 15px;
+    right: 0px;
+    top: 10px;
   }
 
   .card3Pos {
-    left: auto;
-    right: 8px;
-    top: 420px;
+    right: 0px;
+    bottom: 15px;
   }
 }
 
-/* 768px tablet */
-@media (max-width: 768px) {
+/* TABLET 768px – 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
   .heroSection {
-    padding-top: 130px;
-    padding-bottom: 50px;
+    min-height: 500px;
+    height: auto;
   }
 
   .heroContainer {
     padding-left: 32px;
     padding-right: 32px;
+    padding-top: clamp(100px, 12vh, 120px);
+    padding-bottom: 50px;
     min-height: auto;
   }
 
@@ -445,63 +433,107 @@
   }
 
   .heroHeading {
-    font-size: 56px;
-    margin-bottom: 28px;
-  }
-
-  .eyebrow {
-    margin-bottom: 24px;
-  }
-
-  .heroIntro {
-    font-size: 16px;
-    max-width: 100%;
-    margin-bottom: 28px;
+    font-size: clamp(42px, 5.5vw, 50px);
+    margin-bottom: 20px;
   }
 
   .visualRegion {
     width: 100%;
-    height: 480px;
-    max-width: 640px;
+    max-width: 650px;
+    height: 460px;
     margin: 0 auto;
-    overflow: visible;
-  }
-
-  .facilityImageWrapper {
-    width: 100%;
   }
 
   .facilityImage {
-    transform: scale(1.22);
-    transform-origin: 55% 50%;
+    transform: scale(1.2);
+    transform-origin: 50% 50%;
+  }
+
+  .card1Pos {
+    left: 0px;
+    top: 30px;
+  }
+
+  .card2Pos {
+    right: 0px;
+    top: 10px;
+  }
+
+  .card3Pos {
+    right: 0px;
+    bottom: 15px;
+  }
+}
+
+/* MOBILE < 768px */
+@media (max-width: 767px) {
+  .heroSection {
+    min-height: auto;
+    height: auto;
+  }
+
+  .heroContainer {
+    padding: 112px 20px 56px 20px;
+    min-height: auto;
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .heroMainColumn {
+    max-width: 100%;
+  }
+
+  .heroHeading {
+    font-size: clamp(34px, 8vw, 44px);
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow {
+    margin-bottom: 16px;
+  }
+
+  .heroIntro {
+    font-size: 15.5px;
+    line-height: 1.55;
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .visualRegion {
+    width: 100%;
+    height: 380px;
+    margin: 0 auto;
+  }
+
+  .facilityImage {
+    transform: scale(1.15);
+    transform-origin: 50% 50%;
   }
 
   .cardFloatingInner {
-    width: auto;
-    min-width: 200px;
-    max-width: 255px;
-    min-height: 70px;
+    min-width: 180px;
+    max-width: 220px;
     padding: 10px 14px;
-    gap: 10px;
+    border-radius: 12px;
+    gap: 8px;
   }
 
   .cardIconBox {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
   }
 
   .cardTitle {
-    font-family: var(--font-inter), sans-serif;
-    font-size: 13.5px;
-    font-weight: 500;
-    line-height: 1.25;
-    white-space: normal;
+    font-size: 12.5px;
   }
 
   .cardSubtitle {
-    font-size: 10.5px;
-    white-space: nowrap;
+    font-size: 10px;
   }
 
   .card1Pos {
@@ -510,15 +542,13 @@
   }
 
   .card2Pos {
-    left: auto;
     right: 8px;
     top: 16px;
   }
 
   .card3Pos {
-    left: auto;
     right: 8px;
-    top: 380px;
+    top: 320px;
   }
 }
 
