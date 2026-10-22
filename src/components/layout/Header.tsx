@@ -151,7 +151,11 @@ export function Header({
 
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <header
+        id="site-header"
         className={className}
         onMouseEnter={() => setHeaderHovered(true)}
         onMouseLeave={() => setHeaderHovered(false)}
@@ -325,8 +329,10 @@ export function Header({
             alignItems: "flex-end",
             justifyContent: "center",
             gap: "5px",
-            width: "42px",
-            height: "42px",
+            width: "44px",
+            height: "44px",
+            minWidth: "44px",
+            minHeight: "44px",
             padding: "8px",
             background: "none",
             border: "none",

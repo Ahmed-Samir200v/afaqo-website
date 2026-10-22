@@ -22,9 +22,18 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
     if (!root) return;
 
     const ctx = gsap.context(() => {
-      if (shouldReduceMotion) return;
+      if (shouldReduceMotion) {
+        // Immediate reveal without motion
+        gsap.set(
+          root.querySelectorAll(
+            "[data-reveal-hero-bg], [data-reveal-hero-item], [data-reveal-service-intro-text] > *, [data-reveal-service-media], [data-reveal-capability-card], [data-reveal-endtoend-header] > *, [data-reveal-stage-card], [data-reveal-work-header] > *, [data-reveal-project-card], [data-reveal-cta-item]"
+          ),
+          { opacity: 1, clearProps: "all" }
+        );
+        return;
+      }
 
-      // 1. Hero Reveal (immediate entrance on mount)
+      // 1. Hero Reveal (immediate entrance on mount, duration 550ms, y 16px max)
       const heroBg = root.querySelector("[data-reveal-hero-bg]");
       if (heroBg) {
         gsap.fromTo(
@@ -32,7 +41,7 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
           { opacity: 0.8 },
           {
             opacity: 1,
-            duration: 1.0,
+            duration: 0.65,
             ease: "power2.out",
             clearProps: "opacity",
           }
@@ -43,14 +52,14 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
       if (heroItems.length) {
         gsap.fromTo(
           heroItems,
-          { opacity: 0, y: 24 },
+          { opacity: 0, y: 16 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.85,
-            ease: "power3.out",
-            stagger: 0.1,
-            delay: 0.15,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.07,
+            delay: 0.1,
             clearProps: "transform",
           }
         );
@@ -74,7 +83,7 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: "top 82%",
+            start: "top 85%",
             once: true,
           },
         });
@@ -82,13 +91,13 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
         if (introTextElements.length) {
           tl.fromTo(
             introTextElements,
-            { opacity: 0, y: 18 },
+            { opacity: 0, y: 16 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.65,
+              duration: 0.55,
               ease: "power2.out",
-              stagger: 0.07,
+              stagger: 0.06,
               clearProps: "transform",
             },
             0
@@ -98,32 +107,31 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
         if (mediaElement) {
           tl.fromTo(
             mediaElement,
-            { opacity: 0, y: 20, scale: 0.98 },
+            { opacity: 0, y: 16 },
             {
               opacity: 1,
               y: 0,
-              scale: 1,
-              duration: 0.7,
+              duration: 0.58,
               ease: "power2.out",
               clearProps: "transform",
             },
-            0.1
+            0.08
           );
         }
 
         if (capabilityCards.length) {
           tl.fromTo(
             capabilityCards,
-            { opacity: 0, y: 20 },
+            { opacity: 0, y: 16 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.65,
+              duration: 0.55,
               ease: "power2.out",
-              stagger: 0.07,
+              stagger: 0.06,
               clearProps: "transform",
             },
-            0.2
+            0.15
           );
         }
       });
@@ -141,7 +149,7 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: endToEndSection,
-            start: "top 82%",
+            start: "top 85%",
             once: true,
           },
         });
@@ -153,9 +161,9 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
             {
               opacity: 1,
               y: 0,
-              duration: 0.7,
+              duration: 0.55,
               ease: "power2.out",
-              stagger: 0.08,
+              stagger: 0.06,
               clearProps: "transform",
             },
             0
@@ -165,16 +173,16 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
         if (stageCards.length) {
           tl.fromTo(
             stageCards,
-            { opacity: 0, y: 18 },
+            { opacity: 0, y: 16 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.75,
+              duration: 0.6,
               ease: "power2.out",
-              stagger: 0.08,
+              stagger: 0.06,
               clearProps: "transform",
             },
-            0.15
+            0.12
           );
         }
       }
@@ -186,16 +194,16 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
         if (workHeader) {
           gsap.fromTo(
             workHeader,
-            { opacity: 0, y: 35 },
+            { opacity: 0, y: 16 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.8,
-              ease: "power3.out",
+              duration: 0.55,
+              ease: "power2.out",
               clearProps: "transform",
               scrollTrigger: {
                 trigger: workSection,
-                start: "top 82%",
+                start: "top 85%",
                 once: true,
               },
             }
@@ -206,17 +214,17 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
         if (projectCards.length) {
           gsap.fromTo(
             projectCards,
-            { opacity: 0, y: 50 },
+            { opacity: 0, y: 16 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.9,
-              ease: "power3.out",
-              stagger: 0.15,
+              duration: 0.6,
+              ease: "power2.out",
+              stagger: 0.07,
               clearProps: "transform",
               scrollTrigger: {
                 trigger: workSection.querySelector("[data-reveal-projects-grid]") || workSection,
-                start: "top 82%",
+                start: "top 85%",
                 once: true,
               },
             }
@@ -231,13 +239,13 @@ export function ServicesScrollReveal({ children }: ServicesScrollRevealProps) {
         if (ctaItems.length) {
           gsap.fromTo(
             ctaItems,
-            { opacity: 0, y: 40 },
+            { opacity: 0, y: 16 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.85,
-              ease: "power3.out",
-              stagger: 0.1,
+              duration: 0.55,
+              ease: "power2.out",
+              stagger: 0.06,
               clearProps: "transform",
               scrollTrigger: {
                 trigger: ctaSection,

@@ -25,19 +25,27 @@ export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
   const utilRowRef = useRef<HTMLDivElement>(null);
   const metaRef = useRef<HTMLDivElement>(null);
 
-  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
-  if (isOpen !== prevIsOpen) {
-    setPrevIsOpen(isOpen);
+  const previousActiveElementRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
     if (isOpen) {
+      if (typeof document !== "undefined") {
+        previousActiveElementRef.current = document.activeElement as HTMLElement | null;
+      }
       setShouldRender(true);
       setIsClosing(false);
     }
-  }
+  }, [isOpen]);
 
   // Controlled Exit Animation (Reverse order, faster 350–450ms, or simple fade on reduced motion)
   const triggerClose = useCallback(() => {
     if (isClosing) return;
     setIsClosing(true);
+
+    // Return focus to previously focused element
+    if (previousActiveElementRef.current) {
+      previousActiveElementRef.current.focus();
+    }
 
     const { shouldReduceMotion } = getMotionPreference();
 
@@ -101,7 +109,7 @@ export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
     tl.to(overlayRef.current, { opacity: 0, duration: 0.2 }, 0.2);
   }, [isClosing, onClose]);
 
-  // Lock body scroll with scrollbar shift compensation
+  // Lock body scroll with scrollbar shift compensation and manage focus containment
   useEffect(() => {
     if (shouldRender && !isClosing) {
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -113,11 +121,44 @@ export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
         document.body.style.paddingRight = `${scrollbarWidth}px`;
       }
 
-      closeBtnRef.current?.focus();
+      // Mark background inert
+      const mainEl = document.getElementById("main-content");
+      const headerEl = document.getElementById("site-header");
+      if (mainEl) mainEl.setAttribute("inert", "");
+      if (headerEl) headerEl.setAttribute("inert", "");
+
+      // Focus close button initially
+      setTimeout(() => {
+        closeBtnRef.current?.focus();
+      }, 50);
 
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === "Escape") {
+          e.preventDefault();
           triggerClose();
+          return;
+        }
+
+        if (e.key === "Tab" && overlayRef.current) {
+          const focusableEls = overlayRef.current.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusableEls.length === 0) return;
+
+          const firstEl = focusableEls[0];
+          const lastEl = focusableEls[focusableEls.length - 1];
+
+          if (e.shiftKey) {
+            if (document.activeElement === firstEl) {
+              e.preventDefault();
+              lastEl.focus();
+            }
+          } else {
+            if (document.activeElement === lastEl) {
+              e.preventDefault();
+              firstEl.focus();
+            }
+          }
         }
       };
 
@@ -126,6 +167,8 @@ export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
       return () => {
         document.body.style.overflow = originalOverflow;
         document.body.style.paddingRight = originalPaddingRight;
+        if (mainEl) mainEl.removeAttribute("inert");
+        if (headerEl) headerEl.removeAttribute("inert");
         window.removeEventListener("keydown", handleKeyDown);
       };
     }
@@ -265,21 +308,32 @@ export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
           style={{
             display: "inline-flex",
             alignItems: "center",
+            justifyContent: "center",
+            minWidth: "44px",
+            minHeight: "44px",
             gap: "0.6rem",
             color: "var(--color-text-on-dark)",
-            padding: "0.5rem 0.25rem",
+            padding: "0.5rem 0.75rem",
             background: "none",
             border: "none",
+            borderRadius: "4px",
             cursor: "pointer",
             fontFamily: "var(--font-inter)",
             fontSize: "0.8125rem",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
             fontWeight: 500,
-            transition: "opacity var(--duration-fast) var(--ease-standard)",
+            transition: "opacity var(--duration-fast) var(--ease-standard), outline 0.15s ease",
           }}
           onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.75")}
           onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          onFocus={(e) => {
+            e.currentTarget.style.outline = "2px solid var(--color-accent-cyan, #00D1FF)";
+            e.currentTarget.style.outlineOffset = "3px";
+          }}
+          onBlur={(e) => {
+            e.currentTarget.style.outline = "none";
+          }}
         >
           <span>Close</span>
           <span

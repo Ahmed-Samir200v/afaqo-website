@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import styles from "./Contact.module.css";
 
 interface FormData {
@@ -21,8 +22,41 @@ const initialForm: FormData = {
   timeline: "1–3 Months",
 };
 
-export function ContactForm() {
-  const [formData, setFormData] = useState<FormData>(initialForm);
+function getInitialFormData(searchParams: ReturnType<typeof useSearchParams>): FormData {
+  const rawService = searchParams.get("service");
+  const rawCapability = searchParams.get("capability");
+
+  let matchedService = initialForm.serviceType;
+  if (rawService) {
+    const s = rawService.toLowerCase();
+    if (s.includes("extended reality") || s.includes("xr") || s.includes("vr") || s.includes("ar")) {
+      matchedService = "Extended Reality (AR/VR/MR)";
+    } else if (s.includes("interactive 3d") && !s.includes("replica")) {
+      matchedService = "Interactive 3D Solutions";
+    } else if (s.includes("digital environment") || s.includes("replica")) {
+      matchedService = "Digital Environments & Replicas";
+    } else if (s.includes("simulation") || s.includes("simulxr") || s.includes("training")) {
+      matchedService = "SIMULXR Industrial Simulation & Training";
+    } else if (s.includes("production") || s.includes("optimization")) {
+      matchedService = "3D Content Production & Optimization";
+    }
+  }
+
+  let initialMsg = initialForm.message;
+  if (rawCapability) {
+    initialMsg = `Inquiry context: ${rawCapability}${rawService ? ` — ${rawService}` : ""}\n\n`;
+  }
+
+  return {
+    ...initialForm,
+    serviceType: matchedService,
+    message: initialMsg,
+  };
+}
+
+function ContactFormInner() {
+  const searchParams = useSearchParams();
+  const [formData, setFormData] = useState<FormData>(() => getInitialFormData(searchParams));
 
   return (
     <form className={styles.inquiryForm} noValidate onSubmit={(e) => e.preventDefault()}>
@@ -181,3 +215,12 @@ export function ContactForm() {
     </form>
   );
 }
+
+export function ContactForm() {
+  return (
+    <Suspense fallback={<div className={styles.inquiryForm}>Loading inquiry form...</div>}>
+      <ContactFormInner />
+    </Suspense>
+  );
+}
+

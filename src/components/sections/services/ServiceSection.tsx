@@ -17,6 +17,7 @@ export interface ServiceSectionProps {
   imageAlt?: string;
   badge: string;
   cards: Omit<CapabilityCardData, "serviceTitle">[];
+  isFirst?: boolean;
 }
 
 export function ServiceSection({
@@ -30,6 +31,7 @@ export function ServiceSection({
   imageAlt,
   badge,
   cards,
+  isFirst = false,
 }: ServiceSectionProps) {
   // If titleAccent is provided, separate the base title from the accented portion
   const renderTitle = () => {
@@ -52,7 +54,8 @@ export function ServiceSection({
   return (
     <section
       data-reveal-service-section
-      className={styles.unifiedServiceSection}
+      data-first-service={isFirst ? "true" : undefined}
+      className={`${styles.unifiedServiceSection} ${isFirst ? styles.firstServiceSection : ""}`}
       aria-labelledby={`service-heading-${number}`}
     >
       <div className={styles.sectionContainer}>
@@ -98,7 +101,7 @@ export function ServiceSection({
                 alt={imageAlt || `${title} - AFAQO immersive capability`}
                 fill
                 priority={number === "01"}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 680px"
+                sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1199px) min(720px, calc(100vw - 80px)), 680px"
                 className={styles.serviceMediaImage}
               />
             </div>

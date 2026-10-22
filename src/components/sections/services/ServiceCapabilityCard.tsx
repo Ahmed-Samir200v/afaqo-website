@@ -32,7 +32,7 @@ export function ServiceCapabilityCard({
       {/* Top Row: Icon on left, Capability Number on right */}
       <div className={styles.cardTopRow}>
         <div className={styles.cardIconBox}>{icon}</div>
-        <span className={styles.cardNumber}>{number}</span>
+        <span className={styles.cardNumber} aria-hidden="true">{number}</span>
       </div>
 
       {/* Content Area: Title & optional Description */}

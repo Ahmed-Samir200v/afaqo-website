@@ -28,7 +28,6 @@ import {
   IconStageProduction,
   IconStageEngineering,
   IconStageValidation,
-  IconArrowRight,
 } from "@/components/sections/services/ServiceIcons";
 import styles from "@/components/sections/services/Services.module.css";
 
@@ -231,171 +230,167 @@ export default function ServicesPage() {
       {/* S00: Route Header (Unified Home Navigation) */}
       <Header />
 
-      <ServicesScrollReveal>
-        {/* S01: Full-Width Cinematic Background Hero */}
-        <section
-          className={styles.heroSection}
-          aria-labelledby="services-heading"
-        >
-          {/* Edge-to-edge background image container */}
-          <div data-reveal-hero-bg className={styles.heroMediaWrapper}>
-            <Image
-              src="/images/services/afaqo-services-hero.webp"
-              alt="AFAQO immersive technology, spatial computing and industrial digital twins"
-              fill
-              priority
-              sizes="100vw"
-              className={styles.heroBackgroundImage}
-            />
-            {/* Restrained white legibility gradient overlay */}
-            <div className={styles.heroGradientOverlay} aria-hidden="true" />
-          </div>
-
-          {/* Left Text Container aligned with global container grid */}
-          <div className={styles.heroContentContainer}>
-            <div className={styles.heroTextWrapper}>
-              <span data-reveal-hero-item className={styles.eyebrow}>
-                OUR CAPABILITIES
-              </span>
-              <h1
-                id="services-heading"
-                data-reveal-hero-item
-                className={styles.heroTitle}
-              >
-                Ideas become{" "}
-                <span className={styles.accentWord}>experiences.</span>
-              </h1>
-              <p data-reveal-hero-item className={styles.heroIntro}>
-                From strategy and design to 3D production and real-time
-                development, we create interactive digital experiences built
-                around practical needs.
-              </p>
+      <main id="main-content" tabIndex={-1} className={styles.mainContent}>
+        <ServicesScrollReveal>
+          {/* S01: Full-Width Cinematic Background Hero */}
+          <section
+            className={styles.heroSection}
+            aria-labelledby="services-heading"
+          >
+            {/* Edge-to-edge background image container */}
+            <div data-reveal-hero-bg className={styles.heroMediaWrapper}>
+              <Image
+                src="/images/services/afaqo-services-hero.webp"
+                alt="AFAQO immersive technology, spatial computing and industrial digital twins"
+                fill
+                priority
+                sizes="100vw"
+                className={styles.heroBackgroundImage}
+              />
+              {/* Restrained white legibility gradient overlay */}
+              <div className={styles.heroGradientOverlay} aria-hidden="true" />
             </div>
-          </div>
-        </section>
 
-        {/* S02 - S05: Four Unified Service Sections */}
-        {servicesData.map((service) => (
-          <ServiceSection
-            key={service.number}
-            number={service.number}
-            category={service.category}
-            title={service.title}
-            titleAccent={service.titleAccent}
-            description={service.description}
-            tags={service.tags}
-            image={service.image}
-            imageAlt={service.imageAlt}
-            badge={service.badge}
-            cards={service.cards}
-          />
-        ))}
-
-        {/* S06: Deep Navy Technical Band (System Architecture: One partner. End to end.) */}
-        <section data-reveal-endtoend className={styles.endToEndSection} aria-labelledby="end-to-end-heading">
-          <div className={styles.endToEndContainer}>
-            <div data-reveal-endtoend-header className={styles.endToEndHeader}>
-              <div className={styles.endToEndEyebrowRow}>
-                <span className={styles.accentLine} aria-hidden="true" />
-                <span className={styles.endToEndEyebrow}>System Architecture</span>
+            {/* Left Text Container aligned with global container grid */}
+            <div className={styles.heroContentContainer}>
+              <div className={styles.heroTextWrapper}>
+                <span data-reveal-hero-item className={styles.eyebrow}>
+                  OUR CAPABILITIES
+                </span>
+                <h1
+                  id="services-heading"
+                  data-reveal-hero-item
+                  className={styles.heroTitle}
+                >
+                  Ideas become{" "}
+                  <span className={styles.accentWord}>experiences.</span>
+                </h1>
+                <p data-reveal-hero-item className={styles.heroIntro}>
+                  From strategy and design to 3D production and real-time
+                  development, we create interactive digital experiences built
+                  around practical needs.
+                </p>
               </div>
-              <h2 id="end-to-end-heading" className={styles.endToEndTitle}>
-                One partner. End to end.
-              </h2>
-              <p className={styles.endToEndSubhead}>
-                From the first idea to the final deployed experience, we engineer
-                continuous technical coherence across every project milestone.
-              </p>
+            </div>
+          </section>
+
+          {/* S02 - S05: Four Unified Service Sections */}
+          {servicesData.map((service, index) => (
+            <ServiceSection
+              key={service.number}
+              isFirst={index === 0}
+              number={service.number}
+              category={service.category}
+              title={service.title}
+              titleAccent={service.titleAccent}
+              description={service.description}
+              tags={service.tags}
+              image={service.image}
+              imageAlt={service.imageAlt}
+              badge={service.badge}
+              cards={service.cards}
+            />
+          ))}
+
+          {/* S06: Deep Navy Technical Band (System Architecture: One partner. End to end.) */}
+          <section data-reveal-endtoend className={styles.endToEndSection} aria-labelledby="end-to-end-heading">
+            <div className={styles.endToEndContainer}>
+              <div data-reveal-endtoend-header className={styles.endToEndHeader}>
+                <div className={styles.endToEndEyebrowRow}>
+                  <span className={styles.accentLine} aria-hidden="true" />
+                  <span className={styles.endToEndEyebrow}>System Architecture</span>
+                </div>
+                <h2 id="end-to-end-heading" className={styles.endToEndTitle}>
+                  One partner. End to end.
+                </h2>
+                <p className={styles.endToEndSubhead}>
+                  From the first idea to the final deployed experience, we engineer
+                  continuous technical coherence across every project milestone.
+                </p>
+              </div>
+
+              <ol data-reveal-stages-grid className={styles.stagesGrid}>
+                {processStages.map((stage) => (
+                  <li key={stage.index} data-reveal-stage-card className={styles.stageCard}>
+                    <div className={styles.stageIndex} aria-hidden="true">{stage.index}</div>
+                    <div className={styles.stageIconContainer} aria-hidden="true">
+                      {stage.icon}
+                    </div>
+                    <h3 className={styles.stageName}>{stage.name}</h3>
+                    <p className={styles.stageDesc}>{stage.desc}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+
+          {/* S07: Relevant Work */}
+          <section data-reveal-work className={styles.relevantWorkSection} aria-labelledby="relevant-work-heading">
+            <div data-reveal-work-header className={styles.sectionHeader}>
+              <div>
+                <span className={styles.eyebrow}>03 / PROVEN EXECUTION</span>
+                <h2 id="relevant-work-heading" className={styles.sectionTitle}>
+                  Capabilities in practice.
+                </h2>
+              </div>
+              <Link href="/work" className={styles.viewAllLink}>
+                Explore all projects ↗
+              </Link>
             </div>
 
-            <div data-reveal-stages-grid className={styles.stagesGrid}>
-              {processStages.map((stage) => (
-                <div key={stage.index} data-reveal-stage-card className={styles.stageCard}>
-                  <div className={styles.stageIndex}>{stage.index}</div>
-                  <div className={styles.stageIconContainer} aria-hidden="true">
-                    {stage.icon}
+            <div data-reveal-projects-grid className={styles.projectsGrid}>
+              {relevantProjects.map((project) => (
+                <Link
+                  key={project.slug}
+                  data-reveal-project-card
+                  href={`/work/${project.slug}`}
+                  className={styles.projectCard}
+                >
+                  <div className={styles.projectImageFrame}>
+                    <Image
+                      src={project.image}
+                      alt={project.imageAlt || project.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className={styles.projectImage}
+                    />
                   </div>
-                  <h3 className={styles.stageName}>{stage.name}</h3>
-                  <p className={styles.stageDesc}>{stage.desc}</p>
-                  <div className={styles.stageSpacer} aria-hidden="true" />
-                  <div className={styles.stageFooter}>
-                    <div className={styles.stageDividerLine} aria-hidden="true" />
-                    <div className={styles.stageArrowCircle} aria-hidden="true">
-                      <IconArrowRight size={20} />
+                  <div className={styles.projectBody}>
+                    <div className={styles.projectMeta}>
+                      <span>{project.category}</span>
+                      <span>{project.location}</span>
+                    </div>
+                    <h3 className={styles.projectTitle}>{project.title}</h3>
+                    <p className={styles.projectSummary}>{project.summary}</p>
+                    <div className={styles.projectArrow}>
+                      View case study <span>↗</span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* S07: Relevant Work */}
-        <section data-reveal-work className={styles.relevantWorkSection} aria-labelledby="relevant-work-heading">
-          <div data-reveal-work-header className={styles.sectionHeader}>
-            <div>
-              <span className={styles.eyebrow}>03 / PROVEN EXECUTION</span>
-              <h2 id="relevant-work-heading" className={styles.sectionTitle}>
-                Capabilities in practice.
+          {/* S08: Closing CTA */}
+          <section data-reveal-cta className={styles.closingCtaSection} aria-labelledby="cta-heading">
+            <div className={styles.ctaContainer}>
+              <span data-reveal-cta-item className={styles.ctaEyebrow}>Start a Conversation</span>
+              <h2 id="cta-heading" data-reveal-cta-item className={styles.ctaTitle}>
+                Let’s build something worth experiencing.
               </h2>
+              <p data-reveal-cta-item className={styles.ctaSubtitle}>
+                Whether you have a fully scoped technical brief or an early-stage spatial concept,
+                our team is ready to help you define and build it.
+              </p>
+              <div data-reveal-cta-item>
+                <Link href="/contact" className={styles.ctaButton}>
+                  Start a Project <span>↗</span>
+                </Link>
+              </div>
             </div>
-            <Link href="/work" className={styles.viewAllLink}>
-              Explore all projects ↗
-            </Link>
-          </div>
-
-          <div data-reveal-projects-grid className={styles.projectsGrid}>
-            {relevantProjects.map((project) => (
-              <Link
-                key={project.slug}
-                data-reveal-project-card
-                href={`/work/${project.slug}`}
-                className={styles.projectCard}
-              >
-                <div className={styles.projectImageFrame}>
-                  <Image
-                    src={project.image}
-                    alt={project.imageAlt || project.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className={styles.mediaImage}
-                  />
-                </div>
-                <div className={styles.projectBody}>
-                  <div className={styles.projectMeta}>
-                    <span>{project.category}</span>
-                    <span>{project.location}</span>
-                  </div>
-                  <h3 className={styles.projectTitle}>{project.title}</h3>
-                  <p className={styles.projectSummary}>{project.summary}</p>
-                  <div className={styles.projectArrow}>
-                    View case study <span>↗</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* S08: Closing CTA */}
-        <section data-reveal-cta className={styles.closingCtaSection} aria-labelledby="cta-heading">
-          <div className={styles.ctaContainer}>
-            <span data-reveal-cta-item className={styles.ctaEyebrow}>Start a Conversation</span>
-            <h2 id="cta-heading" data-reveal-cta-item className={styles.ctaTitle}>
-              Let’s build something worth experiencing.
-            </h2>
-            <p data-reveal-cta-item className={styles.ctaSubtitle}>
-              Whether you have a fully scoped technical brief or an early-stage spatial concept,
-              our team is ready to help you define and build it.
-            </p>
-            <div data-reveal-cta-item>
-              <Link href="/contact" className={styles.ctaButton}>
-                Start a Project <span>↗</span>
-              </Link>
-            </div>
-          </div>
-        </section>
-      </ServicesScrollReveal>
+          </section>
+        </ServicesScrollReveal>
+      </main>
 
       {/* Global Unified Footer */}
       <Footer />
