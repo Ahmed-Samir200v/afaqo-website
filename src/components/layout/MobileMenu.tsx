@@ -6,6 +6,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { navigationContent, isRouteActive } from "@/content/global/navigation";
 import { getMotionPreference } from "@/lib/motion-preference";
+import megaStyles from "./NavigationMegaMenu.module.css";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -16,12 +17,14 @@ interface MobileMenuProps {
 export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
   const [shouldRender, setShouldRender] = useState(isOpen);
   const [isClosing, setIsClosing] = useState(false);
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
 
   const overlayRef = useRef<HTMLDivElement>(null);
   const headerRowRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLAnchorElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
-  const navItemsRef = useRef<(HTMLAnchorElement | null)[]>([]);
+  const navItemsRef = useRef<(HTMLLIElement | null)[]>([]);
   const utilRowRef = useRef<HTMLDivElement>(null);
   const metaRef = useRef<HTMLDivElement>(null);
 
@@ -34,6 +37,8 @@ export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
       }
       setShouldRender(true);
       setIsClosing(false);
+      setOpenCategory(null);
+      setOpenGroup(null);
     }
   }, [isOpen]);
 
@@ -370,43 +375,50 @@ export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
             {navigationContent.primaryNavigation.map((item, index) => {
               const isActive = activeHref ? isRouteActive(activeHref, item.href) : false;
               return (
-                <li key={item.label} style={{ lineHeight: 1.05 }}>
-                  <Link
-                    ref={(el) => {
-                      navItemsRef.current[index] = el;
-                    }}
-                    href={item.href}
-                    onClick={triggerClose}
-                    className="nav-link-editorial"
-                    style={{
-                      fontFamily: "var(--font-manrope)",
-                      fontSize: "clamp(2.5rem, 5.2vw, 4.25rem)",
-                      fontWeight: 300,
-                      lineHeight: 1.05,
-                      letterSpacing: "-0.03em",
-                      color: "var(--color-text-on-dark)",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "0.85rem",
-                      position: "relative",
-                    }}
-                  >
-                    {/* Active Precision Indicator (Cyan Square) */}
-                    {isActive && (
-                      <span
-                        aria-hidden="true"
-                        style={{
-                          width: "7px",
-                          height: "7px",
-                          backgroundColor: "var(--color-accent-cyan)",
-                          borderRadius: "var(--radius-sm)",
-                          display: "inline-block",
-                          flexShrink: 0,
+                <li ref={(el) => { navItemsRef.current[index] = el; }} key={item.label} style={{ lineHeight: 1.05 }}>
+                  <div className={megaStyles.mobileTopRow}>
+                    <Link href={item.href} onClick={triggerClose} className={`nav-link-editorial ${megaStyles.mobilePrimaryLink}`}>
+                      {isActive && <span aria-hidden="true" className={megaStyles.mobileActiveDot} />}
+                      <span>{item.label}</span>
+                    </Link>
+                    {item.megaMenu && (
+                      <button
+                        type="button"
+                        className={megaStyles.mobileDisclosure}
+                        aria-label={`${openCategory === item.label ? "Collapse" : "Expand"} ${item.label}`}
+                        aria-expanded={openCategory === item.label}
+                        aria-controls={`mobile-category-${item.href.slice(1)}`}
+                        onClick={() => {
+                          setOpenCategory((current) => current === item.label ? null : item.label);
+                          setOpenGroup(null);
                         }}
-                      />
+                      ><span aria-hidden="true">{openCategory === item.label ? "−" : "+"}</span></button>
                     )}
-                    <span>{item.label}</span>
-                  </Link>
+                  </div>
+                  {item.megaMenu && openCategory === item.label && (
+                    <div id={`mobile-category-${item.href.slice(1)}`} className={megaStyles.mobileCategory}>
+                      <Link href={item.href} onClick={triggerClose} className={megaStyles.mobileOverview}>{item.megaMenu.overviewLabel} <span aria-hidden="true">↗</span></Link>
+                      <ul className={megaStyles.mobileGroups}>
+                        {item.megaMenu.groups.map((group) => {
+                          const expanded = openGroup === group.href;
+                          return (
+                            <li key={group.href}>
+                              <div className={megaStyles.mobileGroupRow}>
+                                <Link href={group.href} onClick={triggerClose}>{group.index && <span>{group.index}</span>}{group.label}</Link>
+                                {group.children && <button type="button" aria-label={`${expanded ? "Collapse" : "Expand"} ${group.label}`} aria-expanded={expanded} aria-controls={`mobile-group-${group.href.replace(/[^a-z0-9]/gi, "-")}`} onClick={() => setOpenGroup(expanded ? null : group.href)}><span aria-hidden="true">{expanded ? "−" : "+"}</span></button>}
+                              </div>
+                              {group.description && <p>{group.description}</p>}
+                              {group.children && expanded && (
+                                <ul id={`mobile-group-${group.href.replace(/[^a-z0-9]/gi, "-")}`} className={megaStyles.mobileChildren}>
+                                  {group.children.map((child) => <li key={child.href}><Link href={child.href} onClick={triggerClose}>{child.label}</Link></li>)}
+                                </ul>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
                 </li>
               );
             })}

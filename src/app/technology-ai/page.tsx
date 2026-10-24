@@ -12,24 +12,28 @@ export const metadata: Metadata = {
 
 const architecturePillars = [
   {
+    id: "real-time-engines",
     code: "SYS.01 // REALTIME",
     title: "Real-Time Engines",
     desc: "Unreal Engine, Unity, WebGL and WebXR configured for deterministic interaction, stable frame rates and responsive controls across desktop, mobile and headsets.",
     tech: ["Unreal Engine", "Unity", "WebGL / Three.js", "C# / C++"],
   },
   {
+    id: "spatial-computing",
     code: "SYS.02 // SPATIAL",
     title: "Spatial Computing",
     desc: "Headset tracking, 6DOF controller input, hand interaction and spatial audio engineered for comfort, clarity and repeatable procedural training.",
     tech: ["OpenXR", "Meta XR SDK", "VisionOS", "WebXR"],
   },
   {
+    id: "3d-asset-pipeline",
     code: "SYS.03 // PIPELINE",
     title: "3D Asset Pipeline",
     desc: "High-precision modeling, technical optimization and PBR material authoring built to deliver visual depth within realistic polygon and memory budgets.",
     tech: ["Blender", "Substance 3D", "ZBrush", "Houdini"],
   },
   {
+    id: "selective-ai-integration",
     code: "SYS.04 // ADAPTIVE",
     title: "Selective AI Integration",
     desc: "Targeted AI workflows that improve production velocity and enable contextual assistance—without unverified autonomous claims.",
@@ -151,7 +155,7 @@ export default function TechnologyAiPage() {
       </section>
 
       {/* T02: Architecture Pillars */}
-      <section className={styles.architectureSection} aria-labelledby="pillars-heading">
+      <section id="technology-areas" className={`${styles.architectureSection} ${styles.anchorTarget}`} aria-labelledby="pillars-heading">
         <div className={styles.sectionHeader}>
           <span className={styles.sectionEyebrow}>Core Infrastructure</span>
           <h2 id="pillars-heading" className={styles.sectionTitle}>
@@ -165,7 +169,7 @@ export default function TechnologyAiPage() {
 
         <div className={styles.pillarsGrid}>
           {architecturePillars.map((p) => (
-            <div key={p.code} className={styles.pillarCard}>
+            <div id={p.id} key={p.code} className={`${styles.pillarCard} ${styles.anchorTarget}`}>
               <span className={styles.pillarCode}>{p.code}</span>
               <h3 className={styles.pillarTitle}>{p.title}</h3>
               <p className={styles.pillarDesc}>{p.desc}</p>
@@ -182,7 +186,7 @@ export default function TechnologyAiPage() {
       </section>
 
       {/* T03 - T05: Light Surface Section (3D Pipeline & Spatial Matrix) */}
-      <section className={styles.lightSection} aria-labelledby="pipeline-heading">
+      <section id="production-pipeline" className={`${styles.lightSection} ${styles.anchorTarget}`} aria-labelledby="pipeline-heading">
         <div className={styles.lightContainer}>
           <span className={styles.eyebrow}>06 / CRAFT & PRECISION</span>
           <h2 id="pipeline-heading" className={styles.lightTitle}>
@@ -203,7 +207,7 @@ export default function TechnologyAiPage() {
             ))}
           </div>
 
-          <h2 className={styles.lightTitle}>Spatial computing modalities.</h2>
+          <h2 id="spatial-modalities" className={`${styles.lightTitle} ${styles.anchorTarget}`}>Spatial computing modalities.</h2>
           <p className={styles.lightSubtitle}>
             We select the spatial medium based on operational objectives, ergonomics, and hardware constraints.
           </p>
@@ -229,7 +233,7 @@ export default function TechnologyAiPage() {
       </section>
 
       {/* T06: AI in Practice: Two Tracks */}
-      <section className={styles.aiSection} aria-labelledby="ai-heading">
+      <section id="ai-in-practice" className={`${styles.aiSection} ${styles.anchorTarget}`} aria-labelledby="ai-heading">
         <div className={styles.aiContainer}>
           <span className={styles.eyebrow}>07 / ARTIFICIAL INTELLIGENCE</span>
           <h2 id="ai-heading" className={styles.sectionTitle}>

@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigationContent, isRouteActive, type NavItem } from "@/content/global/navigation";
 import { MobileMenu } from "./MobileMenu";
 import { NavGlassReflection } from "./NavGlassReflection";
+import { DesktopMegaMenu } from "./DesktopMegaMenu";
+import megaStyles from "./NavigationMegaMenu.module.css";
 
 export interface HeaderProps {
   theme?: "dark" | "light";
@@ -134,6 +136,49 @@ export function Header({
   const [headerHovered, setHeaderHovered] = useState(false);
   const [simulxrHovered, setSimulxrHovered] = useState(false);
   const [internalIsScrolled, setInternalIsScrolled] = useState(false);
+  const [openMegaMenu, setOpenMegaMenu] = useState<string | null>(null);
+  const openTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const disclosureRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  const clearMenuTimers = useCallback(() => {
+    if (openTimerRef.current) clearTimeout(openTimerRef.current);
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+  }, []);
+
+  const openMenu = useCallback((label: string, immediate = false) => {
+    clearMenuTimers();
+    if (immediate) {
+      setOpenMegaMenu(label);
+      return;
+    }
+    openTimerRef.current = setTimeout(() => setOpenMegaMenu(label), 130);
+  }, [clearMenuTimers]);
+
+  const closeMenu = useCallback((immediate = false) => {
+    clearMenuTimers();
+    if (immediate) {
+      setOpenMegaMenu(null);
+      return;
+    }
+    closeTimerRef.current = setTimeout(() => setOpenMegaMenu(null), 160);
+  }, [clearMenuTimers]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && openMegaMenu) {
+        event.preventDefault();
+        const label = openMegaMenu;
+        setOpenMegaMenu(null);
+        disclosureRefs.current[label]?.focus();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      clearMenuTimers();
+    };
+  }, [clearMenuTimers, openMegaMenu]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -190,7 +235,8 @@ export function Header({
           zIndex: 50,
           transition:
             "background-color 300ms ease, height 300ms ease, box-shadow 300ms ease, border-color 300ms ease, transform 250ms ease",
-          overflow: "hidden",
+          overflow: "visible",
+          isolation: "isolate",
           ...style,
         }}
       >
@@ -255,15 +301,44 @@ export function Header({
               margin: 0,
             }}
           >
-            {navigationContent.primaryNavigation.map((item) => (
-              <li key={item.label}>
+            {navigationContent.primaryNavigation.map((item) => {
+              const hasMenu = Boolean(item.megaMenu);
+              const isOpen = openMegaMenu === item.label;
+              return (
+              <li
+                key={item.label}
+                className={megaStyles.navItem}
+                onMouseEnter={() => hasMenu && openMenu(item.label)}
+                onMouseLeave={() => hasMenu && closeMenu()}
+                onFocusCapture={() => hasMenu && openMenu(item.label, true)}
+                onBlurCapture={(event) => {
+                  if (hasMenu && !event.currentTarget.contains(event.relatedTarget as Node | null)) closeMenu();
+                }}
+              >
                 <NavLinkItem
                   item={item}
                   isActive={isRouteActive(currentActive, item.href)}
                   textColor={textColor}
                 />
+                {hasMenu && (
+                  <button
+                    ref={(element) => { disclosureRefs.current[item.label] = element; }}
+                    type="button"
+                    className={megaStyles.disclosure}
+                    aria-label={`${isOpen ? "Close" : "Open"} ${item.label} navigation`}
+                    aria-expanded={isOpen}
+                    aria-controls={`mega-menu-${item.href.slice(1)}`}
+                    onClick={() => isOpen ? closeMenu(true) : openMenu(item.label, true)}
+                  >
+                    <span aria-hidden="true" className={`${megaStyles.chevron} ${isOpen ? megaStyles.chevronOpen : ""}`}>⌄</span>
+                  </button>
+                )}
+                {isOpen && (
+                  <DesktopMegaMenu item={item} currentPath={currentActive} onNavigate={() => closeMenu(true)} />
+                )}
               </li>
-            ))}
+              );
+            })}
           </ul>
         </nav>
 

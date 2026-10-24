@@ -45,7 +45,7 @@
 .benefitNumber { color: var(--color-brand-cyan); display: block; font-family: var(--font-manrope), sans-serif; font-size: 2rem; margin-bottom: 28px; }
 .benefits h3 { margin-bottom: 14px; }
 .capabilityGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.capability { padding: 32px; border: 1px solid var(--color-border-light); border-radius: 16px; background: #fff; }
+.capability { padding: 32px; border: 1px solid var(--color-border-light); border-radius: 16px; background: #fff; scroll-margin-top: 118px; }
 .cardTop { display: flex; justify-content: space-between; align-items: start; margin-bottom: 24px; }
 .icon { width: 56px; height: 56px; background: #EAF2FF; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
 .index { color: var(--color-text-secondary-on-light); font-size: .8125rem; line-height: 1.6; }

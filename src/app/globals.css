@@ -442,7 +442,7 @@ button {
   display: inline-flex !important;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1080px) {
   .lg-nav-visible {
     display: flex !important;
   }

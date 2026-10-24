@@ -42,6 +42,10 @@ export function serviceDetailMetadata(service: ServiceDetail): Metadata {
 
 function Arrow() { return <span aria-hidden="true">↗</span>; }
 
+function toAnchor(value: string) {
+  return value.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
 function Section({ id, eyebrow, title, children, dark = false }: {
   id: string; eyebrow: string; title: string; children: ReactNode; dark?: boolean;
 }) {
@@ -94,7 +98,7 @@ function CapabilityGrid({ service }: { service: ServiceDetail }) {
       {service.capabilities.map((capability, index) => {
         const Icon = icons[capability.icon];
         return (
-          <article className={styles.capability} data-detail-reveal key={capability.title}>
+          <article id={toAnchor(capability.title)} className={styles.capability} data-detail-reveal key={capability.title}>
             <div className={styles.cardTop}><span className={styles.icon}><Icon size={30} /></span><span className={styles.index}>0{index + 1}</span></div>
             <h3>{capability.title}</h3><p>{capability.text}</p>
             <dl><div><dt>What you get</dt><dd>{capability.deliverable}</dd></div><div><dt>Typical application</dt><dd>{capability.application}</dd></div></dl>
