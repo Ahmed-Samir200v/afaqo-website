@@ -9,6 +9,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import styles from "./IndustrialDigitalTwinCaseStudy.module.css";
 import { getMotionPreference } from "@/lib/motion-preference";
+import { CaseStudyIcon } from "./CaseStudyIcons";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -29,42 +30,42 @@ const P03_3D_MODEL = `${MEDIA_BASE}fc3f5f13-4e7f-4d91-85b7-110f8d37f1f9.png`;
 
 const P04_STAGES = [
   {
-    index: "STAGE 01",
-    title: "Engineering Reference Reading",
-    desc: "Translating Process & Instrumentation Diagrams (P&IDs) and layout drawings into spatial coordinates, establishing equipment footprints, pipe rack elevations, and functional process streams.",
-    takeaway: "Contextual translation from 2D engineering schematics",
+    index: "01 / REFERENCE",
+    title: "Engineering Reference",
+    desc: "Engineering references establish equipment relationships, piping systems and the spatial logic of the LPG handling environment.",
+    takeaway: "Process references",
     image: `${MEDIA_BASE}ea9d0fc6-f346-42f3-8663-dcde7fb0f109.png`,
     alt: "P&ID Process Reference Diagram",
   },
   {
-    index: "STAGE 02",
-    title: "Mechanical Component Decomposition",
-    desc: "Deconstructing pump skids, electric drive motors, fluid manifolds, and local control consoles into modular sub-assemblies for exploded structural inspection.",
-    takeaway: "Mechanical hierarchy and sub-component isolation",
+    index: "02 / MODELING",
+    title: "Industrial Equipment Modeling",
+    desc: "Equipment, pump skids, piping and supporting structures are developed as organized assets for use throughout the digital facility.",
+    takeaway: "Structured industrial assets",
     image: `${MEDIA_BASE}30a2d880-c678-4853-95a7-c734bd0934d6.png`,
     alt: "Exploded pump-skid assembly with mechanical hierarchy",
   },
   {
-    index: "STAGE 03",
-    title: "PBR Industrial Shading & Materials",
-    desc: "Authoring physically-based materials replicating cast steel, brushed metals, galvanized pipework, industrial coatings, and safety-critical hazard markings.",
-    takeaway: "Calibrated optical reflectance and corrosion properties",
+    index: "03 / COMPONENT BREAKDOWN",
+    title: "Mechanical Component Decomposition",
+    desc: "Complex equipment such as pump skids is organized into understandable assemblies and subassemblies, allowing individual mechanical components to be inspected while preserving their relationship to the complete asset.",
+    takeaway: "Mechanical hierarchy · Sub-component isolation · Accurate spatial relationships",
     image: `${MEDIA_BASE}fc3f5f13-4e7f-4d91-85b7-110f8d37f1f9.png`,
     alt: "Isolated process-skid model with color-coded routing",
   },
   {
-    index: "STAGE 04",
-    title: "Spatial Facility Assembly",
-    desc: "Composing modular skids, overhead structural steel frames, pipe bridges, and auxiliary support buildings into a cohesive, navigable industrial scene.",
-    takeaway: "Integration of multi-scale plant equipment and infrastructure",
+    index: "04 / FACILITY ASSEMBLY",
+    title: "Facility Assembly",
+    desc: "Individual assets are brought together with structural context, piping relationships and facility scale to form one coherent environment.",
+    takeaway: "Connected facility context",
     image: `${MEDIA_BASE}de83fd7a-6c84-434f-9cb3-f29c64f9ae2b.png`,
     alt: "Wide assembled pump skids and structural framework",
   },
   {
-    index: "STAGE 05",
-    title: "Real-Time Scene Optimization",
-    desc: "Optimizing polygon budgets, draw-call batches, and collision volumes to achieve smooth interactive framerates across enterprise desktop workstations.",
-    takeaway: "Performance-tuned meshes and interactive inspection states",
+    index: "05 / REAL-TIME PREPARATION",
+    title: "Real-Time Preparation",
+    desc: "The structured environment is prepared for interactive exploration, inspection and presentation across its intended delivery context.",
+    takeaway: "Prepared interactive environment",
     image: `${MEDIA_BASE}8c9e6730-aec3-4309-857d-47dc96db0384.png`,
     alt: "Modular support building and plant infrastructure",
   },
@@ -77,7 +78,7 @@ const P05_GALLERY_ITEMS = [
     thumb: `${MEDIA_BASE}de83fd7a-6c84-434f-9cb3-f29c64f9ae2b.png`,
     title: "Multi-Skid Pumping Complex",
     caption: "Wide perspective of assembled pump skids, structural steel framework, and overhead piping manifolds.",
-    evidence: "3D Facility Reconstruction",
+    evidence: "01 / Facility Overview",
   },
   {
     type: "image" as const,
@@ -85,7 +86,7 @@ const P05_GALLERY_ITEMS = [
     thumb: `${MEDIA_BASE}42c031f4-e7d3-495f-8e4d-5b7b397c2d82.png`,
     title: "Pump Skid & Local Control Cabinet",
     caption: "Close equipment inspection showing electric drive motor, fluid coupling, and local emergency controls.",
-    evidence: "Equipment Detail",
+    evidence: "02 / Equipment Detail",
   },
   {
     type: "image" as const,
@@ -93,7 +94,7 @@ const P05_GALLERY_ITEMS = [
     thumb: `${MEDIA_BASE}8a47c34f-a8b4-49c4-9d2a-37954110d509.png`,
     title: "High-Pressure Piping & Headers",
     caption: "Complex manifold connections, utility distribution lines, and industrial valve stations.",
-    evidence: "Piping Network",
+    evidence: "03 / Pipe Routing",
   },
   {
     type: "image" as const,
@@ -101,7 +102,7 @@ const P05_GALLERY_ITEMS = [
     thumb: `${MEDIA_BASE}f310aca6-30d4-4587-8fdc-3a82bb09199b.png`,
     title: "Front Perspective & Maintenance Clearance",
     caption: "Front three-quarter view illustrating operational access and equipment maintenance spacing.",
-    evidence: "Facility Assembly",
+    evidence: "04 / Structural Context",
   },
   {
     type: "video" as const,
@@ -110,7 +111,7 @@ const P05_GALLERY_ITEMS = [
     poster: `${MEDIA_BASE}Copy%20of%20Image%20Sequence_002_0000.jpg`,
     title: "Spatial Traversal & Orientation Move",
     caption: "Cinematic camera move traversing the outdoor plant environment with dynamic path cues.",
-    evidence: "Camera Traversal Sequence",
+    evidence: "05 / Control Systems",
   },
 ];
 
@@ -486,51 +487,51 @@ export function IndustrialDigitalTwinCaseStudy() {
                   aria-hidden="true"
                 />
                 <span className={styles.eyebrowTag}>
-                  REAL-TIME 3D / INTERACTIVE SIMULATION
+                  LPG HANDLING STATION
                 </span>
               </div>
 
               <h1 id="case-study-hero-title" className={styles.heroTitle}>
                 <div className={styles.titleMask}>
                   <span ref={titleLine1Ref} className={styles.titleLine}>
-                    INDUSTRIAL DIGITAL TWIN
+                    SUMED LPG HANDLING STATION
                   </span>
                 </div>
                 <div className={styles.titleMask}>
                   <span ref={titleLine2Ref} className={styles.titleLine}>
-                    &amp; INTERACTIVE TRAINING
+                    DIGITAL FACILITY RECONSTRUCTION
                   </span>
                 </div>
               </h1>
 
               <div ref={statementRef} className={styles.heroStatementWrapper}>
                 <p className={styles.heroStatement}>
-                  From engineering documentation to interactive digital reality.
+                  Digital Facility Reconstruction &amp; Interactive Exploration
                 </p>
               </div>
 
               <div ref={descriptionRef} className={styles.heroDescriptionWrapper}>
                 <p className={styles.heroDescription}>
-                  A visual production journey connecting process references,
-                  detailed equipment and an explorable industrial environment.
+                  From marine LPG handling infrastructure to an explorable spatial digital environment.
+                  <br /><br />AFAQO translated engineering references, industrial equipment, piping systems, and spatial relationships into a structured 3D environment designed to make complex infrastructure easier to explore, understand, and communicate.
                 </p>
               </div>
 
               <div ref={metaRowRef} className={styles.metaRow}>
                 <span className={styles.metaItem}>
-                  [REAL-TIME 3D / INTERACTIVE SIMULATION]
+                  [LPG HANDLING STATION]
                 </span>
                 <span className={styles.metaBullet} aria-hidden="true">
                   •
                 </span>
                 <span className={styles.metaItem}>
-                  [INDUSTRIAL OPERATIONS]
+                  [INDUSTRIAL DIGITAL FACILITY]
                 </span>
                 <span className={styles.metaBullet} aria-hidden="true">
                   •
                 </span>
                 <span className={styles.metaItem}>
-                  [SPATIAL FACILITY RECONSTRUCTION]
+                  [AIN SUKHNA, EGYPT]
                 </span>
               </div>
             </header>
@@ -638,18 +639,15 @@ export function IndustrialDigitalTwinCaseStudy() {
               {/* Main 7-Column Editorial Content */}
               <div className={styles.overviewMainColumn}>
                 <p className={styles.overviewLead}>
-                  The project brings industrial process information into a spatial, interactive format.
-                  Supplied diagrams establish system relationships; equipment studies resolve individual
-                  assemblies; facility views bring those assets together; and interactive captures demonstrate
-                  how users can inspect equipment, follow highlighted routes and move through the environment.
+                  The LPG Handling Station is part of SUMED’s Ain Sukhna Product Hub, connecting marine LPG handling infrastructure with onshore storage and pumping facilities.
+                  <br /><br />The system begins at Product Berth-1, where marine loading arms and associated piping handle LPG transfer. The infrastructure continues onshore to two 500 m³ buffer bullet tanks, which are connected to a dedicated pumping station responsible for dispatching LPG to the national grid.
+                  <br /><br />AFAQO’s work focused on translating this interconnected industrial system into a structured digital environment where equipment, piping, spatial relationships, and facility context can be understood as one coherent environment.
                 </p>
 
                 <div className={styles.challengeBox}>
-                  <h3 className={styles.challengeTitle}>The Multi-Scale Challenge</h3>
+                    <h3 className={styles.challengeTitle}>Project Scope</h3>
                   <p className={styles.challengeBody}>
-                    Industrial systems operate at several scales: process logic, equipment construction,
-                    facility layout and user context. The creative challenge was to connect those layers
-                    without reducing the work to a decorative plant render or an unreadable engineering diagram.
+                    3D Facility Reconstruction · Industrial Equipment Modeling · Spatial Visualization · Interactive Exploration · Process Visualization
                   </p>
                 </div>
 
@@ -680,32 +678,34 @@ export function IndustrialDigitalTwinCaseStudy() {
                     <span className={styles.evidenceScopeBadge}>VERIFIED</span>
                   </h3>
                   <p className={styles.evidenceScopeBody}>
-                    This case study documents the supplied visual material. Client identity, facility location,
-                    production software, target hardware and measured training outcomes are not stated
-                    because they have not been independently verified.
+                    This case study documents the supplied visual material and the facility context provided for the SUMED LPG Handling Station.
                   </p>
                 </div>
 
                 <div className={styles.taxonomyGrid}>
                   <div className={styles.taxonomyCard}>
+                    <span className={styles.taxonomyLabel}>Client</span>
+                    <span className={styles.taxonomyValue}>SUMED — Arab Petroleum Pipelines Company</span>
+                  </div>
+                  <div className={styles.taxonomyCard}>
+                    <span className={styles.taxonomyLabel}>Facility</span>
+                    <span className={styles.taxonomyValue}>LPG Handling Station</span>
+                  </div>
+                  <div className={styles.taxonomyCard}>
+                    <span className={styles.taxonomyLabel}>Location</span>
+                    <span className={styles.taxonomyValue}>Ain Sukhna, Egypt</span>
+                  </div>
+                  <div className={styles.taxonomyCard}>
                     <span className={styles.taxonomyLabel}>Industry</span>
-                    <span className={styles.taxonomyValue}>Industrial Operations</span>
+                    <span className={styles.taxonomyValue}>Oil &amp; Gas / Petroleum Infrastructure</span>
                   </div>
                   <div className={styles.taxonomyCard}>
-                    <span className={styles.taxonomyLabel}>Category</span>
-                    <span className={styles.taxonomyValue}>Real-Time 3D / Interactive Simulation</span>
+                    <span className={styles.taxonomyLabel}>Project Type</span>
+                    <span className={styles.taxonomyValue}>Industrial Digital Facility</span>
                   </div>
                   <div className={styles.taxonomyCard}>
-                    <span className={styles.taxonomyLabel}>Production Scope</span>
-                    <span className={styles.taxonomyValue}>2D References → 3D Mesh Assemblies → Real-Time Scene</span>
-                  </div>
-                  <div className={styles.taxonomyCard}>
-                    <span className={styles.taxonomyLabel}>Key Assets</span>
-                    <span className={styles.taxonomyValue}>Modular Pump Skids, Pipe Networks, Control Buildings</span>
-                  </div>
-                  <div className={styles.taxonomyCard}>
-                    <span className={styles.taxonomyLabel}>Studio Role</span>
-                    <span className={styles.taxonomyValue}>Environmental Modeling &amp; Real-Time Presentation</span>
+                    <span className={styles.taxonomyLabel}>AFAQO Role</span>
+                    <span className={styles.taxonomyValue}>3D Facility Reconstruction &amp; Interactive Exploration</span>
                   </div>
                 </div>
               </aside>
@@ -731,9 +731,7 @@ export function IndustrialDigitalTwinCaseStudy() {
                 From Engineering Logic to <span className={styles.accentWordCyan}>Spatial Reality.</span>
               </h2>
               <p className={styles.sectionDescLight}>
-                Process and Instrumentation Diagrams define fluid streams, operating valves, and nominal
-                equipment relationships. In this stage, 2D technical drawings were translated into dimensional
-                3D coordinates, establishing equipment footprints, pipe rack elevations, and mechanical clearances.
+                The digital facility begins with engineering information. Process references establish relationships between equipment, pipelines, valves, and supporting systems. These references are interpreted spatially to define equipment positions, structural relationships, routing logic, and the overall organization of the LPG handling environment.
               </p>
             </div>
 
@@ -746,7 +744,7 @@ export function IndustrialDigitalTwinCaseStudy() {
                 className={`${styles.tabButton} ${translationTab === 0 ? styles.tabButtonActive : ""}`}
                 onClick={() => setTranslationTab(0)}
               >
-                01 // P&amp;ID Engineering Reference
+                01 // Engineering Reference
               </button>
               <button
                 type="button"
@@ -764,7 +762,7 @@ export function IndustrialDigitalTwinCaseStudy() {
                 className={`${styles.tabButton} ${translationTab === 2 ? styles.tabButtonActive : ""}`}
                 onClick={() => setTranslationTab(2)}
               >
-                03 // Comparative Side-by-Side
+                03 // Comparative View
               </button>
             </div>
 
@@ -784,7 +782,7 @@ export function IndustrialDigitalTwinCaseStudy() {
                       Process &amp; Instrumentation Diagram (P&amp;ID) — Typical Reference
                     </h3>
                     <p className={styles.comparisonMetaDesc}>
-                      Supplied process reference detailing produced-water export logic, operating valves, and nominal tags.
+                      Supplied engineering reference showing equipment relationships, piping systems and process logic.
                     </p>
                   </div>
                 </div>
@@ -792,7 +790,7 @@ export function IndustrialDigitalTwinCaseStudy() {
 
               {translationTab === 1 && (
                 <div className={styles.comparisonSingleFrame}>
-                  <Image
+                    <Image
                     src={P03_3D_MODEL}
                     alt="Isolated 3D process-skid model with color-coded routing"
                     fill
@@ -851,28 +849,25 @@ export function IndustrialDigitalTwinCaseStudy() {
             <div className={styles.calloutCardsGrid}>
               <div className={styles.calloutCard}>
                 <span className={styles.calloutNumber}>CALLOUT 01</span>
-                <h3 className={styles.calloutHeading}>Symbolic to Dimensional</h3>
+                <h3 className={styles.calloutHeading}>Process References</h3>
                 <p className={styles.calloutBody}>
-                  2D diagram equipment tags were matched against real mechanical standards, establishing true
-                  physical dimensions, flange ratings, and operational clearance.
+                  Engineering logic, equipment relationships, and piping systems.
                 </p>
               </div>
 
               <div className={styles.calloutCard}>
                 <span className={styles.calloutNumber}>CALLOUT 02</span>
-                <h3 className={styles.calloutHeading}>Stream Geometry</h3>
+                <h3 className={styles.calloutHeading}>Spatial Interpretation</h3>
                 <p className={styles.calloutBody}>
-                  Process lines, pump suction lines, and utility headers were mapped through structural elevations,
-                  ensuring realistic pipe support spans and valve handwheel access.
+                  Translating technical information into equipment positions, structures, and routing.
                 </p>
               </div>
 
               <div className={styles.calloutCard}>
                 <span className={styles.calloutNumber}>CALLOUT 03</span>
-                <h3 className={styles.calloutHeading}>Visual Differentiation</h3>
+                <h3 className={styles.calloutHeading}>Digital Reconstruction</h3>
                 <p className={styles.calloutBody}>
-                  Color-coded routing distinguishes fluid and gas phases inside the 3D viewport, making complex
-                  process pathways immediately recognizable to technical teams.
+                  Combining individual assets and systems into one coherent 3D facility.
                 </p>
               </div>
             </div>
@@ -1061,7 +1056,7 @@ export function IndustrialDigitalTwinCaseStudy() {
             </div>
 
             <h2 id="simulation-heading" className={styles.sectionHeadingLight}>
-              Interactive Inspection &amp; <span className={styles.accentWordCyan}>Route Tracing.</span>
+              Interactive Inspection &amp; <span className={styles.accentWordCyan}>Process Understanding.</span>
             </h2>
 
             {/* Primary Showcase Video Player */}
@@ -1088,7 +1083,7 @@ export function IndustrialDigitalTwinCaseStudy() {
                       <span>Interactive Simulation Sequence</span>
                     </div>
                     <p className={styles.mediaCaption}>
-                      Operator perspective showing real-time asset selection, contextual data cards, and active flow routing.
+                      Interactive facility view showing equipment inspection and process context.
                     </p>
                   </div>
 
@@ -1135,10 +1130,9 @@ export function IndustrialDigitalTwinCaseStudy() {
                 </div>
                 <div className={styles.simCardContent}>
                   <span className={styles.simCardTag}>01 // ASSET INSPECTION</span>
-                  <h3 className={styles.simCardHeading}>Contextual Equipment HUD</h3>
+                  <h3 className={styles.simCardHeading}>Contextual Equipment Information</h3>
                   <p className={styles.simCardBody}>
-                    Selecting equipment in the 3D viewport triggers contextual panels displaying mechanical tags,
-                    nominal flow rates, and operating parameters.
+                    Select equipment within the digital environment to reveal relevant contextual information while preserving its relationship to the surrounding facility.
                   </p>
                 </div>
               </div>
@@ -1147,18 +1141,17 @@ export function IndustrialDigitalTwinCaseStudy() {
                 <div className={styles.simCardMediaFrame}>
                   <Image
                     src={P06_SIM_STILL_2}
-                    alt="Interactive slug-catcher process view with active route highlighting"
+                    alt="Interactive LPG facility process view with active route highlighting"
                     fill
                     sizes="(max-width: 1024px) 100vw, 420px"
                     style={{ objectFit: "cover" }}
                   />
                 </div>
                 <div className={styles.simCardContent}>
-                  <span className={styles.simCardTag}>02 // PROCESS TRACING</span>
-                  <h3 className={styles.simCardHeading}>Illuminated Fluid Routes</h3>
+                  <span className={styles.simCardTag}>02 // PROCESS VISUALIZATION</span>
+                  <h3 className={styles.simCardHeading}>Process Route Visualization</h3>
                   <p className={styles.simCardBody}>
-                    Color-coded path highlighting visualizes complex fluid streams through slug-catchers and manifold
-                    headers, clarifying process connectivity.
+                    Selected process paths can be highlighted visually to make complex piping relationships easier to follow and understand.
                   </p>
                 </div>
               </div>
@@ -1167,7 +1160,7 @@ export function IndustrialDigitalTwinCaseStudy() {
                 <div className={styles.simCardMediaFrame} style={{ backgroundColor: "#040A1D", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <div style={{ textAlign: "center", padding: "1.5rem" }}>
                     <span style={{ fontSize: "2rem", color: "#00D1FF", display: "block", marginBottom: "0.5rem" }}>
-                      ☩
+                      <CaseStudyIcon kind="spatial" size={32} />
                     </span>
                     <span style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.7)", letterSpacing: "0.1em" }}>
                       SPATIAL ORIENTATION
@@ -1175,11 +1168,10 @@ export function IndustrialDigitalTwinCaseStudy() {
                   </div>
                 </div>
                 <div className={styles.simCardContent}>
-                  <span className={styles.simCardTag}>03 // PLANT FAMILIARIZATION</span>
-                  <h3 className={styles.simCardHeading}>Guided Spatial Navigation</h3>
+                  <span className={styles.simCardTag}>03 // SPATIAL FAMILIARIZATION</span>
+                  <h3 className={styles.simCardHeading}>Guided Facility Exploration</h3>
                   <p className={styles.simCardBody}>
-                    Traversing the digital environment allows operational staff to develop spatial familiarity
-                    with valves, emergency cutoffs, and equipment layout before physical site entry.
+                    Moving through the digital environment helps users understand equipment locations, structural areas, access routes, and system relationships.
                   </p>
                 </div>
               </div>
@@ -1208,42 +1200,45 @@ export function IndustrialDigitalTwinCaseStudy() {
             <div className={styles.specTwoColumnGrid}>
               {/* Confirmed Tangible Deliverables */}
               <div className={styles.specCard}>
-                <h3 className={styles.specCardHeading}>Confirmed Project Deliverables</h3>
+                <h3 className={styles.specCardHeading}>Project Deliverables</h3>
                 <ul className={styles.specList}>
                   <li className={styles.specListItem}>
                     <span className={styles.specCheckBullet}>✓</span>
                     <div>
-                      <strong>Industrial Equipment &amp; Facility Models:</strong> High-fidelity 3D meshes of modular
-                      pump skids, high-pressure piping manifolds, and structural frames.
+                      <strong>Industrial Equipment Models:</strong> Structured models of equipment and mechanical assets.
                     </div>
                   </li>
                   <li className={styles.specListItem}>
                     <span className={styles.specCheckBullet}>✓</span>
                     <div>
-                      <strong>Exploded Component Inspection:</strong> Interactive sub-assembly view allowing mechanical
-                      inspection of motors, valves, and couplings.
+                      <strong>LPG Facility Environment:</strong> A coherent digital environment connecting equipment and spatial context.
                     </div>
                   </li>
                   <li className={styles.specListItem}>
                     <span className={styles.specCheckBullet}>✓</span>
                     <div>
-                      <strong>Real-Time Contextual HUD:</strong> Floating UI overlays presenting equipment tags,
-                      flow diagrams, and process parameters.
+                      <strong>Mechanical Assemblies:</strong> Organized component structures for inspection and presentation.
                     </div>
                   </li>
                   <li className={styles.specListItem}>
                     <span className={styles.specCheckBullet}>✓</span>
                     <div>
-                      <strong>Process-Route Geometry Tracing:</strong> Dynamic colored path cues clarifying fluid
-                      movement through complex pipe headers.
+                      <strong>Interactive Equipment Inspection:</strong> Contextual exploration of assets within the facility.
                     </div>
                   </li>
                   <li className={styles.specListItem}>
                     <span className={styles.specCheckBullet}>✓</span>
                     <div>
-                      <strong>Cinematic Traversal Sequences:</strong> 1080p camera moves establishing facility scale
-                      and technical recognition.
+                      <strong>Process Route Visualization:</strong> Visual route cues that clarify relationships between systems.
                     </div>
+                  </li>
+                  <li className={styles.specListItem}>
+                    <span className={styles.specCheckBullet}>✓</span>
+                    <div><strong>Facility Exploration:</strong> Spatial navigation across the reconstructed environment.</div>
+                  </li>
+                  <li className={styles.specListItem}>
+                    <span className={styles.specCheckBullet}>✓</span>
+                    <div><strong>Cinematic Visualization:</strong> Visual sequences communicating facility scale and context.</div>
                   </li>
                 </ul>
               </div>
@@ -1267,7 +1262,7 @@ export function IndustrialDigitalTwinCaseStudy() {
                   <div className={styles.specPropertyBlock}>
                     <span className={styles.specPropLabel}>Asset Pipeline Represented</span>
                     <span className={styles.specPropValue}>
-                      2D Engineering Diagrams → 3D Mesh Assemblies → PBR Shaders → Real-Time Scene
+                      2D Engineering Diagrams → 3D Mesh Assemblies → Materials → Interactive Scene
                     </span>
                   </div>
                   <div className={styles.specPropertyBlock}>
