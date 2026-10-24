@@ -639,9 +639,7 @@ export function IndustrialDigitalTwinCaseStudy() {
               {/* Main 7-Column Editorial Content */}
               <div className={styles.overviewMainColumn}>
                 <p className={styles.overviewLead}>
-                  The LPG Handling Station is part of SUMED’s Ain Sukhna Product Hub, connecting marine LPG handling infrastructure with onshore storage and pumping facilities.
-                  <br /><br />The system begins at Product Berth-1, where marine loading arms and associated piping handle LPG transfer. The infrastructure continues onshore to two 500 m³ buffer bullet tanks, which are connected to a dedicated pumping station responsible for dispatching LPG to the national grid.
-                  <br /><br />AFAQO’s work focused on translating this interconnected industrial system into a structured digital environment where equipment, piping, spatial relationships, and facility context can be understood as one coherent environment.
+                  AFAQO’s work focused on translating the interconnected industrial system into a structured digital environment where equipment, piping, spatial relationships, and facility context can be understood as one coherent environment.
                 </p>
 
                 <div className={styles.challengeBox}>
