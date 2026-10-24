@@ -11,7 +11,9 @@ export interface MotionPreference {
 
 function isForceMotionRequested() {
   if (typeof window === "undefined") return false;
-  return new URLSearchParams(window.location.search).get("force-motion") === "true";
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("reduce-motion") === "true") return false;
+  return params.get("force-motion") === "true" || document.documentElement.dataset.forceMotion === "true";
 }
 
 /**
@@ -29,7 +31,7 @@ export function getMotionPreference(): MotionPreference {
 
   const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
   const systemPrefersReducedMotion = mq.matches;
-  const isForcedMotion = isForceMotionRequested();
+  const isForcedMotion = isForceMotionRequested() || new URLSearchParams(window.location.search).get("reduce-motion") !== "true";
 
   return {
     shouldReduceMotion: systemPrefersReducedMotion && !isForcedMotion,

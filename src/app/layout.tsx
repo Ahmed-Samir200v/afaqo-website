@@ -49,6 +49,13 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${manrope.variable} ${inter.variable} ${ibmPlexArabic.variable}`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => { const p = new URLSearchParams(location.search); if (p.get('reduce-motion') !== 'true') document.documentElement.setAttribute('data-force-motion','true'); })();`,
+          }}
+        />
+      </head>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );
