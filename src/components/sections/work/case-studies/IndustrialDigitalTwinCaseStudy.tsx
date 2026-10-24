@@ -1042,7 +1042,7 @@ export function IndustrialDigitalTwinCaseStudy() {
         {/* ==================================================================
             P06 — INTERACTIVE TRAINING & SIMULATION SHOWCASE (DEEP NAVY)
             ================================================================== */}
-        <section
+        {false && <section
           ref={p06Ref}
           className={styles.simulationSection}
           aria-labelledby="simulation-heading"
@@ -1175,7 +1175,7 @@ export function IndustrialDigitalTwinCaseStudy() {
               </div>
             </div>
           </div>
-        </section>
+        </section>}
 
         {/* ==================================================================
             P07 — TECHNOLOGY & CONFIRMED DELIVERABLES (SOFT IVORY #F9F8F4)
@@ -1242,7 +1242,7 @@ export function IndustrialDigitalTwinCaseStudy() {
               </div>
 
               {/* Verified Presentation & Production Toolchain */}
-              <div className={styles.specCard}>
+              {false && <div className={styles.specCard}>
                 <h3 className={styles.specCardHeading}>Verified Technical Stack</h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                   <div className={styles.specPropertyBlock}>
@@ -1276,7 +1276,7 @@ export function IndustrialDigitalTwinCaseStudy() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </div>}
             </div>
           </div>
         </section>
