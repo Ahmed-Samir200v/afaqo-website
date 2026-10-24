@@ -4,23 +4,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import styles from "./Work.module.css";
-import { AfaqoIcon } from "@/components/icons/AfaqoIcon";
-
-function UnifiedApproachIcon({ kind, className, iconInnerRef }: { kind: "ideas" | "design" | "production" | "technology" | "experience"; className?: string; iconInnerRef?: React.RefObject<SVGGElement | null> }) {
-  return <AfaqoIcon size={40} className={className} aria-hidden="true"><g ref={iconInnerRef}>
-    {kind === "ideas" && <><circle cx="12" cy="10" r="4" /><path d="M9 14h6M10 17h4M12 2v2M4.9 4.9l1.4 1.4M19.1 4.9l-1.4 1.4" /></>}
-    {kind === "design" && <><path d="m5 17 8-8 3 3-8 8H5z" /><path d="m14 8 2-2 3 3-2 2M4 20h7" /></>}
-    {kind === "production" && <><path d="m12 3 7 4v8l-7 4-7-4V7z" /><path d="M5 7l7 4 7-4M12 11v8" /></>}
-    {kind === "technology" && <><path d="M4 7h16M4 12h16M4 17h16" /><circle cx="8" cy="7" r="1.5" /><circle cx="15" cy="12" r="1.5" /><circle cx="11" cy="17" r="1.5" /></>}
-    {kind === "experience" && <><circle cx="8" cy="9" r="2" /><circle cx="16" cy="9" r="2" /><path d="M3 18c.6-3 2.3-4.5 5-4.5s4.4 1.5 5 4.5M11 18c.6-3 2.3-4.5 5-4.5s4.4 1.5 5 4.5" /></>}
-  </g></AfaqoIcon>;
-}
-
-const IdeasIconUnified = (props: Omit<React.ComponentProps<typeof AfaqoIcon>, "children"> & { iconInnerRef?: React.RefObject<SVGGElement | null> }) => <UnifiedApproachIcon kind="ideas" {...props} />;
-const DesignIconUnified = (props: Omit<React.ComponentProps<typeof AfaqoIcon>, "children"> & { iconInnerRef?: React.RefObject<SVGGElement | null> }) => <UnifiedApproachIcon kind="design" {...props} />;
-const ProductionIconUnified = (props: Omit<React.ComponentProps<typeof AfaqoIcon>, "children"> & { iconInnerRef?: React.RefObject<SVGGElement | null> }) => <UnifiedApproachIcon kind="production" {...props} />;
-const TechnologyIconUnified = (props: Omit<React.ComponentProps<typeof AfaqoIcon>, "children"> & { iconInnerRef?: React.RefObject<SVGGElement | null> }) => <UnifiedApproachIcon kind="technology" {...props} />;
-const ExperienceIconUnified = (props: Omit<React.ComponentProps<typeof AfaqoIcon>, "children"> & { iconInnerRef?: React.RefObject<SVGGElement | null> }) => <UnifiedApproachIcon kind="experience" {...props} />;
 import { getMotionPreference } from "@/lib/motion-preference";
 
 /* ==========================================================================
@@ -377,7 +360,7 @@ const APPROACH_STEPS: ApproachStep[] = [
     number: "01",
     title: "IDEAS",
     description: "Discover opportunities and define the right direction.",
-    icon: IdeasIconUnified,
+    icon: IdeasIcon,
     microAnim: (el) => {
       gsap.fromTo(el, { scale: 0.96 }, { scale: 1.04, duration: 1.8, yoyo: true, repeat: 1, ease: "sine.inOut" });
     },
@@ -386,7 +369,7 @@ const APPROACH_STEPS: ApproachStep[] = [
     number: "02",
     title: "DESIGN",
     description: "Shape clear visual and spatial concepts.",
-    icon: DesignIconUnified,
+    icon: DesignIcon,
     microAnim: (el) => {
       gsap.fromTo(el, { y: 2 }, { y: -2, duration: 1.6, yoyo: true, repeat: 1, ease: "power1.inOut" });
     },
@@ -395,7 +378,7 @@ const APPROACH_STEPS: ApproachStep[] = [
     number: "03",
     title: "3D PRODUCTION",
     description: "Build high-quality assets and environments.",
-    icon: ProductionIconUnified,
+    icon: ProductionIcon,
     microAnim: (el) => {
       gsap.fromTo(el, { rotate: -2 }, { rotate: 2, transformOrigin: "center center", duration: 2, yoyo: true, repeat: 1, ease: "power1.inOut" });
     },
@@ -404,7 +387,7 @@ const APPROACH_STEPS: ApproachStep[] = [
     number: "04",
     title: "TECHNOLOGY",
     description: "Integrate real-time tools and interactive systems.",
-    icon: TechnologyIconUnified,
+    icon: TechnologyIcon,
     microAnim: (el) => {
       gsap.fromTo(el, { y: 3 }, { y: -3, duration: 1.8, yoyo: true, repeat: 1, ease: "sine.inOut" });
     },
@@ -413,7 +396,7 @@ const APPROACH_STEPS: ApproachStep[] = [
     number: "05",
     title: "REAL EXPERIENCES",
     description: "Deliver immersive experiences with real impact.",
-    icon: ExperienceIconUnified,
+    icon: RealExperiencesIcon,
     microAnim: (el) => {
       gsap.fromTo(el, { scale: 0.97 }, { scale: 1.03, duration: 2, yoyo: true, repeat: 1, ease: "sine.inOut" });
     },
