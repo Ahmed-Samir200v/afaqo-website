@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ServiceCapabilityCard,
   CapabilityCardData,
@@ -18,6 +19,7 @@ export interface ServiceSectionProps {
   badge: string;
   cards: Omit<CapabilityCardData, "serviceTitle">[];
   isFirst?: boolean;
+  detailHref?: string;
 }
 
 export function ServiceSection({
@@ -32,6 +34,7 @@ export function ServiceSection({
   badge,
   cards,
   isFirst = false,
+  detailHref,
 }: ServiceSectionProps) {
   // If titleAccent is provided, separate the base title from the accented portion
   const renderTitle = () => {
@@ -81,6 +84,12 @@ export function ServiceSection({
 
             {/* Description */}
             <p className={styles.serviceDescription}>{description}</p>
+
+            {detailHref && (
+              <Link href={detailHref} className={styles.serviceDetailLink}>
+                Explore this service <span aria-hidden="true">↗</span>
+              </Link>
+            )}
 
             {/* Tags */}
             <div className={styles.serviceTagRow} aria-label={`${title} key capabilities`}>

@@ -4,16 +4,16 @@ import { getAllCaseStudies } from "@/content/projects/case-studies";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "";
-  if (!siteUrl) {
-    // When production domain is not yet verified, do not invent an origin.
-    return [];
-  }
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://afaqo.tech").replace(/\/$/, "");
 
   const staticRoutes = [
     "",
     "/work",
     "/services",
+    "/services/extended-reality",
+    "/services/interactive-3d",
+    "/services/real-time-3d-production",
+    "/services/simulation-immersive-training",
     "/industries",
     "/technology-ai",
     "/about",

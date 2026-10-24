@@ -42,10 +42,13 @@ export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
     if (isClosing) return;
     setIsClosing(true);
 
-    // Return focus to previously focused element
-    if (previousActiveElementRef.current) {
-      previousActiveElementRef.current.focus();
-    }
+    // The header is inert until closing starts. Restore only after the overlay exits.
+    const finishClose = () => {
+      setShouldRender(false);
+      setIsClosing(false);
+      onClose();
+      previousActiveElementRef.current?.focus();
+    };
 
     const { shouldReduceMotion } = getMotionPreference();
 
@@ -54,27 +57,17 @@ export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
         gsap.to(overlayRef.current, {
           opacity: 0,
           duration: 0.15,
-          onComplete: () => {
-            setShouldRender(false);
-            setIsClosing(false);
-            onClose();
-          },
+          onComplete: finishClose,
         });
       } else {
-        setShouldRender(false);
-        setIsClosing(false);
-        onClose();
+        finishClose();
       }
       return;
     }
 
     const tl = gsap.timeline({
       defaults: { ease: "power2.in" },
-      onComplete: () => {
-        setShouldRender(false);
-        setIsClosing(false);
-        onClose();
-      },
+      onComplete: finishClose,
     });
 
     const validNavItems = navItemsRef.current.filter(Boolean);

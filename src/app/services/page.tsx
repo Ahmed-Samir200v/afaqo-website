@@ -40,6 +40,7 @@ export const metadata: Metadata = {
 const servicesData: ServiceSectionProps[] = [
   {
     number: "01",
+    detailHref: "/services/extended-reality",
     category: "Spatial Computing",
     title: "Extended Reality (XR)",
     description:
@@ -73,6 +74,7 @@ const servicesData: ServiceSectionProps[] = [
   },
   {
     number: "02",
+    detailHref: "/services/interactive-3d",
     category: "Real-Time Systems",
     title: "Interactive 3D & Digital Environments",
     description:
@@ -106,6 +108,7 @@ const servicesData: ServiceSectionProps[] = [
   },
   {
     number: "03",
+    detailHref: "/services/real-time-3d-production",
     category: "High-Fidelity CG",
     title: "Real-Time 3D Production",
     titleAccent: "Production",
@@ -144,6 +147,7 @@ const servicesData: ServiceSectionProps[] = [
   },
   {
     number: "04",
+    detailHref: "/services/simulation-immersive-training",
     category: "Simulation & Training",
     title: "Simulation & Immersive Training",
     titleAccent: "Immersive Training",
@@ -279,6 +283,7 @@ export default function ServicesPage() {
             <ServiceSection
               key={service.number}
               isFirst={index === 0}
+              detailHref={service.detailHref}
               number={service.number}
               category={service.category}
               title={service.title}
