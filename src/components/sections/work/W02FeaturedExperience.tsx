@@ -6,6 +6,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import styles from "./Work.module.css";
+import { getMotionPreference } from "@/lib/motion-preference";
 
 interface Capability {
   label: string;
@@ -194,7 +195,7 @@ export function W02FeaturedExperience() {
   const [isPaused, setIsPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(() => {
     if (typeof window === "undefined") return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    return getMotionPreference().shouldReduceMotion;
   });
 
   const sectionRef = useRef<HTMLElement>(null);
@@ -212,7 +213,8 @@ export function W02FeaturedExperience() {
   // Check reduced motion preference changes
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    setReducedMotion(getMotionPreference().shouldReduceMotion);
+    const handler = () => setReducedMotion(getMotionPreference().shouldReduceMotion);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);

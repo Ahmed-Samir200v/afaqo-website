@@ -9,6 +9,11 @@ export interface MotionPreference {
   systemPrefersReducedMotion: boolean;
 }
 
+function isForceMotionRequested() {
+  if (typeof window === "undefined") return false;
+  return new URLSearchParams(window.location.search).get("force-motion") === "true";
+}
+
 /**
  * Resolves motion preference for the AFAQO website based on user and system preference.
  */
@@ -24,11 +29,12 @@ export function getMotionPreference(): MotionPreference {
 
   const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
   const systemPrefersReducedMotion = mq.matches;
+  const isForcedMotion = isForceMotionRequested();
 
   return {
-    shouldReduceMotion: systemPrefersReducedMotion,
-    isForcedMotion: false,
-    isExplicitReducedMotion: systemPrefersReducedMotion,
+    shouldReduceMotion: systemPrefersReducedMotion && !isForcedMotion,
+    isForcedMotion,
+    isExplicitReducedMotion: systemPrefersReducedMotion && !isForcedMotion,
     systemPrefersReducedMotion,
   };
 }
@@ -37,7 +43,14 @@ export function getMotionPreference(): MotionPreference {
  * React hook to observe motion preference with live change subscription.
  */
 export function useMotionPreference(): MotionPreference {
-  const [preference, setPreference] = useState<MotionPreference>(() => getMotionPreference());
+  // Keep the first render identical on the server and client. The browser's
+  // motion preference is applied in the effect below after hydration.
+  const [preference, setPreference] = useState<MotionPreference>({
+    shouldReduceMotion: false,
+    isForcedMotion: false,
+    isExplicitReducedMotion: false,
+    systemPrefersReducedMotion: false,
+  });
 
   useEffect(() => {
     if (typeof window === "undefined" || !window.matchMedia) return;
@@ -45,19 +58,24 @@ export function useMotionPreference(): MotionPreference {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const update = (e: MediaQueryListEvent | MediaQueryList) => {
       const reduced = e.matches;
+      const isForcedMotion = isForceMotionRequested();
       setPreference({
-        shouldReduceMotion: reduced,
-        isForcedMotion: false,
-        isExplicitReducedMotion: reduced,
+        shouldReduceMotion: reduced && !isForcedMotion,
+        isForcedMotion,
+        isExplicitReducedMotion: reduced && !isForcedMotion,
         systemPrefersReducedMotion: reduced,
       });
 
       if (typeof document !== "undefined") {
-        if (reduced) {
+        if (isForcedMotion) {
+          document.documentElement.setAttribute("data-force-motion", "true");
+          document.documentElement.removeAttribute("data-reduced-motion");
+        } else if (reduced) {
           document.documentElement.setAttribute("data-reduced-motion", "true");
           document.documentElement.removeAttribute("data-force-motion");
         } else {
           document.documentElement.removeAttribute("data-reduced-motion");
+          document.documentElement.removeAttribute("data-force-motion");
         }
       }
     };

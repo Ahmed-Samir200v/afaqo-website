@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import styles from "./IndustrialDigitalTwinCaseStudy.module.css";
+import { getMotionPreference } from "@/lib/motion-preference";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -222,8 +223,7 @@ export function IndustrialDigitalTwinCaseStudy() {
     const heroVid = heroVideoRef.current;
     const simVid = simVideoRef.current;
 
-    const reducedQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const prefersReduced = reducedQuery.matches;
+    const prefersReduced = getMotionPreference().shouldReduceMotion;
 
     if (prefersReduced) {
       if (heroVid) heroVid.pause();
@@ -252,10 +252,10 @@ export function IndustrialDigitalTwinCaseStudy() {
         if (heroVid) heroVid.pause();
         if (simVid) simVid.pause();
       } else {
-        if (heroVid && !heroManuallyPaused && !reducedQuery.matches) {
+        if (heroVid && !heroManuallyPaused && !getMotionPreference().shouldReduceMotion) {
           heroVid.play().catch(() => {});
         }
-        if (simVid && !simManuallyPaused && !reducedQuery.matches) {
+        if (simVid && !simManuallyPaused && !getMotionPreference().shouldReduceMotion) {
           simVid.play().catch(() => {});
         }
       }
@@ -270,13 +270,13 @@ export function IndustrialDigitalTwinCaseStudy() {
           if (entry.target === heroVid) {
             if (!entry.isIntersecting) {
               heroVid?.pause();
-            } else if (!heroManuallyPaused && !reducedQuery.matches) {
+            } else if (!heroManuallyPaused && !getMotionPreference().shouldReduceMotion) {
               heroVid?.play().catch(() => {});
             }
           } else if (entry.target === simVid) {
             if (!entry.isIntersecting) {
               simVid?.pause();
-            } else if (!simManuallyPaused && !reducedQuery.matches) {
+            } else if (!simManuallyPaused && !getMotionPreference().shouldReduceMotion) {
               simVid?.play().catch(() => {});
             }
           }
@@ -298,7 +298,7 @@ export function IndustrialDigitalTwinCaseStudy() {
   // GSAP SCROLLTRIGGER ENTRANCES & TIMELINES
   // ------------------------------------------------------------------------
   useEffect(() => {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReduced = getMotionPreference().shouldReduceMotion;
     if (prefersReduced) return;
 
     const ctx = gsap.context(() => {

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import styles from "./Work.module.css";
+import { getMotionPreference } from "@/lib/motion-preference";
 
 /* ==========================================================================
    CUSTOM TECHNICAL SVG ICONS (Geometric, Dimensional, Technical Precision)
@@ -546,8 +547,7 @@ export function W04OurApproach() {
     () => {
       if (!sectionRef.current) return;
 
-      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-      if (mq.matches) return;
+      if (getMotionPreference().shouldReduceMotion) return;
 
       const tl = gsap.timeline({
         scrollTrigger: {
