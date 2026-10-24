@@ -23,7 +23,7 @@ const MEDIA_BASE = "/images/projects/industrial-training/oil%20and%20gas/";
 const P01_HERO_VIDEO = `${MEDIA_BASE}Creating_industrial_showcase_video_1080p_20261018000805.mp4`;
 const P01_HERO_POSTER = `${MEDIA_BASE}Image%20Sequence_001_0000.jpg`;
 
-const P02_CONTEXT_IMAGE = `${MEDIA_BASE}6ea3312c-e070-4428-9702-085a491faef5.png`;
+const P02_CONTEXT_IMAGE = `${MEDIA_BASE}Project%20Scope.png`;
 
 const P03_PID_DIAGRAM = `${MEDIA_BASE}95ae18b8-9180-4c82-b6f0-458551ddd4b5.png`;
 const P03_3D_MODEL = `${MEDIA_BASE}fc3f5f13-4e7f-4d91-85b7-110f8d37f1f9.png`;
@@ -653,16 +653,16 @@ export function IndustrialDigitalTwinCaseStudy() {
                   <div className={styles.overviewContextFrame}>
                     <Image
                       src={P02_CONTEXT_IMAGE}
-                      alt="Contextual visualization of an industrial coastal processing facility"
+                      alt="Project Scope view of the SUMED LPG Handling Station facility"
                       fill
                       sizes="(max-width: 1024px) 100vw, 750px"
                       style={{ objectFit: "cover" }}
                     />
                   </div>
                   <div className={styles.overviewContextCaption}>
-                    <span>Contextual coastal facility visualization</span>
+                    <span>SUMED LPG Handling Station — Project Scope</span>
                     <span style={{ fontSize: "0.72rem", color: "#0866FF", fontWeight: 600 }}>
-                      [CONTEXT VISUALIZATION]
+                      [PROJECT SCOPE]
                     </span>
                   </div>
                 </div>
