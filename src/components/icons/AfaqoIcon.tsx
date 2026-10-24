@@ -1,7 +1,7 @@
 import type { SVGProps } from "react";
 
 export const AFAQO_ICON_VIEWBOX = "0 0 24 24";
-export const AFAQO_ICON_STROKE = 1.7;
+export const AFAQO_ICON_STROKE = 1.5;
 
 export interface AfaqoIconProps extends Omit<SVGProps<SVGSVGElement>, "width" | "height" | "color"> {
   size?: 16 | 20 | 24 | 32 | 40 | 48 | number;
