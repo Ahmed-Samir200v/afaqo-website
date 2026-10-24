@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { isRouteActive, type NavItem } from "@/content/global/navigation";
 import styles from "./NavigationMegaMenu.module.css";
+import { AfaqoArrow } from "@/components/icons/AfaqoIcon";
 
 interface DesktopMegaMenuProps {
   item: NavItem;
@@ -23,7 +24,7 @@ export function DesktopMegaMenu({ item, currentPath, onNavigate }: DesktopMegaMe
         <span className={styles.eyebrow}>{menu.eyebrow}</span>
         <p>{menu.description}</p>
         <Link href={item.href} onClick={onNavigate} className={styles.overviewLink}>
-          {menu.overviewLabel} <span aria-hidden="true">↗</span>
+          {menu.overviewLabel} <AfaqoArrow size={16} aria-hidden="true" />
         </Link>
       </div>
 
@@ -39,7 +40,7 @@ export function DesktopMegaMenu({ item, currentPath, onNavigate }: DesktopMegaMe
                 className={`${styles.groupTitle} ${groupCurrent ? styles.current : ""}`}
                 aria-current={groupCurrent ? "page" : undefined}
               >
-                {group.label} <span aria-hidden="true">↗</span>
+                {group.label} <AfaqoArrow size={16} aria-hidden="true" />
               </Link>
               {group.description && <p className={styles.groupDescription}>{group.description}</p>}
               {group.children && (

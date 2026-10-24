@@ -9,6 +9,7 @@ import { MobileMenu } from "./MobileMenu";
 import { NavGlassReflection } from "./NavGlassReflection";
 import { DesktopMegaMenu } from "./DesktopMegaMenu";
 import megaStyles from "./NavigationMegaMenu.module.css";
+import { AfaqoArrow, AfaqoChevron } from "@/components/icons/AfaqoIcon";
 
 export interface HeaderProps {
   theme?: "dark" | "light";
@@ -330,7 +331,7 @@ export function Header({
                     aria-controls={`mega-menu-${item.href.slice(1)}`}
                     onClick={() => isOpen ? closeMenu(true) : openMenu(item.label, true)}
                   >
-                    <span aria-hidden="true" className={`${megaStyles.chevron} ${isOpen ? megaStyles.chevronOpen : ""}`}>⌄</span>
+                    <AfaqoChevron direction={isOpen ? "up" : "down"} size={16} aria-hidden="true" className={`${megaStyles.chevron} ${isOpen ? megaStyles.chevronOpen : ""}`} />
                   </button>
                 )}
                 {isOpen && (
@@ -376,7 +377,7 @@ export function Header({
             >
               <span>{item.label}</span>
               <span aria-hidden="true" style={{ fontSize: "0.85rem" }}>
-                ↗
+                <AfaqoArrow size={16} aria-hidden="true" />
               </span>
             </Link>
           ))}

@@ -1,4 +1,5 @@
 import React from "react";
+import { AFAQO_ICON_STROKE } from "@/components/icons/AfaqoIcon";
 
 interface IconProps {
   className?: string;
@@ -10,8 +11,8 @@ interface IconProps {
 // 01 - XR Icons
 export function IconVRHeadset({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -40,8 +41,8 @@ export function IconVRHeadset({
 
 export function IconMobileAR({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -67,8 +68,8 @@ export function IconMobileAR({
 
 export function IconMixedReality({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -97,8 +98,8 @@ export function IconMixedReality({
 
 export function IconCrossPlatform({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -127,8 +128,8 @@ export function IconCrossPlatform({
 // 02 - Interactive 3D & Digital Environments
 export function Icon3DExplorers({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -159,8 +160,8 @@ export function Icon3DExplorers({
 
 export function IconDigitalReplicas({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -189,8 +190,8 @@ export function IconDigitalReplicas({
 
 export function IconComponentInspection({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -215,8 +216,8 @@ export function IconComponentInspection({
 
 export function IconWebGLApps({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -245,8 +246,8 @@ export function IconWebGLApps({
 // 03 - Real-Time 3D Production
 export function Icon3DEnvironments({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -275,8 +276,8 @@ export function Icon3DEnvironments({
 
 export function IconMaterialsLighting({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -305,8 +306,8 @@ export function IconMaterialsLighting({
 
 export function IconOptimization({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -335,8 +336,8 @@ export function IconOptimization({
 
 export function IconCinematics({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -361,8 +362,8 @@ export function IconCinematics({
 // 04 - Simulation & Immersive Training
 export function IconScenarioTraining({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -389,8 +390,8 @@ export function IconScenarioTraining({
 
 export function IconWalkthroughs({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -418,8 +419,8 @@ export function IconWalkthroughs({
 
 export function IconGuidedLearning({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -444,8 +445,8 @@ export function IconGuidedLearning({
 
 export function IconMultiPlatform({
   size = 32,
-  color = "#0866FF",
-  strokeWidth = 2,
+  color = "currentColor",
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
@@ -473,7 +474,7 @@ export function IconMultiPlatform({
 export function IconArrowRight({
   size = 18,
   color = "currentColor",
-  strokeWidth = 2,
+  strokeWidth = AFAQO_ICON_STROKE,
   className,
 }: IconProps) {
   return (
