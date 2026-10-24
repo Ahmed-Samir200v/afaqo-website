@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, type CSSProperties } from "react";
+import { getMotionPreference } from "@/lib/motion-preference";
 
 export interface MoltenMetalProps {
   colors?: string[];
@@ -260,7 +261,7 @@ const compile = (gl: WebGL2RenderingContext, type: number, source: string) => {
 };
 
 const prefersReduced = () =>
-  typeof window !== "undefined" && (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false);
+  typeof window !== "undefined" && getMotionPreference().shouldReduceMotion;
 
 export default function MoltenMetal({
   colors = ["#0866FF", "#00D1FF"],

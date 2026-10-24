@@ -10,10 +10,8 @@ export function ServiceDetailReveal({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const media = gsap.matchMedia();
     const context = gsap.context(() => {
-      media.add("(prefers-reduced-motion: no-preference)", () => {
-        if (getMotionPreference().shouldReduceMotion || !root.current) return;
+      if (getMotionPreference().shouldReduceMotion || !root.current) return;
         // Enhance visible server content; never hide sections waiting far below fold.
         root.current.querySelectorAll<HTMLElement>("[data-detail-reveal]").forEach((element, index) => {
           gsap.fromTo(element, { y: 14 }, {
@@ -25,9 +23,8 @@ export function ServiceDetailReveal({ children }: { children: ReactNode }) {
             scrollTrigger: { trigger: element, start: "top 92%", once: true },
           });
         });
-      });
     }, root);
-    return () => { media.revert(); context.revert(); };
+    return () => { context.revert(); };
   }, []);
 
   return <div ref={root}>{children}</div>;
