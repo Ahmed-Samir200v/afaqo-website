@@ -493,43 +493,44 @@ export function IndustrialDigitalTwinCaseStudy() {
               <h1 id="case-study-hero-title" className={styles.heroTitle}>
                 <div className={styles.titleMask}>
                   <span ref={titleLine1Ref} className={styles.titleLine}>
-                    SUMED LPG HANDLING STATION
+                    INDUSTRIAL DIGITAL TWIN
                   </span>
                 </div>
                 <div className={styles.titleMask}>
                   <span ref={titleLine2Ref} className={styles.titleLine}>
-                    DIGITAL FACILITY RECONSTRUCTION
+                    &amp; INTERACTIVE TRAINING
                   </span>
                 </div>
               </h1>
 
               <div ref={statementRef} className={styles.heroStatementWrapper}>
                 <p className={styles.heroStatement}>
-                  From marine LPG handling infrastructure to an explorable spatial digital environment.
+                  From engineering documentation to interactive digital reality.
                 </p>
               </div>
 
               <div ref={descriptionRef} className={styles.heroDescriptionWrapper}>
                 <p className={styles.heroDescription}>
-                  AFAQO translated facility references, equipment systems, piping networks and spatial relationships into a structured 3D environment for visualization and interactive exploration.
+                  A visual production journey connecting process references,
+                  detailed equipment and an explorable industrial environment.
                 </p>
               </div>
 
               <div ref={metaRowRef} className={styles.metaRow}>
                 <span className={styles.metaItem}>
-                  [SUMED]
+                  [REAL-TIME 3D / INTERACTIVE SIMULATION]
                 </span>
                 <span className={styles.metaBullet} aria-hidden="true">
                   •
                 </span>
                 <span className={styles.metaItem}>
-                  [AIN SUKHNA, EGYPT]
+                  [INDUSTRIAL OPERATIONS]
                 </span>
                 <span className={styles.metaBullet} aria-hidden="true">
                   •
                 </span>
                 <span className={styles.metaItem}>
-                  [LPG HANDLING / 3D RECONSTRUCTION]
+                  [SPATIAL FACILITY RECONSTRUCTION]
                 </span>
               </div>
             </header>
@@ -612,15 +613,6 @@ export function IndustrialDigitalTwinCaseStudy() {
                 <span>AFAQO CREATIVE TECHNOLOGY</span>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className={styles.contextSection} aria-labelledby="context-heading">
-          <div className={styles.sectionContainer}>
-            <div className={styles.sectionEyebrowRow}><span className={styles.sectionEyebrowDark}>02 // REAL PROJECT CONTEXT</span><span className={styles.sectionEyebrowLineDark} aria-hidden="true" /></div>
-            <div className={styles.contextHeader}><div><h2 id="context-heading" className={styles.sectionHeadingDark}>SUMED / Ain Sukhna <span className={styles.accentWordBlue}>Product Hub.</span></h2><p className={styles.contextIntro}>The LPG handling facility sits within SUMED’s Ain Sukhna Product Hub. This case study follows the translation of marine transfer infrastructure, equipment assemblies and process relationships into an explorable spatial environment.</p></div><div className={styles.contextScope}><span>PROJECT SCOPE</span><strong>3D FACILITY RECONSTRUCTION<br />EQUIPMENT MODELING<br />INTERACTIVE EXPLORATION</strong></div></div>
-            <div className={styles.facilityFlow} aria-label="LPG facility process flow"><span>LPG Carrier</span><i aria-hidden="true">→</i><span>Product Berth-1</span><i aria-hidden="true">→</i><span>Marine Loading Arms</span><i aria-hidden="true">→</i><span>Jetty Piping</span><i aria-hidden="true">→</i><span>2 × 500 m³ Buffer Bullet Tanks</span><i aria-hidden="true">→</i><span>LPG Pumping Station</span><i aria-hidden="true">→</i><span>National Grid</span></div>
-            <div className={styles.contextMetaGrid}><div><span>CLIENT</span><strong>SUMED</strong></div><div><span>FACILITY</span><strong>LPG Handling Station</strong></div><div><span>HUB</span><strong>Ain Sukhna Product Hub</strong></div><div><span>LOCATION</span><strong>Ain Sukhna, Egypt</strong></div><div><span>INDUSTRY</span><strong>Oil &amp; Gas / Petroleum Infrastructure</strong></div></div>
           </div>
         </section>
 
