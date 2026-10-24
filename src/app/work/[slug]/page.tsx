@@ -34,9 +34,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (slug === "industrial-training-experience") {
     return {
-      title: "Industrial Digital Twin & Interactive Training | AFAQO",
+      title: "SUMED LPG Handling Station | AFAQO",
       description:
-        "A visual production journey connecting process references, detailed equipment and an explorable industrial environment.",
+        "Industrial digital facility reconstruction and interactive exploration for the SUMED LPG Handling Station in Ain Sukhna, Egypt.",
     };
   }
 
