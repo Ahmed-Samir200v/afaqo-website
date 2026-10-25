@@ -9,7 +9,7 @@ import {
   getAllCaseStudySlugs,
 } from "@/content/projects/case-studies";
 import styles from "@/components/sections/work/CaseStudy.module.css";
-import { IndustrialDigitalTwinCaseStudy } from "@/components/sections/work/case-studies/IndustrialDigitalTwinCaseStudy";
+import { SumedCaseStudy } from "@/components/sections/work/case-studies/sumed/SumedCaseStudy";
 
 interface PageProps {
   params: Promise<{
@@ -55,7 +55,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
   }
 
   if (slug === "industrial-training-experience") {
-    return <IndustrialDigitalTwinCaseStudy />;
+    return <SumedCaseStudy />;
   }
 
   const nextProject = getCaseStudy(project.nextSlug);
