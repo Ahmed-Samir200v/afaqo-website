@@ -51,6 +51,7 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
+      data-force-motion="true"
       className={`${manrope.variable} ${inter.variable} ${ibmPlexArabic.variable}`}
     >
       <body suppressHydrationWarning>{children}</body>
