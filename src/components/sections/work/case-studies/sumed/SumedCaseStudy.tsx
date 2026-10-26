@@ -12,6 +12,7 @@ import { deliverables, gallery, metadata, platforms, sumedMedia } from "./sumedD
 import { ProjectIcon, SumedIcon, type SumedIconName } from "./SumedIcon";
 import { VideoLightbox, type CaseStudyVideo } from "./VideoLightbox";
 import styles from "./SumedCaseStudy.module.css";
+import { Translation } from "./Translation";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -23,7 +24,7 @@ function SectionTitle({ children, accent }: { children: React.ReactNode; accent:
   return <h2 className={styles.sectionTitle}>{children} <span>{accent}</span></h2>;
 }
 
-function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
+function Lightbox({ items, active, onChange, onClose }: { items: readonly { src: string; title: string; caption: string }[]; active: number; onChange: (index: number) => void; onClose: () => void }) {
   useEffect(() => {
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -31,10 +32,15 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
     window.addEventListener("keydown", close);
     return () => { document.body.style.overflow = previous; window.removeEventListener("keydown", close); };
   }, [onClose]);
-  return <div className={styles.lightbox} role="dialog" aria-modal="true" aria-label="Expanded project image" onMouseDown={onClose}>
+  const current = items[active];
+  const change = (delta: number) => onChange((active + delta + items.length) % items.length);
+  return <div className={styles.lightbox} role="dialog" aria-modal="true" aria-label="Expanded project image gallery" onMouseDown={onClose} onKeyDown={(event) => { if (event.key === "ArrowLeft") change(-1); if (event.key === "ArrowRight") change(1); }} tabIndex={-1}>
     <button className={styles.lightboxClose} onClick={onClose} aria-label="Close image viewer">×</button>
     <div className={styles.lightboxMedia} onMouseDown={(event) => event.stopPropagation()}>
-      <Image src={src} alt={alt} fill sizes="95vw" className={styles.containImage} />
+      <Image key={current.src} src={current.src} alt={current.caption} fill sizes="95vw" className={styles.containImage} />
+      <button className={`${styles.lightboxNav} ${styles.lightboxPrev}`} onClick={() => change(-1)} aria-label="Previous image">←</button>
+      <button className={`${styles.lightboxNav} ${styles.lightboxNext}`} onClick={() => change(1)} aria-label="Next image">→</button>
+      <div className={styles.lightboxCounter}>{String(active + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}</div>
     </div>
   </div>;
 }
@@ -98,26 +104,6 @@ function Overview({ openImage }: { openImage: (src: string, alt: string) => void
   </section>;
 }
 
-function Translation({ openImage }: { openImage: (src: string, alt: string) => void }) {
-  const [mode, setMode] = useState<0 | 1 | 2>(2);
-  return <section className={styles.translation} data-reveal-section>
-    <span id="chapter-02" className={styles.anchor} />
-    <div className={styles.shell}>
-      <div className={styles.translationIntro}><Eyebrow index="02" dark>TRANSLATION</Eyebrow><h2>From Engineering Logic to<br/><span>Spatial Reality.</span></h2><p>The digital facility begins with engineering information. Process references establish relationships between equipment, pipelines, valves, and supporting systems. These references are interpreted spatially to define equipment positions, structural relationships, routing logic, and the overall organization of the LPG handling environment.</p></div>
-      <div className={styles.translationTabs} role="tablist" aria-label="Engineering translation views">
-        {[["document","01 // Engineering Reference"],["cube","02 // 3D Spatial Model"],["layers","03 // Comparative View"]].map(([icon,label], index) => <button key={label} role="tab" aria-selected={mode === index} onClick={() => setMode(index as 0|1|2)}><SumedIcon name={icon as SumedIconName}/>{label}</button>)}
-      </div>
-      <div className={`${styles.comparison} ${mode === 0 ? styles.showReference : mode === 1 ? styles.showSpatial : ""}`}>
-        <button className={styles.comparePanel} onClick={() => openImage(sumedMedia.pid, "Engineering P&ID reference") } aria-label="Expand engineering reference"><div><Image src={sumedMedia.pid} alt="Engineering P and ID reference showing functional flow and valve schematics" fill sizes="50vw" /></div><span><ProjectIcon name="document"/><b>2D Logic Input<small>P&amp;ID functional flow and valve schematics</small></b></span></button>
-        <i className={styles.transformArrow} aria-hidden="true">››</i>
-        <button className={styles.comparePanel} onClick={() => openImage(sumedMedia.spatial, "3D spatial equipment assembly") } aria-label="Expand 3D spatial model"><div><Image src={sumedMedia.spatial} alt="Real-time dimensional equipment assembly reconstructed in 3D" fill sizes="50vw" /></div><span><ProjectIcon name="cube"/><b>3D Spatial Output<small>Real-time dimensional equipment assembly</small></b></span></button>
-      </div>
-      <div className={styles.translationCards}>
-        {[["process","Process References","Engineering logic, equipment relationships, and piping systems."],["spatial","Spatial Interpretation","Translating technical information into equipment positions, structures, and routing."],["layers","Digital Reconstruction","Combining individual assets and systems into one coherent 3D facility."]].map(([icon,title,copy],i) => <article key={title} data-reveal-item><ProjectIcon name={icon as SumedIconName} size="feature"/><div><h3>{title}</h3><p>{copy}</p></div><span>0{i+1}</span></article>)}
-      </div>
-    </div>
-  </section>;
-}
 
 function Reconstruction({ openImage }: { openImage: (src: string, alt: string) => void }) {
   return <section className={`${styles.lightSection} ${styles.reconstruction}`} data-reveal-section>
@@ -139,14 +125,19 @@ function Explorer({ openImage }: { openImage: (src: string, alt: string) => void
   const [active, setActive] = useState(0);
   const current = gallery[active];
   const change = useCallback((delta: number) => setActive((value) => (value + delta + gallery.length) % gallery.length), []);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => change(1), 5200);
+    return () => window.clearInterval(timer);
+  }, [change]);
   return <section className={`${styles.lightSection} ${styles.explorer}`} data-reveal-section>
     <span id="chapter-04" className={styles.anchor}/><div className={styles.shell}>
       <div className={styles.explorerHead}><div><Eyebrow index="04">FACILITY SCALE</Eyebrow><SectionTitle accent="Explorer.">Digital Facility</SectionTitle></div><p>The reconstructed environment brings the individual systems of the LPG Handling Station together into one explorable digital space.</p></div>
       <div className={styles.galleryViewer} tabIndex={0} onKeyDown={(event) => { if (event.key === "ArrowLeft") change(-1); if (event.key === "ArrowRight") change(1); }} aria-label="Project image gallery">
-        <button className={styles.galleryImage} onClick={() => openImage(current.src, current.title)} aria-label={`Expand ${current.title}`}><Image key={current.src} src={current.src} alt={current.caption} fill sizes="(max-width: 1500px) 100vw, 1500px" /></button>
-        <div className={styles.galleryCaption}><ProjectIcon name={current.icon as SumedIconName}/><div><b>{current.title}</b><span>{current.caption}</span></div><div className={styles.galleryControls}><span>{String(active + 1).padStart(2,"0")} / 05</span><i><b style={{width:`${(active+1)*20}%`}} /></i><button onClick={() => change(-1)} aria-label="Previous gallery image">←</button><button onClick={() => change(1)} aria-label="Next gallery image">→</button></div></div>
+        <button className={styles.galleryImage} onClick={() => openImage(current.src, current.caption)} aria-label={`Open ${current.title} in cinematic viewer`}><Image key={current.src} src={current.src} alt={current.caption} fill sizes="(max-width: 1500px) 100vw, 1500px" /></button>
+        <div className={styles.galleryControls}><span>{String(active + 1).padStart(2,"0")} / 05</span><i><b style={{width:`${(active+1)*20}%`}} /></i><button onClick={() => change(-1)} aria-label="Previous gallery image">←</button><button onClick={() => change(1)} aria-label="Next gallery image">→</button></div>
       </div>
-      <div className={styles.thumbnails}>{gallery.map((item,index) => <button key={item.label} className={index === active ? styles.activeThumb : ""} onClick={() => setActive(index)} aria-pressed={index===active}><Image src={item.src} alt="" fill sizes="280px"/><span><SumedIcon name={item.icon as SumedIconName} size={18}/>{String(index+1).padStart(2,"0")} {item.label}</span></button>)}</div>
+      <div className={styles.thumbnails}>{gallery.map((item,index) => <button key={item.label} className={index === active ? styles.activeThumb : ""} onClick={() => setActive(index)} aria-label={`Show ${item.title}`} aria-pressed={index===active}><Image src={item.src} alt="" fill sizes="280px"/></button>)}</div>
     </div>
   </section>;
 }
@@ -193,9 +184,12 @@ function NextProject() {
 }
 
 export function SumedCaseStudy() {
-  const [lightbox, setLightbox] = useState<{src:string;alt:string}|null>(null);
+  const [lightbox, setLightbox] = useState<{active:number; items: readonly {src:string;title:string;caption:string}[]}|null>(null);
   const [activeVideo, setActiveVideo] = useState<CaseStudyVideo | null>(null);
-  const openImage = useCallback((src:string, alt:string) => setLightbox({src,alt}), []);
+  const openImage = useCallback((src:string, alt:string) => {
+    const index = gallery.findIndex((item) => item.src === src);
+    setLightbox(index >= 0 ? {active:index,items:gallery} : {active:0,items:[{src,title:alt,caption:alt}]});
+  }, []);
   const closeImage = useCallback(() => setLightbox(null), []);
 
   useEffect(() => {
@@ -218,7 +212,7 @@ export function SumedCaseStudy() {
     <Header activeHref="/work" />
     <main><Hero openVideo={setActiveVideo}/><Overview openImage={openImage}/><Translation openImage={openImage}/><Reconstruction openImage={openImage}/><Explorer openImage={openImage}/><Training openVideo={setActiveVideo}/><Delivery/><Outcome/><NextProject/></main>
     <Footer />
-    {lightbox && <Lightbox {...lightbox} onClose={closeImage}/>} 
+    {lightbox && <Lightbox items={lightbox.items} active={lightbox.active} onChange={(active) => setLightbox({...lightbox,active})} onClose={closeImage}/>} 
     {activeVideo && <VideoLightbox video={activeVideo} onClose={() => setActiveVideo(null)} />}
   </div>;
 }
