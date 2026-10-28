@@ -15,15 +15,6 @@ export function H04Services() {
 
   const services = servicesContent.services;
 
-  // Preload all 4 service images to ensure instantaneous transitions with zero blank frames
-  useEffect(() => {
-    services.forEach((s) => {
-      if (typeof window !== "undefined" && s.image) {
-        const img = new window.Image();
-        img.src = s.image;
-      }
-    });
-  }, [services]);
 
   // Clean transition handler that coordinates active and outgoing indices
   const handleServiceSelect = useCallback(
@@ -384,7 +375,6 @@ export function H04Services() {
                           alt={`${service.title} preview`}
                           fill
                           sizes="(max-width: 1024px) 90vw, 500px"
-                          priority
                           style={{ objectFit: "cover" }}
                         />
                       </div>
@@ -446,7 +436,6 @@ export function H04Services() {
                     alt={`${service.title} preview`}
                     fill
                     sizes="(min-width: 1024px) 45vw, 600px"
-                    priority
                     style={{
                       objectFit: "cover",
                     }}

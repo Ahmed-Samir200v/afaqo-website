@@ -161,7 +161,6 @@ export function MidPageCTA() {
           src="/images/cta/afaqo-project-cta.webp"
           alt="AFAQO architectural visionary skyline collaboration"
           fill
-          priority
           sizes="100vw"
           className="cta-bg-image"
           style={{

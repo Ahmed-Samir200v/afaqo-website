@@ -722,7 +722,6 @@ export function H02SelectedWork() {
                     src={project.image}
                     alt={project.imageAlt}
                     fill
-                    priority={idx === 0}
                     sizes="(min-width: 1920px) 1480px, (min-width: 1024px) 88vw, 100vw"
                     className="object-cover"
                     style={{

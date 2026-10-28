@@ -26,15 +26,6 @@ export function H05Industries() {
   const activeIndustry: IndustryItem = industries[activeIndex] || industries[1];
   const total = industries.length;
 
-  // Preload all 4 industry images immediately for instant switching and zero flicker
-  useEffect(() => {
-    industries.forEach((item) => {
-      if (typeof window !== "undefined" && item.image) {
-        const img = new window.Image();
-        img.src = item.image;
-      }
-    });
-  }, [industries]);
 
   // Carousel navigation handlers
   const handleNext = useCallback(() => {
@@ -551,7 +542,6 @@ export function H05Industries() {
                       alt={`${item.title} industry visualization`}
                       fill
                       sizes="(min-width: 1440px) 580px, (min-width: 1024px) 480px, 88vw"
-                      priority
                       style={{
                         objectFit: "cover",
                         objectPosition: "center",

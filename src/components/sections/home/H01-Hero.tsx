@@ -1,14 +1,19 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { homeContent } from "@/content/global/home";
 import { useMotionPreference } from "@/lib/motion-preference";
-import MoltenMetal from "@/components/ui/MoltenMetal";
 import { HeroPointerFX } from "./HeroPointerFX";
+
+const MoltenMetal = dynamic(() => import("@/components/ui/MoltenMetal"), {
+  ssr: false,
+  loading: () => null,
+});
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -30,9 +35,30 @@ export function H01Hero() {
   const bodyRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLAnchorElement>(null);
   const metadataRef = useRef<HTMLDivElement>(null);
+  const [showDecorativeLayer, setShowDecorativeLayer] = useState(false);
 
   const { hero } = homeContent;
   const { shouldReduceMotion } = useMotionPreference();
+
+  useEffect(() => {
+    // The WebGL layer is decorative. Keep the cinematic treatment for large,
+    // fine-pointer screens and avoid a continuous GPU loop on mobile devices.
+    if (
+      shouldReduceMotion ||
+      !window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches
+    ) {
+      return;
+    }
+
+    const reveal = () => setShowDecorativeLayer(true);
+    const idleCallback = window.requestIdleCallback?.(reveal, { timeout: 1800 });
+    const timeout = idleCallback === undefined ? window.setTimeout(reveal, 900) : undefined;
+
+    return () => {
+      if (idleCallback !== undefined) window.cancelIdleCallback?.(idleCallback);
+      if (timeout !== undefined) window.clearTimeout(timeout);
+    };
+  }, [shouldReduceMotion]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -342,10 +368,11 @@ export function H01Hero() {
       {/* ====================================================================
           Z2: REACT BITS MOLTEN METAL (Spatial Energy)
           ==================================================================== */}
-      <div
-        ref={moltenWrapperRef}
-        aria-hidden="true"
-        style={{
+      {showDecorativeLayer && (
+        <div
+          ref={moltenWrapperRef}
+          aria-hidden="true"
+          style={{
           position: "absolute",
           right: 0,
           bottom: 0,
@@ -361,21 +388,22 @@ export function H01Hero() {
             "radial-gradient(ellipse at 70% 60%, black 24%, transparent 74%)",
         }}
       >
-        <MoltenMetal
-          colors={["#0866FF", "#00D1FF"]}
-          coreColor="#FFFFFF"
-          backgroundColor="transparent"
-          opacity={1}
-          speed={0.24}
-          scale={3.5}
-          detail={3}
-          glow={1.5}
-          thickness={0.88}
-          swirl={0.8}
-          paused={shouldReduceMotion}
-          mouseInteraction={!shouldReduceMotion}
-        />
-      </div>
+          <MoltenMetal
+            colors={["#0866FF", "#00D1FF"]}
+            coreColor="#FFFFFF"
+            backgroundColor="transparent"
+            opacity={1}
+            speed={0.24}
+            scale={3.5}
+            detail={3}
+            glow={1.5}
+            thickness={0.88}
+            swirl={0.8}
+            paused={shouldReduceMotion}
+            mouseInteraction={!shouldReduceMotion}
+          />
+        </div>
+      )}
 
       {/* ====================================================================
           Z3: CURSOR ENERGY HALO & MICRO SPARKS (HeroPointerFX)
