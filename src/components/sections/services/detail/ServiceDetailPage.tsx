@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Header } from "@/components/layout/Header";
@@ -82,7 +82,7 @@ function ServiceDetailHero({ service }: { service: ServiceDetail }) {
           </div>
           <figure className={styles.heroFigure} data-detail-reveal>
             <div className={styles.heroImage}>
-              <Image src={service.image} alt={service.imageAlt} fill preload sizes="(max-width: 1024px) calc(100vw - 48px), (max-width: 1440px) 44vw, 560px" />
+              <ResponsiveImage src={service.image} alt={service.imageAlt} fill preload sizes="(max-width: 1024px) calc(100vw - 48px), (max-width: 1440px) 44vw, 560px" />
             </div>
             <figcaption><span className={styles.signal} aria-hidden="true" />{service.imageCaption}</figcaption>
           </figure>
@@ -128,7 +128,7 @@ function RelatedWork({ service }: { service: ServiceDetail }) {
         return (
           <article className={styles.workCard} data-detail-reveal key={project.slug}>
             <Link className={styles.workImageLink} href={`/work/${project.slug}`} aria-label={`View ${project.title} case study`}>
-              <div className={styles.workImage}><Image src={project.image} alt={project.imageAlt} fill sizes={service.projects.length === 1 ? "(max-width: 767px) calc(100vw - 40px), 640px" : "(max-width: 767px) calc(100vw - 40px), (max-width: 1440px) 44vw, 624px"} /></div>
+              <div className={styles.workImage}><ResponsiveImage src={project.image} alt={project.imageAlt} fill sizes={service.projects.length === 1 ? "(max-width: 767px) calc(100vw - 40px), 640px" : "(max-width: 767px) calc(100vw - 40px), (max-width: 1440px) 44vw, 624px"} /></div>
             </Link>
             <div className={styles.workBody}><p className={styles.eyebrow}>{project.location} / {project.category}</p><h3><Link href={`/work/${project.slug}`}>{project.title}</Link></h3><p>{mapping.relevance}</p><Link href={`/work/${project.slug}`} className={styles.textLink}>View case study <Arrow /></Link></div>
           </article>
@@ -187,7 +187,7 @@ export function ServiceDetailPage({ service }: { service: ServiceDetail }) {
           </Section>
 
           <section className={styles.considerationSection} aria-labelledby="considerations-heading"><div className={`page-container ${styles.considerationGrid}`}>
-            <div className={styles.contextImage} data-detail-reveal><Image src={service.image} alt={service.imageAlt} fill sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1440px) 44vw, 624px" /></div>
+            <div className={styles.contextImage} data-detail-reveal><ResponsiveImage src={service.image} alt={service.imageAlt} fill sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1440px) 44vw, 624px" /></div>
             <div data-detail-reveal><p className={styles.eyebrow}>Design & delivery considerations</p><h2 id="considerations-heading">{service.considerations.heading}</h2><p>{service.considerations.text}</p><ul className={styles.checkList}>{service.considerations.items.map((item) => <li key={item}>{item}</li>)}</ul></div>
           </div></section>
 

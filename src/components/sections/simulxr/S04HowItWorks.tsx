@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMotionPreference } from "@/lib/motion-preference";
@@ -173,7 +173,7 @@ export function S04HowItWorks() {
           {/* Continuous Visual Viewport */}
           <div className={styles.workflowVisualFrame}>
             <div className={styles.workflowVisualWrapper}>
-              <Image
+              <ResponsiveImage
                 src={stepImages[activeStepIndex].src}
                 alt={stepImages[activeStepIndex].caption}
                 fill

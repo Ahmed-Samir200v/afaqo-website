@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMotionPreference } from "@/lib/motion-preference";
@@ -126,7 +126,7 @@ export function S08ScaleExperience() {
           {/* Left: Spatial Architectural Visualization */}
           <div className={styles.scaleVisualCol}>
             <div className={styles.scaleVisualFrame}>
-              <Image
+              <ResponsiveImage
                 src={activeTier.image}
                 alt={`${activeTier.title} scale tier — ${activeTier.subtitle}`}
                 fill

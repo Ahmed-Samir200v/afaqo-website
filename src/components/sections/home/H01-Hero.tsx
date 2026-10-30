@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -308,7 +308,7 @@ export function H01Hero() {
           willChange: "transform, filter, opacity",
         }}
       >
-        <Image
+        <ResponsiveImage
           ref={bgImageRef}
           src="/images/hero/afaqo-hero-desktop.jpg"
           alt="AFAQO Cinematic Spatial Architecture"

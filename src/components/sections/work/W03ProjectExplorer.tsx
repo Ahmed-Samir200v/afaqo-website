@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -120,7 +120,7 @@ function ProjectTiltCard({
         >
           {/* Depth Layer 1: Image Frame (translateZ: 12px) */}
           <div className={styles.explorerCardImageWrap}>
-            <Image
+            <ResponsiveImage
               src={project.image}
               alt={project.imageAlt}
               fill

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import { servicesContent } from "@/content/services";
 import { useMotionPreference } from "@/lib/motion-preference";
@@ -370,7 +370,7 @@ export function H04Services() {
                           backgroundColor: "#050D24",
                         }}
                       >
-                        <Image
+                        <ResponsiveImage
                           src={service.image}
                           alt={`${service.title} preview`}
                           fill
@@ -431,7 +431,7 @@ export function H04Services() {
                     pointerEvents: isActive ? "auto" : "none",
                   }}
                 >
-                  <Image
+                  <ResponsiveImage
                     src={service.image}
                     alt={`${service.title} preview`}
                     fill

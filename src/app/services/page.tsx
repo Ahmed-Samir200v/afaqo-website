@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -154,7 +154,7 @@ const servicesData: ServiceSectionProps[] = [
     description:
       "We develop simulated experiences that let users explore environments, interact with equipment, and follow scenario-driven learning flows. The design is shaped around the learning objective, system constraints, and intended platform.",
     tags: ["Simulation", "Scenario Training", "Process Exploration", "Ergonomics"],
-    image: "/images/projects/industrial-training/industrial-training.png",
+    image: "/images/projects/industrial-training/oil and gas/industrial-training.png",
     imageAlt: "Simulation and immersive training systems - AFAQO",
     badge: "Training & Simulation",
     cards: [
@@ -243,7 +243,7 @@ export default function ServicesPage() {
           >
             {/* Edge-to-edge background image container */}
             <div data-reveal-hero-bg className={styles.heroMediaWrapper}>
-              <Image
+              <ResponsiveImage
                 src="/images/services/afaqo-services-hero.webp"
                 alt="AFAQO immersive technology, spatial computing and industrial digital twins"
                 fill
@@ -352,7 +352,7 @@ export default function ServicesPage() {
                   className={styles.projectCard}
                 >
                   <div className={styles.projectImageFrame}>
-                    <Image
+                    <ResponsiveImage
                       src={project.image}
                       alt={project.imageAlt || project.title}
                       fill

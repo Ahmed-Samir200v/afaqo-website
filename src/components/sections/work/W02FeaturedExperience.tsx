@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -143,7 +143,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
     description:
       "An interactive environment designed to support exploration of industrial systems and training scenarios.",
     tags: ["Simulation", "VR Training", "Real-Time 3D"],
-    image: "/images/projects/industrial-training/industrial-training.png",
+    image: "/images/projects/industrial-training/oil and gas/industrial-training.png",
     imageAlt: "Industrial Training Experience VR Procedure Simulation",
     href: "/work/industrial-training-experience",
     capabilities: [
@@ -372,7 +372,7 @@ export function W02FeaturedExperience() {
               role="region"
               aria-label={`Featured project showcase: ${currentProject.title}. Swipe or use controls to navigate.`}
             >
-              <Image
+              <ResponsiveImage
                 key={currentProject.id}
                 src={currentProject.image}
                 alt={currentProject.imageAlt}

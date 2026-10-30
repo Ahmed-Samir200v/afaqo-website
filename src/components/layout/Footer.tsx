@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import { navigationContent } from "@/content/global/navigation";
 import { BackToTopButton } from "./BackToTopButton";
 import { CurrentYear } from "./CurrentYear";
@@ -17,7 +17,7 @@ export function Footer() {
           {/* Brand Identity Column */}
           <div className="site-footer__identity">
             <Link href="/" aria-label="AFAQO Home" className="site-footer__logo-link">
-              <Image
+              <ResponsiveImage
                 src="/brand/afaqo-logo-dark.svg"
                 alt="AFAQO"
                 width={1100}

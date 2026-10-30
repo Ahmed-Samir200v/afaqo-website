@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getMotionPreference } from "@/lib/motion-preference";
@@ -39,7 +39,7 @@ export function Translation({ openImage }: { openImage: (src: string, alt: strin
 
   return <section ref={section} className={styles.section} aria-labelledby="translation-title">
     <span id="chapter-02" className={styles.anchor} />
-    <div className={styles.backdrop} aria-hidden="true"><Image src={gallery[0].src} alt="" fill sizes="60vw" /></div>
+    <div className={styles.backdrop} aria-hidden="true"><ResponsiveImage src={gallery[0].src} alt="" fill sizes="60vw" /></div>
     <div className={styles.shell}>
       <div className={styles.intro}>
         <div>
@@ -60,11 +60,11 @@ export function Translation({ openImage }: { openImage: (src: string, alt: strin
       </div>
       <div ref={frame} className={styles.frame} data-translation-frame>
         <button className={styles.layer} onClick={() => openImage(sumedMedia.spatial, "3D Spatial Model")} aria-label="Expand 3D spatial model">
-          <Image src={sumedMedia.spatial} alt="Reconstructed 3D equipment assembly" fill sizes="(max-width: 900px) 100vw, 1480px" draggable={false} />
+          <ResponsiveImage src={sumedMedia.spatial} alt="Reconstructed 3D equipment assembly" fill sizes="(max-width: 900px) 100vw, 1480px" draggable={false} />
           <span className={styles.modelLabel}><SumedIcon name="cube" /><span><b>3D Spatial Model</b><small>Assets, Structures &amp; Routing</small></span></span>
         </button>
         <button className={styles.reference} style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }} onClick={() => openImage(sumedMedia.pid, "2D Engineering Reference")} aria-label="Expand 2D engineering reference">
-          <Image src={sumedMedia.pid} alt="P&ID engineering drawing supplied with the project" fill sizes="(max-width: 900px) 100vw, 1480px" draggable={false} />
+          <ResponsiveImage src={sumedMedia.pid} alt="P&ID engineering drawing supplied with the project" fill sizes="(max-width: 900px) 100vw, 1480px" draggable={false} />
           <span className={styles.referenceLabel}><SumedIcon name="document" /><span><b>2D Engineering Reference</b><small>P&amp;ID &amp; Process Logic</small></span></span>
         </button>
         <div className={styles.divider} style={{ left: `${position}%` }} />

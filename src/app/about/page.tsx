@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -95,7 +95,7 @@ export default function AboutPage() {
       <section className={styles.philosophySection} aria-labelledby="philosophy-heading">
         <div className={styles.philosophyContainer}>
           <div className={styles.brandSymbolFrame}>
-            <Image
+            <ResponsiveImage
               src="/brand/afaqo-logo-dark.svg"
               alt="AFAQO Official Brand Identity Mark"
               width={480}

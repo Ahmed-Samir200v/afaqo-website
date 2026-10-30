@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { industriesContent, IndustryItem } from "@/content/industries";
@@ -537,7 +537,7 @@ export function H05Industries() {
                     }}
                   >
                     {/* Layer 1: Shared 2400x1600 3:2 Cinematic Industry Image (14 & 21) */}
-                    <Image
+                    <ResponsiveImage
                       src={item.image}
                       alt={`${item.title} industry visualization`}
                       fill
@@ -742,7 +742,7 @@ export function H05Industries() {
                       transition: "opacity 0.6s ease",
                     }}
                   >
-                    <Image
+                    <ResponsiveImage
                       src={item.image}
                       alt=""
                       fill

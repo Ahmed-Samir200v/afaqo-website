@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import {
   ServiceCapabilityCard,
@@ -105,7 +105,7 @@ export function ServiceSection({
           <div data-reveal-service-media className={styles.serviceMediaColumn}>
             <div className={styles.serviceMediaFrame}>
               <span className={styles.serviceMediaBadge}>{badge}</span>
-              <Image
+              <ResponsiveImage
                 src={image}
                 alt={imageAlt || `${title} - AFAQO immersive capability`}
                 fill

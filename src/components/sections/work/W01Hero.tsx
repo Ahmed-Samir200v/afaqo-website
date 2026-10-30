@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -359,7 +359,7 @@ export function W01Hero() {
           <div ref={visualRegionRef} className={styles.visualRegion}>
             {/* Facility image container: vertically centered, seamless multiply blend */}
             <div ref={imageElementRef} className={styles.facilityImageWrapper}>
-              <Image
+              <ResponsiveImage
                 src="/images/work/work-hero.png"
                 alt="AFAQO Industrial Facility Real-to-Wireframe Digital Twin"
                 width={1920}

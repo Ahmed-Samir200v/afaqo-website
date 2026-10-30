@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -156,7 +156,7 @@ export function MidPageCTA() {
           pointerEvents: "none",
         }}
       >
-        <Image
+        <ResponsiveImage
           ref={imageRef}
           src="/images/cta/afaqo-project-cta.webp"
           alt="AFAQO architectural visionary skyline collaboration"

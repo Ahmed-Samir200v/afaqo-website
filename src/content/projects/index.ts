@@ -68,7 +68,7 @@ export const projectsContent = {
       role: "Interactive 3D / Training Design / Development / Evaluation Support",
       tags: ["Simulation", "VR Training", "Real-Time 3D"],
       filterCategory: "Immersive XR",
-      image: "/images/projects/industrial-training/industrial-training.png",
+      image: "/images/projects/industrial-training/oil and gas/industrial-training.png",
       imageAlt: "Industrial Training Experience VR Procedure Simulation",
       href: "/work/industrial-training-experience",
       featured: true,

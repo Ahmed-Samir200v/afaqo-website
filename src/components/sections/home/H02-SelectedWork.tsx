@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -718,7 +718,7 @@ export function H02SelectedWork() {
                     willChange: "transform, opacity",
                   }}
                 >
-                  <Image
+                  <ResponsiveImage
                     src={project.image}
                     alt={project.imageAlt}
                     fill
@@ -949,7 +949,7 @@ export function H02SelectedWork() {
                   backgroundColor: "#050D24",
                 }}
               >
-                <Image
+                <ResponsiveImage
                   src={project.image}
                   alt={project.imageAlt}
                   fill

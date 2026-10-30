@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -37,7 +37,7 @@ function Lightbox({ items, active, onChange, onClose }: { items: readonly { src:
   return <div className={styles.lightbox} role="dialog" aria-modal="true" aria-label="Expanded project image gallery" onMouseDown={onClose} onKeyDown={(event) => { if (event.key === "ArrowLeft") change(-1); if (event.key === "ArrowRight") change(1); }} tabIndex={-1}>
     <button className={styles.lightboxClose} onClick={onClose} aria-label="Close image viewer">×</button>
     <div className={styles.lightboxMedia} onMouseDown={(event) => event.stopPropagation()}>
-      <Image key={current.src} src={current.src} alt={current.caption} fill sizes="95vw" className={styles.containImage} />
+      <ResponsiveImage key={current.src} src={current.src} alt={current.caption} fill sizes="95vw" className={styles.containImage} />
       <button className={`${styles.lightboxNav} ${styles.lightboxPrev}`} onClick={() => change(-1)} aria-label="Previous image">←</button>
       <button className={`${styles.lightboxNav} ${styles.lightboxNext}`} onClick={() => change(1)} aria-label="Next image">→</button>
       <div className={styles.lightboxCounter}>{String(active + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}</div>
@@ -48,7 +48,7 @@ function Lightbox({ items, active, onChange, onClose }: { items: readonly { src:
 function Hero({ openVideo }: { openVideo: (video: CaseStudyVideo) => void }) {
   return <section className={styles.hero} aria-labelledby="sumed-title">
     <div className={styles.heroImage} data-hero-media>
-      <Image src={sumedMedia.hero} alt="Aerial visualization of the SUMED LPG handling facility near the coast at Ain Sukhna" fill priority sizes="(max-width: 767px) 100vw, 62vw" />
+      <ResponsiveImage src={sumedMedia.hero} alt="Aerial visualization of the SUMED LPG handling facility near the coast at Ain Sukhna" fill priority sizes="(max-width: 767px) 100vw, 62vw" />
       <div className={`${styles.annotation} ${styles.annotationBerth}`}><b>PRODUCT BERTH-1</b><span>LPG LOADING ARMS</span></div>
       <div className={`${styles.annotation} ${styles.annotationTanks}`}><b>2 × 500 m³</b><span>BUFFER BULLET TANKS</span></div>
       <div className={`${styles.annotation} ${styles.annotationStation}`}><b>LPG PUMPING STATION</b><span>TO NATIONAL GRID</span></div>
@@ -91,7 +91,7 @@ function Overview({ openImage }: { openImage: (src: string, alt: string) => void
           <article className={styles.scopeCard} data-reveal-item><ProjectIcon name="layers" size="feature" /><div><h3>Project Scope</h3><p>3D Facility Reconstruction <i>·</i> Industrial Equipment Modeling <i>·</i> Spatial Visualization <i>·</i> Interactive Exploration <i>·</i> Process Visualization</p></div></article>
           <figure className={styles.scopeFigure} data-image-reveal>
             <button onClick={() => openImage(sumedMedia.scope, "SUMED LPG Handling Station project scope aerial view")} aria-label="View project scope image full screen"><SumedIcon name="expand" /></button>
-            <div className={styles.scopeImage}><Image src={sumedMedia.scope} alt="Aerial view showing the process area and piping infrastructure" fill sizes="(max-width: 900px) 100vw, 62vw" /></div>
+            <div className={styles.scopeImage}><ResponsiveImage src={sumedMedia.scope} alt="Aerial view showing the process area and piping infrastructure" fill sizes="(max-width: 900px) 100vw, 62vw" /></div>
             <figcaption><ProjectIcon name="document" size="small" /><div><b>SUMED LPG Handling Station — Project Scope</b><span>Aerial view showing process area and piping infrastructure.</span></div><button onClick={() => openImage(sumedMedia.scope, "SUMED LPG Handling Station project scope aerial view")}>VIEW FULL IMAGE <SumedIcon name="expand" size={16} /></button></figcaption>
           </figure>
         </div>
@@ -112,7 +112,7 @@ function Reconstruction({ openImage }: { openImage: (src: string, alt: string) =
       <Eyebrow index="03">3D ASSET RECONSTRUCTION</Eyebrow>
       <div className={styles.reconstructionHead}><SectionTitle accent="interactive systems.">Engineering assets become</SectionTitle><p>Pumps, valves, tanks and supporting equipment were organized as structured assets so their construction and relationship to the complete facility can be inspected and understood.</p></div>
       <div className={styles.reconstructionGrid}>
-        <button className={styles.explodedVisual} onClick={() => openImage(sumedMedia.exploded, "Exploded mechanical pump-skid assembly")} aria-label="Expand exploded mechanical assembly"><Image src={sumedMedia.exploded} alt="Exploded view of a pump-skid mechanical assembly" fill sizes="(max-width: 900px) 100vw, 68vw" /><span><SumedIcon name="expand"/> EXPLODED ASSEMBLY</span></button>
+        <button className={styles.explodedVisual} onClick={() => openImage(sumedMedia.exploded, "Exploded mechanical pump-skid assembly")} aria-label="Expand exploded mechanical assembly"><ResponsiveImage src={sumedMedia.exploded} alt="Exploded view of a pump-skid mechanical assembly" fill sizes="(max-width: 900px) 100vw, 68vw" /><span><SumedIcon name="expand"/> EXPLODED ASSEMBLY</span></button>
         <div className={styles.reconstructionSteps}>
           {[["cube","01","Equipment Modeling","Industrial equipment is reconstructed as organized 3D assets."],["layers","02","Mechanical Assembly","Components retain their hierarchy within the complete asset."],["settings","03","Interactive Inspection","Individual parts can be explored without losing system context."]].map(([icon,n,title,copy]) => <article key={n} data-reveal-item><ProjectIcon name={icon as SumedIconName}/><span>{n}</span><h3>{title}</h3><p>{copy}</p></article>)}
         </div>
@@ -134,10 +134,10 @@ function Explorer({ openImage }: { openImage: (src: string, alt: string) => void
     <span id="chapter-04" className={styles.anchor}/><div className={styles.shell}>
       <div className={styles.explorerHead}><div><Eyebrow index="04">FACILITY SCALE</Eyebrow><SectionTitle accent="Explorer.">Digital Facility</SectionTitle></div><p>The reconstructed environment brings the individual systems of the LPG Handling Station together into one explorable digital space.</p></div>
       <div className={styles.galleryViewer} tabIndex={0} onKeyDown={(event) => { if (event.key === "ArrowLeft") change(-1); if (event.key === "ArrowRight") change(1); }} aria-label="Project image gallery">
-        <button className={styles.galleryImage} onClick={() => openImage(current.src, current.caption)} aria-label={`Open ${current.title} in cinematic viewer`}><Image key={current.src} src={current.src} alt={current.caption} fill sizes="(max-width: 1500px) 100vw, 1500px" /></button>
+        <button className={styles.galleryImage} onClick={() => openImage(current.src, current.caption)} aria-label={`Open ${current.title} in cinematic viewer`}><ResponsiveImage key={current.src} src={current.src} alt={current.caption} fill sizes="(max-width: 1500px) 100vw, 1500px" /></button>
         <div className={styles.galleryControls}><span>{String(active + 1).padStart(2,"0")} / 05</span><i><b style={{width:`${(active+1)*20}%`}} /></i><button onClick={() => change(-1)} aria-label="Previous gallery image">←</button><button onClick={() => change(1)} aria-label="Next gallery image">→</button></div>
       </div>
-      <div className={styles.thumbnails}>{gallery.map((item,index) => <button key={item.label} className={index === active ? styles.activeThumb : ""} onClick={() => setActive(index)} aria-label={`Show ${item.title}`} aria-pressed={index===active}><Image src={item.src} alt="" fill sizes="280px"/></button>)}</div>
+      <div className={styles.thumbnails}>{gallery.map((item,index) => <button key={item.label} className={index === active ? styles.activeThumb : ""} onClick={() => setActive(index)} aria-label={`Show ${item.title}`} aria-pressed={index===active}><ResponsiveImage src={item.src} alt="" fill sizes="280px"/></button>)}</div>
     </div>
   </section>;
 }
@@ -153,7 +153,7 @@ function Training({ openVideo }: { openVideo: (video: CaseStudyVideo) => void })
     <span id="chapter-05" className={styles.anchor}/><div className={styles.shell}>
       <Eyebrow index="05">INTERACTIVE TRAINING</Eyebrow><div className={styles.trainingHead}><SectionTitle accent="Operational Understanding.">From Digital Facility to</SectionTitle><p>The project extends beyond static visualization into an interactive real-time environment for facility exploration, equipment inspection and immersive learning.</p></div>
       <div className={styles.trainingVisual} data-image-reveal>
-        <button onClick={() => openVideo({ src: sumedMedia.trainingVideo, poster: sumedMedia.trainingPoster, title: "Interactive Training Experience" })} aria-label="Play interactive training video"><Image src={sumedMedia.trainingPoster} alt="Interactive equipment inspection inside the digital facility" fill sizes="(max-width: 1200px) 100vw, 66vw"/><span className={styles.trainingPlay}><i>▶</i><b>PLAY INTERACTIVE TRAINING</b></span></button>
+        <button onClick={() => openVideo({ src: sumedMedia.trainingVideo, poster: sumedMedia.trainingPoster, title: "Interactive Training Experience" })} aria-label="Play interactive training video"><ResponsiveImage src={sumedMedia.trainingPoster} alt="Interactive equipment inspection inside the digital facility" fill sizes="(max-width: 1200px) 100vw, 66vw"/><span className={styles.trainingPlay}><i>▶</i><b>PLAY INTERACTIVE TRAINING</b></span></button>
         <div className={`${styles.trainingCallout} ${styles.calloutData}`}><ProjectIcon name="data" size="small"/><b>HISENSE INTEGRATION</b><span>Operational data &amp; status</span></div>
         <div className={`${styles.trainingCallout} ${styles.calloutAssembly}`}><ProjectIcon name="settings" size="small"/><b>ASSET INSPECTION</b><span>Structured components</span></div>
       </div>
@@ -168,7 +168,7 @@ function Delivery() {
       <Eyebrow index="06">TECHNOLOGY &amp; DELIVERY</Eyebrow><div className={styles.deliveryHead}><SectionTitle accent="Delivery Summary.">Technology &amp;</SectionTitle><p>A complete interactive digital facility delivered for training, visualization, and real-time operation, connecting detailed 3D models with live data from Hisense.</p></div>
       <div className={styles.deliveryPanel}><div className={styles.panelTitle}><ProjectIcon name="cube"/><h3>What We Delivered</h3><span>A COMPLETE INTERACTIVE DIGITAL FACILITY</span></div><div className={styles.deliverableGrid}>{deliverables.map(([icon,title,copy]) => <article key={title}><ProjectIcon name={icon as SumedIconName}/><div><h4>{title}</h4><p>{copy}</p></div></article>)}</div></div>
       <div className={styles.platformPanel}>
-        <div className={styles.platforms}><div className={styles.subPanelTitle}><ProjectIcon name="package" size="small"/><div><h3>Delivered Platforms</h3><p>Full interactive application across multiple platforms.</p></div></div><div className={styles.platformGrid}>{platforms.map(([icon,title,copy,image]) => <article key={title}><div className={styles.deviceVisual}>{image ? <Image src={image} alt={`${title} headset`} fill sizes="180px"/> : <SumedIcon name={icon as SumedIconName} size={42}/>}</div><b>{title}</b><span>{copy}</span></article>)}</div></div>
+        <div className={styles.platforms}><div className={styles.subPanelTitle}><ProjectIcon name="package" size="small"/><div><h3>Delivered Platforms</h3><p>Full interactive application across multiple platforms.</p></div></div><div className={styles.platformGrid}>{platforms.map(([icon,title,copy,image]) => <article key={title}><div className={styles.deviceVisual}>{image ? <ResponsiveImage src={image} alt={`${title} headset`} fill sizes="180px"/> : <SumedIcon name={icon as SumedIconName} size={42}/>}</div><b>{title}</b><span>{copy}</span></article>)}</div></div>
         <div className={styles.interactiveCapabilities}><div className={styles.subPanelTitle}><ProjectIcon name="training" size="small"/><div><h3>Interactive Capabilities</h3><p>Core training, inspection and exploration functions.</p></div></div><div>{[["data","Live Operational Data"],["tank","Explore Tank Internal Processes"],["settings","Inspect Valve Components"],["route","Navigate Full Facility"],["training","Training & Scenario Simulation"]].map(([icon,label]) => <article key={label}><SumedIcon name={icon as SumedIconName}/><span>{label}</span></article>)}</div></div>
       </div>
     </div>
@@ -180,7 +180,7 @@ function Outcome() {
 }
 
 function NextProject() {
-  return <section className={styles.nextProject}><Image src="/images/projects/remal-park/remal-park.jpg" alt="Remal Park immersive cultural visitor environment" fill sizes="100vw"/><div className={styles.nextOverlay}/><div className={styles.shell}><Eyebrow index="NEXT" dark>CASE STUDY / SAUDI ARABIA</Eyebrow><h2>REMAL PARK</h2><p>High-fidelity 3D environments and visual content for an immersive cultural visitor experience.</p><Link href="/work/remal-park" className={styles.primaryButton}>View Case Study <SumedIcon name="arrow" size={18}/></Link></div></section>;
+  return <section className={styles.nextProject}><ResponsiveImage src="/images/projects/remal-park/remal-park.jpg" alt="Remal Park immersive cultural visitor environment" fill sizes="100vw"/><div className={styles.nextOverlay}/><div className={styles.shell}><Eyebrow index="NEXT" dark>CASE STUDY / SAUDI ARABIA</Eyebrow><h2>REMAL PARK</h2><p>High-fidelity 3D environments and visual content for an immersive cultural visitor experience.</p><Link href="/work/remal-park" className={styles.primaryButton}>View Case Study <SumedIcon name="arrow" size={18}/></Link></div></section>;
 }
 
 export function SumedCaseStudy() {

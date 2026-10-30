@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -651,7 +651,7 @@ export function IndustrialDigitalTwinCaseStudy() {
 
                 <div className={styles.overviewContextMedia}>
                   <div className={styles.overviewContextFrame}>
-                    <Image
+                    <ResponsiveImage
                       src={P02_CONTEXT_IMAGE}
                       alt="Project Scope view of the SUMED LPG Handling Station facility"
                       fill
@@ -768,7 +768,7 @@ export function IndustrialDigitalTwinCaseStudy() {
             <div className={styles.comparisonStage}>
               {translationTab === 0 && (
                 <div className={styles.comparisonSingleFrame}>
-                  <Image
+                  <ResponsiveImage
                     src={P03_PID_DIAGRAM}
                     alt="Process and Instrumentation Diagram (P&ID) reference drawing"
                     fill
@@ -788,7 +788,7 @@ export function IndustrialDigitalTwinCaseStudy() {
 
               {translationTab === 1 && (
                 <div className={styles.comparisonSingleFrame}>
-                    <Image
+                    <ResponsiveImage
                     src={P03_3D_MODEL}
                     alt="Isolated 3D process-skid model with color-coded routing"
                     fill
@@ -810,7 +810,7 @@ export function IndustrialDigitalTwinCaseStudy() {
                 <div className={styles.comparisonSplitGrid}>
                   <div className={styles.comparisonPanel}>
                     <div className={styles.comparisonFrame}>
-                      <Image
+                      <ResponsiveImage
                         src={P03_PID_DIAGRAM}
                         alt="2D Engineering diagram"
                         fill
@@ -826,7 +826,7 @@ export function IndustrialDigitalTwinCaseStudy() {
 
                   <div className={styles.comparisonPanel}>
                     <div className={styles.comparisonFrame}>
-                      <Image
+                      <ResponsiveImage
                         src={P03_3D_MODEL}
                         alt="3D Spatial model"
                         fill
@@ -911,7 +911,7 @@ export function IndustrialDigitalTwinCaseStudy() {
             {/* Dominant Stage Production Canvas */}
             <div className={styles.pipelineStageCard}>
               <div className={styles.pipelineStageMediaFrame}>
-                <Image
+                <ResponsiveImage
                   src={activePipeline.image}
                   alt={activePipeline.alt}
                   fill
@@ -955,7 +955,7 @@ export function IndustrialDigitalTwinCaseStudy() {
             <div className={styles.galleryMainTheater}>
               <div className={styles.galleryMainFrame}>
                 {activeGallery.type === "image" ? (
-                  <Image
+                  <ResponsiveImage
                     src={activeGallery.src}
                     alt={activeGallery.title}
                     fill
@@ -1026,7 +1026,7 @@ export function IndustrialDigitalTwinCaseStudy() {
                   onClick={() => setActiveGalleryIndex(idx)}
                   aria-label={`View ${item.title}`}
                 >
-                  <Image
+                  <ResponsiveImage
                     src={item.thumb}
                     alt={item.title}
                     fill
@@ -1118,7 +1118,7 @@ export function IndustrialDigitalTwinCaseStudy() {
             <div className={styles.simCapabilitiesGrid}>
               <div className={styles.simCapabilityCard}>
                 <div className={styles.simCardMediaFrame}>
-                  <Image
+                  <ResponsiveImage
                     src={P06_SIM_STILL_1}
                     alt="Contextual equipment information panels and operator view"
                     fill
@@ -1137,7 +1137,7 @@ export function IndustrialDigitalTwinCaseStudy() {
 
               <div className={styles.simCapabilityCard}>
                 <div className={styles.simCardMediaFrame}>
-                  <Image
+                  <ResponsiveImage
                     src={P06_SIM_STILL_2}
                     alt="Interactive LPG facility process view with active route highlighting"
                     fill
@@ -1297,7 +1297,7 @@ export function IndustrialDigitalTwinCaseStudy() {
               aria-label="View next case study: Remal Park"
             >
               <div className={styles.nextProjectMedia}>
-                <Image
+                <ResponsiveImage
                   src="/images/projects/remal-park/remal-park.jpg"
                   alt="Remal Park Cultural Visitor Experience 3D Visualization"
                   fill

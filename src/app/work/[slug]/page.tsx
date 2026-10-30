@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/Header";
@@ -95,7 +95,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
             {/* Cinematic Project Hero Asset */}
             <div className={styles.heroMediaFrame}>
-              <Image
+              <ResponsiveImage
                 src={project.image}
                 alt={project.imageAlt}
                 fill
@@ -207,7 +207,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 {project.gallery.map((item, idx) => (
                   <div key={idx} className={styles.galleryItem}>
                     <div className={styles.galleryFrame}>
-                      <Image
+                      <ResponsiveImage
                         src={item.image}
                         alt={`${project.title} - View ${idx + 1}`}
                         fill
@@ -336,7 +336,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 aria-label={`View next case study: ${nextProject.title}`}
               >
                 <div className={styles.nextMedia}>
-                  <Image
+                  <ResponsiveImage
                     src={nextProject.image}
                     alt={nextProject.imageAlt}
                     fill

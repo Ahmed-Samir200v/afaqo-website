@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -254,7 +254,7 @@ export default function IndustriesPage() {
             <div>
               <div className={styles.mediaFrame}>
                 <span className={styles.mediaBadge}>{sector.badge}</span>
-                <Image
+                <ResponsiveImage
                   src={sector.image}
                   alt={`${sector.title} - AFAQO Industry Solution`}
                   fill
