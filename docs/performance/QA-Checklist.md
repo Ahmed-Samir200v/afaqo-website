@@ -1,29 +1,11 @@
-# Homepage Optimization QA Checklist
+# Image pipeline QA checklist
 
-Date: 2026-10-29
-
-## Completed
-
-- [x] Production build completed after the performance and SEO changes.
-- [x] TypeScript completed without errors.
-- [x] Targeted ESLint completed without errors.
-- [x] Full ESLint completed with four pre-existing warnings and no errors.
-- [x] Generated homepage has a canonical URL, social metadata, and Organization/WebSite JSON-LD.
-- [x] Generated homepage now has one critical hero image preload; below-the-fold images are lazy loaded.
-- [x] Homepage browser console had no errors after reload.
-- [x] Mobile rendering at 390×844 had no horizontal overflow and no console errors.
-- [x] Lighthouse mobile and desktop measurements were taken before and after optimization using equivalent local static-export runs.
-- [x] Existing motion preferences remain respected; the decorative WebGL layer is skipped for reduced motion.
-- [x] Existing homepage content, layout, navigation, and animation choreography were retained.
-
-## Browser checks performed
-
-- [x] Homepage loaded from the production static export at `http://localhost:3001/`.
-- [x] Hero, page title, canonical, lazy images, JSON-LD, and runtime console verified.
-
-## Remaining validation recommended before release
-
-- [ ] Repeat Lighthouse in CI or PageSpeed Insights against the deployed domain to include GitHub Pages network behavior.
-- [ ] Validate touch interactions, dropdowns, and all home-section animations at 390px, 768px, 1024px, 1440px, and 1920px.
-- [ ] Use real-user monitoring if available to confirm LCP and INP at the 75th percentile.
-
+- [x] Source masters preserved and unmodified.
+- [x] AVIF, WebP, and original fallback generated for every tracked raster asset.
+- [x] `ResponsiveImage` retains existing layout props and defaults noncritical images to lazy loading.
+- [x] Homepage LCP hero retains eager/high-priority delivery.
+- [x] Browser verification at desktop and 390px: AVIF selected, no broken images, no horizontal overflow.
+- [x] Browser route check: `/`, `/work/`, `/services/`, `/industries/`, `/technology-ai/`, `/simulxr/`, and `/work/industrial-training-experience/` reported no broken images or overflow.
+- [x] Equivalent Lighthouse mobile/desktop results recorded in `Image-Optimization-Report.md`.
+- [x] TypeScript and production build run after integration.
+- [x] ESLint run; only pre-existing React state-in-effect warnings remain.

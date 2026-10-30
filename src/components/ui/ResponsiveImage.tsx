@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element -- static export uses generated AVIF/WebP sources rather than a runtime image API. */
 
 import { forwardRef, type CSSProperties, type ImgHTMLAttributes } from "react";
 import { optimizedImages } from "@/lib/optimized-image-manifest";
@@ -28,7 +29,6 @@ const ResponsiveImage = forwardRef<HTMLImageElement, ResponsiveImageProps>(funct
   const imageStyle: CSSProperties = fill
     ? { position: "absolute", inset: 0, width: "100%", height: "100%", ...style }
     : { height: "auto", ...style };
-  // eslint-disable-next-line @next/next/no-img-element -- static export uses generated AVIF/WebP sources rather than a runtime image API.
   const image = (
     <img
       {...props}
