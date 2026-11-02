@@ -80,7 +80,7 @@ const servicesData: ServiceSectionProps[] = [
     description:
       "We create detailed 3D representations of facilities, equipment, and complex systems for visualization, orientation, and interactive exploration. Depending on project scope, these may form part of a broader digital-twin initiative when the necessary data and systems are available. (A visualization model is a digital replica, distinct from a live operational digital twin.)",
     tags: ["Digital Environments", "Interactive 3D", "Robotics", "Simulation"],
-    image: "/images/projects/taf35-robot/taf35-robot.png",
+    image: "/images/projects/taf35-robot/taf35-equipment-outdoor.webp",
     imageAlt: "Interactive 3D and digital environments - AFAQO",
     badge: "Interactive Systems",
     cards: [
@@ -351,7 +351,7 @@ export default function ServicesPage() {
                   href={`/work/${project.slug}`}
                   className={styles.projectCard}
                 >
-                  <div className={styles.projectImageFrame}>
+                  {project.image && project.imageAlt && <div className={styles.projectImageFrame}>
                     <ResponsiveImage
                       src={project.image}
                       alt={project.imageAlt || project.title}
@@ -359,7 +359,7 @@ export default function ServicesPage() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className={styles.projectImage}
                     />
-                  </div>
+                  </div>}
                   <div className={styles.projectBody}>
                     <div className={styles.projectMeta}>
                       <span>{project.category}</span>

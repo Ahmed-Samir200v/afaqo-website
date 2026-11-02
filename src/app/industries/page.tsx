@@ -40,7 +40,7 @@ const sectors = [
       },
     ],
     caseStudyHref: "/work/taf35-robot-simulation",
-    caseStudyTitle: "TAF35 Robot Simulation",
+    caseStudyTitle: "TAF35 Robot Training Simulation",
     image: "/images/industries/manufacturing.webp",
     badge: "Industrial Equipment",
     reversed: false,
@@ -53,7 +53,7 @@ const sectors = [
     challenge:
       "Field personnel operate around specialized equipment and spatial constraints where physical access for familiarization and practice is limited or hazardous.",
     solution:
-      "We deliver high-fidelity VR experiences and spatial training simulations that replicate plants, valves, and procedural sequences in a controlled, risk-free digital setting.",
+      "We develop VR experiences and spatial training simulations that represent plants, equipment, and procedural sequences in an interactive digital setting.",
     applications: [
       {
         title: "Scenario-Based Training",
@@ -69,11 +69,11 @@ const sectors = [
       },
       {
         title: "Procedural Learning Flows",
-        desc: "Guided operational sequences tracking step accuracy and safety compliance.",
+        desc: "Guided operational sequences supporting procedural understanding.",
       },
     ],
-    caseStudyHref: "/work/industrial-training-experience",
-    caseStudyTitle: "Industrial Training Experience",
+    caseStudyHref: "/work/simulxr-owt",
+    caseStudyTitle: "SIMULXR OWT",
     image: "/images/industries/oil-gas.webp",
     badge: "Operational Safety",
     reversed: true,
@@ -105,8 +105,8 @@ const sectors = [
         desc: "Interactive exploration modules reinforcing practical understanding.",
       },
     ],
-    caseStudyHref: "/simulxr",
-    caseStudyTitle: "SIMULXR Platform",
+    caseStudyHref: "/services/simulation-immersive-training",
+    caseStudyTitle: "Simulation & Immersive Training Services",
     image: "/images/industries/education.webp",
     badge: "Virtual Labs",
     reversed: false,
@@ -138,8 +138,8 @@ const sectors = [
         desc: "Optimized 3D geometry and environments prepared for spatial presentation.",
       },
     ],
-    caseStudyHref: "/work/remal-park",
-    caseStudyTitle: "Remal Park Experience",
+    caseStudyHref: "/work/nakhal-fort",
+    caseStudyTitle: "Nakhal Fort Virtual Tour",
     image: "/images/industries/culture-heritage.webp",
     badge: "Cultural Visualization",
     reversed: true,
@@ -165,7 +165,7 @@ const framework = [
   {
     step: "04",
     name: "Measurable Impact",
-    desc: "Deploying high-reliability systems with validated user retention, procedural compliance, and operational insight.",
+    desc: "Deploying interactive systems that support procedural understanding and operational communication.",
   },
 ];
 

@@ -5,14 +5,14 @@ import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { projectsContent, type Project } from "@/content/projects";
+import { workProjects, type Project } from "@/content/projects";
 import styles from "./Work.module.css";
 import { getMotionPreference } from "@/lib/motion-preference";
 
 const CATEGORIES = [
   "All Work",
   "Immersive XR",
-  "Digital Twins",
+  "Training & Simulation",
   "Interactive 3D",
   "Visualization",
 ] as const;
@@ -120,14 +120,14 @@ function ProjectTiltCard({
         >
           {/* Depth Layer 1: Image Frame (translateZ: 12px) */}
           <div className={styles.explorerCardImageWrap}>
-            <ResponsiveImage
+            {project.image && project.imageAlt ? <ResponsiveImage
               src={project.image}
               alt={project.imageAlt}
               fill
               sizes="(max-width: 768px) 82vw, (max-width: 1200px) 360px, 420px"
               className={styles.explorerCardImage}
               priority={index < 2}
-            />
+            /> : <div className={styles.explorerCardImage} aria-hidden="true" style={{ background: "linear-gradient(135deg, #07162d, #0b2d59)", display: "grid", placeItems: "center", color: "#00d1ff", fontSize: "clamp(1rem, 2vw, 1.5rem)", letterSpacing: "0.08em", textAlign: "center", padding: "2rem" }}>{project.title}</div>}
             <div className={styles.explorerImageOverlay} />
           </div>
 
@@ -179,7 +179,7 @@ export function W03ProjectExplorer() {
   const [isDragging, setIsDragging] = useState(false);
 
   // Filter projects by category
-  const filteredProjects = projectsContent.projects.filter((project: Project) => {
+  const filteredProjects = workProjects.filter((project: Project) => {
     if (activeCategory === "All Work") return true;
     if (project.filterCategory === activeCategory) return true;
     if (project.tags.some((t) => t.toLowerCase() === activeCategory.toLowerCase())) return true;
@@ -424,9 +424,9 @@ export function W03ProjectExplorer() {
                   <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                 </svg>
               </div>
-              <h4 className={styles.explorerEmptyTitle}>Digital Twin Case Studies in Publication</h4>
+              <h4 className={styles.explorerEmptyTitle}>More case studies in publication</h4>
               <p className={styles.explorerEmptyText}>
-                Active industrial digital twin projects and engineering validations are scheduled for publication.
+                Additional interactive and immersive projects are being prepared for publication.
               </p>
               <button
                 type="button"

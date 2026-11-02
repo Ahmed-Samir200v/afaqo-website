@@ -21,8 +21,8 @@ interface FeaturedProject {
   caption: string;
   description: string;
   tags: string[];
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   href: string;
   capabilities: Capability[];
 }
@@ -63,22 +63,6 @@ function MountainGridIcon({ className }: { className?: string }) {
     <svg className={className} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
       <path d="M4.14 15h15.72" />
-    </svg>
-  );
-}
-
-function SunLightingIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2" />
-      <path d="M12 20v2" />
-      <path d="m4.93 4.93 1.41 1.41" />
-      <path d="m17.66 17.66 1.41 1.41" />
-      <path d="M2 12h2" />
-      <path d="M20 12h2" />
-      <path d="m6.34 17.66-1.41 1.41" />
-      <path d="m19.07 4.93-1.41 1.41" />
     </svg>
   );
 }
@@ -135,57 +119,52 @@ function PhysicsNodesIcon({ className }: { className?: string }) {
 
 const FEATURED_PROJECTS: FeaturedProject[] = [
   {
-    id: "industrial-training-experience",
+    id: "simulxr-owt",
     number: "01",
-    title: "Industrial Training Experience",
-    location: "CAIRO, EGYPT",
-    caption: "High-precision VR facility replication and operational training simulation.",
-    description:
-      "An interactive environment designed to support exploration of industrial systems and training scenarios.",
-    tags: ["Simulation", "VR Training", "Real-Time 3D"],
-    image: "/images/projects/industrial-training/oil and gas/industrial-training.png",
-    imageAlt: "Industrial Training Experience VR Procedure Simulation",
-    href: "/work/industrial-training-experience",
+    title: "Oily Water Treatment",
+    location: "EGYPT",
+    caption: "Engineering-reference-based industrial XR training.",
+    description: "An interactive digital facility developed for immersive plant familiarization and scenario-based industrial training.",
+    tags: ["Industrial XR", "VR Training", "Oil & Gas"],
+    image: "/images/projects/SIMULXR OWT/01-owt-hero-facility.png",
+    imageAlt: "Oily Water Treatment facility visualization",
+    href: "/work/simulxr-owt",
     capabilities: [
-      { label: "VR Simulation", icon: VrHeadsetIcon },
-      { label: "Real-Time 3D", icon: Layers3DIcon },
-      { label: "Safety Assessment", icon: ShieldCheckIcon },
-    ],
-  },
-  {
-    id: "remal-park",
-    number: "02",
-    title: "Remal Park",
-    location: "RIYADH, SAUDI ARABIA",
-    caption: "Heritage-scale landscape reconstruction and authentic daylight simulation.",
-    description:
-      "An architectural environment prepared for immersive and desktop-based exploration.",
-    tags: ["Interactive 3D", "Visualization", "Cultural Heritage"],
-    image: "/images/projects/remal-park/remal-park.jpg",
-    imageAlt: "Remal Park Cultural Visitor Experience 3D Visualization",
-    href: "/work/remal-park",
-    capabilities: [
-      { label: "3D Environments", icon: MountainGridIcon },
-      { label: "Authentic Lighting", icon: SunLightingIcon },
-      { label: "Realism & Fidelity", icon: FidelityEyeIcon },
+      { label: "VR Training", icon: VrHeadsetIcon },
+      { label: "Interactive Facility", icon: Layers3DIcon },
+      { label: "Scenario Learning", icon: ShieldCheckIcon },
     ],
   },
   {
     id: "taf35-robot-simulation",
-    number: "03",
-    title: "TAF35 Robot Simulation",
-    location: "MUSCAT, OMAN",
-    caption: "Kinematic digital twin explorer and real-time physical telemetry visualization.",
-    description:
-      "A focused simulation and visualization experience centered on robot equipment and interaction.",
-    tags: ["Simulation", "Robotics", "Technical Explorer"],
-    image: "/images/projects/taf35-robot/taf35-robot.png",
-    imageAlt: "TAF35 Robot Interactive Application and Technical Explorer",
+    number: "02",
+    title: "TAF35 Robot Training Simulation",
+    location: "SAUDI ARABIA",
+    caption: "Confidential immersive technical training simulation.",
+    description: "Complex equipment documentation translated into interactive procedural learning.",
+    tags: ["Training", "Simulation", "Interactive 3D"],
+    image: "/images/projects/taf35-robot/taf35-equipment-outdoor.webp",
+    imageAlt: "TAF35 technical equipment training simulation",
     href: "/work/taf35-robot-simulation",
     capabilities: [
-      { label: "Robotics Kinematics", icon: RobotKinematicsIcon },
+      { label: "Procedural Training", icon: RobotKinematicsIcon },
       { label: "Interactive UI", icon: InteractiveSlidersIcon },
-      { label: "Physical Modeling", icon: PhysicsNodesIcon },
+      { label: "Equipment Learning", icon: PhysicsNodesIcon },
+    ],
+  },
+  {
+    id: "nakhal-fort",
+    number: "03",
+    title: "Nakhal Fort Virtual Tour",
+    location: "OMAN",
+    caption: "An immersive heritage experience for Meta Quest 3.",
+    description: "A historic landmark transformed into an explorable environment for spatial discovery and historical learning.",
+    tags: ["VR", "Heritage", "Interactive 3D"],
+    href: "/work/nakhal-fort",
+    capabilities: [
+      { label: "VR Experience", icon: VrHeadsetIcon },
+      { label: "3D Environment", icon: MountainGridIcon },
+      { label: "Heritage Discovery", icon: FidelityEyeIcon },
     ],
   },
 ];
@@ -372,7 +351,7 @@ export function W02FeaturedExperience() {
               role="region"
               aria-label={`Featured project showcase: ${currentProject.title}. Swipe or use controls to navigate.`}
             >
-              <ResponsiveImage
+              {currentProject.image && currentProject.imageAlt ? <ResponsiveImage
                 key={currentProject.id}
                 src={currentProject.image}
                 alt={currentProject.imageAlt}
@@ -380,7 +359,7 @@ export function W02FeaturedExperience() {
                 priority={currentIndex === 0}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 58vw, 780px"
                 className={styles.featuredMainImage}
-              />
+              /> : <div className={styles.featuredMainImage} aria-hidden="true" style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", padding: "2rem", background: "linear-gradient(135deg, #050d24, #0b2d59)", color: "#00d1ff", fontSize: "clamp(1.25rem, 3vw, 2.5rem)", letterSpacing: "0.08em", textAlign: "center" }}>{currentProject.title}</div>}
               <div className={styles.featuredImageScrim} />
 
               {/* Location Badge */}

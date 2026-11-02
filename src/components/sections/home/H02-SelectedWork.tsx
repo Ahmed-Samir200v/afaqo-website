@@ -718,7 +718,7 @@ export function H02SelectedWork() {
                     willChange: "transform, opacity",
                   }}
                 >
-                  <ResponsiveImage
+                  {project.image && project.imageAlt ? <ResponsiveImage
                     src={project.image}
                     alt={project.imageAlt}
                     fill
@@ -729,7 +729,7 @@ export function H02SelectedWork() {
                         PROJECT_OBJECT_POSITIONS[project.number] || "center center",
                       filter: "brightness(0.96) contrast(1.03)",
                     }}
-                  />
+                  /> : <div aria-hidden="true" style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", padding: "2rem", background: "linear-gradient(135deg, #050d24, #0b2d59)", color: "#00d1ff", fontSize: "clamp(1.25rem, 3vw, 2.5rem)", letterSpacing: "0.08em", textAlign: "center" }}>{project.title}</div>}
                 </div>
               ))}
 
@@ -949,7 +949,7 @@ export function H02SelectedWork() {
                   backgroundColor: "#050D24",
                 }}
               >
-                <ResponsiveImage
+                {project.image && project.imageAlt ? <ResponsiveImage
                   src={project.image}
                   alt={project.imageAlt}
                   fill
@@ -959,7 +959,7 @@ export function H02SelectedWork() {
                     objectPosition:
                       PROJECT_OBJECT_POSITIONS[project.number] || "center center",
                   }}
-                />
+                /> : <div aria-hidden="true" style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", padding: "2rem", background: "linear-gradient(135deg, #050d24, #0b2d59)", color: "#00d1ff", letterSpacing: "0.08em", textAlign: "center" }}>{project.title}</div>}
                 <div
                   aria-hidden="true"
                   style={{

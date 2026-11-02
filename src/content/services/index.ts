@@ -30,7 +30,7 @@ export const servicesContent = {
       description:
         "We turn complex equipment, products, and operational environments into experiences users can navigate, inspect, and understand.",
       tags: ["EQUIPMENT EXPLORATION", "INTERACTIVE 3D", "TECHNICAL VISUALIZATION"],
-      image: "/images/projects/taf35-robot/taf35-robot.png",
+      image: "/images/projects/taf35-robot/taf35-equipment-outdoor.webp",
       href: "/services",
     },
     {

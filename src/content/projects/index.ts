@@ -1,3 +1,5 @@
+export type WorkFilter = "All Work" | "Immersive XR" | "Training & Simulation" | "Interactive 3D" | "Visualization";
+
 export interface Project {
   number: string;
   slug: string;
@@ -8,70 +10,84 @@ export interface Project {
   description: string;
   role: string;
   tags: string[];
-  filterCategory: "All Work" | "Immersive XR" | "Digital Twins" | "Interactive 3D" | "Visualization";
+  filterCategory: WorkFilter;
   image: string;
   imageAlt: string;
   href: string;
   featured?: boolean;
 }
 
-export const projectsContent = {
-  eyebrow: "01 / SELECTED WORK",
-  headline: "Ideas made tangible.",
-  body: "A selection of projects and experiences spanning industrial visualization, interactive simulation and immersive environments.",
-  cta: {
-    label: "View All Work",
-    href: "/work",
-  },
-  projects: [
+export const workProjects: Project[] = [
     {
       number: "01",
-      slug: "remal-park",
-      title: "REMAL PARK",
-      location: "SAUDI ARABIA",
-      category: "VISUAL & 3D CONTENT",
-      theme: "Cultural Visitor Experience",
+      slug: "simulxr-owt",
+      title: "OILY WATER TREATMENT",
+      location: "EGYPT",
+      category: "INDUSTRIAL XR TRAINING",
+      theme: "Interactive Digital Facility",
       description:
-        "High-fidelity 3D environments and visual content for an immersive visitor experience.",
-      role: "3D Modeling & Visualization / Lighting / Environments",
-      tags: ["Interactive 3D", "Visualization"],
-      filterCategory: "Visualization",
-      image: "/images/projects/remal-park/remal-park.jpg",
-      imageAlt: "Remal Park Cultural Visitor Experience 3D Visualization",
-      href: "/work/remal-park",
+        "An engineering-reference-based digital facility developed for immersive plant familiarization and scenario-based industrial training.",
+      role: "Industrial 3D Production / VR Development / Scenario Development / Integration",
+      tags: ["Industrial XR", "VR Training", "Oil & Gas"],
+      filterCategory: "Training & Simulation",
+      image: "/images/projects/SIMULXR OWT/01-owt-hero-facility.png",
+      imageAlt: "Oily Water Treatment facility visualization",
+      href: "/work/simulxr-owt",
+      featured: true,
     },
     {
       number: "02",
       slug: "taf35-robot-simulation",
-      title: "TAF35 ROBOT SIMULATION",
-      location: "OMAN",
-      category: "INTERACTIVE APPLICATION",
-      theme: "Technical Product Explorer",
+      title: "TAF35 ROBOT TRAINING",
+      location: "SAUDI ARABIA",
+      category: "TECHNICAL TRAINING SIMULATION",
+      theme: "Confidential Procedural Training",
       description:
-        "An interactive application for exploring complex products and systems in real time.",
-      role: "UI Design & Implementation / Real-Time Integration",
-      tags: ["Simulation", "Robotics"],
-      filterCategory: "Interactive 3D",
-      image: "/images/projects/taf35-robot/taf35-robot.png",
-      imageAlt: "TAF35 Robot Interactive Application and Technical Explorer",
+        "An immersive technical training system translating complex equipment documentation into interactive procedural learning.",
+      role: "Technical 3D Reconstruction / Interaction Design / Procedural Simulation",
+      tags: ["Training", "Simulation", "Interactive 3D"],
+      filterCategory: "Training & Simulation",
+      image: "/images/projects/taf35-robot/taf35-equipment-outdoor.webp",
+      imageAlt: "TAF35 technical equipment training simulation",
       href: "/work/taf35-robot-simulation",
     },
     {
       number: "03",
-      slug: "industrial-training-experience",
-      title: "INDUSTRIAL TRAINING EXPERIENCE",
-      location: "EGYPT",
-      category: "XR & IMMERSIVE SYSTEMS",
-      theme: "Immersive Training Experience",
+      slug: "nakhal-fort",
+      title: "NAKHAL FORT",
+      location: "OMAN",
+      category: "IMMERSIVE HERITAGE EXPERIENCE",
+      theme: "Virtual Heritage Tour",
       description:
-        "A VR-based training experience for operational procedures and equipment familiarization.",
-      role: "Interactive 3D / Training Design / Development / Evaluation Support",
-      tags: ["Simulation", "VR Training", "Real-Time 3D"],
+        "A VR experience transforming Nakhal Fort into an explorable digital heritage environment for spatial discovery and historical learning.",
+      role: "Heritage Digitization / 3D Production / VR Experience Development",
+      tags: ["VR", "Heritage", "Interactive 3D"],
       filterCategory: "Immersive XR",
-      image: "/images/projects/industrial-training/oil and gas/industrial-training.png",
-      imageAlt: "Industrial Training Experience VR Procedure Simulation",
-      href: "/work/industrial-training-experience",
-      featured: true,
+      image: "",
+      imageAlt: "",
+      href: "/work/nakhal-fort",
     },
-  ] as Project[],
+    {
+      number: "04",
+      slug: "remal-park",
+      title: "REMAL PARK",
+      location: "SAUDI ARABIA",
+      category: "VR & ARCHITECTURAL EXPERIENCE",
+      theme: "Destination Visualization & Exploration",
+      description: "A destination transformed from architectural CAD into cinematic visualization and an interactive VR and desktop experience.",
+      role: "CAD Interpretation / 3D Production / Visualization / Interactive Development",
+      tags: ["VR", "Visualization", "Real-Time 3D"],
+      filterCategory: "Visualization",
+      image: "/images/projects/remal-park/remal-park.jpg",
+      imageAlt: "Remal Park architectural visualization and interactive environment",
+      href: "/work/remal-park",
+    },
+];
+
+export const projectsContent = {
+  eyebrow: "SELECTED WORK",
+  headline: "Complex challenges. Tangible experiences.",
+  body: "From cultural landmarks and future destinations to technical systems and industrial facilities, our work turns complex physical environments and information into interactive digital experiences.",
+  cta: { label: "View All Work", href: "/work" },
+  projects: workProjects.slice(0, 3),
 };

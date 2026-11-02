@@ -127,9 +127,9 @@ function RelatedWork({ service }: { service: ServiceDetail }) {
         if (!project) throw new Error(`Unknown service project: ${mapping.slug}`);
         return (
           <article className={styles.workCard} data-detail-reveal key={project.slug}>
-            <Link className={styles.workImageLink} href={`/work/${project.slug}`} aria-label={`View ${project.title} case study`}>
+            {project.image && project.imageAlt && <Link className={styles.workImageLink} href={`/work/${project.slug}`} aria-label={`View ${project.title} case study`}>
               <div className={styles.workImage}><ResponsiveImage src={project.image} alt={project.imageAlt} fill sizes={service.projects.length === 1 ? "(max-width: 767px) calc(100vw - 40px), 640px" : "(max-width: 767px) calc(100vw - 40px), (max-width: 1440px) 44vw, 624px"} /></div>
-            </Link>
+            </Link>}
             <div className={styles.workBody}><p className={styles.eyebrow}>{project.location} / {project.category}</p><h3><Link href={`/work/${project.slug}`}>{project.title}</Link></h3><p>{mapping.relevance}</p><Link href={`/work/${project.slug}`} className={styles.textLink}>View case study <Arrow /></Link></div>
           </article>
         );

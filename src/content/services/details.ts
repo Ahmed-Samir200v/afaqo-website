@@ -94,7 +94,7 @@ export const serviceDetails: Record<ServiceSlug, ServiceDetail> = {
     ],
     considerations: { heading: "The interface matters as much as the environment.", text: "XR UX needs a clear relationship between what people see, how they move and what they can do. We define these decisions alongside the 3D content and runtime.", items: ["Comfortable movement and clear orientation cues", "Readable interface scale and appropriate viewing distance", "Controls matched to the actual input method", "3D detail and lighting balanced against device performance"] },
     projects: [
-      { slug: "industrial-training-experience", relevance: "Shows the underlying industrial scene production, contextual overlays and route visualization relevant to an immersive environment. The current case study documents web/workstation presentation; it is not presented here as proof of a specific headset deployment." },
+      { slug: "simulxr-owt", relevance: "An industrial XR training environment created from engineering references for facility familiarization and scenario-based learning." },
     ],
     faq: [
       { question: "Is XR the same as VR?", answer: "No. XR includes VR, AR and MR. VR places the user in a digital environment; AR adds digital information to a view of the physical world; MR relates spatial interfaces to the surrounding environment." },
@@ -110,7 +110,7 @@ export const serviceDetails: Record<ServiceSlug, ServiceDetail> = {
     slug: "interactive-3d", number: "02", title: "Interactive 3D & Digital Environments", shortTitle: "Interactive 3D", category: "Real-time systems",
     proposition: "Make complex systems explorable.",
     introduction: "AFAQO creates interactive representations of products, equipment and facilities. We combine navigable 3D scenes, component inspection and contextual information so users can explore the relationships that static images cannot fully explain.",
-    image: "/images/projects/taf35-robot/taf35-robot.png", imageAlt: "TAF35 robot modeled in an industrial setting for an interactive technical explorer", imageCaption: "TAF35 / TECHNICAL PRODUCT EXPLORER",
+    image: "/images/projects/taf35-robot/taf35-equipment-outdoor.webp", imageAlt: "TAF35 robot modeled in an industrial setting for an interactive technical explorer", imageCaption: "TAF35 / TECHNICAL PRODUCT EXPLORER",
     seoTitle: "Interactive 3D & Digital Environments | AFAQO",
     seoDescription: "Interactive 3D visualization, equipment explorers and digital environments by AFAQO. Understand use cases, WebGL delivery, production workflows and relevant projects.",
     definition: {
@@ -148,27 +148,27 @@ export const serviceDetails: Record<ServiceSlug, ServiceDetail> = {
       { anchor: "culture-heritage", title: "Culture & Heritage", text: "Digital environments can communicate a site's architectural context and guide a visitor through a spatial story." },
     ],
     technologies: [
-      { title: "WebGL / browser graphics", text: "A browser runtime can bring navigation and component interaction to a familiar screen. TAF35's case study explicitly documents WebGL and enterprise desktop delivery." },
+      { title: "Screen-based real-time graphics", text: "A screen-based runtime can bring navigation and component interaction to a familiar display when that delivery route is defined for the project." },
       { title: "Unity / Unreal Engine", text: "Real-time engines may be selected for native applications that need a particular scene pipeline, interaction model or deployment environment." },
-      { title: "CAD-to-real-time preparation", text: "TAF35 documents converting manufacturing CAD geometry and organizing its mechanical hierarchy. Source quality, format and ownership determine what can be reused." },
+      { title: "Reference-to-real-time preparation", text: "Technical documentation and source models may be reorganized for interactive use. Source quality, format and ownership determine what can be reused." },
       { title: "Materials, lighting and optimization", text: "Prepared geometry and materials must remain legible and responsive. Budgets for meshes, textures and scene complexity are established for the delivery target." },
     ],
     delivery: [
-      { title: "Web browsers", text: "Browser-based exploration is supported by the TAF35 and Industrial Training case-study records. Browser capabilities, device resources and hosting requirements are confirmed during scoping." },
+      { title: "Web browsers", text: "Browser-based exploration can be considered where device resources, scene complexity, and hosting requirements support it." },
       { title: "Enterprise desktop", text: "A workstation presentation can support detailed scenes and focused technical use. Native versus browser packaging follows the deployment requirements." },
       { title: "Mobile access", text: "Mobile is part of AFAQO's published cross-platform scope. Touch navigation, display size and graphics budgets require adaptation rather than assuming a desktop build will transfer unchanged." },
     ],
     considerations: { heading: "A useful explorer has a clear interaction model.", text: "We connect the information architecture to the geometry: what can be selected, what that selection reveals and how the visitor returns to the larger system.", items: ["Camera routes and orientation that match the subject", "Readable component names and contextual information", "Deliberate hierarchy for parts and assemblies", "A clear distinction between visualization and live operational data"] },
     projects: [
-      { slug: "taf35-robot-simulation", relevance: "An interactive technical explorer with component hierarchy, inspection views and real-time product presentation for web and desktop." },
-      { slug: "industrial-training-experience", relevance: "Connects industrial reference material, equipment assemblies and an explorable facility through contextual overlays and route visualization." },
+      { slug: "taf35-robot-simulation", relevance: "An immersive technical training system with component handling and procedural learning." },
+      { slug: "simulxr-owt", relevance: "Connects engineering references and an explorable industrial facility through an XR training environment." },
     ],
     faq: [
       { question: "Do users need a VR headset?", answer: "No. Interactive 3D can run on a screen with mouse, keyboard or touch controls. XR is a related delivery category when spatial presence or headset input is useful." },
       { question: "Is a digital replica the same as a digital twin?", answer: "No. A digital replica can be a visual representation for navigation and explanation. A live operational digital twin needs an explicitly defined relationship with data and systems, plus appropriate validation and integration." },
       { question: "Can existing CAD or 3D models be used?", answer: "Yes, subject to review. The TAF35 workflow includes CAD conversion and optimization. We examine format, rights, geometry, hierarchy and the intended target before defining reuse or rebuilding work." },
       { question: "What can users interact with?", answer: "Scope can include camera navigation, part selection, exploded assemblies, contextual labels and guided routes. The required interactions are agreed around the actual subject and audience." },
-      { question: "Can it run in a browser?", answer: "Browser delivery is documented in the TAF35 and Industrial Training records. The supported browser/device range and scene budget need testing for the specific application; browser delivery does not mean unlimited graphics performance." },
+      { question: "Can it run in a browser?", answer: "Browser delivery may be possible. The supported browser and device range, interactions, and scene budget require testing for the specific application." },
       { question: "What should we prepare for discovery?", answer: "Provide references or source models, the audience, the questions the explorer should answer, the required interactions and where it will run. Identify any live-data requirement separately from visual content." },
     ],
     cta: "Show us the product, facility or system people need to understand.",
@@ -283,18 +283,18 @@ export const serviceDetails: Record<ServiceSlug, ServiceDetail> = {
     technologies: [
       { title: "Unity / Unreal Engine", text: "Real-time engines connect environment content, interaction logic and instructional states. Engine choice follows the intended learning format and deployment target." },
       { title: "OpenXR / Meta XR SDK", text: "For an agreed headset scope, spatial frameworks can support device input and runtime behavior. AFAQO's existing technology content names these tools; specific features require target testing." },
-      { title: "WebGL", text: "The Industrial Training case study documents web graphics, contextual overlays and workstation/browser presentation. A screen-based version can support exploration without headset access." },
+      { title: "Screen-based real-time delivery", text: "A screen-based version can support facility exploration without headset access when included in the agreed project scope." },
       { title: "3D and reference preparation", text: "Equipment geometry, layout references and instructional information are assembled into a coherent environment. Source review and subject-matter input establish the represented relationships." },
     ],
     delivery: [
       { title: "Standalone VR", text: "SIMULXR's existing delivery material names Meta Quest 3. A specific training scope must confirm the device, input, installation and runtime constraints." },
       { title: "Workstations / PC VR", text: "Desktop and PC VR are published delivery types. The level of immersion and input hardware should follow the learning task, not the other way around." },
-      { title: "Web browsers", text: "Existing Industrial Training evidence supports interactive facility presentation in modern workstation browsers. The required browser range and access environment are agreed for the project." },
+      { title: "Web browsers", text: "Browser delivery can be evaluated against the required scene complexity, interactions, browser range, and access environment." },
     ],
     considerations: { heading: "Define the learning boundary before the interaction.", text: "The client and domain experts need to establish the reference procedure, intended audience and what completion means. Visual fidelity and instructional validity are different questions.", items: ["Agreed learning objectives and subject-matter review", "Clear distinction between exploration and validated simulation", "Feedback and assessment rules defined explicitly in scope", "Device testing, navigation comfort and readable guidance"] },
     projects: [
-      { slug: "industrial-training-experience", relevance: "The documented work connects engineering references, exploded equipment, an assembled industrial facility, route highlighting and contextual overlays. It demonstrates visual and interactive foundations without establishing certified training outcomes." },
-      { slug: "taf35-robot-simulation", relevance: "A complementary example of equipment exploration and component inspection. It demonstrates technical familiarization, not a validated training assessment." },
+      { slug: "simulxr-owt", relevance: "An engineering-reference-based facility experience for immersive familiarization and scenario-based industrial training." },
+      { slug: "taf35-robot-simulation", relevance: "A confidential technical training simulation for equipment procedures and scenario-based learning." },
     ],
     faq: [
       { question: "Is every simulation a validated engineering simulator?", answer: "No. A visual or interactive simulation may support explanation and learning without reproducing validated physical behavior. Validation requirements, reference data and acceptance criteria must be agreed separately." },

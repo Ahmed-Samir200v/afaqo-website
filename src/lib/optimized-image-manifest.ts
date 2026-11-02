@@ -1719,7 +1719,101 @@ export const optimizedImages: Record<string, OptimizedImageRecord> = {
       ]
     }
   },
-  "/images/projects/taf35-robot/taf35-robot.png": {
+  "/images/projects/taf35-robot/taf35-bay-training-scene.webp": {
+    "width": 1401,
+    "height": 1123,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-bay-training-scene-640.avif",
+          "width": 640,
+          "bytes": 51216
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-bay-training-scene-960.avif",
+          "width": 960,
+          "bytes": 91824
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-bay-training-scene-1280.avif",
+          "width": 1280,
+          "bytes": 135923
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-bay-training-scene-640.webp",
+          "width": 640,
+          "bytes": 45430
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-bay-training-scene-960.webp",
+          "width": 960,
+          "bytes": 80142
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-bay-training-scene-1280.webp",
+          "width": 1280,
+          "bytes": 116502
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-equipment-bay.webp": {
+    "width": 1646,
+    "height": 956,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-bay-640.avif",
+          "width": 640,
+          "bytes": 55332
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-bay-960.avif",
+          "width": 960,
+          "bytes": 104536
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-bay-1280.avif",
+          "width": 1280,
+          "bytes": 157575
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-bay-1440.avif",
+          "width": 1440,
+          "bytes": 184900
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-bay-640.webp",
+          "width": 640,
+          "bytes": 52412
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-bay-960.webp",
+          "width": 960,
+          "bytes": 95164
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-bay-1280.webp",
+          "width": 1280,
+          "bytes": 144694
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-bay-1440.webp",
+          "width": 1440,
+          "bytes": 169480
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-equipment-outdoor.webp": {
     "width": 1672,
     "height": 941,
     "hasAlpha": false,
@@ -1727,46 +1821,848 @@ export const optimizedImages: Record<string, OptimizedImageRecord> = {
     "variants": {
       "avif": [
         {
-          "src": "/images/optimized/projects/taf35-robot/taf35-robot-640.avif",
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-outdoor-640.avif",
           "width": 640,
-          "bytes": 53563
+          "bytes": 50533
         },
         {
-          "src": "/images/optimized/projects/taf35-robot/taf35-robot-960.avif",
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-outdoor-960.avif",
           "width": 960,
-          "bytes": 97391
+          "bytes": 90004
         },
         {
-          "src": "/images/optimized/projects/taf35-robot/taf35-robot-1280.avif",
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-outdoor-1280.avif",
           "width": 1280,
-          "bytes": 141854
+          "bytes": 129741
         },
         {
-          "src": "/images/optimized/projects/taf35-robot/taf35-robot-1440.avif",
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-outdoor-1440.avif",
           "width": 1440,
-          "bytes": 165270
+          "bytes": 151099
         }
       ],
       "webp": [
         {
-          "src": "/images/optimized/projects/taf35-robot/taf35-robot-640.webp",
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-outdoor-640.webp",
           "width": 640,
-          "bytes": 51562
+          "bytes": 47478
         },
         {
-          "src": "/images/optimized/projects/taf35-robot/taf35-robot-960.webp",
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-outdoor-960.webp",
           "width": 960,
-          "bytes": 90670
+          "bytes": 84270
         },
         {
-          "src": "/images/optimized/projects/taf35-robot/taf35-robot-1280.webp",
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-outdoor-1280.webp",
           "width": 1280,
-          "bytes": 135868
+          "bytes": 121300
         },
         {
-          "src": "/images/optimized/projects/taf35-robot/taf35-robot-1440.webp",
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-outdoor-1440.webp",
           "width": 1440,
-          "bytes": 159614
+          "bytes": 136472
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-equipment-views.webp": {
+    "width": 1536,
+    "height": 1024,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-views-640.avif",
+          "width": 640,
+          "bytes": 59603
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-views-960.avif",
+          "width": 960,
+          "bytes": 113926
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-views-1280.avif",
+          "width": 1280,
+          "bytes": 169972
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-views-1440.avif",
+          "width": 1440,
+          "bytes": 201044
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-views-640.webp",
+          "width": 640,
+          "bytes": 53724
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-views-960.webp",
+          "width": 960,
+          "bytes": 100966
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-views-1280.webp",
+          "width": 1280,
+          "bytes": 151360
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-views-1440.webp",
+          "width": 1440,
+          "bytes": 173298
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-equipment-yard.webp": {
+    "width": 1552,
+    "height": 1013,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-yard-640.avif",
+          "width": 640,
+          "bytes": 54480
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-yard-960.avif",
+          "width": 960,
+          "bytes": 108725
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-yard-1280.avif",
+          "width": 1280,
+          "bytes": 169682
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-yard-1440.avif",
+          "width": 1440,
+          "bytes": 198168
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-yard-640.webp",
+          "width": 640,
+          "bytes": 50130
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-yard-960.webp",
+          "width": 960,
+          "bytes": 98928
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-yard-1280.webp",
+          "width": 1280,
+          "bytes": 154514
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-equipment-yard-1440.webp",
+          "width": 1440,
+          "bytes": 182766
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-fire-scenario.webp": {
+    "width": 1586,
+    "height": 992,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-fire-scenario-640.avif",
+          "width": 640,
+          "bytes": 79120
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-fire-scenario-960.avif",
+          "width": 960,
+          "bytes": 145578
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-fire-scenario-1280.avif",
+          "width": 1280,
+          "bytes": 211915
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-fire-scenario-1440.avif",
+          "width": 1440,
+          "bytes": 247051
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-fire-scenario-640.webp",
+          "width": 640,
+          "bytes": 70360
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-fire-scenario-960.webp",
+          "width": 960,
+          "bytes": 132580
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-fire-scenario-1280.webp",
+          "width": 1280,
+          "bytes": 196562
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-fire-scenario-1440.webp",
+          "width": 1440,
+          "bytes": 230420
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-floor-view.webp": {
+    "width": 1519,
+    "height": 1036,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-floor-view-640.avif",
+          "width": 640,
+          "bytes": 58343
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-floor-view-960.avif",
+          "width": 960,
+          "bytes": 114471
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-floor-view-1280.avif",
+          "width": 1280,
+          "bytes": 171820
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-floor-view-1440.avif",
+          "width": 1440,
+          "bytes": 201023
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-floor-view-640.webp",
+          "width": 640,
+          "bytes": 55420
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-floor-view-960.webp",
+          "width": 960,
+          "bytes": 107354
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-floor-view-1280.webp",
+          "width": 1280,
+          "bytes": 164106
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-floor-view-1440.webp",
+          "width": 1440,
+          "bytes": 192706
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-industrial-site.webp": {
+    "width": 1672,
+    "height": 941,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-industrial-site-640.avif",
+          "width": 640,
+          "bytes": 70319
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-industrial-site-960.avif",
+          "width": 960,
+          "bytes": 135598
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-industrial-site-1280.avif",
+          "width": 1280,
+          "bytes": 204020
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-industrial-site-1440.avif",
+          "width": 1440,
+          "bytes": 241682
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-industrial-site-640.webp",
+          "width": 640,
+          "bytes": 66982
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-industrial-site-960.webp",
+          "width": 960,
+          "bytes": 129804
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-industrial-site-1280.webp",
+          "width": 1280,
+          "bytes": 199564
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-industrial-site-1440.webp",
+          "width": 1440,
+          "bytes": 237154
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-safety-uniform.webp": {
+    "width": 1103,
+    "height": 1426,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-safety-uniform-640.avif",
+          "width": 640,
+          "bytes": 73232
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-safety-uniform-960.avif",
+          "width": 960,
+          "bytes": 129215
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-safety-uniform-640.webp",
+          "width": 640,
+          "bytes": 61796
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-safety-uniform-960.webp",
+          "width": 960,
+          "bytes": 111954
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-training-team.webp": {
+    "width": 1609,
+    "height": 978,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-training-team-640.avif",
+          "width": 640,
+          "bytes": 45807
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-training-team-960.avif",
+          "width": 960,
+          "bytes": 86346
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-training-team-1280.avif",
+          "width": 1280,
+          "bytes": 129591
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-training-team-1440.avif",
+          "width": 1440,
+          "bytes": 151691
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-training-team-640.webp",
+          "width": 640,
+          "bytes": 40334
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-training-team-960.webp",
+          "width": 960,
+          "bytes": 76462
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-training-team-1280.webp",
+          "width": 1280,
+          "bytes": 109582
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-training-team-1440.webp",
+          "width": 1440,
+          "bytes": 130168
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-vehicle-bay.webp": {
+    "width": 1394,
+    "height": 1128,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-vehicle-bay-640.avif",
+          "width": 640,
+          "bytes": 46875
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-vehicle-bay-960.avif",
+          "width": 960,
+          "bytes": 86198
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-vehicle-bay-1280.avif",
+          "width": 1280,
+          "bytes": 129286
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-vehicle-bay-640.webp",
+          "width": 640,
+          "bytes": 42196
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-vehicle-bay-960.webp",
+          "width": 960,
+          "bytes": 74528
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-vehicle-bay-1280.webp",
+          "width": 1280,
+          "bytes": 110764
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-vertical-view.webp": {
+    "width": 1014,
+    "height": 1550,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-vertical-view-640.avif",
+          "width": 640,
+          "bytes": 76085
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-vertical-view-960.avif",
+          "width": 960,
+          "bytes": 127544
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-vertical-view-640.webp",
+          "width": 640,
+          "bytes": 62492
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-vertical-view-960.webp",
+          "width": 960,
+          "bytes": 108646
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-view-01.webp": {
+    "width": 3840,
+    "height": 2160,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-01-640.avif",
+          "width": 640,
+          "bytes": 14231
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-01-960.avif",
+          "width": 960,
+          "bytes": 26277
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-01-1280.avif",
+          "width": 1280,
+          "bytes": 38755
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-01-1440.avif",
+          "width": 1440,
+          "bytes": 46079
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-01-1920.avif",
+          "width": 1920,
+          "bytes": 75807
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-01-640.webp",
+          "width": 640,
+          "bytes": 11432
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-01-960.webp",
+          "width": 960,
+          "bytes": 20914
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-01-1280.webp",
+          "width": 1280,
+          "bytes": 31358
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-01-1440.webp",
+          "width": 1440,
+          "bytes": 36538
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-01-1920.webp",
+          "width": 1920,
+          "bytes": 58134
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-view-02.webp": {
+    "width": 3840,
+    "height": 2160,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-02-640.avif",
+          "width": 640,
+          "bytes": 15097
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-02-960.avif",
+          "width": 960,
+          "bytes": 27840
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-02-1280.avif",
+          "width": 1280,
+          "bytes": 40539
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-02-1440.avif",
+          "width": 1440,
+          "bytes": 47954
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-02-1920.avif",
+          "width": 1920,
+          "bytes": 79409
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-02-640.webp",
+          "width": 640,
+          "bytes": 12090
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-02-960.webp",
+          "width": 960,
+          "bytes": 21682
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-02-1280.webp",
+          "width": 1280,
+          "bytes": 32818
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-02-1440.webp",
+          "width": 1440,
+          "bytes": 37580
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-02-1920.webp",
+          "width": 1920,
+          "bytes": 59440
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-view-03.webp": {
+    "width": 1565,
+    "height": 1005,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-03-640.avif",
+          "width": 640,
+          "bytes": 55404
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-03-960.avif",
+          "width": 960,
+          "bytes": 99891
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-03-1280.avif",
+          "width": 1280,
+          "bytes": 145079
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-03-1440.avif",
+          "width": 1440,
+          "bytes": 167030
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-03-640.webp",
+          "width": 640,
+          "bytes": 52606
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-03-960.webp",
+          "width": 960,
+          "bytes": 93936
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-03-1280.webp",
+          "width": 1280,
+          "bytes": 139650
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-03-1440.webp",
+          "width": 1440,
+          "bytes": 162068
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-view-04.webp": {
+    "width": 1555,
+    "height": 1011,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-04-640.avif",
+          "width": 640,
+          "bytes": 62358
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-04-960.avif",
+          "width": 960,
+          "bytes": 116736
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-04-1280.avif",
+          "width": 1280,
+          "bytes": 170558
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-04-1440.avif",
+          "width": 1440,
+          "bytes": 198378
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-04-640.webp",
+          "width": 640,
+          "bytes": 57564
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-04-960.webp",
+          "width": 960,
+          "bytes": 107972
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-04-1280.webp",
+          "width": 1280,
+          "bytes": 163104
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-04-1440.webp",
+          "width": 1440,
+          "bytes": 188818
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-view-05.webp": {
+    "width": 1815,
+    "height": 867,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-05-640.avif",
+          "width": 640,
+          "bytes": 56149
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-05-960.avif",
+          "width": 960,
+          "bytes": 105114
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-05-1280.avif",
+          "width": 1280,
+          "bytes": 159241
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-05-1440.avif",
+          "width": 1440,
+          "bytes": 183628
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-05-640.webp",
+          "width": 640,
+          "bytes": 53036
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-05-960.webp",
+          "width": 960,
+          "bytes": 99310
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-05-1280.webp",
+          "width": 1280,
+          "bytes": 146324
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-view-05-1440.webp",
+          "width": 1440,
+          "bytes": 169254
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-wide-view-01.webp": {
+    "width": 1708,
+    "height": 921,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-01-640.avif",
+          "width": 640,
+          "bytes": 58713
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-01-960.avif",
+          "width": 960,
+          "bytes": 105074
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-01-1280.avif",
+          "width": 1280,
+          "bytes": 155799
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-01-1440.avif",
+          "width": 1440,
+          "bytes": 179667
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-01-640.webp",
+          "width": 640,
+          "bytes": 52644
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-01-960.webp",
+          "width": 960,
+          "bytes": 96428
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-01-1280.webp",
+          "width": 1280,
+          "bytes": 144386
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-01-1440.webp",
+          "width": 1440,
+          "bytes": 169420
+        }
+      ]
+    }
+  },
+  "/images/projects/taf35-robot/taf35-wide-view-02.webp": {
+    "width": 1806,
+    "height": 871,
+    "hasAlpha": false,
+    "category": "A — Critical / LCP",
+    "variants": {
+      "avif": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-02-640.avif",
+          "width": 640,
+          "bytes": 38729
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-02-960.avif",
+          "width": 960,
+          "bytes": 68757
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-02-1280.avif",
+          "width": 1280,
+          "bytes": 99794
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-02-1440.avif",
+          "width": 1440,
+          "bytes": 114575
+        }
+      ],
+      "webp": [
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-02-640.webp",
+          "width": 640,
+          "bytes": 36766
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-02-960.webp",
+          "width": 960,
+          "bytes": 63892
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-02-1280.webp",
+          "width": 1280,
+          "bytes": 92740
+        },
+        {
+          "src": "/images/optimized/projects/taf35-robot/taf35-wide-view-02-1440.webp",
+          "width": 1440,
+          "bytes": 106728
         }
       ]
     }
