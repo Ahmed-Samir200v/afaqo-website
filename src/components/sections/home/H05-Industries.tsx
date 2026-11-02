@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { industriesContent, IndustryItem } from "@/content/industries";
@@ -26,15 +26,6 @@ export function H05Industries() {
   const activeIndustry: IndustryItem = industries[activeIndex] || industries[1];
   const total = industries.length;
 
-  // Preload all 4 industry images immediately for instant switching and zero flicker
-  useEffect(() => {
-    industries.forEach((item) => {
-      if (typeof window !== "undefined" && item.image) {
-        const img = new window.Image();
-        img.src = item.image;
-      }
-    });
-  }, [industries]);
 
   // Carousel navigation handlers
   const handleNext = useCallback(() => {
@@ -546,12 +537,11 @@ export function H05Industries() {
                     }}
                   >
                     {/* Layer 1: Shared 2400x1600 3:2 Cinematic Industry Image (14 & 21) */}
-                    <Image
+                    <ResponsiveImage
                       src={item.image}
                       alt={`${item.title} industry visualization`}
                       fill
                       sizes="(min-width: 1440px) 580px, (min-width: 1024px) 480px, 88vw"
-                      priority
                       style={{
                         objectFit: "cover",
                         objectPosition: "center",
@@ -752,7 +742,7 @@ export function H05Industries() {
                       transition: "opacity 0.6s ease",
                     }}
                   >
-                    <Image
+                    <ResponsiveImage
                       src={item.image}
                       alt=""
                       fill

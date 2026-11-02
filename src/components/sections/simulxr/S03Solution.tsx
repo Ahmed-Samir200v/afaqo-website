@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMotionPreference } from "@/lib/motion-preference";
@@ -109,7 +109,7 @@ export function S03Solution() {
 
                 <div className={styles.stageVisualThumb}>
                   {idx === 0 && (
-                    <Image
+                    <ResponsiveImage
                       src={SIMULXR_ASSETS.sourcePid}
                       alt="Source engineering CAD and P&ID references"
                       fill
@@ -118,7 +118,7 @@ export function S03Solution() {
                     />
                   )}
                   {idx === 1 && (
-                    <Image
+                    <ResponsiveImage
                       src={SIMULXR_ASSETS.experienceSpatial}
                       alt="Reconstructed 3D facility mesh and structural topology"
                       fill
@@ -127,7 +127,7 @@ export function S03Solution() {
                     />
                   )}
                   {idx === 2 && (
-                    <Image
+                    <ResponsiveImage
                       src={SIMULXR_ASSETS.owtTrainingPoster}
                       alt="Interactive training scenario with operational procedures"
                       fill
@@ -136,7 +136,7 @@ export function S03Solution() {
                     />
                   )}
                   {idx === 3 && (
-                    <Image
+                    <ResponsiveImage
                       src={SIMULXR_ASSETS.facilityWide}
                       alt="Fully prepared workforce mastering plant operations"
                       fill

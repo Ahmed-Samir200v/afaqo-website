@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import gsap from "gsap";
 import { useMotionPreference } from "@/lib/motion-preference";
@@ -123,7 +123,7 @@ export function S01Hero() {
         <div className={styles.heroVisualCol}>
           <div className={styles.heroVisualFrame}>
             <div className={styles.heroVisualInner}>
-              <Image
+              <ResponsiveImage
                 src={SIMULXR_ASSETS.hero}
                 alt="SIMULXR industrial simulation — real facility reconstructed into an interactive training environment"
                 fill

@@ -25,9 +25,10 @@ const workMenu: MegaMenuContent = {
   description: "Explore shipped experiences across industrial simulation, interactive 3D and visual production.",
   overviewLabel: "View all work",
   groups: [
-    { label: "Industrial Digital Twin & Interactive Training", href: "/work/industrial-training-experience", description: "Real-time industrial environment and interactive simulation." },
-    { label: "TAF35 Robot Simulation", href: "/work/taf35-robot-simulation", description: "Interactive technical product explorer." },
-    { label: "Remal Park", href: "/work/remal-park", description: "Cultural visitor environment and visual 3D content." },
+    { label: "SIMULXR OWT", href: "/work/simulxr-owt", description: "Industrial XR training and interactive facility experience." },
+    { label: "TAF35 Robot Training", href: "/work/taf35-robot-simulation", description: "Confidential immersive technical training simulation." },
+    { label: "Nakhal Fort Virtual Tour", href: "/work/nakhal-fort", description: "Immersive heritage exploration for Meta Quest 3." },
+    { label: "Remal Park", href: "/work/remal-park", description: "Cinematic visualization and real-time destination exploration." },
   ],
 };
 

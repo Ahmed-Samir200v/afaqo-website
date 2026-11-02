@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigationContent, isRouteActive, type NavItem } from "@/content/global/navigation";
@@ -271,7 +271,7 @@ export function Header({
             zIndex: 10,
           }}
         >
-          <Image
+          <ResponsiveImage
             src={logoSrc}
             alt="AFAQO — Immersive Digital Transformation"
             width={215}

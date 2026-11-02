@@ -30,7 +30,7 @@ export const servicesContent = {
       description:
         "We turn complex equipment, products, and operational environments into experiences users can navigate, inspect, and understand.",
       tags: ["EQUIPMENT EXPLORATION", "INTERACTIVE 3D", "TECHNICAL VISUALIZATION"],
-      image: "/images/projects/taf35-robot/taf35-robot.png",
+      image: "/images/projects/taf35-robot/taf35-equipment-outdoor.webp",
       href: "/services",
     },
     {
@@ -48,7 +48,7 @@ export const servicesContent = {
       description:
         "We build scenario-driven experiences that let teams learn about equipment, processes, and operational workflows in a digital setting.",
       tags: ["SIMULATION", "SCENARIO LEARNING", "IMMERSIVE TRAINING"],
-      image: "/images/projects/industrial-training/industrial-training.png",
+      image: "/images/projects/industrial-training/oil and gas/industrial-training.png",
       href: "/services",
     },
   ] as ServiceItem[],

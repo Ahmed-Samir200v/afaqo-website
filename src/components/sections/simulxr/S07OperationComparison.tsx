@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMotionPreference } from "@/lib/motion-preference";
@@ -208,7 +208,7 @@ export function S07OperationComparison() {
           >
             {/* Background Layer: RIGHT - EXPERIENCE (Optimized 3D Real-Time Environment) */}
             <div className={styles.sliderLayerExperience}>
-              <Image
+              <ResponsiveImage
                 src={simulxrOperationData.slider.experienceImage}
                 alt={simulxrOperationData.slider.experienceAlt}
                 fill
@@ -227,7 +227,7 @@ export function S07OperationComparison() {
               className={styles.sliderLayerSource}
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
-              <Image
+              <ResponsiveImage
                 src={simulxrOperationData.slider.sourceImage}
                 alt={simulxrOperationData.slider.sourceAlt}
                 fill

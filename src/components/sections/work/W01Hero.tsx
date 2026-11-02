@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -298,7 +298,7 @@ export function W01Hero() {
           <div className={styles.heroMainColumn}>
             {/* Eyebrow: 01 / WORK, 12px, 2px letter-spacing */}
             <div className={styles.eyebrow}>
-              <span>01 / WORK</span>
+              <span>SELECTED WORK</span>
               <span ref={eyebrowLineRef} className={styles.eyebrowLine} aria-hidden="true" />
             </div>
 
@@ -306,20 +306,21 @@ export function W01Hero() {
             <h1 id="work-hero-heading" className={styles.heroHeading}>
               <span className={styles.lineMask}>
                 <span ref={titleLine1Ref} className={styles.lineInner}>
-                  Ideas made
+                  Complex challenges.
                 </span>
               </span>
               <span className={styles.lineMask}>
                 <span ref={titleLine2Ref} className={`${styles.lineInner} ${styles.headingAccent}`}>
-                  tangible.
+                  Tangible experiences.
                 </span>
               </span>
             </h1>
 
             {/* Description: 18px, line-height 1.65, max-width 510px */}
             <p ref={introRef} className={styles.heroIntro}>
-              Explore selected work across interactive environments, industrial visualization and
-              immersive experiences—each shaped by a specific technical or user challenge.
+              From cultural landmarks and future destinations to technical systems and industrial
+              facilities, our work turns complex physical environments and information into
+              interactive digital experiences.
             </p>
 
             {/* CTA Button — Final element in the left column */}
@@ -359,9 +360,9 @@ export function W01Hero() {
           <div ref={visualRegionRef} className={styles.visualRegion}>
             {/* Facility image container: vertically centered, seamless multiply blend */}
             <div ref={imageElementRef} className={styles.facilityImageWrapper}>
-              <Image
+              <ResponsiveImage
                 src="/images/work/work-hero.png"
-                alt="AFAQO Industrial Facility Real-to-Wireframe Digital Twin"
+                alt="AFAQO industrial facility visual transitioning from real environment to wireframe"
                 width={1920}
                 height={1080}
                 priority

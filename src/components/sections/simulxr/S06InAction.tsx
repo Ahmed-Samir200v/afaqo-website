@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMotionPreference } from "@/lib/motion-preference";
@@ -114,7 +114,7 @@ export function S06InAction() {
         {/* Cinematic Plant Centerpiece Stage */}
         <div className={styles.actionStageFrame}>
           <div className={styles.actionStageVisual}>
-            <Image
+            <ResponsiveImage
               src={SIMULXR_ASSETS.owtMain}
               alt="Oily Water Treatment Training Environment authentic plant layout and equipment reconstruction"
               fill

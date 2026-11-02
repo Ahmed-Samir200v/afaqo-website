@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMotionPreference } from "@/lib/motion-preference";
@@ -136,7 +136,7 @@ export function S05ReadinessSystems() {
           {/* Right Visual Stage */}
           <div className={styles.panelVisualCol}>
             <div className={styles.panelVisualFrame}>
-              <Image
+              <ResponsiveImage
                 src={activeSystem.image}
                 alt={activeSystem.alt}
                 fill
@@ -164,7 +164,7 @@ export function S05ReadinessSystems() {
               </div>
 
               <div className={styles.mobileCardImgWrapper}>
-                <Image
+                <ResponsiveImage
                   src={system.image}
                   alt={system.alt}
                   fill

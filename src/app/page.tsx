@@ -15,11 +15,43 @@ export const metadata: Metadata = {
   title: "AFAQO | XR, Interactive 3D & Immersive Technology",
   description:
     "AFAQO combines experience design, interactive 3D and real-time technology to create immersive digital solutions for industry, learning and enterprise.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "AFAQO | XR, Interactive 3D & Immersive Technology",
+    description:
+      "AFAQO combines experience design, interactive 3D and real-time technology to create immersive digital solutions for industry, learning and enterprise.",
+    url: "/",
+  },
 };
 
 export default function Home() {
   return (
     <div style={{ position: "relative", minHeight: "100vh", backgroundColor: "var(--color-canvas-dark)" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                name: "AFAQO",
+                url: "https://afaqo.tech",
+                logo: "https://afaqo.tech/brand/afaqo-logo-dark.svg",
+                description:
+                  "AFAQO creates immersive digital experiences through experience design, interactive 3D and real-time technology.",
+              },
+              {
+                "@type": "WebSite",
+                name: "AFAQO",
+                url: "https://afaqo.tech",
+              },
+            ],
+          }),
+        }}
+      />
       {/* Global Production Floating Glass Header */}
       <Header />
 

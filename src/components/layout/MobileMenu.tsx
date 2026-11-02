@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import Link from "next/link";
 import gsap from "gsap";
 import { navigationContent, isRouteActive } from "@/content/global/navigation";
@@ -283,7 +283,7 @@ export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
       >
         {/* Logo */}
         <Link ref={logoRef} href="/" onClick={triggerClose} aria-label="AFAQO Home">
-          <Image
+          <ResponsiveImage
             src="/brand/afaqo-logo-light.svg"
             alt="AFAQO — Immersive Digital Transformation"
             width={215}

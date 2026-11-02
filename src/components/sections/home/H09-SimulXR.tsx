@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { homeContent } from "@/content/global/home";
@@ -14,7 +14,7 @@ if (typeof window !== "undefined") {
 
 /* Authentic AFAQO industrial simulation project asset. */
 const SIMULXR_IMAGE = {
-  src: "/images/projects/industrial-training/industrial-training.png",
+  src: "/images/projects/industrial-training/oil and gas/industrial-training.png",
   alt: "AFAQO SIMULXR industrial training experience — interactive VR simulation of equipment and operational procedures",
 };
 
@@ -127,7 +127,7 @@ export function H09SimulXR() {
           {/* Primary Viewport: Wide Cinematic Ratio with Deep Navy Tonal Treatment */}
           <div className="sx-primary-frame">
             <div className="sx-primary-img-inner">
-              <Image
+              <ResponsiveImage
                 src={SIMULXR_IMAGE.src}
                 alt={SIMULXR_IMAGE.alt}
                 fill
@@ -146,7 +146,7 @@ export function H09SimulXR() {
           {/* Secondary Layer: High-Precision Detail Viewport (From SAME Authentic Asset) */}
           <div className="sx-detail-crop" aria-hidden="true">
             <div className="sx-detail-img-wrapper">
-              <Image
+              <ResponsiveImage
                 src={SIMULXR_IMAGE.src}
                 alt=""
                 fill
