@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   title: "Industries We Serve | Industrial XR & Immersive Experiences | AFAQO",
   description:
     "See how AFAQO applies immersive technology and interactive 3D across industry, energy, education, culture, architecture and enterprise.",
+  alternates: { canonical: "/industries/" },
+  openGraph: {
+    title: "Industries We Serve | Industrial XR & Immersive Experiences | AFAQO",
+    description:
+      "See how AFAQO applies immersive technology and interactive 3D across industry, energy, education, culture, architecture and enterprise.",
+    url: "/industries/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Industries We Serve | Industrial XR & Immersive Experiences | AFAQO",
+    description:
+      "See how AFAQO applies immersive technology and interactive 3D across industry, energy, education, culture, architecture and enterprise.",
+  },
 };
 
 const sectors = [
@@ -175,6 +188,7 @@ export default function IndustriesPage() {
       {/* S00: Route Header (Unified Home Navigation) */}
       <Header />
 
+      <main id="main-content" tabIndex={-1}>
       {/* I01: Hero & Industry Index */}
       <section className={styles.heroSection} aria-labelledby="industries-heading">
         <div className={styles.heroContainer}>
@@ -307,6 +321,7 @@ export default function IndustriesPage() {
           </Link>
         </div>
       </section>
+      </main>
 
       {/* Global Unified Footer */}
       <Footer />

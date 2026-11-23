@@ -27,9 +27,9 @@ export function H10FinalCTA() {
     const section = sectionRef.current;
     if (!section) return;
 
-    if (!("IntersectionObserver" in window)) {
-      setShouldMount(true);
-      return;
+    if (typeof IntersectionObserver === "undefined") {
+      const frameId = requestAnimationFrame(() => setShouldMount(true));
+      return () => cancelAnimationFrame(frameId);
     }
 
     const observer = new IntersectionObserver(

@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   title: "About AFAQO | Creative Technology & Immersive Experiences",
   description:
     "AFAQO is a creative technology company based in Cairo, working globally. We turn complex ideas into immersive experiences across XR, interactive 3D and simulation.",
+  alternates: { canonical: "/about/" },
+  openGraph: {
+    title: "About AFAQO | Creative Technology & Immersive Experiences",
+    description:
+      "AFAQO is a creative technology company based in Cairo, working globally. We turn complex ideas into immersive experiences across XR, interactive 3D and simulation.",
+    url: "/about/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About AFAQO | Creative Technology & Immersive Experiences",
+    description:
+      "AFAQO is a creative technology company based in Cairo, working globally. We turn complex ideas into immersive experiences across XR, interactive 3D and simulation.",
+  },
 };
 
 const collaborationPrinciples = [
@@ -56,6 +69,7 @@ export default function AboutPage() {
       {/* S00: Route Header (Unified Home Navigation) */}
       <Header />
 
+      <main id="main-content" tabIndex={-1}>
       {/* A01: Manifesto Hero */}
       <section className={styles.heroSection} aria-labelledby="about-heading">
         <div className={styles.heroContainer}>
@@ -240,6 +254,7 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+      </main>
 
       {/* Global Unified Footer */}
       <Footer />

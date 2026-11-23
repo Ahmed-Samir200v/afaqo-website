@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback, Suspense, lazy } from "react";
+import { useRef, useState, useCallback, useSyncExternalStore, Suspense, lazy } from "react";
 import type { Application } from "@splinetool/runtime";
 
 // Lazy-load Spline to prevent blocking initial paint and ensure client-only execution
 const Spline = lazy(() => import("@splinetool/react-spline"));
+
+const emptySubscribe = () => () => {};
 
 interface SplineSceneProps {
   scene: string;
@@ -13,13 +15,9 @@ interface SplineSceneProps {
 }
 
 export function SplineScene({ scene, className, onLoad }: SplineSceneProps) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const [isLoaded, setIsLoaded] = useState(false);
   const appRef = useRef<Application | null>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const handleLoad = useCallback(
     (app: Application) => {

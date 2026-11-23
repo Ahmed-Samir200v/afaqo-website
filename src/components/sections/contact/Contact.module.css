@@ -83,7 +83,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #7A8194;
+  color: var(--color-text-secondary-on-light, #4D5C78);
 }
 
 .infoValue {
@@ -264,11 +264,88 @@
 
 .privacyCopy {
   font-family: var(--font-inter, sans-serif);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   line-height: 1.5;
-  color: #7A8194;
+  color: var(--color-text-secondary-on-light, #4D5C78);
   margin-top: 0.75rem;
   text-align: center;
+}
+
+.statusNotice {
+  background-color: rgba(8, 102, 255, 0.05);
+  border: 1px solid rgba(8, 102, 255, 0.18);
+  border-radius: var(--radius-lg, 10px);
+  padding: 1.15rem 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.statusNoticeHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.35rem;
+}
+
+.statusNoticeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-brand-blue, #0866FF);
+  box-shadow: 0 0 0 3px rgba(8, 102, 255, 0.16);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.statusNoticeTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-brand-navy, #050D24);
+}
+
+.statusNoticeText {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--color-text-secondary-on-light, #4D5C78);
+  line-height: 1.55;
+}
+
+.fieldError {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #B91C1C;
+  margin-top: 0.15rem;
+}
+
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--color-brand-navy, #050D24);
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.85rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(5, 13, 36, 0.18);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  min-height: 50px;
+  flex: 1 1 180px;
+}
+
+.secondaryBtn:hover {
+  border-color: var(--color-brand-blue, #0866FF);
+  background-color: rgba(8, 102, 255, 0.05);
 }
 
 /* Responsive Reflow */

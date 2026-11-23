@@ -16,9 +16,20 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
   const [shouldRender, setShouldRender] = useState(isOpen);
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
   const [isClosing, setIsClosing] = useState(false);
   const [openCategory, setOpenCategory] = useState<string | null>(null);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
+
+  if (isOpen !== prevIsOpen) {
+    setPrevIsOpen(isOpen);
+    if (isOpen) {
+      setShouldRender(true);
+      setIsClosing(false);
+      setOpenCategory(null);
+      setOpenGroup(null);
+    }
+  }
 
   const overlayRef = useRef<HTMLDivElement>(null);
   const headerRowRef = useRef<HTMLDivElement>(null);
@@ -31,14 +42,8 @@ export function MobileMenu({ isOpen, onClose, activeHref }: MobileMenuProps) {
   const previousActiveElementRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    if (isOpen) {
-      if (typeof document !== "undefined") {
-        previousActiveElementRef.current = document.activeElement as HTMLElement | null;
-      }
-      setShouldRender(true);
-      setIsClosing(false);
-      setOpenCategory(null);
-      setOpenGroup(null);
+    if (isOpen && typeof document !== "undefined") {
+      previousActiveElementRef.current = document.activeElement as HTMLElement | null;
     }
   }, [isOpen]);
 

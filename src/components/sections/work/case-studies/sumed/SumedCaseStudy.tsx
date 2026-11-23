@@ -210,7 +210,7 @@ export function SumedCaseStudy() {
 
   return <div className={styles.page}>
     <Header activeHref="/work" />
-    <main><Hero openVideo={setActiveVideo}/><Overview openImage={openImage}/><Translation openImage={openImage}/><Reconstruction openImage={openImage}/><Explorer openImage={openImage}/><Training openVideo={setActiveVideo}/><Delivery/><Outcome/><NextProject/></main>
+    <main id="main-content" tabIndex={-1}><Hero openVideo={setActiveVideo}/><Overview openImage={openImage}/><Translation openImage={openImage}/><Reconstruction openImage={openImage}/><Explorer openImage={openImage}/><Training openVideo={setActiveVideo}/><Delivery/><Outcome/><NextProject/></main>
     <Footer />
     {lightbox && <Lightbox items={lightbox.items} active={lightbox.active} onChange={(active) => setLightbox({...lightbox,active})} onClose={closeImage}/>} 
     {activeVideo && <VideoLightbox video={activeVideo} onClose={() => setActiveVideo(null)} />}

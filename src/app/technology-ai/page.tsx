@@ -8,6 +8,19 @@ export const metadata: Metadata = {
   title: "Technology & Real-Time Development | AFAQO",
   description:
     "How AFAQO approaches real-time engines, spatial computing, 3D asset pipelines and selective AI integration to build dependable interactive experiences.",
+  alternates: { canonical: "/technology-ai/" },
+  openGraph: {
+    title: "Technology & Real-Time Development | AFAQO",
+    description:
+      "How AFAQO approaches real-time engines, spatial computing, 3D asset pipelines and selective AI integration to build dependable interactive experiences.",
+    url: "/technology-ai/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Technology & Real-Time Development | AFAQO",
+    description:
+      "How AFAQO approaches real-time engines, spatial computing, 3D asset pipelines and selective AI integration to build dependable interactive experiences.",
+  },
 };
 
 const architecturePillars = [
@@ -141,6 +154,7 @@ export default function TechnologyAiPage() {
       {/* S00: Route Header (Unified Home Navigation) */}
       <Header />
 
+      <main id="main-content" tabIndex={-1}>
       {/* T01: Hero */}
       <section className={styles.heroSection} aria-labelledby="tech-heading">
         <div className={styles.heroContainer}>
@@ -277,6 +291,7 @@ export default function TechnologyAiPage() {
           </Link>
         </div>
       </section>
+      </main>
 
       {/* Global Unified Footer */}
       <Footer />
