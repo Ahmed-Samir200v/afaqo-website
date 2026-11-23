@@ -56,7 +56,7 @@ export default function Home() {
       <Header />
 
       {/* Main Page Landmark Containing Homepage Sections */}
-      <main>
+      <main id="main-content" tabIndex={-1}>
         {/* H01 — Hero */}
         <H01Hero />
 

@@ -81,11 +81,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
   };
 
-  if (metadataBySlug[slug]) return metadataBySlug[slug];
-
-  return {
+  const resolved = metadataBySlug[slug] ?? {
     title: `${project.title} — Case Study | AFAQO`,
     description: project.summary,
+  };
+  const canonicalUrl = `/work/${slug}/`;
+  const ogImage =
+    project.image ||
+    (project.mediaPlan?.hero.status === "approved" ? project.mediaPlan.hero.src : undefined);
+
+  return {
+    title: resolved.title,
+    description: resolved.description,
+    alternates: { canonical: canonicalUrl },
+    openGraph: {
+      title: resolved.title,
+      description: resolved.description,
+      url: canonicalUrl,
+      ...(ogImage ? { images: [{ url: ogImage, alt: project.imageAlt || project.title }] } : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: resolved.title,
+      description: resolved.description,
+      ...(ogImage ? { images: [ogImage] } : {}),
+    },
   };
 }
 

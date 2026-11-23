@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   title: "Our Work | XR, Simulation & Interactive 3D Projects | AFAQO",
   description:
     "Explore selected immersive technology projects, including industrial visualization, VR environments and interactive simulations developed by the AFAQO team.",
+  alternates: { canonical: "/work/" },
+  openGraph: {
+    title: "Our Work | XR, Simulation & Interactive 3D Projects | AFAQO",
+    description:
+      "Explore selected immersive technology projects, including industrial visualization, VR environments and interactive simulations developed by the AFAQO team.",
+    url: "/work/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Work | XR, Simulation & Interactive 3D Projects | AFAQO",
+    description:
+      "Explore selected immersive technology projects, including industrial visualization, VR environments and interactive simulations developed by the AFAQO team.",
+  },
 };
 
 export default function WorkPage() {
@@ -21,7 +34,7 @@ export default function WorkPage() {
       <Header />
 
       {/* Main Page Content */}
-      <main>
+      <main id="main-content" tabIndex={-1}>
         {/* W01 — Editorial Hero */}
         <W01Hero />
 

@@ -8,6 +8,19 @@ export const metadata: Metadata = {
   title: "Start a Project | Contact AFAQO",
   description:
     "Discuss an XR, interactive 3D, simulation or digital environment project with AFAQO. Based in Cairo, working globally.",
+  alternates: { canonical: "/contact/" },
+  openGraph: {
+    title: "Start a Project | Contact AFAQO",
+    description:
+      "Discuss an XR, interactive 3D, simulation or digital environment project with AFAQO. Based in Cairo, working globally.",
+    url: "/contact/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Start a Project | Contact AFAQO",
+    description:
+      "Discuss an XR, interactive 3D, simulation or digital environment project with AFAQO. Based in Cairo, working globally.",
+  },
 };
 
 export default function ContactPage() {
@@ -17,7 +30,7 @@ export default function ContactPage() {
       <Header />
 
       {/* Main Split Grid */}
-      <div className={styles.contactContainer}>
+      <main id="main-content" tabIndex={-1} className={styles.contactContainer}>
         {/* Left Column: Editorial Statement & Info */}
         <div className={styles.editorialCol}>
           <span className={styles.eyebrow}>START A CONVERSATION</span>
@@ -68,7 +81,7 @@ export default function ContactPage() {
 
           <ContactForm />
         </div>
-      </div>
+      </main>
 
       {/* Global Unified Footer */}
       <Footer />

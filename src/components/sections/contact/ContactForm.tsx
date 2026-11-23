@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, Suspense, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import styles from "./Contact.module.css";
 
@@ -11,6 +11,12 @@ interface FormData {
   serviceType: string;
   message: string;
   timeline: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
 }
 
 const initialForm: FormData = {
@@ -54,76 +60,139 @@ function getInitialFormData(searchParams: ReturnType<typeof useSearchParams>): F
   };
 }
 
+function buildBriefText(data: FormData): string {
+  return [
+    `Name: ${data.name.trim()}`,
+    `Work Email: ${data.email.trim()}`,
+    `Company / Organization: ${data.company.trim() || "Not specified"}`,
+    `Capability / Focus Area: ${data.serviceType}`,
+    `Target Timeline: ${data.timeline}`,
+    "",
+    "Project Brief & Objectives:",
+    data.message.trim(),
+  ].join("\n");
+}
+
 function ContactFormInner() {
   const searchParams = useSearchParams();
   const [formData, setFormData] = useState<FormData>(() => getInitialFormData(searchParams));
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [copied, setCopied] = useState(false);
+
+  const validate = (): boolean => {
+    const nextErrors: FormErrors = {};
+    if (!formData.name.trim()) {
+      nextErrors.name = "Please enter your name.";
+    }
+    const email = formData.email.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      nextErrors.email = "Please enter a valid work email address.";
+    }
+    if (!formData.message.trim()) {
+      nextErrors.message = "Please provide a brief overview of your project objectives.";
+    }
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const subject = encodeURIComponent(`Project Inquiry: ${formData.serviceType} — ${formData.name.trim()}`);
+    const body = encodeURIComponent(buildBriefText(formData));
+    window.location.href = `mailto:info@afaqo.tech?subject=${subject}&body=${body}`;
+  };
+
+  const handleCopyBrief = async () => {
+    if (!validate()) return;
+    try {
+      await navigator.clipboard.writeText(buildBriefText(formData));
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    } catch {
+      setCopied(false);
+    }
+  };
 
   return (
-    <form className={styles.inquiryForm} noValidate onSubmit={(e) => e.preventDefault()}>
+    <form className={styles.inquiryForm} noValidate onSubmit={handleSubmit}>
       {/* Honest Backend Integration Status Notice */}
       <div
         role="region"
         aria-label="Submission Channel Status"
-        style={{
-          backgroundColor: "rgba(5, 13, 36, 0.04)",
-          border: "1px solid rgba(5, 13, 36, 0.12)",
-          borderRadius: "0.75rem",
-          padding: "1.25rem",
-          marginBottom: "1rem",
-        }}
+        className={styles.statusNotice}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.35rem" }}>
-          <span
-            style={{
-              width: "8px",
-              height: "8px",
-              borderRadius: "50%",
-              backgroundColor: "#EAB308",
-              display: "inline-block",
-            }}
-            aria-hidden="true"
-          />
-          <strong style={{ fontSize: "0.85rem", color: "var(--color-brand-navy, #050D24)" }}>
-            Online Dispatch Pending Integration
+        <div className={styles.statusNoticeHeader}>
+          <span className={styles.statusNoticeDot} aria-hidden="true" />
+          <strong className={styles.statusNoticeTitle}>
+            Direct Email Dispatch Active
           </strong>
         </div>
-        <p style={{ margin: 0, fontSize: "0.8rem", color: "#606676", lineHeight: 1.5 }}>
-          Direct online submission is temporarily paused while production delivery infrastructure is being verified.
-          Draft your brief below for reference when connecting with our Cairo technical team.
+        <p className={styles.statusNoticeText}>
+          Automated server-side form submission is pending backend configuration. Complete your brief below to open a prefilled email to{" "}
+          <a href="mailto:info@afaqo.tech" className={styles.infoValueLink}>
+            info@afaqo.tech
+          </a>{" "}
+          or copy your formatted project brief directly.
         </p>
       </div>
 
       <div className={styles.formRow}>
         <div className={styles.formGroup}>
           <label htmlFor="contact-name" className={styles.label}>
-            Your Name <span className={styles.requiredMark}>*</span>
+            Your Name <span className={styles.requiredMark} aria-hidden="true">*</span>
           </label>
           <input
             id="contact-name"
+            name="name"
             type="text"
+            autoComplete="name"
             required
             aria-required="true"
+            aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? "contact-name-error" : undefined}
             className={styles.input}
             placeholder="e.g. Sarah Jenkins"
             value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            onChange={(e) => {
+              setFormData({ ...formData, name: e.target.value });
+              if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
+            }}
           />
+          {errors.name && (
+            <span id="contact-name-error" role="alert" className={styles.fieldError}>
+              {errors.name}
+            </span>
+          )}
         </div>
 
         <div className={styles.formGroup}>
           <label htmlFor="contact-email" className={styles.label}>
-            Work Email <span className={styles.requiredMark}>*</span>
+            Work Email <span className={styles.requiredMark} aria-hidden="true">*</span>
           </label>
           <input
             id="contact-email"
+            name="email"
             type="email"
+            autoComplete="email"
             required
             aria-required="true"
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? "contact-email-error" : undefined}
             className={styles.input}
             placeholder="sarah@company.com"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) => {
+              setFormData({ ...formData, email: e.target.value });
+              if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
+            }}
           />
+          {errors.email && (
+            <span id="contact-email-error" role="alert" className={styles.fieldError}>
+              {errors.email}
+            </span>
+          )}
         </div>
       </div>
 
@@ -134,7 +203,9 @@ function ContactFormInner() {
           </label>
           <input
             id="contact-company"
+            name="organization"
             type="text"
+            autoComplete="organization"
             className={styles.input}
             placeholder="e.g. Industrial Automation Corp"
             value={formData.company}
@@ -148,6 +219,7 @@ function ContactFormInner() {
           </label>
           <select
             id="contact-service"
+            name="serviceType"
             className={styles.select}
             value={formData.serviceType}
             onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
@@ -168,6 +240,7 @@ function ContactFormInner() {
         </label>
         <select
           id="contact-timeline"
+          name="timeline"
           className={styles.select}
           value={formData.timeline}
           onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
@@ -181,33 +254,39 @@ function ContactFormInner() {
 
       <div className={styles.formGroup}>
         <label htmlFor="contact-message" className={styles.label}>
-          Project Brief & Objectives <span className={styles.requiredMark}>*</span>
+          Project Brief & Objectives <span className={styles.requiredMark} aria-hidden="true">*</span>
         </label>
         <textarea
           id="contact-message"
+          name="message"
           required
           aria-required="true"
+          aria-invalid={Boolean(errors.message)}
+          aria-describedby={errors.message ? "contact-message-error" : undefined}
           rows={4}
           className={styles.textarea}
           placeholder="Describe your project goals, operational requirements, hardware target, or spatial concept..."
           value={formData.message}
-          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+          onChange={(e) => {
+            setFormData({ ...formData, message: e.target.value });
+            if (errors.message) setErrors((prev) => ({ ...prev, message: undefined }));
+          }}
         />
+        {errors.message && (
+          <span id="contact-message-error" role="alert" className={styles.fieldError}>
+            {errors.message}
+          </span>
+        )}
       </div>
 
-      <button
-        type="button"
-        disabled
-        className={styles.submitBtn}
-        style={{
-          opacity: 0.65,
-          cursor: "not-allowed",
-          backgroundColor: "#4B5563",
-        }}
-        aria-disabled="true"
-      >
-        Online Submission Disabled (Awaiting Verified Delivery Channel)
-      </button>
+      <div className={styles.actionRow}>
+        <button type="submit" className={styles.submitBtn}>
+          Open Brief in Email Client
+        </button>
+        <button type="button" onClick={handleCopyBrief} className={styles.secondaryBtn}>
+          {copied ? "Brief Copied to Clipboard" : "Copy Formatted Brief"}
+        </button>
+      </div>
 
       <p className={styles.privacyCopy}>
         AFAQO treats all technical requirements, facility schematics, and project specifications with professional confidentiality.
@@ -223,4 +302,3 @@ export function ContactForm() {
     </Suspense>
   );
 }
-

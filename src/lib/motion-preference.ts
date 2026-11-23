@@ -9,11 +9,24 @@ export interface MotionPreference {
   systemPrefersReducedMotion: boolean;
 }
 
-function isForceMotionRequested() {
+function isExplicitReducedMotionRequested() {
   if (typeof window === "undefined") return false;
   const params = new URLSearchParams(window.location.search);
-  if (params.get("reduce-motion") === "true") return false;
-  return params.get("force-motion") === "true" || document.documentElement.dataset.forceMotion === "true";
+  return (
+    params.get("reduce-motion") === "true" ||
+    params.get("reduced-motion") === "true" ||
+    document.documentElement.dataset.reducedMotion === "true"
+  );
+}
+
+function isForceMotionRequested() {
+  if (typeof window === "undefined") return false;
+  if (isExplicitReducedMotionRequested()) return false;
+  const params = new URLSearchParams(window.location.search);
+  return (
+    params.get("force-motion") === "true" ||
+    document.documentElement.dataset.forceMotion === "true"
+  );
 }
 
 /**
@@ -31,12 +44,14 @@ export function getMotionPreference(): MotionPreference {
 
   const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
   const systemPrefersReducedMotion = mq.matches;
-  const isForcedMotion = isForceMotionRequested() || new URLSearchParams(window.location.search).get("reduce-motion") !== "true";
+  const isExplicitReducedMotion = isExplicitReducedMotionRequested();
+  const isForcedMotion = isForceMotionRequested();
+  const shouldReduceMotion = isExplicitReducedMotion || (systemPrefersReducedMotion && !isForcedMotion);
 
   return {
-    shouldReduceMotion: systemPrefersReducedMotion && !isForcedMotion,
+    shouldReduceMotion,
     isForcedMotion,
-    isExplicitReducedMotion: systemPrefersReducedMotion && !isForcedMotion,
+    isExplicitReducedMotion,
     systemPrefersReducedMotion,
   };
 }
@@ -58,21 +73,15 @@ export function useMotionPreference(): MotionPreference {
     if (typeof window === "undefined" || !window.matchMedia) return;
 
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = (e: MediaQueryListEvent | MediaQueryList) => {
-      const reduced = e.matches;
-      const isForcedMotion = isForceMotionRequested();
-      setPreference({
-        shouldReduceMotion: reduced && !isForcedMotion,
-        isForcedMotion,
-        isExplicitReducedMotion: reduced && !isForcedMotion,
-        systemPrefersReducedMotion: reduced,
-      });
+    const update = () => {
+      const next = getMotionPreference();
+      setPreference(next);
 
       if (typeof document !== "undefined") {
-        if (isForcedMotion) {
+        if (next.isForcedMotion) {
           document.documentElement.setAttribute("data-force-motion", "true");
           document.documentElement.removeAttribute("data-reduced-motion");
-        } else if (reduced) {
+        } else if (next.shouldReduceMotion) {
           document.documentElement.setAttribute("data-reduced-motion", "true");
           document.documentElement.removeAttribute("data-force-motion");
         } else {
@@ -82,7 +91,7 @@ export function useMotionPreference(): MotionPreference {
       }
     };
 
-    update(mq);
+    update();
 
     if (mq.addEventListener) {
       mq.addEventListener("change", update);

@@ -6,7 +6,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import styles from "./Work.module.css";
-import { getMotionPreference } from "@/lib/motion-preference";
+import { useMotionPreference } from "@/lib/motion-preference";
 
 interface Capability {
   label: string;
@@ -172,10 +172,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
 export function W02FeaturedExperience() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return getMotionPreference().shouldReduceMotion;
-  });
+  const { shouldReduceMotion: reducedMotion } = useMotionPreference();
 
   const sectionRef = useRef<HTMLElement>(null);
   const imageWrapperRef = useRef<HTMLDivElement>(null);
@@ -188,15 +185,6 @@ export function W02FeaturedExperience() {
 
   // Drag / swipe detection
   const pointerStartRef = useRef<{ x: number; y: number; time: number } | null>(null);
-
-  // Check reduced motion preference changes
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(getMotionPreference().shouldReduceMotion);
-    const handler = () => setReducedMotion(getMotionPreference().shouldReduceMotion);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
 
   // Pause when tab is not visible
   useEffect(() => {

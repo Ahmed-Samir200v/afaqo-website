@@ -35,6 +35,19 @@ export const metadata: Metadata = {
   title: "Immersive Technology Services | XR, 3D & Simulation | AFAQO",
   description:
     "Explore AFAQO's XR development, interactive 3D, digital environment visualization, real-time development and immersive training capabilities.",
+  alternates: { canonical: "/services/" },
+  openGraph: {
+    title: "Immersive Technology Services | XR, 3D & Simulation | AFAQO",
+    description:
+      "Explore AFAQO's XR development, interactive 3D, digital environment visualization, real-time development and immersive training capabilities.",
+    url: "/services/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Immersive Technology Services | XR, 3D & Simulation | AFAQO",
+    description:
+      "Explore AFAQO's XR development, interactive 3D, digital environment visualization, real-time development and immersive training capabilities.",
+  },
 };
 
 const servicesData: ServiceSectionProps[] = [

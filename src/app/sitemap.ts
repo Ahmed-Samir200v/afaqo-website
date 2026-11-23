@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const routes: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
-    url: `${siteUrl}${route}`,
+    url: route === "" ? `${siteUrl}/` : `${siteUrl}${route}/`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: route === "" ? 1.0 : 0.8,
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const caseStudies = getAllCaseStudies();
   const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((cs) => ({
-    url: `${siteUrl}/work/${cs.slug}`,
+    url: `${siteUrl}/work/${cs.slug}/`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.7,
